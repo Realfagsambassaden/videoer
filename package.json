@@ -1,0 +1,12 @@
+{
+  "name": "realfagsambassaden-videoer",
+  "private": true,
+  "description": "Manus og animasjoner til videoene på fysikkhjelp.no og matematikkhjelp.no",
+  "scripts": {
+    "preview": "node _verktoy/lag.js --preview",
+    "video": "node _verktoy/lag.js --render"
+  },
+  "devDependencies": {
+    "playwright": "^1.50.0"
+  }
+}

@@ -13,7 +13,14 @@ const fs = require('fs');
 const path = require('path');
 
 (async () => {
-  const [mappeArg, mode, arg] = process.argv.slice(2);
+  // Tillater både «lag.js <mappe> preview …» og «lag.js --preview <mappe> …» (brukt av npm run preview / video)
+  let a = process.argv.slice(2);
+  if (a[0] === '--preview' || a[0] === '--render') a = [a[1], a[0].slice(2), a[2]];
+  const [mappeArg, mode, arg] = a;
+  if (!mappeArg || !['preview', 'render'].includes(mode)) {
+    console.error('Bruk: npm run preview -- <fag>/<mappe> "0:5,2:10"   eller   npm run video -- <fag>/<mappe>');
+    process.exit(1);
+  }
   const DIR = path.resolve(mappeArg);
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
