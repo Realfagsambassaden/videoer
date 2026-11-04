@@ -59,4 +59,9 @@ node _verktoy/lag.js fysikk-forkurs/01-hva-er-fysikk render               # hele
 
 - **Kursnøytrale videoer.** En video skal kunne brukes i flere fag og løyper. Ikke referer til et bestemt kurs, kapittel eller rekkefølge: ikke «i dette kurset/forkurset», «i kapittel 3», «forrige video» eller «neste gang ser vi på …». Det gjelder både manus og tekst på skjermen. Knytt i stedet videoen til emnet (f.eks. «Grunnlag · Hva er fysikk?»). Henvisninger til nettstedet («fysikkhjelp») og til «oppgavene under videoen» er greit.
 
+- **Lærerens egne tegninger** (PDF fra iPad, med vektorstreker) brukes når de finnes, for å beholde det personlige særpreget. Strekene tegnes fram i takt med manus. Det er greit å gjøre strekene tykkere, rydde, flytte elementer, eller bytte ut deler med TikZ/egne animasjoner der det blir tydeligere eller bevegelsen blir bedre. Gjør det, og fortell kort hva som er endret.
+- **Tekst** fra tegningene skrives om med en håndskriftfont (penere enn håndskrift, men samme preg). Tittelen er oransje.
+- **Læreren i bildet:** foreslå gjerne at læreren bruker rekvisitter eller gjør noe (løfter en ball, trykker sammen en fjær, filmer ute …). Skriv det inn i manus som **[Du:** …**]**, med en liste over rekvisitter øverst.
+- Lengde: sikt på ca. 3 minutter når læreren ber om det (ca. 340 ord tale + pauser for det læreren gjør).
+
 (Flere faste ønsker for tone, åpning og avslutning noteres her etter hvert.)
