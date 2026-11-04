@@ -1,12 +1,13 @@
 # Manus: Potensiell energi
 
 **Emne: Arbeid og energi · delemne: Kinetisk og potensiell energi · ca. 3 min**
+**Brukes på:** (ingen side ennå)
 
-Leses i rolig tempo, ca. 140 ord i minuttet. Du står nede i høyre hjørne. Der er det alltid tomt. **[Du:]** er forslag til ting du gjør i bildet. Ta med det du vil, eller hopp over det.
+Leses i rolig tempo, ca. 140 ord i minuttet. Du filmer deg selv foran grønnskjermen og havner nede til høyre i videoen. Tidskodene er omtrentlige. Animasjonen tilpasses det du faktisk sier og gjør i opptaket, så du trenger ikke følge dem. Ta en kort pause mellom avsnittene. **[Du:]** er forslag til ting du gjør i bildet. Ta med det du vil, eller hopp over det.
 
-**Rekvisitter:** en ball (eller et eple), en spiralfjær (en stor en, eller fjæra fra en kulepenn), og gjerne en bok.
+**Rekvisitter:** en ball (eller et eple), en spiralfjær (en stor en, eller fjæra fra en kulepenn), og gjerne en bok. Ikke grønne.
 
-Tegningene er dine (`tegninger.pdf`). Teksten skrives om med en håndskriftfont, og strekene tegnes fram i takt med manus.
+Tegningene er dine (`tegninger.pdf`). Teksten skrives om med håndskriftfonten, og strekene tegnes fram i takt med det du sier.
 
 ---
 
