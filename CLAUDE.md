@@ -8,7 +8,7 @@ Les også `LESMEG.md`. Avsnittet **«Lærerens stil»** der inneholder faste øn
 
 - Én video per tema, **ca. 3 minutter** (aldri over 5). Videoene er **kursnøytrale** og kan brukes på flere sider i flere fag.
 - Læreren står foran **grønnskjerm**, snakker og gjør ting med rekvisitter. Du lager **tavla** bak: lærerens egne tegninger (og TikZ/animasjon der det er bedre), animert i takt med det læreren sier.
-- Den ferdige videoen = animasjonen + læreren (grønnskjermen fjernet) **nede i høyre hjørne** + lyden fra opptaket. Læreren laster den opp til YouTube.
+- Den ferdige videoen = animasjonen + læreren (grønnskjermen fjernet) **nede i høyre hjørne** + lyden fra opptaket, med **DrNormann-logoen** i et hjørne hele tiden. Til hver video lager du også et **YouTube-miniatyrbilde** (thumbnail). Læreren laster begge opp til YouTube.
 - Sidene på nettstedet ligger i andre repoer (fagrepoene). Der står plassholderen «Video kommer» til videoen er registrert i `ferdige.yml`. En automatisk nattjobb bytter da plassholderen ut med videoen. **Du rører aldri fagrepoene.**
 
 ## Mapper
@@ -16,13 +16,14 @@ Les også `LESMEG.md`. Avsnittet **«Lærerens stil»** der inneholder faste øn
 ```
 CLAUDE.md, LESMEG.md, package.json
 ferdige.yml               register: <side-id>: <YouTube-lenke>
-_verktoy/                 lag.js (anim.html → mp4), finn_pauser.py, sett_sammen.py, fonter, bakgrunn, logo
+_verktoy/                 lag.js (anim.html → mp4), finn_pauser.py, sett_sammen.py, thumbnail.js, fonter, bakgrunn, logoer
 <emne>/<video>/           én mappe per video, sortert etter emne-id (fra Plattform/emner.yml)
   manus.md                manus med scener, [Du: …] og «På skjermen»
   tegninger.pdf           lærerens tegninger (vektor-PDF fra iPad)
   anim.html               animasjonen
   tider.json              når hvert avsnitt sies i opptaket (lages fra opptaket)
   *.png / *.svg / formler.py   elementer og formelbilder
+  thumbnail.json, thumbnail.jpg  miniatyrbildet (oppsett og ferdig bilde) – person.png (utklipp av læreren) ligger ikke i git
 ```
 
 Eksempler: `arbeid-og-energi/potensiell-energi/`, `hva-er-fysikk/overslag/`. Emne-id-ene står i <https://github.com/Realfagsambassaden/Plattform/blob/main/emner.yml>.
@@ -37,9 +38,10 @@ Eksempler: `arbeid-og-energi/potensiell-energi/`, `hva-er-fysikk/overslag/`. Emn
 4. **Finn tidene:** `python3 _verktoy/finn_pauser.py <opptak>` lister taleavsnitt og pauser. Kople pausene til manusavsnittene (de lengste pausene er sceneskiftene). Har læreren improvisert, hør på opptaket (eller bruk tale-til-tekst hvis det er installert, f.eks. `whisper` – spør før du installerer) og følg det som faktisk sies, ikke manuset. Lagre tidene i `tider.json` i videomappa.
 5. **Animasjonen:** lag `anim.html` med scenelengder fra `tider.json`, slik at total lengde = opptakets lengde, og at hver tegning dukker opp når læreren snakker om den (gjerne 0.3–0.5 s før). Se reglene under. Lag stillbilder av de travleste øyeblikkene, se på dem, rett feil, og lag så animasjonen.
 6. **Sett sammen:** sjekk først ett bilde med læreren i (`--stillbilde`), juster nøkkel og plassering, og lag så den ferdige videoen. Se «Sette sammen» under. Åpne den for læreren (`open <fil>`).
-7. **Juster** etter lærerens tilbakemeldinger. Endrer læreren noe i opptaket, kjør steg 4–6 på nytt.
-8. **Lagre:** commit og push (`manus.md`, `anim.html`, `tider.json`, elementer) til `main`. Det er greit her, ingenting i repoet vises på nettsiden.
-9. **Når videoen er på YouTube:** sjekk at lenken virker, og registrer den i `ferdige.yml` for **hver side** den skal vises på (se under). Commit og push. Nattjobben legger den ut neste natt.
+7. **Miniatyrbilde:** lag `thumbnail.jpg` (se «Miniatyrbilde» under) og vis det for læreren sammen med videoen.
+8. **Juster** etter lærerens tilbakemeldinger. Endrer læreren noe i opptaket, kjør steg 4–6 på nytt.
+9. **Lagre:** commit og push (`manus.md`, `anim.html`, `tider.json`, elementer, `thumbnail.json`, `thumbnail.jpg`) til `main`. Det er greit her, ingenting i repoet vises på nettsiden.
+10. **Når videoen er på YouTube:** sjekk at lenken virker, og registrer den i `ferdige.yml` for **hver side** den skal vises på (se under). Commit og push. Nattjobben legger den ut neste natt.
 
 ## Registrere en ferdig video (`ferdige.yml`)
 
@@ -71,10 +73,23 @@ Finn sidene med `grep -rl "video: kommer" kapitler/` i de offentlige fagrepoene 
 
 - 1920×1080, 30 bilder/s. Myk inn- og uttoning mellom scener (0.4 s).
 - **Presentatørsonen x ≥ 1300 og y ≥ 420 skal alltid være tom** – der står læreren. Det gjelder også ting som beveger seg. Lærerens tegninger har ofte ting nede til høyre; flytt dem.
-- Tavlestil: bakgrunn `#0d1110` med `_verktoy/tavle-bakgrunn.webp` svakt (opacity ca. 0.09), kritt `#ecefe6`, grønn `#6ef04a`, oransje `#f19c2c`, gul `#eee462`, turkis `#56d7b8`. Logoen øverst til høyre.
+- Tavlestil: bakgrunn `#0d1110` med `_verktoy/tavle-bakgrunn.webp` svakt (opacity ca. 0.09), kritt `#ecefe6`, grønn `#6ef04a`, oransje `#f19c2c`, gul `#eee462`, turkis `#56d7b8`.
+- **Logoer:** `_verktoy/drnormann-logo.png` (DrNormann) står **øverst til høyre gjennom hele videoen**, ca. 90 px høy, med ca. 30 px marg. Fysikkhjelp-logoen (`fh-logo-linje.png`) vises bare i tittelscenen og sluttscenen. Ikke legg annet innhold oppå logoene.
 - **Skrift:** håndskriftfonten **Architects Daughter** (samme som nettstedet bruker) for tekst fra tegningene og titler. Ligger den ikke i `_verktoy/`, last ned `ArchitectsDaughter-Regular.ttf` og lisensen `OFL.txt` fra <https://github.com/google/fonts/tree/main/ofl/architectsdaughter> til `_verktoy/`, og commit dem (lisensen tillater det). Comic Neue og Montserrat finnes også i `_verktoy/`.
 - `anim.html` definerer `window.S = [[scene-id, sekunder], …]` og en **deterministisk** `window.render(sceneIndeks, t)` (samme t gir samme bilde), og har et skjult element `#sone`. Felles filer hentes med `../../_verktoy/…`. Bruk `hva-er-fysikk/innledning/anim.html` som teknisk mal (men ikke som innholdsmal – den er utdatert).
 - Formler: skriv dem helst med håndskriftfonten som tekst (passer til lærerens stil), eller som PNG med matplotlib mathtext (`formler.py` i `hva-er-fysikk/overslag/`).
+
+## Miniatyrbilde (YouTube-thumbnail)
+
+Hver video får et miniatyrbilde i fast mal, laget med `npm run thumbnail -- <videomappe>` fra `thumbnail.json` i videomappa (se kommentaren øverst i `_verktoy/thumbnail.js`). Malen følger lærerens eksempel («ARBEID i fysikken»):
+
+- liten håndskrevet merkelapp øverst til venstre med område/emne (f.eks. «Mekanikk») og grønn strek under
+- **stor hvit tittel** (Montserrat Black) og **kort grønn, lysende undertittel**
+- **læreren til høyre**, klippet ut fra opptaket med grønn glød rundt (`sett_sammen.py --utklipp <sekund> --opptak … --ut <mappe>/person.png`). Velg et øyeblikk med tydelig ansiktsuttrykk eller gest – gjerne et litt spørrende eller overrasket blikk. Hent ut flere kandidater og vis dem for læreren.
+- **nøkkeltegning** nede til venstre (lærerens tegning eller TikZ, gjennomsiktig PNG) og **nøkkelformel** i håndskrift
+- DrNormann-logoen nede til høyre, tavlebakgrunn med grønt lys bak læreren
+
+Miniatyrbildene skal være **litt små-spektakulære**: noe som vekker nysgjerrighet. **Er det et eksperiment eller en rekvisitt i videoen, skal det med** – bruk helst et utklipp der læreren holder eller gjør eksperimentet (f.eks. ballen i lufta, fjæra som presses sammen), og la tittel/undertittel spille på det. Hold teksten kort (2–4 ord totalt i undertittelen). Bildet blir 2560×1440 JPG under 2 MB, som YouTube krever. Vis det for læreren; juster etter ønske.
 
 ## Opptak (råd til læreren)
 
@@ -111,6 +126,11 @@ python3 _verktoy/sett_sammen.py --anim arbeid-og-energi/potensiell-energi/potens
     --opptak ~/Movies/Realfagsambassaden/opptak/potensiell-energi.mov \
     --ut ~/Movies/Realfagsambassaden/ferdig/potensiell-energi.png --stillbilde 60     # sjekk ett bilde først
 python3 _verktoy/sett_sammen.py --anim … --opptak … --ut ~/Movies/Realfagsambassaden/ferdig/potensiell-energi.mp4
+
+# 4. Miniatyrbilde
+python3 _verktoy/sett_sammen.py --opptak ~/Movies/Realfagsambassaden/opptak/potensiell-energi.mov \
+    --utklipp 75 --ut arbeid-og-energi/potensiell-energi/person.png
+npm run thumbnail -- arbeid-og-energi/potensiell-energi           # → <mappe>/thumbnail.jpg
 ```
 
 `sett_sammen.py` måler grønnfargen selv. Juster med `--likhet` (0.10 standard; øk litt ved grønne rester, senk hvis hud eller klær blir gjennomsiktige), `--hoyde` (størrelsen på læreren), `--midt` (vannrett plassering), `--beskjaer` (hvis grønnskjermen ikke dekker hele bildet) og `--forskyv` (tidsforskyvning). Se `python3 _verktoy/sett_sammen.py -h`. Lyden normaliseres til YouTube-nivå.

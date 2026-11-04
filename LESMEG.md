@@ -39,6 +39,8 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Lærerens egne tegninger** (PDF fra iPad, med vektorstreker) brukes når de finnes, for å beholde det personlige særpreget. Strekene tegnes fram i takt med det som sies. Det er greit å gjøre strekene tykkere, rydde, flytte elementer, eller bytte ut deler med TikZ/egne animasjoner der det blir tydeligere eller bevegelsen blir bedre. Gjør det, og fortell kort hva som er endret.
 - **Tekst** fra tegningene skrives om med håndskriftfonten Architects Daughter (penere enn håndskrift, men samme preg). Tittelen er oransje.
 - **Læreren i bildet:** læreren står foran grønnskjerm og havner nede til høyre. Foreslå gjerne rekvisitter og ting læreren gjør (løfter en ball, trykker sammen en fjær, filmer ute …). Skriv det inn i manus som **[Du:** …**]**, med en liste over rekvisitter øverst.
+- **DrNormann-logoen** står øverst til høyre gjennom hele videoen. Fysikkhjelp-logoen bare i starten og slutten.
+- **Miniatyrbilde** til hver video, etter malen i lærerens eksempel («ARBEID i fysikken»): stor hvit tittel, grønn lysende undertittel, læreren til høyre med grønn glød, nøkkeltegning og formel, DrNormann-logo. Litt små-spektakulært. Er det et eksperiment i videoen, skal det med.
 - **Opptaket kommer først**, og animasjonen tilpasses det læreren faktisk sier og gjør.
 - **Lengde:** ca. 3 minutter (ca. 340 ord tale + pauser for det læreren gjør).
 - **Notasjon** etter [NOTASJON.md](https://github.com/Realfagsambassaden/Plattform/blob/main/NOTASJON.md): punktum som desimaltegn, naturkonstanter i rett skrift, g = 9.81 m/s², SI-enheter med prefikser, gjeldende siffer.

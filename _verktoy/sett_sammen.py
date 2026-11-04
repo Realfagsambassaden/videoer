@@ -5,6 +5,8 @@ med lyden fra opptaket.
 Bruk:
   python3 _verktoy/sett_sammen.py --anim <mappe>/<mappe>.mp4 --opptak <opptak.mov> --ut <mappe>/<mappe>-ferdig.mp4
   python3 _verktoy/sett_sammen.py ... --stillbilde 42     # bare ett bilde ved 42 s, for å sjekke nøkkelen og plasseringen
+  python3 _verktoy/sett_sammen.py --opptak <opptak.mov> --utklipp 42 --ut <mappe>/person.png
+                                                       # læreren klippet ut (gjennomsiktig PNG) ved 42 s, til miniatyrbildet
 
 Valg:
   --farge 0x3fae4a   grønnfargen som skal fjernes (standard: måles automatisk i hjørnene av første bilde)
@@ -45,7 +47,7 @@ def mal_farge(opptak, tid=0.5):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--anim', required=True)
+    ap.add_argument('--anim')
     ap.add_argument('--opptak', required=True)
     ap.add_argument('--ut', required=True)
     ap.add_argument('--farge')
@@ -56,7 +58,10 @@ def main():
     ap.add_argument('--forskyv', type=float, default=0.0)
     ap.add_argument('--beskjaer', default='0:0')
     ap.add_argument('--stillbilde', type=float)
+    ap.add_argument('--utklipp', type=float, help='lag gjennomsiktig PNG av læreren ved dette tidspunktet')
     a = ap.parse_args()
+    if a.utklipp is None and not a.anim:
+        ap.error('--anim trengs (unntatt med --utklipp)')
 
     farge = a.farge or mal_farge(a.opptak)
     print('Grønnfarge:', farge)
@@ -64,6 +69,10 @@ def main():
     crop = f'crop=iw*(1-{v}-{h}):ih:iw*{v}:0,' if (v or h) else ''
     person = (f'[1:v]{crop}chromakey={farge}:{a.likhet}:{a.blanding},despill=type=green,'
               f'scale=-2:{a.hoyde},format=yuva420p[p]')
+    if a.utklipp is not None:
+        f = f'{crop}chromakey={farge}:{a.likhet}:{a.blanding},despill=type=green,format=rgba'
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(a.utklipp), '-i', a.opptak, '-frames:v', '1', '-vf', f, a.ut], check=True)
+        print('Ferdig:', a.ut); return
     lag = f'{person};[0:v][p]overlay=x={a.midt}-w/2:y=H-h:shortest=0:eof_action=pass[v]'
     inn = ['-i', a.anim]
     if a.forskyv: inn += ['-itsoffset', str(a.forskyv)]
