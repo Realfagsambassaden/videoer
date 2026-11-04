@@ -81,7 +81,7 @@ Finn sidene med `grep -rl "video: kommer" kapitler/` i de offentlige fagrepoene 
 
 ## Miniatyrbilde (YouTube-thumbnail)
 
-Hver video får et miniatyrbilde i fast mal, laget med `npm run thumbnail -- <videomappe>` fra `thumbnail.json` i videomappa (se kommentaren øverst i `_verktoy/thumbnail.js`). Malen følger lærerens eksempel («ARBEID i fysikken»):
+Hver video får et miniatyrbilde i fast mal, laget med `npm run thumbnail -- <videomappe>` fra `thumbnail.json` i videomappa (se kommentaren øverst i `_verktoy/thumbnail.js`). Malen følger lærerens eksempel («ARBEID i fysikken», se `_verktoy/thumbnail-eksempel.png` – se på det før du lager et nytt):
 
 - liten håndskrevet merkelapp øverst til venstre med område/emne (f.eks. «Mekanikk») og grønn strek under
 - **stor hvit tittel** (Montserrat Black) og **kort grønn, lysende undertittel**
