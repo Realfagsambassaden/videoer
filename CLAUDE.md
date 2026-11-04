@@ -69,5 +69,5 @@ npm run video   -- fysikk-forkurs/01-02-overslag              # hele videoen →
 
 ## Status (4. november 2026)
 
-- `fysikk-forkurs/01-hva-er-fysikk` og `fysikk-forkurs/01-02-overslag`: manus finnes og er rettet (notasjon v2, kursnøytralt). Læreren går gjennom manusene. **Animasjonene er utdaterte** (viser desimalkomma, g ≈ 9,8 og «Forkurs i fysikk · Kapittel 1» / kapittelliste) og må lages på nytt når manusene er godkjent. Formelbildene (`f*.png`) må også lages på nytt.
-- Nye sider kommer hver natt i `Realfagsambassaden/fysikk-forkurs`, med plassholder for video.
+- **På vent:** `fysikk-forkurs/01-hva-er-fysikk` og `fysikk-forkurs/01-02-overslag` har manus (rettet etter notasjon v2 og kursnøytrale), men skal **ikke** lages som video nå. Forkurset i fysikk struktureres om, og læreren avgjør etterpå om de to videoene fortsatt trengs, eller om de må skrives om eller flyttes. Animasjonene og formelbildene deres er utdaterte (desimalkomma, g ≈ 9,8, «Forkurs i fysikk · Kapittel 1»). Ikke lag dem på nytt før læreren ber om det.
+- Nye sider kommer i `Realfagsambassaden/fysikk-forkurs`, med plassholder for video. Spør læreren hvilke som skal prioriteres.
