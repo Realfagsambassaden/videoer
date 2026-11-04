@@ -57,4 +57,6 @@ node _verktoy/lag.js fysikk-forkurs/01-hva-er-fysikk render               # hele
 
 ## Lærerens stil
 
-(Faste ønsker for tone, åpning og avslutning noteres her etter hvert.)
+- **Kursnøytrale videoer.** En video skal kunne brukes i flere fag og løyper. Ikke referer til et bestemt kurs, kapittel eller rekkefølge: ikke «i dette kurset/forkurset», «i kapittel 3», «forrige video» eller «neste gang ser vi på …». Det gjelder både manus og tekst på skjermen. Knytt i stedet videoen til emnet (f.eks. «Grunnlag · Hva er fysikk?»). Henvisninger til nettstedet («fysikkhjelp») og til «oppgavene under videoen» er greit.
+
+(Flere faste ønsker for tone, åpning og avslutning noteres her etter hvert.)

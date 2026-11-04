@@ -1,6 +1,6 @@
 # Manus: Hva er fysikk?
 
-**Forkurs i fysikk · Kapittel 1 · ca. 2 min 45 s**
+**Emne: Hva er fysikk? · ca. 2 min 45 s**
 
 Leses i rolig tempo, ca. 140 ord i minuttet. Animasjonen er laget for at du står nede i høyre hjørne (omtrent den nederste høyre tredjedelen av bildet). Der er det alltid tomt. Tidskodene er når hver ting dukker opp. Snakker du litt raskere eller saktere, kan du kutte eller forlenge pausene i redigeringen.
 
@@ -10,7 +10,7 @@ Leses i rolig tempo, ca. 140 ord i minuttet. Animasjonen er laget for at du stå
 
 > Hei, og velkommen til fysikkhjelp! I denne videoen skal vi svare på et spørsmål som høres enkelt ut: Hva er egentlig fysikk?
 
-*På skjermen:* Tittelen skrives (0:01), deretter «Forkurs i fysikk · Kapittel 1» og «… et spørsmål som høres enkelt ut» (0:05).
+*På skjermen:* Tittelen skrives (0:01), deretter «Grunnlag · Hva er fysikk?» og «… et spørsmål som høres enkelt ut» (0:05).
 
 ### 2. Fysikk er overalt (0:14–0:44)
 
@@ -44,6 +44,6 @@ Leses i rolig tempo, ca. 140 ord i minuttet. Animasjonen er laget for at du stå
 
 ### 6. Avslutning (2:28–2:45)
 
-> I dette forkurset tar vi dem én etter én. Neste stopp er størrelser og enheter. Men først: prøv deg på oppgavene under videoen. Vi ses!
+> Hvert av disse områdene kan du utforske videre, emne for emne. Men først: prøv deg på oppgavene under videoen. Vi ses!
 
-*På skjermen:* Kapittellista (2:29), «Neste» ved Størrelser og enheter (2:35), «Prøv oppgavene under videoen!» (2:38), og logoen (2:42).
+*På skjermen:* De seks områdene samles til ett kart med emnene som små lapper rundt hvert område (2:29), «Prøv oppgavene under videoen!» (2:38), og logoen (2:42).
