@@ -1,0 +1,4 @@
+# Ferdige videoer og arbeidsfiler lagres ikke i git
+*.mp4
+scener/
+sjekk/

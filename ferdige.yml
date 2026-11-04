@@ -1,0 +1,6 @@
+# Ferdige videoer: <fag>/<videomappe> → YouTube-lenke.
+# Videochatten legger inn en linje når en video er spilt inn og lastet opp.
+# Nattjobben bytter da ut «Video kommer»-bildet på siden i fagrepoet med videoen.
+# Eksempel:
+#   fysikk-forkurs/01-02-overslag: https://www.youtube.com/watch?v=XXXXXXXXXXX
+videoer: {}
