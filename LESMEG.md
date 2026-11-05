@@ -36,7 +36,7 @@ Videoene sorteres etter **emne** (som på nettstedet), ikke etter fag, fordi sam
 Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier noe nytt.
 
 - **Kursnøytrale videoer.** En video skal kunne brukes i flere fag og løyper. Ikke referer til et bestemt kurs, kapittel eller rekkefølge: ikke «i dette kurset/forkurset», «i kapittel 3», «forrige video» eller «neste gang ser vi på …». Det gjelder både manus og tekst på skjermen. Knytt i stedet videoen til emnet (f.eks. «Arbeid og energi · Potensiell energi»). Henvisninger til nettstedet («fysikkhjelp») og til «oppgavene under videoen» er greit.
-- **Tavla tegnes helst på nytt** (egen SVG/TikZ med uformelle bokstaver i håndskriftfonten), med lærerens tegninger som skisse for innhold og oppsett. Uttrekk av iPad-strekene ga prikker og rot. Lærerens egne strektegninger brukes bare når de er rene (f.eks. Dashman). Finn gjerne et bedre pedagogisk oppsett ut fra det læreren sier.
+- **Tavla tegnes alltid på nytt** med TikZ/SVG eller lignende, med uformelle bokstaver i håndskriftfonten. Lærerens tegninger er **bare inspirasjon** for hva som skal stå der. Unntak: Dashman-tegneserien og lignende figurer brukes som de er. Finn gjerne et bedre pedagogisk oppsett ut fra det læreren sier.
 - **Ting som beveger seg følger læreren:** når læreren presser sammen eller strekker en fjær, presses/strekkes fjæra på tavla i takt, og kraftvektoren vokser. Vis likevektsposisjonen og hva x er.
 - **Vektorer har pil** overalt: F⃗, x⃗, h⃗, dx⃗ i integraler (W = ∫ F⃗ · dx⃗). Rekvisitter tegnes som det de er (boka som bok, ikke sirkel).
 - **Forklar formler eksplisitt** – studentene trenger mer enn du tror. Skriv f.eks. «Areal av trekant: A = ½ · g · h» før man setter inn x og kx.
