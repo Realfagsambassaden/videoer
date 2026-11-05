@@ -13,7 +13,7 @@
 //   "person_hoyre": -150,              valgfri: avstand fra høyre kant (standard -10); negativ skyver personen delvis ut av bildet
 //   "person_hoyde": 560,                valgfri: høyden på utklippet (standard 700 av 720); mindre for brede utklipp med flere personer
 //   "tegning": "tegning.png",           valgfri: nøkkeltegning eller eksperiment (PNG/SVG, gjennomsiktig) nede til venstre
-//   "formel": "E_p = ½kx²"              valgfri: nøkkelformel i håndskrift nede i midten
+//   "formel": "E_p = ½kx²"              valgfri: nøkkelformel i håndskrift nede i midten (vektorpil: skriv F\u20d7, dvs. bokstav + U+20D7)
 // }
 const { chromium } = require('playwright');
 const fs = require('fs');
@@ -43,12 +43,13 @@ const path = require('path');
   #under{left:40px;font:900 ${Math.round(tSize * 0.62)}px/1 Mont;color:#6ef04a;text-shadow:0 0 18px rgba(110,240,74,.85),0 0 40px rgba(110,240,74,.45)}
   #person{right:-10px;bottom:0;height:700px;filter:drop-shadow(0 0 3px #6ef04a) drop-shadow(0 0 16px rgba(110,240,74,.9)) drop-shadow(0 0 36px rgba(110,240,74,.5))}
   #tegning{left:30px;bottom:22px;max-width:520px;max-height:190px}
+  #formel .vek{position:relative;display:inline-block;line-height:1}#formel .vek::after{content:'';position:absolute;left:8%;right:8%;top:-.04em;height:.06em;background:currentColor;border-radius:2px}#formel .vek::before{content:'';position:absolute;right:6%;top:-.135em;width:.18em;height:.18em;border-top:.06em solid currentColor;border-right:.06em solid currentColor;transform:rotate(45deg)}
   #formel{left:40px;bottom:30px;font:58px Hand;color:#ecefe6;text-shadow:0 2px 8px #000;white-space:nowrap}
   #logo{right:22px;bottom:14px;height:96px}
   </style></head><body>
   <div class="a" id="bg"></div><div class="a" id="glod"></div>
   ${c.tegning ? `<img class="a" id="tegning" src="${url(c.tegning)}">` : ''}
-  ${c.formel ? `<div class="a" id="formel">${c.formel}</div>` : ''}
+  ${c.formel ? `<div class="a" id="formel">${c.formel.replace(/(.)\u20d7/g, '<span class="vek">$1</span>')}</div>` : ''}
   ${c.person ? `<canvas class="a" id="person"></canvas>` : ''}
   <div class="a" id="emne">${c.emne || ''}</div>
   <div class="a" id="tittel">${c.tittel || ''}${c.tittel2 ? '<br>' + c.tittel2 : ''}</div>
