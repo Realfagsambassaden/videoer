@@ -12,7 +12,7 @@ def R(T):
         if T < a: return n
         if T <= b: return n + T - a
     a, b, n = KLIPP[-1]; return n + b - a
-KALD, TITTEL, HOVED, DASH = 14.5, 1.6, 217.53, 5.5
+KALD, TITTEL, HOVED, DASH = 14.5, 1.6, 216.49, 5.5
 M = lambda T: R(T) + TITTEL
 LENGDE = KALD + TITTEL + HOVED + DASH; D = KALD + TITTEL + HOVED
 sr = 48000

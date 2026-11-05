@@ -10,6 +10,7 @@
 //   "undertittel": "lagret arbeid",     grønn, lysende (kort!)
 //   "person": "person.png",             læreren klippet ut (sett_sammen.py --utklipp), gjennomsiktig PNG
 //   "beskjaer_person": [0.25, 0.75],    valgfri: hvilken del av utklippet (andel av bredden) som skal brukes
+//   "undertittel_vinkel": -6,           valgfri: vipp undertittelen (grader) for et «raskere» bilde
 //   "tittel_bredde": 1150,             valgfri: maks bredde på tittelen før den krympes (standard 820); bredere tittel kan dekke kanten av et utklipp
 //   "person_hoyre": -150,              valgfri: avstand fra høyre kant (standard -10); negativ skyver personen delvis ut av bildet
 //   "person_hoyde": 560,                valgfri: høyden på utklippet (standard 700 av 720); mindre for brede utklipp med flere personer
@@ -59,6 +60,7 @@ const path = require('path');
   <script>
   window.klar = (async () => {
     await document.fonts.ready;
+    ${c.undertittel_vinkel ? `document.getElementById('under').style.transform = 'translateY(34px) rotate(${c.undertittel_vinkel}deg)'; document.getElementById('under').style.transformOrigin = 'left center';` : ''}
     // lange titler krympes til de får plass på én linje hver (maks 820 px bred)
     const ti = document.getElementById('tittel'), un = document.getElementById('under');
     let fs = ${tSize};
