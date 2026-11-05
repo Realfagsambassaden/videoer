@@ -1,8 +1,9 @@
 {
   "emne": "Kinematikk",
-  "tittel": "SENTRIPETAL-",
-  "tittel2": "AKSELERASJON",
+  "tittel": "SENTRIPETALAKSELERASJON",
   "undertittel": "rundt og rundt",
   "person": "person.png",
-  "formel": "a = v² / r"
+  "formel": "a = v² / r",
+  "tittel_bredde": 900,
+  "person_hoyde": 640
 }

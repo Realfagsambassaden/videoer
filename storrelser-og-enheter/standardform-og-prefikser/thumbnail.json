@@ -1,8 +1,9 @@
 {
   "emne": "Tall i fysikken",
-  "tittel": "STANDARD-",
-  "tittel2": "FORM",
+  "tittel": "STANDARDFORM",
   "undertittel": "kilo, mega, mikro",
   "person": "person.png",
-  "formel": "4.2·10³ J = 4.2 kJ"
+  "formel": "4.2·10³ J = 4.2 kJ",
+  "tittel_bredde": 850,
+  "person_hoyde": 640
 }

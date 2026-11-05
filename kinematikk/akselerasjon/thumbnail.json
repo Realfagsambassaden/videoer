@@ -1,10 +1,10 @@
 {
   "emne": "Kinematikk",
-  "tittel": "AKSELE-",
-  "tittel2": "RASJON",
+  "tittel": "AKSELERASJON",
   "undertittel": "pass på kaffen!",
   "person": "person.png",
   "formel": "a⃗ = Δv⃗ / Δt",
   "person_hoyde": 560,
-  "person_hoyre": -60
+  "person_hoyre": -60,
+  "tittel_bredde": 1180
 }

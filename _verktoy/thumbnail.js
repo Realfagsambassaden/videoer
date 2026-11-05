@@ -10,6 +10,7 @@
 //   "undertittel": "lagret arbeid",     grønn, lysende (kort!)
 //   "person": "person.png",             læreren klippet ut (sett_sammen.py --utklipp), gjennomsiktig PNG
 //   "beskjaer_person": [0.25, 0.75],    valgfri: hvilken del av utklippet (andel av bredden) som skal brukes
+//   "tittel_bredde": 1150,             valgfri: maks bredde på tittelen før den krympes (standard 820); bredere tittel kan dekke kanten av et utklipp
 //   "person_hoyre": -150,              valgfri: avstand fra høyre kant (standard -10); negativ skyver personen delvis ut av bildet
 //   "person_hoyde": 560,                valgfri: høyden på utklippet (standard 700 av 720); mindre for brede utklipp med flere personer
 //   "tegning": "tegning.png",           valgfri: nøkkeltegning eller eksperiment (PNG/SVG, gjennomsiktig) nede til venstre
@@ -61,7 +62,7 @@ const path = require('path');
     // lange titler krympes til de får plass på én linje hver (maks 820 px bred)
     const ti = document.getElementById('tittel'), un = document.getElementById('under');
     let fs = ${tSize};
-    while (ti.scrollWidth > 820 && fs > 70) { fs -= 4; ti.style.fontSize = fs + 'px'; un.style.fontSize = Math.round(fs * 0.62) + 'px'; }
+    while (ti.scrollWidth > ${c.tittel_bredde || 820} && fs > 70) { fs -= 4; ti.style.fontSize = fs + 'px'; un.style.fontSize = Math.round(fs * 0.62) + 'px'; }
     const t = document.getElementById('tittel').getBoundingClientRect();
     const u = document.getElementById('under'); u.style.top = (t.bottom + 6) + 'px';
     const ub = u.getBoundingClientRect().bottom + 12;
