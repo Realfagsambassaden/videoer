@@ -102,6 +102,8 @@ Hver video får et miniatyrbilde i fast mal, laget med `npm run thumbnail -- <vi
 
 Miniatyrbildene skal være **litt små-spektakulære**: noe som vekker nysgjerrighet. **Er det et eksperiment eller en rekvisitt i videoen, skal det med** – bruk helst et utklipp der læreren holder eller gjør eksperimentet (f.eks. ballen i lufta, fjæra som presses sammen), og la tittel/undertittel spille på det. Hold teksten kort (2–4 ord totalt i undertittelen). Bildet blir 2560×1440 JPG under 2 MB, som YouTube krever. Vis det for læreren; juster etter ønske.
 
+**Eldre videoer (før grønnskjerm):** Læreren har egne forsidebilder (grønne tekstbokser og «Dr. Normann»-sirkel) i Mac-mappene. Nye miniatyrbilder i malen lages ved å klippe læreren (og rekvisitter/andre personer) ut av hans gamle forside med `rembg` (pip; modellene `u2net_human_seg` + `isnet-general-use` lastes fra GitHub). Fjern hvit sirkel, grønne bokser og løse bokstaver. Lagres som `<emne>/<video>/thumbnail.json` + `thumbnail.jpg`, og som `<video>_thumbnail.jpg` ved siden av videoen på Macen. `person_hoyde` gjør brede utklipp (flere personer) mindre; lange titler krympes automatisk til én linje.
+
 ## Opptak (råd til læreren)
 
 - **Liggende 16:9, 1080p, 25 eller 30 bilder/s.** Telefon eller kamera på stativ.
@@ -149,5 +151,6 @@ npm run thumbnail -- arbeid-og-energi/potensiell-energi           # → <mappe>/
 ## Status (5. november 2026)
 
 - **`arbeid-og-energi/potensiell-energi`**: **utkast 1 ferdig 5. november 2026** (4:20, kald start, intro/outro, svisj-overganger, Dashman-stinger). Ferdig fil og miniatyrbilde ligger i lærerens mappe `Filmprosjekt/DrNormann/INGENIØRFYSIKK/MEKANIKK—Ingeniør/Potensiell energi/`. Venter på lærerens tilbakemelding. (Tidligere: manus (utkast) og lærerens tegninger (`tegninger.pdf`, 6 sider: tittel, samleside fjær, elementer fjær, elementer graf, samleside tyngdefelt, elementer tyngdefelt) ligger klare. Neste: læreren går gjennom manus, så opptak, så animasjon. Kjente rettelser fra tegningene: eks. 2 heter «Energi i spiralfjær» på tegningen, men skal være «Energi i tyngdefeltet»; `g` oppreist; integralet med prikkprodukt `∫ F⃗·dx⃗`; ligningene nede til høyre må flyttes ut av sonen. Ingen side på nettstedet har denne videoen ennå (passer på delemnet *Kinetisk og potensiell energi* i emnet *Arbeid og energi*).)
+- **Miniatyrbilder for de eldre mekanikkvideoene** (17 stk., i malen, klippet fra lærerens gamle forsider) laget 5. november 2026 – venter på tilbakemelding. Flere bruker samme bilde av læreren (brun skjorte); bedre øyeblikk kan hentes fra opptakene (`Meg_*.mov`).
 - **På vent:** `hva-er-fysikk/innledning` og `hva-er-fysikk/overslag` (laget før grønnskjerm-arbeidsgangen; animasjonene er utdaterte). Læreren avgjør etter omstruktureringen av forkurset om de trengs. Plassholderne for dem står på sidene `fysikk-forkurs/01-hva-er-fysikk` og `fysikk-forkurs/01-02-overslag`.
 - Videoen om **arbeid** som brukes i emneteksten for *Arbeid og energi* er <https://www.youtube.com/watch?v=RDi3DD0Cehk>. Potensiell energi bygger videre på den (men uten å vise til den).

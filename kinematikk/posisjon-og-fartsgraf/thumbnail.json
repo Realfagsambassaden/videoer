@@ -1,0 +1,12 @@
+{
+  "emne": "Kinematikk",
+  "tittel": "POSISJON",
+  "tittel2": "& FART",
+  "undertittel": "les grafen!",
+  "person": "person.png",
+  "beskjaer_person": [
+    0,
+    0.36
+  ],
+  "formel": "v = stigningstall"
+}

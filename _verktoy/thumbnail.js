@@ -10,6 +10,7 @@
 //   "undertittel": "lagret arbeid",     grønn, lysende (kort!)
 //   "person": "person.png",             læreren klippet ut (sett_sammen.py --utklipp), gjennomsiktig PNG
 //   "beskjaer_person": [0.25, 0.75],    valgfri: hvilken del av utklippet (andel av bredden) som skal brukes
+//   "person_hoyde": 560,                valgfri: høyden på utklippet (standard 700 av 720); mindre for brede utklipp med flere personer
 //   "tegning": "tegning.png",           valgfri: nøkkeltegning eller eksperiment (PNG/SVG, gjennomsiktig) nede til venstre
 //   "formel": "E_p = ½kx²"              valgfri: nøkkelformel i håndskrift nede i midten
 // }
@@ -37,7 +38,7 @@ const path = require('path');
   #glod{right:-120px;top:40px;width:820px;height:820px;background:radial-gradient(circle,rgba(110,240,74,.28),rgba(110,240,74,0) 65%)}
   #emne{left:40px;top:22px;font:42px Hand;color:#ecefe6}
   #emne:after{content:'';display:block;height:5px;margin-top:4px;background:#6ef04a;border-radius:3px;box-shadow:0 0 10px #6ef04a}
-  #tittel{left:30px;top:${c.tittel2 ? 85 : 110}px;font:900 ${tSize}px/0.95 Mont;color:#fff;letter-spacing:-3px;text-shadow:0 6px 18px rgba(0,0,0,.7);max-width:820px}
+  #tittel{left:30px;top:${c.tittel2 ? 85 : 110}px;font:900 ${tSize}px/0.95 Mont;color:#fff;letter-spacing:-3px;text-shadow:0 6px 18px rgba(0,0,0,.7);white-space:nowrap}
   #under{left:40px;font:900 ${Math.round(tSize * 0.62)}px/1 Mont;color:#6ef04a;text-shadow:0 0 18px rgba(110,240,74,.85),0 0 40px rgba(110,240,74,.45)}
   #person{right:-10px;bottom:0;height:700px;filter:drop-shadow(0 0 3px #6ef04a) drop-shadow(0 0 16px rgba(110,240,74,.9)) drop-shadow(0 0 36px rgba(110,240,74,.5))}
   #tegning{left:30px;bottom:22px;max-width:520px;max-height:190px}
@@ -55,6 +56,10 @@ const path = require('path');
   <script>
   window.klar = (async () => {
     await document.fonts.ready;
+    // lange titler krympes til de får plass på én linje hver (maks 820 px bred)
+    const ti = document.getElementById('tittel'), un = document.getElementById('under');
+    let fs = ${tSize};
+    while (ti.scrollWidth > 820 && fs > 70) { fs -= 4; ti.style.fontSize = fs + 'px'; un.style.fontSize = Math.round(fs * 0.62) + 'px'; }
     const t = document.getElementById('tittel').getBoundingClientRect();
     const u = document.getElementById('under'); u.style.top = (t.bottom + 6) + 'px';
     const ub = u.getBoundingClientRect().bottom + 12;
@@ -71,7 +76,7 @@ const path = require('path');
     // beskjær bort tomme (gjennomsiktige) rader nederst og øverst
     const cv = document.getElementById('person'); cv.width = sw; cv.height = im.height;
     cv.getContext('2d').drawImage(im, sx, 0, sw, im.height, 0, 0, sw, im.height);
-    cv.style.width = (700 * sw / im.height) + 'px';` : ''}
+    cv.style.height = '${c.person_hoyde || 700}px'; cv.style.width = (${c.person_hoyde || 700} * sw / im.height) + 'px';` : ''}
     return true;
   })();
   </script></body></html>`;
