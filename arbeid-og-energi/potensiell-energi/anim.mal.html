@@ -86,9 +86,9 @@ const pil = (x1, y1, x2, y2, farge, b, inn, v, ut) => {   // pil som strek med p
 // ---------- tidslinje ----------
 // Tidene under er skrevet i T = tid i FØRSTE klipp (klipp/edl.json). Utkast 2 har kuttet bort noen biter;
 // KLIPP oversetter gammel T til ny T: [gammel T0, gammel T1, ny T0] per bit (klipp/edl2.json).
-const KLIPP = [[0, 12.433, 0.0], [12.433, 14.499, 12.44], [14.499, 19.15, 14.52], [20.55, 29.342, 19.16], [29.342, 37.708, 27.96], [37.708, 40.174, 36.32], [40.174, 43.486, 38.8], [43.486, 51.219, 42.12], [51.219, 53.952, 49.84], [53.952, 58.562, 52.56], [58.562, 60.528, 57.16], [60.528, 73.728, 59.12], [73.728, 83.728, 72.32], [83.728, 92.094, 82.32], [92.094, 98.634, 90.68], [98.634, 106.644, 97.24], [106.644, 108.71, 105.24], [108.71, 114.21, 107.32], [114.21, 118.043, 112.84], [118.043, 123.476, 116.68], [123.476, 133.242, 122.12], [133.242, 145.075, 131.88], [145.075, 146.515, 143.72], [146.515, 148.515, 145.16], [148.515, 149.915, 147.16], [149.915, 158.9, 148.56], [160.8, 160.981, 157.56], [160.981, 174.081, 157.76], [174.081, 184.481, 170.84], [184.481, 191.047, 181.24], [191.047, 196.813, 187.8], [196.813, 199.055, 193.56], [199.055, 203.055, 195.8], [203.055, 212.788, 199.8], [212.788, 216.6, 209.52], [219.5, 221.85, 213.32], [226.5, 229.387, 215.68], [229.387, 234.787, 218.56], [234.787, 241.253, 223.96], [241.253, 242.319, 230.44]];
+const KLIPP = [[0, 12.433, 0.0], [12.433, 14.499, 12.44], [14.499, 19.15, 14.52], [20.55, 29.342, 19.16], [29.342, 37.708, 27.96], [37.708, 40.174, 36.32], [40.174, 43.486, 38.8], [43.486, 51.219, 42.12], [51.219, 53.952, 49.84], [53.952, 58.562, 52.56], [58.562, 60.528, 57.16], [60.528, 73.728, 59.12], [73.728, 83.728, 72.32], [83.728, 92.094, 82.32], [92.094, 98.634, 90.68], [98.634, 106.644, 97.24], [106.924, 108.71, 105.24], [108.71, 114.21, 107.04], [114.21, 118.043, 112.92], [118.043, 123.476, 116.76], [123.476, 133.242, 122.2], [133.242, 145.075, 131.96], [145.075, 146.515, 143.8], [146.515, 148.515, 145.24], [148.515, 149.915, 147.24], [149.915, 158.9, 148.64], [160.8, 160.981, 157.64], [160.981, 174.081, 157.84], [174.081, 184.481, 170.92], [184.481, 191.047, 181.32], [191.047, 196.813, 187.88], [196.813, 199.055, 193.64], [199.055, 203.055, 195.88], [203.055, 212.788, 199.88], [212.788, 216.6, 209.6], [219.5, 221.85, 213.4], [226.5, 229.387, 215.76], [229.387, 234.787, 218.64], [234.787, 241.253, 224.04], [241.253, 242.319, 230.52]];
 const R = T => { for (const [a, b, n] of KLIPP) { if (T < a) return n; if (T <= b) return n + (T - a); } const s = KLIPP[KLIPP.length - 1]; return s[2] + (s[1] - s[0]); };
-const KALD = 14.5, TITTEL = 1.6, HOVED = 217.45, DASH = 5.5;
+const KALD = 14.5, TITTEL = 1.6, HOVED = 217.53, DASH = 5.5;
 const M = T => R(T) + TITTEL;            // tid i (gammelt) opptak → tid i animasjonen
 const SLUTT = KALD + TITTEL + HOVED + DASH;
 window.S = [['kald', KALD], ['tittel', TITTEL], ['hoved', HOVED], ['dashman', DASH]];
@@ -113,7 +113,7 @@ lag(`<svg width="200" height="190" viewBox="0 0 200 190"><path d="M40 30 L52 170
   <path d="M160 62 C205 62 205 132 154 132" fill="none" stroke="#ecefe6" stroke-width="6"/><path d="M70 75 q12 -10 24 0 q12 10 24 0" fill="none" stroke="#56d7b8" stroke-width="5"/></svg>`,
   880, 700, M(19.6), M(40.0), 'kopp', { fra: M(20.4), til: M(23.4), y0: 700, y1: 330 });
 pil(830, 890, 830, 560, '#f19c2c', 7, M(21.0), 1.6, M(40.0));
-skriv('arbeid', 690, 690, M(22.6), M(40.0), 't', 0.8, { css: 'color:#f19c2c' });
+skriv('arbeid', 600, 690, M(22.6), M(40.0), 't', 0.8, { css: 'color:#f19c2c' });
 skriv('Energien er ikke borte …', 90, 330, M(33.0), M(40.0), 't', 1.6);
 skriv('… den ligger lagret og venter', 90, 410, M(37.8), M(40.0), 't', 1.6, { css: 'color:#56d7b8' });
 // definisjonsboks
@@ -162,7 +162,7 @@ egen(M(61.2), B1, (s, G) => {
   // forskyvningen x (oransje) og fjærkraften F (grønn), lengde ∝ x
   if (Math.abs(u) > 12) {
     const yx = 455; h += `<path d="M${LV} ${yx} L${E} ${yx} M${E - 18 * Math.sign(u)} ${yx - 12} L${E} ${yx} L${E - 18 * Math.sign(u)} ${yx + 12}" stroke="#f19c2c" stroke-width="5" fill="none" stroke-linecap="round"/>`;
-    h += `<text x="${(LV + E) / 2 - 12}" y="${yx - 14}" font-family="Hand" font-size="44" fill="#f19c2c">x</text>`;
+    h += `<text x="${(LV + E) / 2 - 12}" y="${yx - 14}" font-family="Hand" font-size="44" fill="#f19c2c">x</text><path d="M${(LV + E) / 2 - 12} ${yx - 52} l24 0 m-8 -6 l8 6 l-8 6" stroke="#f19c2c" stroke-width="3" fill="none" stroke-linecap="round"/>`;
     const L2 = -1.05 * u, yf = 240, xs = E + (u < 0 ? 12 : -12), xe = xs + L2, sg = Math.sign(L2);
     h += `<path d="M${xs} ${yf} L${xe} ${yf} M${xe - 22 * sg} ${yf - 15} L${xe} ${yf} L${xe - 22 * sg} ${yf + 15}" stroke="#6ef04a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
     h += `<text x="${xe + (sg > 0 ? 10 : -50)}" y="${yf + 14}" font-family="Hand" font-size="46" fill="#6ef04a">F</text>`;
@@ -183,8 +183,8 @@ lag('', 110, 640, M(81.0), B1, 'boks', { cls: 'boks graaboks', w: 520, css: 'hei
 skriv('HOOKES LOV', 140, 660, M(81.3), B1, 'tl', 0.9, { css: 'letter-spacing:.08em' });
 skriv('<span class="v">F</span> = <span id="minus" style="position:relative;display:inline-block">−<svg id="ring" width="90" height="90" viewBox="0 0 90 90" style="position:absolute;left:50%;top:50%;margin:-45px 0 0 -45px;overflow:visible"><path d="M45 8 C78 6 86 40 80 58 C72 84 20 88 9 60 C0 34 18 10 50 6" fill="none" stroke="#eee462" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/></svg></span> k<span class="v">x</span>', 160, 720, M(83.9), B1, 'f', 1.4, { ring: M(92.3), css: 'font-size:72px' });
 skriv('k = fjærkonstanten', 140, 830, M(89.2), B1, 'tl', 1.2, { css: 'color:#56d7b8' });
-skriv('minus: fjærkrafta virker alltid', 770, 690, M(93.0), B1, 'tl', 1.4, { css: 'color:#eee462' });
-skriv('tilbake mot likevekt', 770, 744, M(94.2), B1, 'tl', 1.2, { css: 'color:#eee462' });
+skriv('minus: fjærkrafta virker alltid', 110, 958, M(93.0), B1, 'tl', 1.4, { css: 'color:#eee462' });
+skriv('tilbake mot likevekt', 110, 1008, M(94.2), B1, 'tl', 1.2, { css: 'color:#eee462' });
 
 // --- C: Arbeidet er arealet (T 98.6–149.9) – grafen tegnet på nytt ---
 const C0 = SEKSJON[1], C1 = SEKSJON[2];
@@ -235,16 +235,16 @@ skriv('→ bevegelsesenergi', 840, 1030, M(146.8), C1, 'tl', 1.4, { css: 'color:
 const D0 = SEKSJON[2], D1 = SEKSJON[3];
 skriv('EKS 2: ENERGI I TYNGDEFELTET', 90, 60, D0 + 0.2, D1, 'h2', 1.3);
 sti('M90 145 q20 -10 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0', '#eee462', 4, D0 + 1.2, 0.8, D1);
-// ballen løftes fra bakken til høyden h (x 900–1240)
+// boka løftes fra bakken til høyden h (x 900–1240)
 sti('M760 900 L1100 900', '#ecefe6', 4, M(152.0), 0.8, D1);
-lag('<svg width="120" height="120"><circle cx="60" cy="60" r="52" fill="none" stroke="#ecefe6" stroke-width="5"/></svg>', 820, 778, M(152.4), D1, 'ball', { fra: M(155.0), til: M(161.0), y0: 778, y1: 330 });
-lag('<svg width="120" height="120"><circle cx="60" cy="60" r="52" fill="none" stroke="#9aa49e" stroke-width="3" stroke-dasharray="8 9"/></svg>', 820, 778, M(161.0), D1, 'fade');
+lag('<svg width="120" height="120"><rect x="8" y="34" width="104" height="58" rx="5" fill="none" stroke="#ecefe6" stroke-width="5"/><path d="M8 48 L112 48 M22 34 L22 92" stroke="#ecefe6" stroke-width="3" fill="none"/><path d="M34 64 L96 64 M34 76 L84 76" stroke="#9aa49e" stroke-width="3" fill="none"/></svg>', 820, 790, M(152.4), D1, 'ball', { fra: M(155.0), til: M(161.0), y0: 790, y1: 330 });
+lag('<svg width="120" height="120"><rect x="8" y="34" width="104" height="58" rx="5" fill="none" stroke="#9aa49e" stroke-width="3" stroke-dasharray="8 9"/></svg>', 820, 790, M(161.0), D1, 'fade');
 pil(880, 470, 880, 600, '#6ef04a', 7, M(166.4), 0.8, D1);   // G ned
 skriv('<span class="v">G</span>', 896, 560, M(166.8), D1, 't', 0.4, { css: 'color:#6ef04a' });
 pil(880, 320, 880, 200, '#6ef04a', 7, M(163.2), 0.8, D1);   // F opp
 skriv('<span class="v">F</span>', 896, 196, M(163.6), D1, 't', 0.4, { css: 'color:#6ef04a' });
 pil(1020, 898, 1020, 392, '#f19c2c', 7, M(185.6), 1.0, D1);   // h
-skriv('h', 1038, 600, M(186.3), D1, 't', 0.4, { css: 'color:#f19c2c' });
+skriv('<span class="v">h</span>', 1038, 600, M(186.3), D1, 't', 0.4, { css: 'color:#f19c2c' });
 skriv('konstant fart ⇒ F = G', 90, 180, M(160.0), D1, 't', 1.8, { css: 'color:#56d7b8' });
 lag('', 80, 240, M(169.2), D1, 'boks', { cls: 'boks graaboks', w: 400, css: 'height:150px' });
 skriv('TYNGDEKRAFT', 108, 252, M(169.4), D1, 'tl', 0.8, { css: 'letter-spacing:.08em' });
@@ -258,8 +258,8 @@ sti('M560 560 L560 860', '#56d7b8', 3, M(179.0), 0.5, D1, { strek: '0.02 0.02' }
 lag('<div style="width:440px;height:300px;background:rgba(236,239,230,.32)"></div>', 120, 560, M(179.4), D1, 'wipe', { varighet: 1.4 });
 skriv('mg', 60, 535, M(180.2), D1, 'tl', 0.4, { css: 'color:#6ef04a' });
 skriv('h', 548, 870, M(186.4), D1, 'tl', 0.4, { css: 'color:#f19c2c' });
-skriv('W = ∫ F dx = F · h', 120, 920, M(177.2), D1, 'f', 1.8, { css: 'font-size:50px' });
-skriv('= mg · h', 575, 920, M(183.0), D1, 'f', 1.2, { css: 'font-size:50px' });
+skriv('W = ∫ <span class="v">F</span> · d<span class="v">x</span> = F · h', 120, 920, M(177.2), D1, 'f', 1.8, { css: 'font-size:50px' });
+skriv('= mg · h', 600, 920, M(183.0), D1, 'f', 1.2, { css: 'font-size:50px' });
 lag('', 760, 950, M(194.8), D1, 'boks', { cls: 'boks gronnboks', w: 360, css: 'height:100px;padding:6px 24px' });
 skriv('E<sub>p</sub> = mgh', 800, 956, M(195.2), D1, 'f', 1.0, { css: 'font-size:62px' });
 
