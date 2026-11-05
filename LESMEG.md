@@ -36,7 +36,10 @@ Videoene sorteres etter **emne** (som på nettstedet), ikke etter fag, fordi sam
 Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier noe nytt.
 
 - **Kursnøytrale videoer.** En video skal kunne brukes i flere fag og løyper. Ikke referer til et bestemt kurs, kapittel eller rekkefølge: ikke «i dette kurset/forkurset», «i kapittel 3», «forrige video» eller «neste gang ser vi på …». Det gjelder både manus og tekst på skjermen. Knytt i stedet videoen til emnet (f.eks. «Arbeid og energi · Potensiell energi»). Henvisninger til nettstedet («fysikkhjelp») og til «oppgavene under videoen» er greit.
-- **Lærerens egne tegninger** (PDF fra iPad, med vektorstreker) brukes når de finnes, for å beholde det personlige særpreget. Strekene tegnes fram i takt med det som sies. Det er greit å gjøre strekene tykkere, rydde, flytte elementer, eller bytte ut deler med TikZ/egne animasjoner der det blir tydeligere eller bevegelsen blir bedre. Gjør det, og fortell kort hva som er endret.
+- **Tavla tegnes helst på nytt** (egen SVG/TikZ med uformelle bokstaver i håndskriftfonten), med lærerens tegninger som skisse for innhold og oppsett. Uttrekk av iPad-strekene ga prikker og rot. Lærerens egne strektegninger brukes bare når de er rene (f.eks. Dashman). Finn gjerne et bedre pedagogisk oppsett ut fra det læreren sier.
+- **Ting som beveger seg følger læreren:** når læreren presser sammen eller strekker en fjær, presses/strekkes fjæra på tavla i takt, og kraftvektoren vokser. Vis likevektsposisjonen og hva x er.
+- **Forklar formler eksplisitt** – studentene trenger mer enn du tror. Skriv f.eks. «Areal av trekant: A = ½ · g · h» før man setter inn x og kx.
+- **Lydeffekter i takt med det som skjer i bildet** (sjekk opptaket: «SPJONG» når fjæra faktisk slippes). Gjerne en bølge utover hele tavla ved «SPJONG».
 - **Tekst** fra tegningene skrives om med håndskriftfonten Architects Daughter (penere enn håndskrift, men samme preg). Tittelen er oransje.
 - **Læreren i bildet:** læreren står foran grønnskjerm og havner nede til høyre. Foreslå gjerne rekvisitter og ting læreren gjør (løfter en ball, trykker sammen en fjær, filmer ute …). Skriv det inn i manus som **[Du:** …**]**, med en liste over rekvisitter øverst.
 - **DrNormann-logoen** står øverst til høyre gjennom hele videoen. Fysikkhjelp-logoen bare i starten og slutten.
@@ -44,10 +47,11 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Opptaket kommer først**, og animasjonen tilpasses det læreren faktisk sier og gjør.
 - **Lengde:** ca. 3 minutter (ca. 340 ord tale + pauser for det læreren gjør).
 - **Notasjon** etter [NOTASJON.md](https://github.com/Realfagsambassaden/Plattform/blob/main/NOTASJON.md): punktum som desimaltegn, naturkonstanter i rett skrift, g = 9.81 m/s², SI-enheter med prefikser, gjeldende siffer.
-- **Intro og outro** (DrNormann-introen og -outroen fra `Filmprosjekt/DrNormann/`) skal med i hver video.
+- **Intro og outro som i Arbeid-videoen, men med grønn DrNormann:** kort DrNormann-intro i negativ der «Dr. Normann» er **neongrønn** (som logoen i hjørnet) → miniatyrbildet som tittelkort → videoen → Dashman-stinger hvis det finnes → outro med den grønne DrNormann-logoen på dempet tavle. Grønn «DrNormann» er lærerens kjennemerke. Lages med `_verktoy/intro_gronn.py` og `_verktoy/outro_gronn.py`.
 - **Overganger** gjerne med svisj-lyd og litt leken bevegelse (viskelær over tavla, «SPJONG!», «boing»), slik det er vanlig på YouTube.
 - **Morsomme øyeblikk** fra opptaket (f.eks. når læreren rigger opp eller tuller litt) kan klippes inn som en kort kald start før introen.
-- **Avslappet, men kort.** Ta med det beste av det læreren sier, kutt omtak og lange pauser.
+- **Avslappet, men kort.** Ta med det beste av det læreren sier, kutt omtak, snubling og lange pauser (også kunstige pauser > ca. 1 s og øyeblikk der læreren bare ser inn i kameraet). Behold pauser der læreren gjør noe med rekvisitter.
+- **Leppesynk må stemme** (se «Klipping» i CLAUDE.md). Læreren merker det med en gang hvis bildet henger etter.
 - **Mapper på Macen:** materialet til en video ligger i iCloud under `Filmprosjekt/DrNormann/<FAG>/<OMRÅDE>/<tema>/`, f.eks. `Filmprosjekt/DrNormann/INGENIØRFYSIKK/MEKANIKK—Ingeniør/Potensiell energi/` (opptaket `MEG.mov`, tegningene som PDF). Den ferdige videoen og miniatyrbildet legges i samme mappe.
 
 (Flere faste ønsker for tone, åpning og avslutning noteres her etter hvert.)

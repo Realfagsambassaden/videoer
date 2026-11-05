@@ -90,8 +90,12 @@ const pil = (x1, y1, x2, y2, farge, b, inn, v, ut) => {   // pil som strek med p
 };
 
 // ---------- tidslinje ----------
-const KALD = 14.5, TITTEL = 2.6, HOVED = 227.82, DASH = 5.5;
-const M = T => T + TITTEL;               // tid i opptaket → tid i animasjonen
+// Tidene under er skrevet i T = tid i FØRSTE klipp (klipp/edl.json). Utkast 2 har kuttet bort noen biter;
+// KLIPP oversetter gammel T til ny T: [gammel T0, gammel T1, ny T0] per bit (klipp/edl2.json).
+const KLIPP = [[0, 12.433, 0.0], [12.433, 14.499, 12.44], [14.499, 19.15, 14.52], [20.55, 29.342, 19.16], [29.342, 37.708, 27.96], [37.708, 40.174, 36.32], [40.174, 43.486, 38.8], [43.486, 51.219, 42.12], [51.219, 53.952, 49.84], [53.952, 58.562, 52.56], [58.562, 60.528, 57.16], [60.528, 73.728, 59.12], [73.728, 83.728, 72.32], [83.728, 92.094, 82.32], [92.094, 98.634, 90.68], [98.634, 106.644, 97.24], [106.644, 108.71, 105.24], [108.71, 114.21, 107.32], [114.21, 118.043, 112.84], [118.043, 123.476, 116.68], [123.476, 133.242, 122.12], [133.242, 145.075, 131.88], [145.075, 146.515, 143.72], [146.515, 148.515, 145.16], [148.515, 149.915, 147.16], [149.915, 158.9, 148.56], [160.8, 160.981, 157.56], [160.981, 174.081, 157.76], [174.081, 184.481, 170.84], [184.481, 191.047, 181.24], [191.047, 196.813, 187.8], [196.813, 199.055, 193.56], [199.055, 203.055, 195.8], [203.055, 212.788, 199.8], [212.788, 216.6, 209.52], [219.5, 221.85, 213.32], [226.5, 229.387, 215.68], [229.387, 234.787, 218.56], [234.787, 241.253, 223.96], [241.253, 242.319, 230.44]];
+const R = T => { for (const [a, b, n] of KLIPP) { if (T < a) return n; if (T <= b) return n + (T - a); } const s = KLIPP[KLIPP.length - 1]; return s[2] + (s[1] - s[0]); };
+const KALD = 14.5, TITTEL = 1.6, HOVED = 217.45, DASH = 5.5;
+const M = T => R(T) + TITTEL;            // tid i (gammelt) opptak → tid i animasjonen
 const SLUTT = KALD + TITTEL + HOVED + DASH;
 window.S = [['kald', KALD], ['tittel', TITTEL], ['hoved', HOVED], ['dashman', DASH]];
 const START = [0, KALD, KALD + TITTEL, KALD + TITTEL + HOVED];
@@ -102,11 +106,8 @@ lag('<span class="rec">● REC</span>', 90, 70, 0.2, KALD, 'blink');
 skriv('bak kulissene …', 90, 140, 0.8, KALD, 't', 1.4, { css: 'color:#9aa49e;font-size:46px' });
 skriv('«wireless GoPro og greier»', 90, 900, M(9.6) - TITTEL, KALD, 'tl', 1.2, { css: 'color:#eee462;transform:rotate(-3deg)' });
 
-// --- Tittelkort ---
-lag('<img src="../../_verktoy/fh-logo-linje.png" style="height:70px">', 90, 80, KALD, KALD + TITTEL, 'fade');
-skriv('ARBEID OG ENERGI', 160, 360, KALD + 0.1, KALD + TITTEL, 'tl', 0.6, { css: 'color:#6ef04a;letter-spacing:.2em' });
-skriv('POTENSIELL ENERGI', 150, 430, KALD + 0.25, KALD + TITTEL, 'h1', 1.1, { css: 'font-size:150px' });
-sti('M160 620 C600 600 1100 640 1640 612', '#f19c2c', 8, KALD + 0.9, 0.8, KALD + TITTEL);
+// --- Tittelkort: miniatyrbildet (som i Arbeid-videoen) ---
+lag('<img src="thumbnail.jpg" style="width:1920px;height:1080px">', 0, 0, KALD, KALD + TITTEL, 'tittelkort');
 
 // --- A: Hva er potensiell energi? (T 14.5–60.5) ---
 const A0 = M(14.5), A1 = SEKSJON[0];
@@ -131,50 +132,110 @@ skriv('slipper → lagret energi blir til <span style="color:#6ef04a">bevegelses
 skriv('To eksempler:', 90, 790, M(58.8), A1, 't', 0.8, { css: 'color:#eee462' });
 skriv('1. spiralfjær &nbsp;&nbsp; 2. tyngdefeltet', 420, 790, M(59.5), A1, 't', 1.0);
 
-// --- B: Eks 1, spiralfjær (T 60.5–98.6) ---
+// --- B: Eks 1, spiralfjær (T 60.5–98.6) – tegnet på nytt (fjær som presses/strekkes i takt med læreren) ---
 const B0 = SEKSJON[0], B1 = SEKSJON[1];
 skriv('EKS 1: ENERGI I SPIRALFJÆR', 90, 60, B0 + 0.2, B1, 'h2', 1.3);
 sti('M90 145 q20 -10 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0', '#eee462', 4, B0 + 1.2, 0.8, B1);
-tegning('fjaer', 70, 200, 800, M(61.6), B1, [
-  { fra: M(61.6), til: M(63.4), velg: (x, y) => y < 75 },
-  { fra: M(64.0), til: M(66.2), velg: (x, y) => y >= 75 && y < 120 },
-  { fra: M(66.6), til: M(68.6), velg: (x, y) => y >= 120 && y < 150 },
-  { fra: M(69.0), til: M(71.4), velg: (x, y) => y >= 150 },
-]);
-lag('<span class="pop">SPJONG!</span>', 880, 600, M(72.3), M(74.4), 'stempel', { rot: 6 });
-lag('', 900, 200, M(81.0), B1, 'boks', { cls: 'boks graaboks', w: 360, css: 'height:190px' });
-skriv('HOOKES LOV', 930, 220, M(81.3), B1, 'tl', 0.9, { css: 'letter-spacing:.08em' });
-skriv('<span class="v">F</span> = −k<span class="v">x</span>', 950, 280, M(83.9), B1, 'f', 1.4);
-skriv('k = fjærkonstanten', 900, 420, M(89.2), B1, 'tl', 1.2, { css: 'color:#56d7b8' });
-sti('M1046 316 C1018 300 1016 352 1048 352 C1082 352 1080 300 1046 316', '#eee462', 4, M(92.3), 0.7, B1);
-skriv('minus: kraften virker mot likevekt', 870, 900, M(93.0), B1, 'tl', 2.2, { css: 'color:#eee462;font-size:36px', w: 420 });
+// vegg og likevektslinje
+sti('M150 225 L150 455 M150 245 L122 270 M150 285 L122 310 M150 325 L122 350 M150 365 L122 390 M150 405 L122 430', '#ecefe6', 5, M(61.0), 0.8, B1);
+const LV = 720;   // fri ende i likevekt (px)
+sti(`M${LV} 210 L${LV} 470`, '#9aa49e', 3, M(61.4), 0.6, B1, { strek: '12 12' });
+skriv('likevekt', LV - 70, 480, M(61.8), B1, 'tl', 0.8, { css: 'color:#9aa49e;font-size:36px' });
+skriv('x = 0', LV - 48, 528, M(62.2), B1, 'tl', 0.6, { css: 'color:#9aa49e;font-size:36px' });
+// fjærens frie ende E(G) i takt med det læreren gjør
+const SV = (G, t0, A, f = 3.2, d = 0.42) => { const t = G - t0; return t < 0 ? A : A * Math.cos(2 * Math.PI * f * t) * Math.exp(-t / d); };
+function fjaerEnde(G) {
+  let u = 0;   // utslag fra likevekt (px), negativ = presset sammen
+  if (G < M(63.5)) u = 0;
+  else if (G < M(71.95)) u = -250 * glatt((G - M(63.5)) / (M(69.0) - M(63.5)));
+  else if (G < M(74.5)) u = SV(G, M(71.95), -250);                                   // SPJONG
+  else if (G < M(80.45)) u = 250 * glatt((G - M(74.5)) / (M(78.0) - M(74.5)));        // drar den utover
+  else if (G < M(85.0)) u = SV(G, M(80.45), 250, 2.6, 0.38);
+  else if (G < M(91.4)) u = -190 * glatt((G - M(85.0)) / (M(87.5) - M(85.0)));        // presser igjen (Hookes lov)
+  else u = -190 * (1 - glatt((G - M(91.4)) / 1.0));
+  return u;
+}
+const ns = 'http://www.w3.org/2000/svg';
+function egen(inn, ut, tegn) { const s = document.createElementNS(ns, 'svg'); s.setAttribute('width', 1920); s.setAttribute('height', 1080);
+  s.style.cssText = 'position:absolute;left:0;top:0;opacity:0;pointer-events:none'; L.appendChild(s); const o = { el: s, inn, ut, type: 'egen', tegn }; E.push(o); return o; }
+egen(M(61.2), B1, (s, G) => {
+  const u = fjaerEnde(G), E = LV + u, y = 340, x0 = 150, n = 13, a0 = x0 + 30, a1 = E - 34, k = klemt((G - M(61.2)) / 1.4);
+  let d = `M${x0} ${y} L${a0} ${y}`;
+  for (let i = 0; i < n; i++) { const xa = a0 + (a1 - a0) * (i + 0.25) / n, xb = a0 + (a1 - a0) * (i + 0.75) / n; d += ` L${xa} ${y - 46} L${xb} ${y + 46}`; }
+  d += ` L${a1} ${y} L${E} ${y}`;
+  let h = `<path d="${d}" fill="none" stroke="#eee462" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${1 - k}"/>`;
+  h += `<rect x="${E - 8}" y="${y - 62}" width="18" height="124" rx="6" fill="#ecefe6" opacity="${k}"/>`;
+  // forskyvningen x (oransje) og fjærkraften F (grønn), lengde ∝ x
+  if (Math.abs(u) > 12) {
+    const yx = 455; h += `<path d="M${LV} ${yx} L${E} ${yx} M${E - 18 * Math.sign(u)} ${yx - 12} L${E} ${yx} L${E - 18 * Math.sign(u)} ${yx + 12}" stroke="#f19c2c" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+    h += `<text x="${(LV + E) / 2 - 12}" y="${yx - 14}" font-family="Hand" font-size="44" fill="#f19c2c">x</text>`;
+    const L2 = -1.05 * u, yf = 240, xs = E + (u < 0 ? 12 : -12), xe = xs + L2, sg = Math.sign(L2);
+    h += `<path d="M${xs} ${yf} L${xe} ${yf} M${xe - 22 * sg} ${yf - 15} L${xe} ${yf} L${xe - 22 * sg} ${yf + 15}" stroke="#6ef04a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+    h += `<text x="${xe + (sg > 0 ? 10 : -50)}" y="${yf + 14}" font-family="Hand" font-size="46" fill="#6ef04a">F</text>`;
+    h += `<path d="M${xe + (sg > 0 ? 12 : -48)} ${yf - 26} l26 0 m-8 -7 l8 7 l-8 7" stroke="#6ef04a" stroke-width="3" fill="none"/>`;
+  }
+  s.innerHTML = h;
+});
+// SPJONG med en bølge utover hele tavla
+lag('<span class="pop">SPJONG!</span>', 880, 560, M(72.0), M(74.4), 'stempel', { rot: 6 });
+egen(M(71.95), M(74.0), (s, G) => {
+  let h = ''; for (let i = 0; i < 4; i++) { const t = G - M(71.95) - i * 0.14; if (t < 0) continue; const r = 2600 * Math.pow(t / 1.6, 0.8), op = klemt(1 - t / 1.6);
+    h += `<circle cx="470" cy="340" r="${r}" fill="none" stroke="${i % 2 ? '#56d7b8' : '#eee462'}" stroke-width="${10 - i * 2}" opacity="${op * 0.8}"/>`; }
+  s.innerHTML = h;
+});
+const SKAKER = [[M(71.95), 0.7, 14], [M(144.2), 0.6, 12]];   // [start, varighet, px]
+// Hookes lov
+lag('', 110, 640, M(81.0), B1, 'boks', { cls: 'boks graaboks', w: 520, css: 'height:250px' });
+skriv('HOOKES LOV', 140, 660, M(81.3), B1, 'tl', 0.9, { css: 'letter-spacing:.08em' });
+skriv('<span class="v">F</span> = <span id="minus" style="position:relative;display:inline-block">−<svg id="ring" width="90" height="90" viewBox="0 0 90 90" style="position:absolute;left:50%;top:50%;margin:-45px 0 0 -45px;overflow:visible"><path d="M45 8 C78 6 86 40 80 58 C72 84 20 88 9 60 C0 34 18 10 50 6" fill="none" stroke="#eee462" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/></svg></span> k<span class="v">x</span>', 160, 720, M(83.9), B1, 'f', 1.4, { ring: M(92.3), css: 'font-size:72px' });
+skriv('k = fjærkonstanten', 140, 830, M(89.2), B1, 'tl', 1.2, { css: 'color:#56d7b8' });
+skriv('minus: fjærkrafta virker alltid', 770, 690, M(93.0), B1, 'tl', 1.4, { css: 'color:#eee462' });
+skriv('tilbake mot likevekt', 770, 744, M(94.2), B1, 'tl', 1.2, { css: 'color:#eee462' });
 
-// --- C: Arbeidet er arealet (T 98.6–149.9) ---
+// --- C: Arbeidet er arealet (T 98.6–149.9) – grafen tegnet på nytt ---
 const C0 = SEKSJON[1], C1 = SEKSJON[2];
 skriv('EKS 1: ENERGI I SPIRALFJÆR', 90, 60, C0, C1, 'h2', 0.01);
 sti('M90 145 q20 -10 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0', '#eee462', 4, C0, 0.01, C1);
-// graf: akser og linje først, så punktene og stiplede linjer
-const gx = 80, gy = 210, gb = 640, gsk = gb / 170;   // graf1: viewBox 262 95 170 173
-lag(`<svg width="${gb}" height="${173 * gsk}" viewBox="262 95 170 173"><polygon id="trekant" points="281,256 368,256 368,155" fill="rgba(236,239,230,.32)"/></svg>`, gx, gy, M(109.2), C1, 'wipe', { varighet: 1.6 });
-tegning('graf1', gx, gy, gb, M(99.4), C1, [
-  { fra: M(99.4), til: M(101.0), velg: (x, y, p) => p.getAttribute('stroke') && p.getAttribute('stroke').startsWith('rgb(100%, 99') },
-  { fra: M(103.6), til: M(105.4), velg: (x, y, p) => p.getAttribute('stroke') && p.getAttribute('stroke').startsWith('rgb(49') },
-  { fra: M(106.7), til: M(108.6), velg: (x, y, p) => !(p.getAttribute('stroke') || '').startsWith('rgb(100%, 99') && !(p.getAttribute('stroke') || '').startsWith('rgb(49') },
-]);
-skriv('arbeid brukt på å', 790, 250, M(109.6), C1, 't', 1.0);
-skriv('presse sammen fjæra', 790, 312, M(110.6), C1, 't', 1.2);
-pil(770, 420, 560, 520, '#ecefe6', 4, M(110.2), 0.8, C1);
-skriv('= arealet under grafen', 790, 374, M(112.0), C1, 'tl', 1.0, { css: 'color:#9aa49e' });
-skriv('trekant: ½ · x · kx', 790, 470, M(122.3), C1, 't', 1.4, { css: 'color:#56d7b8' });
-skriv('W = ∫ <span class="v">F</span> · d<span class="v">x</span> = ∫ kx dx', 790, 560, M(126.3), C1, 'f', 2.0, { css: 'font-size:50px' });
-skriv('= ½ kx² + W<sub>0</sub>', 840, 640, M(129.2), C1, 'f', 1.6, { css: 'font-size:50px' });
-skriv('W<sub>0</sub> = 0', 1010, 700, M(131.8), C1, 'tl', 0.8, { css: 'color:#eee462' });
-skriv('arbeidet forsvinner ikke – det ligger lagret i fjæra', 80, 940, M(134.4), C1, 'tl', 2.6);
-lag('', 790, 770, M(139.6), C1, 'boks', { cls: 'boks gronnboks', w: 460, css: 'height:140px' });
-skriv('POTENSIELL ENERGI I SPIRALFJÆR', 810, 782, M(139.8), C1, 'tl', 1.2, { css: 'color:#6ef04a;font-size:28px;letter-spacing:.06em' });
-skriv('E<sub>p</sub> = ½ kx²', 860, 826, M(140.6), C1, 'f', 1.0, { css: 'font-size:62px' });
-lag('<span class="pop">SPJONG!</span>', 300, 700, M(143.4), M(145.6), 'stempel', { rot: -6 });
-skriv('→ bevegelsesenergi', 80, 1005, M(146.0), C1, 'tl', 1.4, { css: 'color:#6ef04a' });
+const OX = 170, OY = 900, X3 = 610;   // origo og x3 (px); linja F = kx har stigning 1 i px
+// skravert trekant – nøyaktig under grafen (tegnes først så linja ligger over)
+lag(`<svg width="${X3 - OX}" height="${X3 - OX}"><polygon points="0,${X3 - OX} ${X3 - OX},${X3 - OX} ${X3 - OX},0" fill="rgba(236,239,230,.30)"/></svg>`, OX, OY - (X3 - OX), M(109.2), C1, 'wipe', { varighet: 1.6 });
+pil(OX, OY + 12, OX, 240, '#ecefe6', 4, M(99.4), 0.7, C1);
+pil(OX - 12, OY, 790, OY, '#ecefe6', 4, M(99.8), 0.7, C1);
+skriv('F', OX - 50, 222, M(100.0), C1, 't', 0.3);
+skriv('x', 800, OY - 34, M(100.4), C1, 't', 0.3);
+sti(`M${OX} ${OY} L700 ${OY - 530}`, '#6ef04a', 6, M(103.6), 1.4, C1);
+skriv('F = kx', 600, 300, M(104.6), C1, 't', 0.8, { css: 'color:#6ef04a' });
+[[300, 1], [455, 2], [X3, 3]].forEach(([x, i], j) => {
+  const y = OY - (x - OX), t = M(106.7) + j * 0.5;
+  sti(`M${x} ${OY} L${x} ${y} M${OX} ${y} L${x} ${y}`, '#56d7b8', 3, t, 0.4, C1, { strek: '10 10' });
+  lag(`<svg width="22" height="22"><circle cx="11" cy="11" r="9" fill="#56d7b8"/></svg>`, x - 11, y - 11, t + 0.3, C1, 'fade');
+  skriv(`x<sub>${i}</sub>`, x - 14, OY + 10, t + 0.3, C1, 'tl', 0.3, { css: 'color:#56d7b8' });
+  skriv(`F<sub>${i}</sub>`, OX - 62, y - 26, t + 0.3, C1, 'tl', 0.3, { css: 'color:#56d7b8' });
+});
+skriv('arbeid brukt på å', 830, 230, M(109.6), C1, 't', 1.0);
+skriv('presse sammen fjæra', 830, 292, M(110.6), C1, 't', 1.2);
+skriv('= arealet under grafen', 830, 354, M(112.0), C1, 't', 1.0, { css: 'color:#9aa49e' });
+pil(820, 400, 520, 760, '#ecefe6', 4, M(110.2), 0.8, C1);
+// arealet av en trekant: A = ½ · g · h
+skriv('Areal av trekant:', 830, 450, M(122.3), C1, 't', 1.0, { css: 'color:#56d7b8' });
+sti('M1165 565 L1265 565 L1265 490 Z', '#56d7b8', 4, M(122.6), 0.7, C1);
+skriv('g', 1203, 566, M(123.0), C1, 'tl', 0.3, { css: 'color:#f19c2c' });
+skriv('h', 1273, 500, M(123.0), C1, 'tl', 0.3, { css: 'color:#f19c2c' });
+skriv('A = ½ · g · h', 830, 515, M(123.2), C1, 'f', 1.0, { css: 'font-size:52px' });
+sti(`M${OX} ${OY + 62} L${OX} ${OY + 74} L${X3} ${OY + 74} L${X3} ${OY + 62}`, '#f19c2c', 4, M(123.6), 0.6, C1);
+skriv('g = x', (OX + X3) / 2 - 50, OY + 78, M(123.8), C1, 'tl', 0.5, { css: 'color:#f19c2c' });
+skriv('h = kx', X3 + 18, OY - 250, M(124.2), C1, 'tl', 0.5, { css: 'color:#f19c2c' });
+skriv('= ½ · x · kx', 880, 585, M(124.6), C1, 'f', 1.0, { css: 'font-size:52px' });
+// integralet
+skriv('W = ∫ <span class="v">F</span> · d<span class="v">x</span> = ∫ kx dx', 830, 670, M(126.3), C1, 'f', 2.0, { css: 'font-size:50px' });
+skriv('= ½ kx² + W<sub>0</sub>', 880, 742, M(129.2), C1, 'f', 1.6, { css: 'font-size:50px' });
+skriv('W<sub>0</sub> = 0', 1000, 800, M(131.8), C1, 'tl', 0.8, { css: 'color:#eee462' });
+skriv('arbeidet forsvinner ikke – det ligger lagret i fjæra', 90, 1032, M(134.4), C1, 'tl', 2.4, { css: 'font-size:30px' });
+lag('', 820, 855, M(139.6), C1, 'boks', { cls: 'boks gronnboks', w: 400, css: 'height:120px' });
+skriv('POTENSIELL ENERGI I SPIRALFJÆR', 840, 867, M(139.8), C1, 'tl', 1.2, { css: 'color:#6ef04a;font-size:24px;letter-spacing:.05em' });
+skriv('E<sub>p</sub> = ½ kx²', 890, 911, M(140.6), C1, 'f', 1.0, { css: 'font-size:62px' });
+lag('<span class="pop">SPJONG!</span>', 230, 640, M(144.2), M(146.4), 'stempel', { rot: -6 });
+skriv('→ bevegelsesenergi', 840, 1030, M(146.8), C1, 'tl', 1.4, { css: 'color:#6ef04a;font-size:34px' });
 
 // --- D: Eks 2, tyngdefeltet (T 149.9–203) ---
 const D0 = SEKSJON[2], D1 = SEKSJON[3];
@@ -277,6 +338,11 @@ window.render = function (n, t) {
       o.el.style.clipPath = kutt ? `inset(-50% -50% -50% ${kutt}px)` : '';
       continue;
     }
+    if (o.type === 'egen') {
+      o.el.style.opacity = synlig ? 1 : 0; if (synlig) o.tegn(o.el, G);
+      o.el.style.clipPath = kutt ? `inset(0 0 0 ${kutt}px)` : '';
+      continue;
+    }
     if (o.type === 'sti') {
       o.el.style.opacity = synlig ? 1 : 0;
       o.p.style.strokeDashoffset = 1 - klemt((G - o.inn) / o.varighet);
@@ -288,13 +354,17 @@ window.render = function (n, t) {
     const x = (G - o.inn) / o.varighet;
     el.style.transform = '';
     if (o.type === 'skriv' || o.type === 'wipe') hoyre = 100 - 100 * glatt(x);
+    else if (o.type === 'tittelkort') { const k = glatt((G - o.inn) / 0.25); el.style.opacity = k; el.style.transform = `scale(${1.04 - 0.04 * glatt((G - o.inn) / o.varighet / 2.5)})`; }
     else if (o.type === 'fade' || o.type === 'panel') el.style.opacity = glatt((G - o.inn) / 0.4);
     else if (o.type === 'boks') { el.style.opacity = glatt((G - o.inn) / 0.35); el.style.transform = `scale(${lerp(0.94, 1, glatt((G - o.inn) / 0.35))})`; }
     else if (o.type === 'blink') el.style.opacity = Math.floor(G * 1.6) % 2 ? 0.25 : 1;
     else if (o.type === 'stempel') { const k = klemt((G - o.inn) / 0.22); const sk = k < 1 ? lerp(2.2, 1, glatt(k)) : 1 + 0.03 * Math.sin((G - o.inn) * 9); el.style.transform = `rotate(${o.rot || 0}deg) scale(${sk})`; el.style.opacity = Math.min(k * 2, 1, klemt((o.ut - G) / 0.25)); }
     else if (o.type === 'kopp' || o.type === 'ball') { const k = glatt((G - o.fra) / (o.til - o.fra)); el.style.top = lerp(o.y0, o.y1, k) + 'px'; el.style.opacity = glatt((G - o.inn) / 0.4); }
+    if (o.ring) { const rp = el.querySelector('#ring path'); if (rp) rp.setAttribute('stroke-dashoffset', 1 - klemt((G - o.ring) / 0.7)); }
     el.style.clipPath = (hoyre || kutt) ? `inset(-30% ${hoyre}% -30% ${kutt ? kutt + 'px' : '-2%'})` : '';
   }
+  let sk = 0; for (const [t0, v, a] of SKAKER) { const t = G - t0; if (t >= 0 && t < v) sk = a * (1 - t / v); }
+  L.style.transform = sk ? `translate(${sk * Math.sin(G * 83)}px, ${sk * Math.cos(G * 71)}px)` : '';
   const vk = document.getElementById('viskelaer');
   if (V) { vk.style.display = 'block'; vk.style.left = (V.x - 260) + 'px'; vk.style.transform = 'skewX(-12deg)'; } else vk.style.display = 'none';
   sone.style.display = window.VIS_SONE ? 'block' : 'none';

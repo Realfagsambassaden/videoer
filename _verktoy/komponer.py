@@ -7,11 +7,15 @@ plan.json: liste med {"fra": G0, "til": G1, "opptak": T0, "hoyde": 680, "midt": 
 T0 = tid i opptaket ved G0). Utenfor planen vises bare animasjonen."""
 import argparse, json, subprocess, numpy as np
 
-def nokkel(rgb, t0=18, t1=48):
-    r, g, b = rgb[..., 0].astype(np.int16), rgb[..., 1].astype(np.int16), rgb[..., 2].astype(np.int16)
+def nokkel(rgb, t0=14, t1=46):
+    """Myk grønnskjermnøkkel. Despill: grønt dempes mot snittet av rød og blå, så håret ikke får grønt skjær;
+    alfa krympes en piksel inn så grønne kanter forsvinner."""
+    from scipy import ndimage as nd
+    r, g, b = (rgb[..., i].astype(np.float32) for i in range(3))
     m = np.maximum(r, b); gronn = g - m
     a = 1 - np.clip((gronn - t0) / (t1 - t0), 0, 1)          # 1 = læreren, 0 = grønnskjerm
-    g2 = np.minimum(g, m + 6)                                   # fjern grønt skjær i kantene
+    a = nd.gaussian_filter(nd.grey_erosion(a, size=(3, 3)), 0.8)
+    g2 = np.minimum(g, (r + b) / 2 * 0.55 + m * 0.45)
     ut = np.stack([r, g2, b], -1).clip(0, 255).astype(np.uint8)
     return ut, a.astype(np.float32)
 
