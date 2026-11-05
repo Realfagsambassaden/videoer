@@ -1,0 +1,282 @@
+[
+ {
+  "start": 0.08,
+  "slutt": 12.5,
+  "merke": "kald",
+  "ny": 0,
+  "lengde": 12.433
+ },
+ {
+  "start": 14.44,
+  "slutt": 16.5,
+  "merke": "kald",
+  "ny": 12.433,
+  "lengde": 2.066
+ },
+ {
+  "start": 19.19,
+  "slutt": 24.0,
+  "merke": "a1",
+  "ny": 14.499,
+  "lengde": 4.81
+ },
+ {
+  "start": 26.42,
+  "slutt": 36.45,
+  "merke": "a2",
+  "ny": 19.309,
+  "lengde": 10.033
+ },
+ {
+  "start": 48.22,
+  "slutt": 56.58,
+  "merke": "a3",
+  "ny": 29.342,
+  "lengde": 8.366
+ },
+ {
+  "start": 63.42,
+  "slutt": 65.86,
+  "merke": "a4",
+  "ny": 37.708,
+  "lengde": 2.466
+ },
+ {
+  "start": 66.72,
+  "slutt": 70.032,
+  "merke": "a5",
+  "ny": 40.174,
+  "lengde": 3.312
+ },
+ {
+  "start": 70.449,
+  "slutt": 78.18,
+  "merke": "a5",
+  "ny": 43.486,
+  "lengde": 7.733
+ },
+ {
+  "start": 78.18,
+  "slutt": 80.89,
+  "merke": "a6",
+  "ny": 51.219,
+  "lengde": 2.733
+ },
+ {
+  "start": 102.39,
+  "slutt": 107.0,
+  "merke": "a7",
+  "ny": 53.952,
+  "lengde": 4.61
+ },
+ {
+  "start": 107.78,
+  "slutt": 109.72,
+  "merke": "a8",
+  "ny": 58.562,
+  "lengde": 1.966
+ },
+ {
+  "start": 160.38,
+  "slutt": 173.55,
+  "merke": "b1",
+  "ny": 60.528,
+  "lengde": 13.2
+ },
+ {
+  "start": 174.51,
+  "slutt": 184.5,
+  "merke": "b2",
+  "ny": 73.728,
+  "lengde": 10.0
+ },
+ {
+  "start": 192.08,
+  "slutt": 200.43,
+  "merke": "b3",
+  "ny": 83.728,
+  "lengde": 8.366
+ },
+ {
+  "start": 213.32,
+  "slutt": 219.86,
+  "merke": "b4",
+  "ny": 92.094,
+  "lengde": 6.54
+ },
+ {
+  "start": 258.23,
+  "slutt": 266.24,
+  "merke": "c1",
+  "ny": 98.634,
+  "lengde": 8.01
+ },
+ {
+  "start": 276.13,
+  "slutt": 278.17,
+  "merke": "c2",
+  "ny": 106.644,
+  "lengde": 2.066
+ },
+ {
+  "start": 280.54,
+  "slutt": 286.04,
+  "merke": "c3",
+  "ny": 108.71,
+  "lengde": 5.5
+ },
+ {
+  "start": 289.82,
+  "slutt": 293.64,
+  "merke": "c4",
+  "ny": 114.21,
+  "lengde": 3.833
+ },
+ {
+  "start": 306.37,
+  "slutt": 311.786,
+  "merke": "c5",
+  "ny": 118.043,
+  "lengde": 5.433
+ },
+ {
+  "start": 312.315,
+  "slutt": 322.08,
+  "merke": "c5",
+  "ny": 123.476,
+  "lengde": 9.766
+ },
+ {
+  "start": 329.77,
+  "slutt": 341.59,
+  "merke": "c6",
+  "ny": 133.242,
+  "lengde": 11.833
+ },
+ {
+  "start": 342.19,
+  "slutt": 343.63,
+  "merke": "c7",
+  "ny": 145.075,
+  "lengde": 1.44
+ },
+ {
+  "start": 591.18,
+  "slutt": 593.15,
+  "merke": "c8",
+  "ny": 146.515,
+  "lengde": 2.0
+ },
+ {
+  "start": 344.74,
+  "slutt": 346.12,
+  "merke": "c9",
+  "ny": 148.515,
+  "lengde": 1.4
+ },
+ {
+  "start": 376.7,
+  "slutt": 386.032,
+  "merke": "d1",
+  "ny": 149.915,
+  "lengde": 9.333
+ },
+ {
+  "start": 386.5,
+  "slutt": 388.229,
+  "merke": "d1",
+  "ny": 159.248,
+  "lengde": 1.733
+ },
+ {
+  "start": 388.652,
+  "slutt": 401.72,
+  "merke": "d1",
+  "ny": 160.981,
+  "lengde": 13.1
+ },
+ {
+  "start": 421.88,
+  "slutt": 432.276,
+  "merke": "d2",
+  "ny": 174.081,
+  "lengde": 10.4
+ },
+ {
+  "start": 432.77,
+  "slutt": 439.32,
+  "merke": "d2",
+  "ny": 184.481,
+  "lengde": 6.566
+ },
+ {
+  "start": 442.9,
+  "slutt": 448.661,
+  "merke": "d3",
+  "ny": 191.047,
+  "lengde": 5.766
+ },
+ {
+  "start": 449.067,
+  "slutt": 451.309,
+  "merke": "d3",
+  "ny": 196.813,
+  "lengde": 2.242
+ },
+ {
+  "start": 451.97,
+  "slutt": 455.97,
+  "merke": "d3",
+  "ny": 199.055,
+  "lengde": 4.0
+ },
+ {
+  "start": 513.37,
+  "slutt": 523.079,
+  "merke": "e1",
+  "ny": 203.055,
+  "lengde": 9.733
+ },
+ {
+  "start": 523.668,
+  "slutt": 527.7,
+  "merke": "e1",
+  "ny": 212.788,
+  "lengde": 4.033
+ },
+ {
+  "start": 537.91,
+  "slutt": 545.06,
+  "merke": "e2",
+  "ny": 216.821,
+  "lengde": 7.166
+ },
+ {
+  "start": 549.67,
+  "slutt": 555.07,
+  "merke": "e2",
+  "ny": 223.987,
+  "lengde": 5.4
+ },
+ {
+  "start": 615.93,
+  "slutt": 621.305,
+  "merke": "e3",
+  "ny": 229.387,
+  "lengde": 5.4
+ },
+ {
+  "start": 621.848,
+  "slutt": 628.31,
+  "merke": "e3",
+  "ny": 234.787,
+  "lengde": 6.466
+ },
+ {
+  "start": 556.38,
+  "slutt": 557.43,
+  "merke": "e4",
+  "ny": 241.253,
+  "lengde": 1.066
+ }
+]

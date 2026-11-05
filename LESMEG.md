@@ -44,6 +44,10 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Opptaket kommer først**, og animasjonen tilpasses det læreren faktisk sier og gjør.
 - **Lengde:** ca. 3 minutter (ca. 340 ord tale + pauser for det læreren gjør).
 - **Notasjon** etter [NOTASJON.md](https://github.com/Realfagsambassaden/Plattform/blob/main/NOTASJON.md): punktum som desimaltegn, naturkonstanter i rett skrift, g = 9.81 m/s², SI-enheter med prefikser, gjeldende siffer.
-- **Mapper på Macen:** (fylles inn – hvor opptakene og de ferdige videoene ligger, f.eks. `~/Movies/Realfagsambassaden/opptak/` og `…/ferdig/`.)
+- **Intro og outro** (DrNormann-introen og -outroen fra `Filmprosjekt/DrNormann/`) skal med i hver video.
+- **Overganger** gjerne med svisj-lyd og litt leken bevegelse (viskelær over tavla, «SPJONG!», «boing»), slik det er vanlig på YouTube.
+- **Morsomme øyeblikk** fra opptaket (f.eks. når læreren rigger opp eller tuller litt) kan klippes inn som en kort kald start før introen.
+- **Avslappet, men kort.** Ta med det beste av det læreren sier, kutt omtak og lange pauser.
+- **Mapper på Macen:** materialet til en video ligger i iCloud under `Filmprosjekt/DrNormann/<FAG>/<OMRÅDE>/<tema>/`, f.eks. `Filmprosjekt/DrNormann/INGENIØRFYSIKK/MEKANIKK—Ingeniør/Potensiell energi/` (opptaket `MEG.mov`, tegningene som PDF). Den ferdige videoen og miniatyrbildet legges i samme mappe.
 
 (Flere faste ønsker for tone, åpning og avslutning noteres her etter hvert.)

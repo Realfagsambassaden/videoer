@@ -9,6 +9,8 @@ Les også `LESMEG.md`. Avsnittet **«Lærerens stil»** der inneholder faste øn
 - Én video per tema, **ca. 3 minutter** (aldri over 5). Videoene er **kursnøytrale** og kan brukes på flere sider i flere fag.
 - Læreren står foran **grønnskjerm**, snakker og gjør ting med rekvisitter. Du lager **tavla** bak: lærerens egne tegninger (og TikZ/animasjon der det er bedre), animert i takt med det læreren sier.
 - Den ferdige videoen = animasjonen + læreren (grønnskjermen fjernet) **nede i høyre hjørne** + lyden fra opptaket, med **DrNormann-logoen** i et hjørne hele tiden. Til hver video lager du også et **YouTube-miniatyrbilde** (thumbnail). Læreren laster begge opp til YouTube.
+- **Intro og outro skal alltid med:** DrNormann-introen (`Intro.mp4`) og outroen (`Interlude.mp4`) ligger i mappa `DrNormann` på Macen (iCloud: `Filmprosjekt/DrNormann/`). Begge vises i negativ (mørk tavle, `negate` i ffmpeg). Outroen kuttes ved 2.6 s (der den blir svart) og tones ut. Rekkefølge: eventuell kald start (morsom bit fra opptaket) → intro → tittelkort → videoen → eventuell Dashman-stinger → outro.
+- **Overganger med lyd:** svisj-lyd ved sceneskift og ved intro/outro (`_verktoy/lyd/svisj.wav`), «boing» når noe fjærer (`boing.wav`), «pop» når bokser dukker opp (`pop.wav`). Mellom delene av tavla brukes et viskelær som sveiper over; inn og ut av introen brukes en kort `xfade` (slideleft/circleopen).
 - Sidene på nettstedet ligger i andre repoer (fagrepoene). Der står plassholderen «Video kommer» til videoen er registrert i `ferdige.yml`. En automatisk nattjobb bytter da plassholderen ut med videoen. **Du rører aldri fagrepoene.**
 
 ## Mapper
@@ -54,6 +56,15 @@ videoer:
 ```
 
 Finn sidene med `grep -rl "video: kommer" kapitler/` i de offentlige fagrepoene på github.com/Realfagsambassaden (eller spør læreren). Skriv også i `manus.md` (øverst, «Brukes på:») hvilke sider videoen er registrert på. Finnes det ingen side ennå, vent med å registrere, men noter videoen i «Status» nederst.
+
+## Klipping (når opptaket har omtak)
+
+Læreren tar ofte ting på nytt og improviserer. Da må opptaket høres gjennom og klippes:
+
+- **Tale til tekst:** I skyøkter virker `sherpa-onnx` (pip) med modellen `sherpa-onnx-whisper-turbo` og `silero_vad.onnx` fra GitHub-releasen `k2-fsa/sherpa-onnx` (`asr-models`). Huggingface er stengt. Se `arbeid-og-energi/potensiell-energi/klipp/` for et eksempel.
+- Lag en klippeliste (`klipp/edl.py` → `tider.json`): velg siste, beste tagning av hver setning, stram inn pauser over ca. 0.85 s, men ikke der læreren gjør noe med rekvisitter. Enkeltord kan byttes ut fra et annet sted i opptaket (læreren sier slike ord ekstra til slutt).
+- Klipp først fra en mindre proxy for å sette tidene, og hent så bitene i full kvalitet fra originalopptaket på Macen (`ffmpeg -ss … -t …` per bit) til den ferdige videoen.
+- `_verktoy/komponer.py` setter læreren inn med en nøkkel som tåler ujevn grønnfarge, og kan ha læreren stor i midten (kald start) og liten nede til høyre resten av tiden.
 
 ## Regler for innholdet
 
@@ -135,8 +146,8 @@ npm run thumbnail -- arbeid-og-energi/potensiell-energi           # → <mappe>/
 
 `sett_sammen.py` måler grønnfargen selv. Juster med `--likhet` (0.10 standard; øk litt ved grønne rester, senk hvis hud eller klær blir gjennomsiktige), `--hoyde` (størrelsen på læreren), `--midt` (vannrett plassering), `--beskjaer` (hvis grønnskjermen ikke dekker hele bildet) og `--forskyv` (tidsforskyvning). Se `python3 _verktoy/sett_sammen.py -h`. Lyden normaliseres til YouTube-nivå.
 
-## Status (4. november 2026)
+## Status (5. november 2026)
 
-- **`arbeid-og-energi/potensiell-energi`**: manus (utkast) og lærerens tegninger (`tegninger.pdf`, 6 sider: tittel, samleside fjær, elementer fjær, elementer graf, samleside tyngdefelt, elementer tyngdefelt) ligger klare. Neste: læreren går gjennom manus, så opptak, så animasjon. Kjente rettelser fra tegningene: eks. 2 heter «Energi i spiralfjær» på tegningen, men skal være «Energi i tyngdefeltet»; `g` oppreist; integralet med prikkprodukt `∫ F⃗·dx⃗`; ligningene nede til høyre må flyttes ut av sonen. Ingen side på nettstedet har denne videoen ennå (passer på delemnet *Kinetisk og potensiell energi* i emnet *Arbeid og energi*).
+- **`arbeid-og-energi/potensiell-energi`**: **utkast 1 ferdig 5. november 2026** (4:20, kald start, intro/outro, svisj-overganger, Dashman-stinger). Ferdig fil og miniatyrbilde ligger i lærerens mappe `Filmprosjekt/DrNormann/INGENIØRFYSIKK/MEKANIKK—Ingeniør/Potensiell energi/`. Venter på lærerens tilbakemelding. (Tidligere: manus (utkast) og lærerens tegninger (`tegninger.pdf`, 6 sider: tittel, samleside fjær, elementer fjær, elementer graf, samleside tyngdefelt, elementer tyngdefelt) ligger klare. Neste: læreren går gjennom manus, så opptak, så animasjon. Kjente rettelser fra tegningene: eks. 2 heter «Energi i spiralfjær» på tegningen, men skal være «Energi i tyngdefeltet»; `g` oppreist; integralet med prikkprodukt `∫ F⃗·dx⃗`; ligningene nede til høyre må flyttes ut av sonen. Ingen side på nettstedet har denne videoen ennå (passer på delemnet *Kinetisk og potensiell energi* i emnet *Arbeid og energi*).)
 - **På vent:** `hva-er-fysikk/innledning` og `hva-er-fysikk/overslag` (laget før grønnskjerm-arbeidsgangen; animasjonene er utdaterte). Læreren avgjør etter omstruktureringen av forkurset om de trengs. Plassholderne for dem står på sidene `fysikk-forkurs/01-hva-er-fysikk` og `fysikk-forkurs/01-02-overslag`.
 - Videoen om **arbeid** som brukes i emneteksten for *Arbeid og energi* er <https://www.youtube.com/watch?v=RDi3DD0Cehk>. Potensiell energi bygger videre på den (men uten å vise til den).

@@ -12,3 +12,4 @@ ferdig/
 *-tider.json
 person.png
 .thumbnail.html
+__pycache__/
