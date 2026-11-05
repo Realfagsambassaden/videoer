@@ -2,7 +2,9 @@
   "emne": "Kinematikk",
   "tittel": "AKSELE-",
   "tittel2": "RASJON",
-  "undertittel": "fartsendring",
+  "undertittel": "pass på kaffen!",
   "person": "person.png",
-  "formel": "a = Δv / Δt"
+  "formel": "a⃗ = Δv⃗ / Δt",
+  "person_hoyde": 560,
+  "person_hoyre": -60
 }
