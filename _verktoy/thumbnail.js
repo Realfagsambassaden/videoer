@@ -10,6 +10,7 @@
 //   "undertittel": "lagret arbeid",     grønn, lysende (kort!)
 //   "person": "person.png",             læreren klippet ut (sett_sammen.py --utklipp), gjennomsiktig PNG
 //   "beskjaer_person": [0.25, 0.75],    valgfri: hvilken del av utklippet (andel av bredden) som skal brukes
+//   "person_hoyre": -150,              valgfri: avstand fra høyre kant (standard -10); negativ skyver personen delvis ut av bildet
 //   "person_hoyde": 560,                valgfri: høyden på utklippet (standard 700 av 720); mindre for brede utklipp med flere personer
 //   "tegning": "tegning.png",           valgfri: nøkkeltegning eller eksperiment (PNG/SVG, gjennomsiktig) nede til venstre
 //   "formel": "E_p = ½kx²"              valgfri: nøkkelformel i håndskrift nede i midten
@@ -76,7 +77,7 @@ const path = require('path');
     // beskjær bort tomme (gjennomsiktige) rader nederst og øverst
     const cv = document.getElementById('person'); cv.width = sw; cv.height = im.height;
     cv.getContext('2d').drawImage(im, sx, 0, sw, im.height, 0, 0, sw, im.height);
-    cv.style.height = '${c.person_hoyde || 700}px'; cv.style.width = (${c.person_hoyde || 700} * sw / im.height) + 'px';` : ''}
+    cv.style.right = '${c.person_hoyre ?? -10}px'; cv.style.height = '${c.person_hoyde || 700}px'; cv.style.width = (${c.person_hoyde || 700} * sw / im.height) + 'px';` : ''}
     return true;
   })();
   </script></body></html>`;
