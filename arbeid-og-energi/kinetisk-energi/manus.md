@@ -41,10 +41,10 @@ Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet u
 
 > Arbeidet er altså integralet av *m v d v*, fra null og opp til farten v. Og integraler er arealer under grafer.
 > **[Du:** tegn en skrå linje i lufta med hånda.**]**
-> Tegner vi m v mot v, får vi en rett linje – akkurat som kraften i en fjær. Arealet er en trekant!
+> Tegner vi m v mot v – altså mot farten, ikke mot tiden – får vi alltid en rett linje, akkurat som kraften i en fjær. Uansett hvordan jeg dyttet. Arealet er en trekant!
 > Areal av trekant er en halv ganger grunnlinje ganger høyde. Grunnlinja er v, høyden er m v. Arbeidet blir *en halv m v i andre*.
 
-*På skjermen:* Aksene «mv» og «v», linja fra 0 til (v, mv). Trekanten fylles grå fra venstre. «Areal av trekant: A = ½ · g · h» med en liten trekant, så g = v og h = mv (oransje). «W = ∫ m v dv = ½ · v · mv = ½mv²» (stablede brøker).
+*På skjermen:* Aksene «mv» og «v» (med en liten gul lapp: «v, ikke t!»), linja fra 0 til (v, mv). Trekanten fylles grå fra venstre. «Areal av trekant: A = ½ · g · h» med en liten trekant, så g = v og h = mv (oransje). «W = ∫ m v dv = ½ · v · mv = ½mv²» (stablede brøker).
 
 ### 5. Kinetisk energi (1:45–2:10)
 
