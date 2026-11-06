@@ -35,6 +35,7 @@ sup{font-size:.62em}
 .rec{font:700 40px Comic;color:#ff4d4d}
 .panel{position:absolute;border:3px solid rgba(236,239,230,.55);border-radius:14px;background:rgba(236,239,230,.03);overflow:hidden}
 svg{overflow:visible}
+.brok{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.8em;line-height:1;margin:0 .14em;position:relative;top:-.1em}.brok>span:first-child{border-bottom:.09em solid currentColor;padding:0 .12em .04em}.brok>span:last-child{padding-top:.04em}
 </style></head><body>
 <div id="bg"></div>
 <img id="drlogo" src="../../_verktoy/drnormann-logo.svg">
@@ -92,9 +93,9 @@ const pil = (x1, y1, x2, y2, farge, b, inn, v, ut) => {   // pil som strek med p
 // ---------- tidslinje ----------
 // Tidene under er skrevet i T = tid i FØRSTE klipp (klipp/edl.json). Utkast 2 har kuttet bort noen biter;
 // KLIPP oversetter gammel T til ny T: [gammel T0, gammel T1, ny T0] per bit (klipp/edl2.json).
-const KLIPP = [[0, 12.433, 0.0], [12.433, 14.499, 12.44], [14.499, 19.15, 14.52], [20.55, 29.342, 19.16], [29.342, 37.708, 27.96], [37.708, 40.174, 36.32], [40.174, 43.486, 38.8], [43.486, 51.219, 42.12], [51.219, 53.952, 49.84], [53.952, 58.562, 52.56], [58.562, 60.528, 57.16], [60.528, 73.728, 59.12], [73.728, 83.728, 72.32], [83.728, 92.094, 82.32], [92.094, 98.634, 90.68], [98.634, 106.644, 97.24], [106.924, 108.71, 105.24], [108.71, 114.21, 107.04], [114.21, 118.043, 112.92], [118.043, 123.476, 116.76], [123.476, 133.242, 122.2], [133.242, 145.075, 131.96], [145.075, 146.515, 143.8], [146.515, 148.515, 145.24], [148.515, 149.915, 147.24], [149.915, 157.435, 148.64], [160.8, 160.981, 156.16], [160.981, 162.981, 156.36], [162.981, 162.981, 158.36], [163.301, 174.081, 159.12], [174.081, 184.481, 169.88], [184.481, 191.047, 180.28], [191.047, 196.813, 186.84], [196.813, 199.055, 192.6], [199.055, 203.055, 194.84], [203.055, 212.788, 198.84], [212.788, 216.6, 208.56], [219.5, 221.85, 212.36], [226.5, 229.387, 214.72], [229.387, 234.787, 217.6], [234.787, 241.253, 223.0], [241.253, 242.319, 229.48]];
+const KLIPP = [[0, 9.44, 0.0], [12.433, 14.499, 9.44], [14.499, 19.15, 11.52], [20.55, 29.342, 16.16], [29.342, 37.708, 24.96], [37.708, 40.174, 33.32], [40.174, 43.486, 35.8], [43.486, 51.219, 39.12], [51.219, 53.952, 46.84], [53.952, 58.562, 49.56], [58.562, 60.528, 54.16], [60.528, 73.728, 56.12], [73.728, 83.728, 69.32], [83.728, 92.094, 79.32], [92.094, 98.634, 87.68], [98.634, 106.644, 94.24], [106.924, 108.71, 102.24], [108.71, 114.21, 104.04], [114.21, 118.043, 109.92], [118.043, 123.476, 113.76], [123.476, 133.242, 119.2], [133.242, 145.075, 128.96], [145.075, 146.515, 140.8], [146.515, 148.515, 142.24], [148.515, 149.915, 144.24], [149.915, 157.435, 145.64], [160.8, 160.981, 153.16], [160.981, 162.981, 153.36], [162.981, 162.981, 155.36], [163.301, 174.081, 156.12], [174.081, 184.481, 166.88], [184.481, 191.047, 177.28], [191.047, 196.813, 183.84], [196.813, 199.055, 189.6], [199.055, 203.055, 191.84], [203.055, 212.788, 195.84], [212.788, 216.6, 205.56], [219.5, 221.85, 209.36], [226.5, 229.387, 211.72], [229.387, 234.787, 214.6], [234.787, 241.253, 220.0], [241.253, 242.319, 226.48]];
 const R = T => { for (const [a, b, n] of KLIPP) { if (T < a) return n; if (T <= b) return n + (T - a); } const s = KLIPP[KLIPP.length - 1]; return s[2] + (s[1] - s[0]); };
-const KALD = 14.5, TITTEL = 1.6, HOVED = 216.49, DASH = 5.5;
+const KALD = 11.5, TITTEL = 1.6, HOVED = 216.49, DASH = 5.5;
 const M = T => R(T) + TITTEL;            // tid i (gammelt) opptak → tid i animasjonen
 const SLUTT = KALD + TITTEL + HOVED + DASH;
 window.S = [['kald', KALD], ['tittel', TITTEL], ['hoved', HOVED], ['dashman', DASH]];
@@ -104,7 +105,7 @@ const SEKSJON = [M(60.53), M(98.63), M(149.92), M(203.06)];   // viskelær-overg
 // --- Kald start: bak kulissene ---
 lag('<span class="rec">● REC</span>', 90, 70, 0.2, KALD, 'blink');
 skriv('bak kulissene …', 90, 140, 0.8, KALD, 't', 1.4, { css: 'color:#9aa49e;font-size:46px' });
-skriv('«wireless GoPro og greier»', 90, 900, M(9.6) - TITTEL, KALD, 'tl', 1.2, { css: 'color:#eee462;transform:rotate(-3deg)' });
+// (kuttet) skriv('«wireless GoPro og greier»', 90, 900, M(9.6) - TITTEL, KALD, 'tl', 1.2, { css: 'color:#eee462;transform:rotate(-3deg)' });
 
 // --- Tittelkort: miniatyrbildet (som i Arbeid-videoen) ---
 lag('<img src="thumbnail.jpg" style="width:1920px;height:1080px">', 0, 0, KALD, KALD + TITTEL, 'tittelkort');
@@ -221,19 +222,19 @@ skriv('Areal av trekant:', 830, 450, M(122.3), C1, 't', 1.0, { css: 'color:#56d7
 sti('M1165 565 L1265 565 L1265 490 Z', '#56d7b8', 4, M(122.6), 0.7, C1);
 skriv('g', 1203, 566, M(123.0), C1, 'tl', 0.3, { css: 'color:#f19c2c' });
 skriv('h', 1273, 500, M(123.0), C1, 'tl', 0.3, { css: 'color:#f19c2c' });
-skriv('A = ½ · g · h', 830, 515, M(123.2), C1, 'f', 1.0, { css: 'font-size:52px' });
+skriv('A = <span class="brok"><span>1</span><span>2</span></span> · g · h', 830, 515, M(123.2), C1, 'f', 1.0, { css: 'font-size:52px' });
 sti(`M${OX} ${OY + 62} L${OX} ${OY + 74} L${X3} ${OY + 74} L${X3} ${OY + 62}`, '#f19c2c', 4, M(123.6), 0.6, C1);
 skriv('g = x', (OX + X3) / 2 - 50, OY + 78, M(123.8), C1, 'tl', 0.5, { css: 'color:#f19c2c' });
 skriv('h = kx', X3 + 18, OY - 250, M(124.2), C1, 'tl', 0.5, { css: 'color:#f19c2c' });
-skriv('= ½ · x · kx', 880, 585, M(124.6), C1, 'f', 1.0, { css: 'font-size:52px' });
+skriv('= <span class="brok"><span>1</span><span>2</span></span> · x · kx', 880, 585, M(124.6), C1, 'f', 1.0, { css: 'font-size:52px' });
 // integralet
 skriv('W = ∫ <span class="v">F</span> · d<span class="v">x</span> = ∫ kx dx', 830, 670, M(126.3), C1, 'f', 2.0, { css: 'font-size:50px' });
-skriv('= ½ kx² + W<sub>0</sub>', 880, 742, M(129.2), C1, 'f', 1.6, { css: 'font-size:50px' });
+skriv('= <span class="brok"><span>1</span><span>2</span></span> kx² + W<sub>0</sub>', 880, 742, M(129.2), C1, 'f', 1.6, { css: 'font-size:50px' });
 skriv('W<sub>0</sub> = 0', 1000, 800, M(131.8), C1, 'tl', 0.8, { css: 'color:#eee462' });
 skriv('arbeidet forsvinner ikke – det ligger lagret i fjæra', 90, 1032, M(134.4), C1, 'tl', 2.4, { css: 'font-size:30px' });
 lag('', 820, 855, M(139.6), C1, 'boks', { cls: 'boks gronnboks', w: 400, css: 'height:120px' });
 skriv('POTENSIELL ENERGI I SPIRALFJÆR', 840, 867, M(139.8), C1, 'tl', 1.2, { css: 'color:#6ef04a;font-size:24px;letter-spacing:.05em' });
-skriv('E<sub>p</sub> = ½ kx²', 890, 911, M(140.6), C1, 'f', 1.0, { css: 'font-size:62px' });
+skriv('E<sub>p</sub> = <span class="brok"><span>1</span><span>2</span></span> kx²', 890, 911, M(140.6), C1, 'f', 1.0, { css: 'font-size:62px' });
 lag('<span class="pop">SPJONG!</span>', 230, 640, M(144.2), M(146.4), 'stempel', { rot: -6 });
 skriv('→ bevegelsesenergi', 840, 1030, M(146.8), C1, 'tl', 1.4, { css: 'color:#6ef04a;font-size:34px' });
 
@@ -274,7 +275,7 @@ const E0 = SEKSJON[3], E1 = START[3];
 skriv('FELLES FOR BEGGE', 90, 60, E0 + 0.2, E1, 'h1', 1.2, { css: 'font-size:72px' });
 lag('', 90, 200, M(201.5), E1, 'boks', { cls: 'boks gronnboks', w: 520, css: 'height:170px' });
 skriv('SPIRALFJÆR', 120, 214, M(201.7), E1, 'tl', 0.7, { css: 'color:#6ef04a' });
-skriv('E<sub>p</sub> = ½ kx²', 130, 270, M(202.0), E1, 'f', 0.8);
+skriv('E<sub>p</sub> = <span class="brok"><span>1</span><span>2</span></span> kx²', 130, 270, M(202.0), E1, 'f', 0.8);
 lag('', 690, 200, M(202.4), E1, 'boks', { cls: 'boks gronnboks', w: 520, css: 'height:170px' });
 skriv('TYNGDEFELTET', 720, 214, M(202.6), E1, 'tl', 0.7, { css: 'color:#6ef04a' });
 skriv('E<sub>p</sub> = mgh', 730, 270, M(202.9), E1, 'f', 0.8);

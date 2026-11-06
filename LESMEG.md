@@ -39,6 +39,7 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Tavla tegnes alltid på nytt** med TikZ/SVG eller lignende, med uformelle bokstaver i håndskriftfonten. Lærerens tegninger er **bare inspirasjon** for hva som skal stå der. Unntak: Dashman-tegneserien og lignende figurer brukes som de er. Finn gjerne et bedre pedagogisk oppsett ut fra det læreren sier.
 - **Ting som beveger seg følger læreren:** når læreren presser sammen eller strekker en fjær, presses/strekkes fjæra på tavla i takt, og kraftvektoren vokser. Vis likevektsposisjonen og hva x er.
 - **Miniatyrbilder:** titler deles aldri med bindestrek (ett ord = én linje, krympes heller). Er et utklipp skåret av mot kanten av bildet (f.eks. toppen av et hode), legg tittelen over kanten eller ton den ut, så det ikke blir åpenbart.
+- **Brøker skrives stablet** (teller over vannrett brøkstrek, f.eks. klassen `.brok` i `anim.mal.html`), ikke ½ eller skråstrek.
 - **Vektorer har pil** overalt: F⃗, x⃗, h⃗, dx⃗ i integraler (W = ∫ F⃗ · dx⃗). Rekvisitter tegnes som det de er (boka som bok, ikke sirkel).
 - **Forklar formler eksplisitt** – studentene trenger mer enn du tror. Skriv f.eks. «Areal av trekant: A = ½ · g · h» før man setter inn x og kx.
 - **Lydeffekter i takt med det som skjer i bildet** (sjekk opptaket: «SPJONG» når fjæra faktisk slippes). Gjerne en bølge utover hele tavla ved «SPJONG».
