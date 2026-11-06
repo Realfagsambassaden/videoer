@@ -39,7 +39,7 @@ Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet u
 
 ### 4. Arealet under en graf (1:10–1:45)
 
-> Arbeidet er altså integralet av *m v d v*, fra null og opp til farten v. Og integraler er arealer under grafer.
+> Arbeidet er altså integralet av *m v* over v, fra null og opp til farten v. Dette tilsvarer arealet under grafen!
 > **[Du:** tegn en skrå linje i lufta med hånda.**]**
 > Tegner vi m v mot v, får vi en rett linje – akkurat som kraften i en fjær. Arealet er en trekant!
 > Areal av trekant er en halv ganger grunnlinje ganger høyde. Grunnlinja er v, høyden er m v. Arbeidet blir *en halv m v i andre*.
