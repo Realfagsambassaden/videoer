@@ -3,3 +3,13 @@
 scener/
 sjekk/
 node_modules/
+
+# Opptak og ferdige videoer ligger på Macen, ikke i git
+*.mov
+*.MOV
+opptak/
+ferdig/
+*-tider.json
+person.png
+.thumbnail.html
+__pycache__/

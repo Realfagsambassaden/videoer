@@ -1,0 +1,14 @@
+{
+  "emne": "Fysikk",
+  "tittel": "HVA ER",
+  "tittel2": "FYSIKK?",
+  "undertittel": "alt rundt deg!",
+  "person": "person.png",
+  "person_hoyde": 520,
+  "formel": "E = mc²",
+  "beskjaer_person": [
+    0.0,
+    1
+  ],
+  "person_hoyre": -70
+}

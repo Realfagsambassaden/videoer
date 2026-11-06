@@ -1,73 +1,163 @@
 # Instruks for Claude: videoverkstedet til Realfagsambassaden
 
-Du hjelper en fysikklærer å lage korte undervisningsvideoer til **fysikkhjelp.no** (og senere matematikkhjelp.no). Svar alltid på norsk (bokmål). Læreren er ikke programmerer: forklar i vanlige ord, og gjør git-arbeidet for hen.
+Du hjelper en fysikklærer å lage korte undervisningsvideoer til **fysikkhjelp.no** (og senere matematikkhjelp.no). Du jobber lokalt på lærerens Mac. Svar alltid på norsk (bokmål). Læreren er ikke programmerer: forklar i vanlige ord, og gjør git- og terminalarbeidet for hen.
 
-Les også `LESMEG.md` i dette repoet. Avsnittet **«Lærerens stil»** der inneholder faste ønsker som alltid gjelder.
+Les også `LESMEG.md`. Avsnittet **«Lærerens stil»** der inneholder faste ønsker som alltid gjelder. Lærer du noe nytt om hva læreren vil ha, skriv det inn der (og her, hvis det endrer arbeidsgangen), commit og push.
 
 ## Hva en video er
 
-- Én video per lærestoff-side, **2–3 minutter** (aldri over 5).
-- Du skriver **manus** (`manus.md`) og lager en **stum animasjon** i tavlestil (`anim.html` → `.mp4`).
-- Læreren leser inn manuset over animasjonen og står selv i bildet **nede i høyre hjørne**. Så laster hen opp til YouTube.
-- Sidene på nettstedet ligger i andre repoer (fagrepoene). Der står plassholderen «Video kommer» til videoen er ferdig. En automatisk nattjobb bytter plassholderen ut med videoen når YouTube-lenken står i `ferdige.yml` her. **Du rører aldri fagrepoene.**
+- Én video per tema, **ca. 3 minutter** (aldri over 5). Videoene er **kursnøytrale** og kan brukes på flere sider i flere fag.
+- Læreren står foran **grønnskjerm**, snakker og gjør ting med rekvisitter. Du lager **tavla** bak: lærerens egne tegninger (og TikZ/animasjon der det er bedre), animert i takt med det læreren sier.
+- Den ferdige videoen = animasjonen + læreren (grønnskjermen fjernet) **nede i høyre hjørne** + lyden fra opptaket, med **DrNormann-logoen** i et hjørne hele tiden. Til hver video lager du også et **YouTube-miniatyrbilde** (thumbnail). Læreren laster begge opp til YouTube.
+- **Intro og outro skal alltid med, som i Arbeid-videoen men med grønn DrNormann** (lærerens kjennemerke): `python3 _verktoy/intro_gronn.py <Intro.mp4> intro.mp4` (de første 2.2 s av `Intro.mp4` i negativ, «Dr. Normann» farget neongrønn med glød) og `python3 _verktoy/outro_gronn.py <Intro.mp4> outro.mp4` (grønn DrNormann-logo spretter fram på dempet tavle, 2.8 s, tones til svart). `Intro.mp4` ligger i `Filmprosjekt/DrNormann/` på Macen. Rekkefølge: eventuell kald start (morsom bit fra opptaket) → intro → **miniatyrbildet som tittelkort** (ca. 1.6 s) → videoen → eventuell Dashman-stinger → outro. Overganger: `xfade` slideleft inn i introen, kort fade (0.3 s) fra intro til tittelkort, fadeblack til outro. **Intromusikken er alltid `_verktoy/lyd/intro_musikk.wav`** (fra Arbeid-videoen v2, 3.25 s), lagt inn fra introens start og over tittelkortet – ikke lyden fra `Intro.mp4`. **Outroen får `_verktoy/lyd/outro_musikk.wav`** (samme musikk, svakere, tones ut), lagt inn fra starten av outroen.
+- **Overganger med lyd:** svisj-lyd ved sceneskift og ved intro/outro (`_verktoy/lyd/svisj.wav`), «boing» når noe fjærer (`boing.wav`), «pop» når bokser dukker opp (`pop.wav`). Mellom delene av tavla brukes et viskelær som sveiper over; inn og ut av introen brukes en kort `xfade` (slideleft/circleopen).
+- Sidene på nettstedet ligger i andre repoer (fagrepoene). Der står plassholderen «Video kommer» til videoen er registrert i `ferdige.yml`. En automatisk nattjobb bytter da plassholderen ut med videoen. **Du rører aldri fagrepoene.**
 
 ## Mapper
 
 ```
-CLAUDE.md, LESMEG.md
-ferdige.yml          register: <fag>/<mappe>: <YouTube-lenke>
-_verktoy/            lag.js (lager video fra anim.html), fonter, tavlebakgrunn, logo
-fysikk-forkurs/      én mappe per fag (samme navn som fagrepoet på GitHub)
-  01-hva-er-fysikk/  én mappe per side: manus.md, anim.html, formelbilder, tegninger
-  01-02-overslag/
+CLAUDE.md, LESMEG.md, package.json
+ferdige.yml               register: <side-id>: <YouTube-lenke>
+_verktoy/                 lag.js (anim.html → mp4), finn_pauser.py, sett_sammen.py, thumbnail.js, fonter, bakgrunn, logoer
+<emne>/<video>/           én mappe per video, sortert etter emne-id (fra Plattform/emner.yml)
+  manus.md                manus med scener, [Du: …] og «På skjermen»
+  tegninger.pdf           lærerens tegninger (vektor-PDF fra iPad)
+  anim.html               animasjonen
+  tider.json              når hvert avsnitt sies i opptaket (lages fra opptaket)
+  *.png / *.svg / formler.py   elementer og formelbilder
+  thumbnail.json, thumbnail.jpg  miniatyrbildet (oppsett og ferdig bilde) – person.png (utklipp av læreren) ligger ikke i git
 ```
 
-Mappenavn: `<kapittelnr>-<sidenr>-<sidenavn>`, f.eks. `02-01-si-enheter` for side `kapitler/02-…/01-si-enheter.qmd` i fagrepoet `Realfagsambassaden/fysikk-forkurs`. Sidene videoen hører til kan leses på github.com/Realfagsambassaden/fysikk-forkurs (offentlig).
+Eksempler: `arbeid-og-energi/potensiell-energi/`, `hva-er-fysikk/overslag/`. Emne-id-ene står i <https://github.com/Realfagsambassaden/Plattform/blob/main/emner.yml>.
+
+**Opptakene lagres ikke i git** (for store). De ligger i en mappe på Macen som læreren gir deg tilgang til, f.eks. `~/Movies/Realfagsambassaden/opptak/`. Spør læreren hvor, og noter stien i «Lærerens stil» i LESMEG.md. Det samme gjelder ferdige `.mp4`-filer: legg dem i `~/Movies/Realfagsambassaden/ferdig/` (eller der læreren vil), ikke i repoet.
 
 ## Arbeidsgang
 
-1. **Hent siste versjon** først (`git pull`). Nattjobben retter av og til notasjon i manusene.
-2. **Hva venter?** Plassholderne står i fagrepoet som `<!-- video: kommer (videoer/<fag>/<mappe>) -->`. Sammenlign med mappene her og med `ferdige.yml`. Vis lista: trenger manus / manus klart / venter på innspilling / ferdig.
-3. **Manus først.** Les siden videoen hører til. Skriv `manus.md` etter mønsteret i de eksisterende mappene: tittel, varighet, scener med tidskoder (`### 2. Navn (0:14–0:44)`), det som skal sies som sitatblokk, og *På skjermen:* med hva som dukker opp når. 300–400 ord, ca. 140 ord i minuttet, skrevet for å *sies*. Regn ut alle tall i Python. **Vis manuset og juster til læreren er fornøyd før du lager animasjonen.** Læreren redigerer ofte manus selv i VS Code. Les fila på nytt før du endrer den.
-4. **Animasjonen** (se regler under). Lag stillbilder av de travleste øyeblikkene først, se på dem, rett feil, og lag så hele videoen.
-5. **Lagre:** commit og push til `main`. Det er greit her, fordi ingenting i dette repoet vises på nettsiden. `.mp4`, `scener/` og `sjekk/` skal ikke i git (se `.gitignore`).
-6. **Når videoen er på YouTube:** sjekk at lenken virker, legg `<fag>/<mappe>: <lenke>` inn under `videoer:` i `ferdige.yml` (gjør `{}` om til en vanlig liste), commit og push. Nattjobben legger videoen ut på siden neste natt.
+1. **Hent siste versjon** (`git pull`). Nattjobben og andre Claude-økter kan ha endret noe.
+2. **Manus.** Les siden/temaet og lærerens tegninger. Skriv `manus.md` etter mønsteret i `arbeid-og-energi/potensiell-energi/manus.md`: tittel og emne, rekvisittliste, scener med omtrentlige tidskoder (`### 2. Navn (0:22–0:44)`), det som skal sies som sitatblokk, **[Du:** …**]** for ting læreren gjør (løfte en ball, trykke sammen en fjær, gå ut …), og *På skjermen:* med hva som skal dukke opp. Ca. 340 ord tale for 3 minutter (140 ord/min) pluss pauser for det læreren gjør. Regn ut alle tall i Python. **Vis manuset og juster til læreren er fornøyd.** Læreren redigerer ofte selv i VS Code. Les fila på nytt før du endrer den.
+3. **Læreren tar opp** (se «Opptak» under) og sier fra hvor filen ligger.
+4. **Finn tidene:** `python3 _verktoy/finn_pauser.py <opptak>` lister taleavsnitt og pauser. Kople pausene til manusavsnittene (de lengste pausene er sceneskiftene). Har læreren improvisert, hør på opptaket (eller bruk tale-til-tekst hvis det er installert, f.eks. `whisper` – spør før du installerer) og følg det som faktisk sies, ikke manuset. Lagre tidene i `tider.json` i videomappa.
+5. **Animasjonen:** lag `anim.html` med scenelengder fra `tider.json`, slik at total lengde = opptakets lengde, og at hver tegning dukker opp når læreren snakker om den (gjerne 0.3–0.5 s før). Se reglene under. Lag stillbilder av de travleste øyeblikkene, se på dem, rett feil, og lag så animasjonen.
+6. **Sett sammen:** sjekk først ett bilde med læreren i (`--stillbilde`), juster nøkkel og plassering, og lag så den ferdige videoen. Se «Sette sammen» under. Åpne den for læreren (`open <fil>`).
+7. **Miniatyrbilde:** lag `thumbnail.jpg` (se «Miniatyrbilde» under) og vis det for læreren sammen med videoen.
+8. **Juster** etter lærerens tilbakemeldinger. Endrer læreren noe i opptaket, kjør steg 4–6 på nytt.
+9. **Lagre:** commit og push (`manus.md`, `anim.html`, `tider.json`, elementer, `thumbnail.json`, `thumbnail.jpg`) til `main`. Det er greit her, ingenting i repoet vises på nettsiden.
+10. **Når videoen er på YouTube:** sjekk at lenken virker, og registrer den i `ferdige.yml` for **hver side** den skal vises på (se under). Commit og push. Nattjobben legger den ut neste natt.
+
+## Registrere en ferdig video (`ferdige.yml`)
+
+Nøkkelen er **side-id-en fra plassholderen** på siden i fagrepoet, ikke videomappa. Plassholderen ser slik ut: `<!-- video: kommer (videoer/fysikk-forkurs/11-02-potensiell-energi) -->` → nøkkelen er `fysikk-forkurs/11-02-potensiell-energi`. Én video kan registreres på flere sider:
+
+```yaml
+videoer:
+  fysikk-forkurs/11-02-potensiell-energi: https://www.youtube.com/watch?v=XXXXXXXXXXX
+  ingeniorfysikk/04-02-potensiell-energi-og-energibevaring: https://www.youtube.com/watch?v=XXXXXXXXXXX
+```
+
+Finn sidene med `grep -rl "video: kommer" kapitler/` i de offentlige fagrepoene på github.com/Realfagsambassaden (eller spør læreren). Skriv også i `manus.md` (øverst, «Brukes på:») hvilke sider videoen er registrert på. Finnes det ingen side ennå, vent med å registrere, men noter videoen i «Status» nederst.
+
+## Klipping (når opptaket har omtak)
+
+Læreren tar ofte ting på nytt og improviserer. Da må opptaket høres gjennom og klippes:
+
+- **Tale til tekst:** I skyøkter virker `sherpa-onnx` (pip) med modellen `sherpa-onnx-whisper-turbo` og `silero_vad.onnx` fra GitHub-releasen `k2-fsa/sherpa-onnx` (`asr-models`). Huggingface er stengt. Se `arbeid-og-energi/potensiell-energi/klipp/` for et eksempel.
+- Lag en klippeliste (`klipp/edl.py` → `tider.json`): velg siste, beste tagning av hver setning, stram inn pauser over ca. 0.85 s, men ikke der læreren gjør noe med rekvisitter. Enkeltord kan byttes ut fra et annet sted i opptaket (læreren sier slike ord ekstra til slutt).
+- Klipp først fra en mindre proxy for å sette tidene, og hent så bitene i full kvalitet fra originalopptaket på Macen (`ffmpeg -ss … -t …` per bit) til den ferdige videoen.
+- **Leppesynk, rest:** Selv med like lange biter hang bildet bittelitt etter i Potensiell energi (opptaket fra Macen har lyden 0.075 s forskjøvet). Vis derfor opptaket **0.08 s tidligere** i `plan.json` (`"opptak": T + 0.08`). Spør læreren om det stemmer.
+- **Leppesynk (viktig – feilet i utkast 1 av Potensiell energi og i Arbeid-videoen: bildet hang etter):** Hver bit må ha *nøyaktig* like lang lyd og bilde. Legg start og lengde for hver bit på opptakets bilderutenett (25 bilder/s → hele 0.04 s), kutt med `-frames:v N -t N·0.04` og behold opptakets bildefrekvens (ikke `fps=30` per bit – da rundes hver bit opp med en brøkdel av et bilde, og feilen hoper seg opp til flere tideler mot slutten). Ta lyden fra de samme bitene, kutt til nøyaktig N·1920 samples (48 kHz), og sjekk at total bildelengde = total lydlengde før du setter sammen. Eksempel: `arbeid-og-energi/potensiell-energi/klipp/edl2.json`.
+- Kutter du bort biter etter at animasjonen er laget, behold tidene i animasjonen og oversett dem med en tabell (gammel T → ny T), slik `R()` i `anim.mal.html` og `lyd.py` gjør.
+- `_verktoy/komponer.py` setter læreren inn med en nøkkel som tåler ujevn grønnfarge, og kan ha læreren stor i midten (kald start) og liten nede til høyre resten av tiden.
 
 ## Regler for innholdet
 
-- **Kursnøytralt:** videoen skal kunne brukes i flere fag. Ingen «i dette kurset/forkurset», «kapittel 3», «forrige/neste video» – verken i manus eller på skjermen. Knytt til emnet, f.eks. «Grunnlag · Hva er fysikk?». «fysikkhjelp» og «oppgavene under videoen» er greit.
-- **Notasjon** følger <https://github.com/Realfagsambassaden/Plattform/blob/main/NOTASJON.md> (les den). Kort: **punktum som desimaltegn** (9.81, 0.5), naturkonstanter i rett skrift (`\mathrm{g}`), **g = 9.81 m/s²** om ikke annet er oppgitt, SI-enheter med dekadiske prefikser (4.2 kJ, 35 mA), riktige gjeldende siffer. Gjelder manus, tekst på skjermen, aksetall og formelbilder. Muntlig i manus er «ni komma åtte én» greit.
+- **Kursnøytralt:** ingen «i dette kurset/forkurset», «kapittel 3», «forrige/neste video» – verken i manus eller på skjermen. Knytt til emnet, f.eks. «Arbeid og energi · Potensiell energi». «fysikkhjelp» og «oppgavene under videoen» er greit.
+- **Notasjon** følger <https://github.com/Realfagsambassaden/Plattform/blob/main/NOTASJON.md> (les den). Kort: **punktum som desimaltegn** (9.81, 0.5), naturkonstanter i rett skrift (`\mathrm{g}`), **g = 9.81 m/s²** om ikke annet er oppgitt, SI-enheter med dekadiske prefikser (4.2 kJ, 35 mA), riktige gjeldende siffer. Gjelder manus, tekst på skjermen, aksetall og formelbilder. Muntlig er «ni komma åtte én» greit. Retter du noe fra lærerens tegninger, si fra.
 - Skriv eget stoff. Ikke kopier fra lærebøker eller andres videoer.
+
+## Lærerens tegninger
+
+- Tegningene kommer som PDF eksportert fra iPad, med **vektorstreker** og gjennomsiktig bakgrunn. Typisk er det én eller to samlesider (hvordan alt henger sammen) og noen sider der elementene er plukket fra hverandre.
+- Gjør om sidene til SVG (`pdftocairo -svg tegninger.pdf side.svg` per side, eller PyMuPDF/pdfplumber for å hente ut strekene enkeltvis). Del opp i elementer etter posisjon, og lagre dem som egne SVG-er i videomappa.
+- **Tavla tegnes alltid på nytt** (TikZ, egen SVG eller annet verktøy: rene streker, håndskriftfont, uformelle bokstaver). Lærerens tegninger er **bare inspirasjon** for hva som skal stå der og omtrent hvor – strekene hans brukes ikke direkte. Unntak: Dashman-tegneserier og andre rene figurtegninger som læreren vil ha med som de er. (Uttrekk av iPad-strekene ga prikker og rot i utkast 1 av Potensiell energi.) Ting som læreren gjør med rekvisitter (fjær som presses/strekkes) animeres i takt med opptaket – se på bildene fra opptaket for å finne tidene.
+- **Tegn fram strekene** i animasjonen (stroke-dashoffset på hver sti, i den rekkefølgen læreren skrev dem), så det ser ut som det skrives på tavla. Fylte flater (som det grå arealet under en graf) kan tones inn eller «fylles» fra venstre.
+- Det er greit å gjøre strekene **tykkere**, rydde, flytte elementer, eller bytte ut deler med TikZ/egne SVG-animasjoner der det blir tydeligere eller beveger seg bedre (f.eks. en fjær som faktisk presses sammen, en ball som løftes). Behold lærerens særpreg der det går, og si kort fra om hva du har endret.
+- **Tekst** fra tegningene skrives om med håndskriftfonten (se under). Tittelen er oransje.
 
 ## Regler for animasjonen
 
-- 1920×1080, 30 bilder/s. Én scene per avsnitt i manuset, myk inn- og uttoning (0.4 s). Tidspunktene følger tidskodene i manuset.
-- **Presentatørsonen x ≥ 1300 og y ≥ 420 skal alltid være tom**, også for ting som beveger seg gjennom den.
-- Tavlestil: bakgrunn `#0d1110` med `_verktoy/tavle-bakgrunn.webp` svakt (opacity ca. 0.09), kritt `#ecefe6`, grønn `#6ef04a`, oransje `#f19c2c`, gul `#eee462`, turkis `#56d7b8`. Overskrifter i Montserrat, resten i Comic Neue (fontene ligger i `_verktoy/`). Logoen øverst til høyre.
-- `anim.html` må definere `window.S = [[scene-id, sekunder], …]` og en **deterministisk** `window.render(sceneIndeks, t)` (samme t gir samme bilde), og ha et skjult element `#sone`. Felles filer hentes med `../../_verktoy/…`. Bruk de eksisterende `anim.html` som mal.
-- Formler tegnes som PNG med matplotlib mathtext (`mathtext.fontset = 'cm'`), som i `fysikk-forkurs/01-02-overslag/formler.py`.
+- 1920×1080, 30 bilder/s. Myk inn- og uttoning mellom scener (0.4 s).
+- **Presentatørsonen x ≥ 1300 og y ≥ 420 skal alltid være tom** – der står læreren. Det gjelder også ting som beveger seg. Lærerens tegninger har ofte ting nede til høyre; flytt dem.
+- Tavlestil: bakgrunn `#0d1110` med `_verktoy/tavle-bakgrunn.webp` svakt (opacity ca. 0.09), kritt `#ecefe6`, grønn `#6ef04a`, oransje `#f19c2c`, gul `#eee462`, turkis `#56d7b8`.
+- **Logoer:** DrNormann-logoen (`_verktoy/drnormann-logo.svg`, vektor med glød; `drnormann-logo.png` er samme logo i høy oppløsning, `drnormann-logo-flat.svg` uten glød til lys bakgrunn) står **øverst til høyre gjennom hele videoen**, ca. 90 px høy, med ca. 30 px marg. Fysikkhjelp-logoen (`fh-logo-linje.png`) vises bare i tittelscenen og sluttscenen. Ikke legg annet innhold oppå logoene.
+- **Skrift:** håndskriftfonten **Architects Daughter** (samme som nettstedet bruker) for tekst fra tegningene og titler. Ligger den ikke i `_verktoy/`, last ned `ArchitectsDaughter-Regular.ttf` og lisensen `OFL.txt` fra <https://github.com/google/fonts/tree/main/ofl/architectsdaughter> til `_verktoy/`, og commit dem (lisensen tillater det). Comic Neue og Montserrat finnes også i `_verktoy/`.
+- `anim.html` definerer `window.S = [[scene-id, sekunder], …]` og en **deterministisk** `window.render(sceneIndeks, t)` (samme t gir samme bilde), og har et skjult element `#sone`. Felles filer hentes med `../../_verktoy/…`. Bruk `hva-er-fysikk/innledning/anim.html` som teknisk mal (men ikke som innholdsmal – den er utdatert).
+- Formler: skriv dem helst med håndskriftfonten som tekst (passer til lærerens stil), eller som PNG med matplotlib mathtext (`formler.py` i `hva-er-fysikk/overslag/`).
+
+## Miniatyrbilde (YouTube-thumbnail)
+
+Hver video får et miniatyrbilde i fast mal, laget med `npm run thumbnail -- <videomappe>` fra `thumbnail.json` i videomappa (se kommentaren øverst i `_verktoy/thumbnail.js`). Malen følger lærerens eksempel («ARBEID i fysikken», se `_verktoy/thumbnail-eksempel.png` – se på det før du lager et nytt):
+
+- liten håndskrevet merkelapp øverst til venstre med område/emne (f.eks. «Mekanikk») og grønn strek under
+- **stor hvit tittel** (Montserrat Black) og **kort grønn, lysende undertittel**
+- **læreren til høyre**, klippet ut fra opptaket med grønn glød rundt (`sett_sammen.py --utklipp <sekund> --opptak … --ut <mappe>/person.png`). Velg et øyeblikk med tydelig ansiktsuttrykk eller gest – gjerne et litt spørrende eller overrasket blikk. Hent ut flere kandidater og vis dem for læreren.
+- **nøkkeltegning** nede til venstre (lærerens tegning eller TikZ, gjennomsiktig PNG) og **nøkkelformel** i håndskrift
+- DrNormann-logoen nede til høyre, tavlebakgrunn med grønt lys bak læreren
+
+Miniatyrbildene skal være **litt små-spektakulære**: noe som vekker nysgjerrighet. **Er det et eksperiment eller en rekvisitt i videoen, skal det med** – bruk helst et utklipp der læreren holder eller gjør eksperimentet (f.eks. ballen i lufta, fjæra som presses sammen), og la tittel/undertittel spille på det. Hold teksten kort (2–4 ord totalt i undertittelen). Bildet blir 2560×1440 JPG under 2 MB, som YouTube krever. Vis det for læreren; juster etter ønske.
+
+**Eldre videoer (før grønnskjerm):** Læreren har egne forsidebilder (grønne tekstbokser og «Dr. Normann»-sirkel) i Mac-mappene. Nye miniatyrbilder i malen lages ved å klippe læreren (og rekvisitter/andre personer) ut av hans gamle forside med `rembg` (pip; modellene `u2net_human_seg` + `isnet-general-use` lastes fra GitHub). Fjern hvit sirkel, grønne bokser og løse bokstaver. Lagres som `<emne>/<video>/thumbnail.json` + `thumbnail.jpg`, og som `<video>_thumbnail.jpg` ved siden av videoen på Macen. `person_hoyde` gjør brede utklipp (flere personer) mindre; lange titler krympes automatisk til én linje. Andre valg i `thumbnail.json`: `person_hoyre` (skyv personen mot/ut av høyre kant), `tittel_bredde` (bredere tittel som kan dekke en avskåret kant), `undertittel_vinkel` (skrå undertittel), `<br>` i undertittelen, og vektorpil i formelen med U+20D7 (`F\u20d7`). Bilder læreren sender: klipp ut med `rembg` (kun `u2net_human_seg` for personer; legg til `isnet-general-use` for rekvisitter som henger fast i personen), og ton ut kanter der bildet er skåret av.
+
+## Opptak (råd til læreren)
+
+- **Liggende 16:9, 1080p, 25 eller 30 bilder/s.** Telefon eller kamera på stativ.
+- **Grønnskjermen** jevnt belyst, uten skrukker og skygger. Stå et par skritt foran den. Ikke ha på grønne klær eller blanke ting.
+- Læreren havner **nede til høyre**, ca. 680 px høy av 1080. Det passer best å filme fra midt på låret eller hofta og opp, med litt luft over hodet. Står læreren midt i bildet, blir hen midt i sonen.
+- **God lyd** betyr mest: klype- eller myggmikrofon.
+- Ta en kort pause (ca. 1 sekund) mellom manusavsnittene. Det gjør det lettere å finne sceneskiftene.
+- **Klapp før du tar noe på nytt.** Da er omtakene lette å finne, og det er den siste tagningen som gjelder. Én opptaksfil per video er best (ikke del opp).
+- Tilbakemeldinger på et utkast gis helst med tidskoder fra den ferdige videoen («2:40: …»). Regn om: tid i animasjonen = tid i videoen − (intro + overlapp), se `klipp/sett_sammen2.sh`.
+- Rekvisitter skal være godt synlige og ikke grønne.
 
 ## Oppsett på Mac (første gang)
 
-Krever Node.js, ffmpeg og Python med matplotlib. Sjekk med `node -v`, `ffmpeg -version`, `python3 -c "import matplotlib"`. Mangler noe, installer med Homebrew (`brew install node ffmpeg`, `pip3 install matplotlib`). Spør læreren før du installerer.
+Krever Node.js, ffmpeg og Python med matplotlib og Pillow. Sjekk med `node -v`, `ffmpeg -version`, `python3 -c "import matplotlib, PIL"`. Mangler noe, installer med Homebrew (`brew install node ffmpeg`, `pip3 install matplotlib pillow`). **Spør læreren før du installerer.**
 
 ```
 npm install                          # henter Playwright (står i package.json)
 npx playwright install chromium      # nettleseren som tar bildene
 ```
 
-## Lage video
+## Kommandoer
 
 Fra roten av repoet:
 
 ```
-npm run preview -- fysikk-forkurs/01-02-overslag "0:5,3:20"   # stillbilder med sonen markert → <mappe>/sjekk/
-npm run video   -- fysikk-forkurs/01-02-overslag              # hele videoen → <mappe>/<mappe>.mp4
+# 1. Tidene i opptaket
+python3 _verktoy/finn_pauser.py ~/Movies/Realfagsambassaden/opptak/potensiell-energi.mov
+
+# 2. Animasjonen (stum)
+npm run preview -- arbeid-og-energi/potensiell-energi "0:5,2:20"   # stillbilder med sonen markert → <mappe>/sjekk/
+npm run video   -- arbeid-og-energi/potensiell-energi              # → <mappe>/<mappe>.mp4
+
+# 3. Sett sammen med læreren
+python3 _verktoy/sett_sammen.py --anim arbeid-og-energi/potensiell-energi/potensiell-energi.mp4 \
+    --opptak ~/Movies/Realfagsambassaden/opptak/potensiell-energi.mov \
+    --ut ~/Movies/Realfagsambassaden/ferdig/potensiell-energi.png --stillbilde 60     # sjekk ett bilde først
+python3 _verktoy/sett_sammen.py --anim … --opptak … --ut ~/Movies/Realfagsambassaden/ferdig/potensiell-energi.mp4
+
+# 4. Miniatyrbilde
+python3 _verktoy/sett_sammen.py --opptak ~/Movies/Realfagsambassaden/opptak/potensiell-energi.mov \
+    --utklipp 75 --ut arbeid-og-energi/potensiell-energi/person.png
+npm run thumbnail -- arbeid-og-energi/potensiell-energi           # → <mappe>/thumbnail.jpg
 ```
 
-(Det samme som `node _verktoy/lag.js <mappe> preview "…"` og `node _verktoy/lag.js <mappe> render`.) Se alltid på stillbildene før du lager hele videoen. Åpne den ferdige videoen for læreren (`open <fil>.mp4`).
+`komponer.py` (brukes ved klipping) demper grønt skjær i håret (despill mot snittet av rød og blå) og krymper alfakanten litt. `sett_sammen.py` måler grønnfargen selv. Juster med `--likhet` (0.10 standard; øk litt ved grønne rester, senk hvis hud eller klær blir gjennomsiktige), `--hoyde` (størrelsen på læreren), `--midt` (vannrett plassering), `--beskjaer` (hvis grønnskjermen ikke dekker hele bildet) og `--forskyv` (tidsforskyvning). Se `python3 _verktoy/sett_sammen.py -h`. Lyden normaliseres til YouTube-nivå.
 
-## Status (4. november 2026)
+## Status (6. november 2026)
 
-- **På vent:** `fysikk-forkurs/01-hva-er-fysikk` og `fysikk-forkurs/01-02-overslag` har manus (rettet etter notasjon v2 og kursnøytrale), men skal **ikke** lages som video nå. Forkurset i fysikk struktureres om, og læreren avgjør etterpå om de to videoene fortsatt trengs, eller om de må skrives om eller flyttes. Animasjonene og formelbildene deres er utdaterte (desimalkomma, g ≈ 9,8, «Forkurs i fysikk · Kapittel 1»). Ikke lag dem på nytt før læreren ber om det.
-- Nye sider kommer i `Realfagsambassaden/fysikk-forkurs`, med plassholder for video. Spør læreren hvilke som skal prioriteres.
+- **`arbeid-og-energi/potensiell-energi`**: **utkast 5 laget 6. november 2026 – læreren er fornøyd** (kald start uten «wireless GoPro», stablede brøker, outromusikk; utkast 4: «løfter den oppover» kuttet og «løfter den» dubbet inn). Klar for opplasting til YouTube og registrering i `ferdige.yml` når en side har plassholder. Utkast 3 laget 5. november 2026 (intromusikk fra Arbeid v2, leppesynk +0.08 s, vektorpiler, bok i stedet for ball, kutt «e lik» → «lik», «akkurat» hel). Utkast 2 laget 5. november 2026 etter lærerens tilbakemeldinger (grønn intro/outro, leppesynk rettet, tavla for eks. 1 tegnet på nytt med fjær som følger læreren, bølge ved SPJONG, kutt av pauser/snubling). Utkast 1 ferdig 5. november 2026 (4:20, kald start, intro/outro, svisj-overganger, Dashman-stinger). Ferdig fil og miniatyrbilde ligger i lærerens mappe `Filmprosjekt/DrNormann/INGENIØRFYSIKK/MEKANIKK—Ingeniør/Potensiell energi/`. Venter på lærerens tilbakemelding. (Tidligere: manus (utkast) og lærerens tegninger (`tegninger.pdf`, 6 sider: tittel, samleside fjær, elementer fjær, elementer graf, samleside tyngdefelt, elementer tyngdefelt) ligger klare. Neste: læreren går gjennom manus, så opptak, så animasjon. Kjente rettelser fra tegningene: eks. 2 heter «Energi i spiralfjær» på tegningen, men skal være «Energi i tyngdefeltet»; `g` oppreist; integralet med prikkprodukt `∫ F⃗·dx⃗`; ligningene nede til høyre må flyttes ut av sonen. Ingen side på nettstedet har denne videoen ennå (passer på delemnet *Kinetisk og potensiell energi* i emnet *Arbeid og energi*).)
+- **`arbeid-og-energi/kinetisk-energi`**: manus (utkast) skrevet 6. november 2026 – utleder E_k = ½mv² fra arbeid (W = F·s, F = m·v/t, s = arealet under v–t-grafen = trekant), som i Potensiell energi. Dashman i bil (lærerens tegning) kjører på tavla. Venter på lærerens gjennomlesning og opptak.
+- **Miniatyrbilder for de eldre mekanikkvideoene** (17 stk., i malen) laget 5. november 2026. «Hva er fysikk», «Hva er mekanikk» og «Akselerasjon» er laget på nytt fra bilder læreren sendte. Alle ligger som `<video>_thumbnail.jpg` i mappene på Macen. Merkelappen er «Mekanikk» på alle (bestemt 6. november 2026). Flere bruker samme bilde av læreren (brun skjorte); bedre øyeblikk kan hentes fra opptakene (`Meg_*.mov`).
+- **På vent:** `hva-er-fysikk/innledning` og `hva-er-fysikk/overslag` (laget før grønnskjerm-arbeidsgangen; animasjonene er utdaterte). Læreren avgjør etter omstruktureringen av forkurset om de trengs. Plassholderne for dem står på sidene `fysikk-forkurs/01-hva-er-fysikk` og `fysikk-forkurs/01-02-overslag`.
+- Videoen om **arbeid** som brukes i emneteksten for *Arbeid og energi* er <https://www.youtube.com/watch?v=RDi3DD0Cehk>. Potensiell energi bygger videre på den (men uten å vise til den).
