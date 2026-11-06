@@ -5,9 +5,9 @@
 
 Les i rolig tempo, ca. 140 ord i minuttet. Du filmer deg selv foran grønnskjermen og havner nede til høyre i videoen. Tidskodene er omtrentlige. Animasjonen tilpasses det du faktisk sier og gjør i opptaket. Ta en kort pause mellom avsnittene, og **klapp før du tar noe på nytt**. **[Du:]** er forslag til ting du gjør i bildet.
 
-**Rekvisitter:** en lekebil (eller en ball) og gjerne en bok som «vegg». Ikke grønne.
+**Rekvisitter:** ingen. Du «dytter» tegneseriebilen med Dashman på tavla: strekk ut hånda mot venstre og dytt i lufta, så starter bilen ved hånda di og kjører mot venstre. Siden du står nede til høyre, kjører bilen **fra høyre mot venstre**, og fart- og kraftpilene peker også mot venstre.
 
-**Tegning fra deg (valgfritt):** Dashman i en bil, sett fra siden. Den animeres på tavla (bilen kjører, hjulene går rundt). Alt annet på tavla lager jeg med TikZ/SVG.
+**Tegning fra deg:** Dashman i en bil, sett fra siden, **med fronten mot venstre**. Den animeres på tavla (bilen kjører, hjulene går rundt, Dashman reagerer). Alt annet på tavla lager jeg med TikZ/SVG.
 
 Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet under en graf**, og arealet er en trekant.
 
@@ -15,19 +15,20 @@ Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet u
 
 ### 1. Intro (0:00–0:20)
 
-> **[Du:** dytt lekebilen så den triller bortover bordet.**]**
+> **[Du:** strekk ut hånda mot venstre og gi Dashman-bilen et kraftig dytt. Den suser av gårde mot venstre.**]**
 > Når jeg dytter på bilen, gjør jeg et arbeid. Og arbeid er overføring av energi. Men hvor blir energien av denne gangen?
 > Den ligger i bevegelsen. Energi som et legeme har fordi det beveger seg, kaller vi *kinetisk energi*, eller bevegelsesenergi.
 
-*På skjermen:* Tittelen «Kinetisk energi» i oransje. «Arbeid = overføring av energi» skrives under. Dashman-bilen kjører inn fra venstre med fartsstreker (svisj).
+*På skjermen:* Dashman-bilen står ved hånda di. Når du dytter, suser den mot venstre med fartsstreker (svisj) og stopper midt på tavla. Tittelen «Kinetisk energi» i oransje og «Arbeid = overføring av energi» under.
 
 ### 2. Dashman gir gass (0:20–0:45)
 
-> Tenk deg at Dashman står stille i bilen sin. Så gir han gass. En konstant kraft F virker framover, og bilen akselererer jevnt.
+> **[Du:** dytt bilen jevnt og rolig mot venstre igjen, som om du skyver den i gang.**]**
+> Tenk deg at bilen står stille, og så dytter jeg på den. En konstant kraft F virker framover, og bilen akselererer jevnt.
 > Etter en tid t har bilen fått farten v. Hvor mye arbeid har kraften gjort? Det er kraft ganger strekning: *W er lik F ganger s*.
 > Vi må altså finne både kraften og strekningen, uttrykt med farten.
 
-*På skjermen:* Bilen i ro med v₀ = 0, så kraftpila F⃗ framover (pop). Bilen kjører strekningen s⃗ (oransje pil under) og får farten v⃗. Boksen «W = F · s».
+*På skjermen:* Bilen i ro med v₀ = 0 ved hånda di, så kraftpila F⃗ mot venstre fra hånda (pop). Bilen akselererer mot venstre langs strekningen s⃗ (oransje pil under) og får farten v⃗. Boksen «W = F · s».
 
 ### 3. Kraften: Newtons 2. lov (0:45–1:05)
 
@@ -67,10 +68,10 @@ Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet u
 
 ### 7. Avslutning (2:40–3:00)
 
-> **[Du:** dytt bilen inn i boka, så den stopper.**]**
+> **[Du:** hold hånda opp som en vegg (mot venstre) og «ta imot» bilen når den kommer tilbake.**]**
 > For å stoppe bilen må noe gjøre det samme arbeidet, bare motsatt vei. Arbeid gir bevegelsesenergi, og bevegelsesenergi kan gjøre arbeid. Prøv deg på oppgavene under videoen!
 
-*På skjermen:* Oppsummering: «Arbeid ⇄ kinetisk energi», «E_k = ½mv²» (stablet brøk). Eventuell Dashman-stinger.
+*På skjermen:* Bilen kjører mot hånda di og bremser opp (bremsespor, Dashman lener seg framover). Oppsummering: «Arbeid ⇄ kinetisk energi», «E_k = ½mv²» (stablet brøk). Eventuell Dashman-stinger.
 
 ---
 
