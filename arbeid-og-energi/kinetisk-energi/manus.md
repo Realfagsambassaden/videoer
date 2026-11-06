@@ -46,22 +46,28 @@ Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet u
 
 *På skjermen:* Aksene «mv» og «v» (med en liten gul lapp: «v, ikke t!»), linja fra 0 til (v, mv). Trekanten fylles grå fra venstre. «Areal av trekant: A = ½ · g · h» med en liten trekant, så g = v og h = mv (oransje). «W = ∫ m v dv = ½ · v · mv = ½mv²» (stablede brøker).
 
-### 5. Kinetisk energi (1:45–2:10)
+### 5. Kinetisk energi (1:45–2:05)
 
 > Dette arbeidet forsvinner ikke. Det ligger i bevegelsen som kinetisk energi: *E k er lik en halv m v i andre*.
 > Og hadde bilen allerede fart da jeg begynte å dytte, er arbeidet lik *endringen* i kinetisk energi.
 
 *På skjermen:* Grønn boks: «Kinetisk energi: E_k = ½mv²». Under, mindre: «W = ½mv² − ½mv₀² = ΔE_k» (stablede brøker).
 
-### 6. Hva betyr v i andre? (2:10–2:40)
+### 6. «Ok … det ble litt nerdete» – poenget (2:05–2:25)
 
-> Legg merke til at farten står i andre. Kjører Dashman i 50 kilometer i timen, og bilen veier ett tonn, er den kinetiske energien rundt 96 kilojoule.
-> Dobler han farten til 100, blir energien ikke dobbelt så stor, men *fire* ganger så stor – nesten 400 kilojoule.
-> Det er derfor bremselengden øker så mye med farten.
+> **[Du:** senk skuldrene, smil litt flau og se rett i kamera.**]**
+> Ok … dette ble kanskje litt nerdete. Klarte du ikke å henge med på integralene? Helt greit! Poenget er dette:
+> Dytter du på noe og det får fart, har du gitt det energi. Og den energien er *en halv m v i andre*. Dobbelt så tung – dobbelt så mye energi. Dobbelt så fort – *fire* ganger så mye!
+
+*På skjermen:* Tavla tones ned og utledningen blir uskarp (eller viskelæret sveiper den halvveis bort). En liten Dashman kommer inn og klør seg i hodet med et «?». Så, stort og rent midt på tavla: «Poenget:» og «E_k = ½mv²» (stablet brøk), med to små pilbokser under: «2 × m → 2 × E_k» og «2 × v → 4 × E_k» (den siste i gult, «pop»).
+
+### 7. Et eksempel (2:25–2:45)
+
+> Et eksempel: Dashman kjører i 50 kilometer i timen, og bilen veier ett tonn. Da har den rundt 96 kilojoule. I 100 kilometer i timen: nesten 400. Det er derfor bremselengden øker så mye med farten.
 
 *På skjermen:* m = 1000 kg, v = 50 km/h = 13.9 m/s, E_k = 96 kJ. Så v = 100 km/h = 27.8 m/s, E_k = 390 kJ og «×4!» i gult. Dashman-bilen kjører fortere (lengre fartsstreker).
 
-### 7. Avslutning (2:40–3:00)
+### 8. Avslutning (2:45–3:05)
 
 > **[Du:** hold hånda opp som en vegg (mot venstre) og «ta imot» bilen når den kommer tilbake.**]**
 > For å stoppe bilen må noe gjøre det samme arbeidet, bare motsatt vei. Arbeid gir bevegelsesenergi, og bevegelsesenergi kan gjøre arbeid. Prøv deg på oppgavene under videoen!
