@@ -14,7 +14,7 @@ Tegningene er dine (`tegninger.pdf`). Teksten skrives om med en håndskriftfont,
 
 > Når en kraft gjør arbeid, overføres energi. Men hvor blir den av?
 > **[Du:** løft ballen sakte opp over hodet og hold den der.**]**
-> Jeg har nettopp gjort et arbeid på denne ballen. Den står helt stille, men energien er ikke borte. Den ligger lagret – og venter.
+> Jeg har nettopp gjort et arbeid på denne koppen. Den står helt stille, men energien er ikke borte. Den ligger lagret – og venter.
 
 *På skjermen:* Tittelen «Potensiell energi» skrives i oransje (0:01). «Arbeid er overføring av energi» skrives under (0:05).
 
@@ -31,6 +31,7 @@ Tegningene er dine (`tegninger.pdf`). Teksten skrives om med en håndskriftfont,
 > **[Du:** hold fram fjæra og trykk den sammen mellom fingrene.**]**
 > Først en spiralfjær. Jo mer jeg trykker den sammen, jo hardere dytter den tilbake. Det sier Hookes lov: Fjærkraften er *minus k ganger x*, der x er hvor mye fjæra er presset sammen, og k er fjærstivheten. Minustegnet betyr at fjæra dytter motsatt vei.
 > For å presse fjæra sammen, må jeg altså dytte med en kraft *k x* – og den kraften vokser jo lenger inn jeg kommer.
+Og helt tilsvarende, hvis jeg strekker den ut fra likevekt.
 
 *På skjermen:* Overskriften «Eks. 1: Energi i en spiralfjær» (0:46). Boksen «Hookes lov: F = −kx» (0:52). Fjæra i likevekt med F = 0 (0:58), så presset sammen til x₁, x₂ og x₃ med stadig lengre piler F₁, F₂, F₃ (1:02–1:10).
 
@@ -54,7 +55,7 @@ Tegningene er dine (`tegninger.pdf`). Teksten skrives om med en håndskriftfont,
 
 ### 6. Avslutning (2:35–3:00)
 
-> Felles for begge eksemplene: Vi gjør et arbeid mot en kraft, og arbeidet blir lagret som potensiell energi. Den kan vi hente ut igjen.
+> Felles for begge eksemplene: Vi gjør et arbeid mot en kraft, og arbeidet blir lagret som potensiell energi, i den forstand at vi kan hente ut energien igjen.
 > **[Du:** slipp ballen en gang til og ta den imot.**]**
 > Når vi slipper, blir den potensielle energien til bevegelsesenergi – *kinetisk energi*. Prøv deg på oppgavene under videoen!
 
