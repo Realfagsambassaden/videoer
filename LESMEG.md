@@ -60,6 +60,9 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Leppesynk må stemme** (se «Klipping» i CLAUDE.md). Læreren merker det med en gang hvis bildet henger etter.
 - **Mapper på Macen:** materialet til en video ligger i iCloud under `Filmprosjekt/DrNormann/<FAG>/<OMRÅDE>/<tema>/`, f.eks. `Filmprosjekt/DrNormann/INGENIØRFYSIKK/MEKANIKK—Ingeniør/Potensiell energi/` (opptaket `MEG.mov`, tegningene som PDF). Den ferdige videoen og miniatyrbildet legges i samme mappe.
 
-- **Korte videoer** (TikTok/Instagram/Shorts) har egne manus: enkle «Visste du at …?»- og «Kåffer det?!»-eksperimenter, maks 1 minutt, med DrNormann-logoen og en peker til fysikkhjelp.no. Se «Korte videoer» i CLAUDE.md.
+- **Ting læreren gjør mot tavla skjer der han ser og har hånda:** stopper han bilen eller den krasjer, skal bilen/muren stå rett ved hånda hans (hånda kan godt være bak muren), og han skal se på Dashman – ikke på sin egen hånd. Her er det greit at tavla går inn i presentatørsonen.
+- **Innramming:** sjekk at læreren ikke er skåret av mot høyre kant (særlig når opptaket speilvendes). Flytt ham inn (`midt` i `plan.json`), og flytt tavla tilsvarende.
+- **Ordslutter:** kutt aldri slutten av et ord eller en setning («… ganger høyden», «… mv i andre»). Sjekk slutten av hver bit med tale-til-tekst.
+- **Korte videoer** (TikTok/Instagram/Shorts) har egne manus: enkle «Visste du at …?»- og «Kåffer det?!»-eksperimenter, maks 1 minutt, med DrNormann-logoen og en peker til fysikkhjelp.no. Se «Korte videoer» i CLAUDE.md. Stilen læreren likte («Kopp opp ned», `korte/kopp-opp-ned/`): den mest spektakulære scenen først som krok, plutselige zoom inn/ut og hvite blink med svisj ved kutt, teksting ord for ord, emojier, store stempler («KÅFFER DET?! 🤯», «FAIL 😩»), **bloopers med morsom lyd** (skuffet trombone) og en kort forklaring på hva som gikk galt, forklaringen i fargede bokser, og til slutt svart skjerm med DrNormann-logoen, «Mer fysikk på fysikkhjelp.no» og ut-musikken.
 
 (Flere faste ønsker for tone, åpning og avslutning noteres her etter hvert.)
