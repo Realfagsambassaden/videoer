@@ -7,11 +7,15 @@ Les i rolig tempo, ca. 140 ord i minuttet. Du filmer deg selv foran grønnskjerm
 
 **Rekvisitter:** ingen. Du «dytter» tegneseriebilen med Dashman på tavla: strekk ut hånda mot venstre og dytt i lufta, så starter bilen ved hånda di og kjører mot venstre. Siden du står nede til høyre, kjører bilen **fra høyre mot venstre**, og fart- og kraftpilene peker også mot venstre.
 
-**Tegning fra deg:** Dashman i en bil, sett fra siden, **med fronten mot venstre**. Den animeres på tavla (bilen kjører, hjulene går rundt, Dashman reagerer). Alt annet på tavla lager jeg med TikZ/SVG.
+**Tegning fra deg:** ✓ levert (`tegninger.pdf`: Ben sin stasjon, Dashman som plystrer, bilen, bensinpumpa). Bilen speilvendes så fronten peker mot venstre. Den animeres på tavla (bilen kjører, hjulene går rundt, Dashman reagerer). Alt annet på tavla lager jeg med TikZ/SVG.
 
 Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet under en graf**, og arealet er en trekant. Den antar **ikke** konstant kraft eller konstant akselerasjon: W = ∫ F⃗ · dx⃗ = ∫ m v dv, og grafen av mv mot v er en rett linje uansett hvordan kraften varierer.
 
 ---
+
+### 0. Kald start: Ben sin stasjon (ca. 5 s, ingen tale)
+
+*På skjermen (lærerens tegning `tegninger.pdf`, se `_verktoy/dashman/`):* Skiltet «BEN SIN STASJON». Dashman står og plystrer (noter som svever opp) mens han fyller bensin på bilen fra pumpa. Plystrelyd og et lite «klunk» når tanken er full. Dashman hopper inn bak rattet – og så skjærer det over til tavla der du dytter bilen i gang (avsnitt 1). Bilen speilvendes så den kjører mot venstre. Teksten på bilsiden byttes ut med en nøytral tekst (f.eks. «FULL TANK!») – se merknad i `_verktoy/dashman/LESMEG.md`.
 
 ### 1. Intro (0:00–0:20)
 
