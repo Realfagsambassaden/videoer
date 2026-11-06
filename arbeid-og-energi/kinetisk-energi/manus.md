@@ -16,7 +16,7 @@ Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet u
 ### 1. Intro (0:00–0:20)
 
 > **[Du:** strekk ut hånda mot venstre og gi Dashman-bilen et kraftig dytt. Den suser av gårde mot venstre.**]**
-> Når jeg dytter på bilen, gjør jeg et arbeid. Og arbeid er overføring av energi. Men hvor blir energien av denne gangen?
+> Når jeg dytter på bilen, gjør jeg et arbeid. Og arbeid er overføring av energi. Men hvor ble energien av nå?
 > Den ligger i bevegelsen. Energi som et legeme har fordi det beveger seg, kaller vi *kinetisk energi*, eller bevegelsesenergi.
 
 *På skjermen:* Dashman-bilen står ved hånda di. Når du dytter, suser den mot venstre med fartsstreker (svisj) og stopper midt på tavla. Tittelen «Kinetisk energi» i oransje og «Arbeid = overføring av energi» under.
