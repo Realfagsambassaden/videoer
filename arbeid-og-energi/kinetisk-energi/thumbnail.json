@@ -1,0 +1,14 @@
+{
+  "emne": "Mekanikk",
+  "tittel": "KINETISK",
+  "tittel2": "ENERGI",
+  "undertittel": "dytt … VROOM!",
+  "person": "person.png",
+  "beskjaer_person": [
+    0.0,
+    1.0
+  ],
+  "tegning": "tegning-bil.png",
+  "person_hoyde": 540,
+  "person_hoyre": -40
+}
