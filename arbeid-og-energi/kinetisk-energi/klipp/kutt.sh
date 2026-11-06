@@ -12,10 +12,10 @@ ffmpeg -v error -y -ss 106.160 -i "$K" -frames:v 160 -t 6.400 -c:v libx264 -crf 
 ffmpeg -v error -y -ss 113.720 -i "$K" -frames:v 130 -t 5.200 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c08.mkv
 ffmpeg -v error -y -ss 188.040 -i "$K" -frames:v 721 -t 28.840 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c09.mkv
 ffmpeg -v error -y -ss 218.480 -i "$K" -frames:v 129 -t 5.160 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c10.mkv
-ffmpeg -v error -y -ss 232.520 -i "$K" -frames:v 148 -t 5.920 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c11.mkv
+ffmpeg -v error -y -ss 232.520 -i "$K" -frames:v 166 -t 6.640 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c11.mkv
 ffmpeg -v error -y -ss 252.800 -i "$K" -frames:v 232 -t 9.280 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c12.mkv
 ffmpeg -v error -y -ss 271.240 -i "$K" -frames:v 155 -t 6.200 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c13.mkv
-ffmpeg -v error -y -ss 278.360 -i "$K" -frames:v 200 -t 8.000 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c14.mkv
+ffmpeg -v error -y -ss 278.360 -i "$K" -frames:v 215 -t 8.600 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c14.mkv
 ffmpeg -v error -y -ss 290.600 -i "$K" -frames:v 71 -t 2.840 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c15.mkv
 ffmpeg -v error -y -ss 294.120 -i "$K" -frames:v 183 -t 7.320 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c16.mkv
 ffmpeg -v error -y -ss 302.760 -i "$K" -frames:v 75 -t 3.000 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c17.mkv

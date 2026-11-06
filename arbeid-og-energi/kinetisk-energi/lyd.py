@@ -5,8 +5,15 @@ Plystring, klunk, motor, bremsehvin og krasj lages her (syntetisk). Tider i T (k
 import sys, numpy as np, soundfile as sf
 from pathlib import Path
 H = Path(__file__).resolve().parent; LYD = H.parents[1] / '_verktoy' / 'lyd'
-KALD, TITTEL, HOVED = 6.0, 1.6, 220.04
-M = lambda T: KALD + TITTEL + T
+import json
+O = json.load(open(H / 'klipp' / 'edl_utkast1.json')); N = json.load(open(H / 'klipp' / 'edl.json'))
+KLIPP = [(a['nT0'], a['nT0'] + a['lengde'], b['nT0'], b['lengde']) for a, b in zip(O, N)]
+def R(T):   # tid i klippet til utkast 1 → tid i nytt klipp
+    for a, b, n, l in KLIPP:
+        if T < b: return n + min(max(T - a, 0), l)
+    return KLIPP[-1][2] + KLIPP[-1][3]
+KALD, TITTEL, HOVED = 6.0, 1.6, round(N[-1]['nT0'] + N[-1]['lengde'], 2)
+M = lambda T: KALD + TITTEL + R(T)
 LENGDE = KALD + TITTEL + HOVED
 sr = 48000; rng = np.random.default_rng(7)
 t_ = lambda d: np.arange(int(d * sr)) / sr
