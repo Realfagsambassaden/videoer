@@ -71,7 +71,8 @@ legg(EFF['svisj'], M(1.6), .35); legg(EFF['pop'], M(1.7), .25)
 # viskelær-overganger
 for s in (25.76, 44.36, 105.16, 140.04, 170.40, 199.76): legg(EFF['svisj'], M(s) - .3, .35)
 # pop for stempler og bokser
-for T in (67.4, 79.6, 141.4, 160.3, 168.2, 189.0, 214.0): legg(EFF['pop'], M(T), .25)
+for T in (61.2, 62.6, 65.5, 67.4, 79.6, 141.4, 160.3, 168.2, 189.0, 214.0): legg(EFF['pop'], M(T), .25)
+for T in (60.6, 62.0, 64.9): legg(EFF['svisj'], M(T), .2)
 # F: motor ved eksemplet (svakt), G: bremsing, rygging, krasj
 legg(motor(2.6, 60, 90) * 0.5, M(199.9)); legg(hvin(2.6), M(202.95))
 legg(rygge(), M(208.4)); legg(motor(1.4, 70, 160), M(209.6)); legg(krasj(), M(211.0)); legg(EFF['boing'], M(211.4), .35)
