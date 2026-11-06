@@ -60,4 +60,6 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Leppesynk må stemme** (se «Klipping» i CLAUDE.md). Læreren merker det med en gang hvis bildet henger etter.
 - **Mapper på Macen:** materialet til en video ligger i iCloud under `Filmprosjekt/DrNormann/<FAG>/<OMRÅDE>/<tema>/`, f.eks. `Filmprosjekt/DrNormann/INGENIØRFYSIKK/MEKANIKK—Ingeniør/Potensiell energi/` (opptaket `MEG.mov`, tegningene som PDF). Den ferdige videoen og miniatyrbildet legges i samme mappe.
 
+- **Korte videoer** (TikTok/Instagram/Shorts) har egne manus: enkle «Visste du at …?»- og «Kåffer det?!»-eksperimenter, maks 1 minutt, med DrNormann-logoen og en peker til fysikkhjelp.no. Se «Korte videoer» i CLAUDE.md.
+
 (Flere faste ønsker for tone, åpning og avslutning noteres her etter hvert.)
