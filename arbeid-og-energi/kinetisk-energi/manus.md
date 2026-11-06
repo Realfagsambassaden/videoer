@@ -9,7 +9,7 @@ Les i rolig tempo, ca. 140 ord i minuttet. Du filmer deg selv foran grønnskjerm
 
 **Tegning fra deg:** Dashman i en bil, sett fra siden, **med fronten mot venstre**. Den animeres på tavla (bilen kjører, hjulene går rundt, Dashman reagerer). Alt annet på tavla lager jeg med TikZ/SVG.
 
-Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet under en graf**, og arealet er en trekant.
+Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet under en graf**, og arealet er en trekant. Den antar **ikke** konstant kraft eller konstant akselerasjon: W = ∫ F⃗ · dx⃗ = ∫ m v dv, og grafen av mv mot v er en rett linje uansett hvordan kraften varierer.
 
 ---
 
@@ -23,40 +23,35 @@ Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet u
 
 ### 2. Dashman gir gass (0:20–0:45)
 
-> **[Du:** dytt bilen jevnt og rolig mot venstre igjen, som om du skyver den i gang.**]**
-> Tenk deg at bilen står stille, og så dytter jeg på den. En konstant kraft F virker framover, og bilen akselererer jevnt.
-> Etter en tid t har bilen fått farten v. Hvor mye arbeid har kraften gjort? Det er kraft ganger strekning: *W er lik F ganger s*.
-> Vi må altså finne både kraften og strekningen, uttrykt med farten.
+> **[Du:** dytt bilen mot venstre igjen, først forsiktig, så hardere – som om du skyver den i gang.**]**
+> Tenk deg at bilen står stille, og så dytter jeg på den. Kraften trenger ikke være konstant. Jeg kan dytte litt, så mye, så litt igjen.
+> Arbeidet er kraft ganger strekning, lagt sammen bit for bit: *W er integralet av F d x*.
 
-*På skjermen:* Bilen i ro med v₀ = 0 ved hånda di, så kraftpila F⃗ mot venstre fra hånda (pop). Bilen akselererer mot venstre langs strekningen s⃗ (oransje pil under) og får farten v⃗. Boksen «W = F · s».
+*På skjermen:* Bilen i ro med v₀ = 0 ved hånda di. Kraftpila F⃗ mot venstre fra hånda, som vokser og krymper i takt med dyttet ditt. Bilen øker farten mot venstre, med en liten oransje strekningsbit dx⃗ under. «W = ∫ F⃗ · dx⃗».
 
-### 3. Kraften: Newtons 2. lov (0:45–1:05)
+### 3. Newtons 2. lov (0:45–1:10)
 
-> Kraften finner vi fra Newtons andre lov: *F er lik m ganger a*.
-> Akselerasjonen er hvor fort farten endrer seg. Bilen går fra null til v på tiden t, så a er v delt på t.
-> Kraften blir dermed *m ganger v delt på t*.
+> Kraften finner vi fra Newtons andre lov: *F er lik m ganger a*. Og akselerasjonen er hvor fort farten endrer seg: *d v delt på d t*.
+> Så et lite triks: Den lille strekningen d x er farten ganger en liten tid, *v d t*.
+> Setter vi inn, forsvinner d t, og igjen står *m v d v*.
 
-*På skjermen:* «ΣF⃗ = ma⃗», så «a = v/t» (stablet brøk), så «F = m · v/t». Stablede brøker.
+*På skjermen:* «ΣF⃗ = ma⃗», «a = dv/dt» og «dx = v · dt» (stablede brøker). Så F · dx = m · (dv/dt) · v · dt, der de to dt-ene strykes over med en gul strek («pop»). Igjen står «F · dx = m v dv».
 
-### 4. Strekningen: arealet under fartsgrafen (1:05–1:40)
+### 4. Arealet under en graf (1:10–1:45)
 
-> Strekningen finner vi med et triks du kjenner igjen: arealet under en graf.
+> Arbeidet er altså integralet av *m v d v*, fra null og opp til farten v. Og integraler er arealer under grafer.
 > **[Du:** tegn en skrå linje i lufta med hånda.**]**
-> Tegner vi farten mot tiden, får vi en rett linje fra null og opp til v. Strekningen er arealet under grafen. Og arealet er en trekant!
-> Areal av trekant er en halv ganger grunnlinje ganger høyde. Grunnlinja er t, høyden er v. Strekningen er altså *en halv v t*.
+> Tegner vi m v mot v, får vi en rett linje – akkurat som kraften i en fjær. Arealet er en trekant!
+> Areal av trekant er en halv ganger grunnlinje ganger høyde. Grunnlinja er v, høyden er m v. Arbeidet blir *en halv m v i andre*.
 
-*På skjermen:* Aksene v og t, linja fra 0 til (t, v). Trekanten fylles grå fra venstre. «Areal av trekant: A = ½ · g · h» med en liten trekant, så g = t og h = v (oransje), så «s = ½ · v · t» (stablede brøker).
+*På skjermen:* Aksene «mv» og «v», linja fra 0 til (v, mv). Trekanten fylles grå fra venstre. «Areal av trekant: A = ½ · g · h» med en liten trekant, så g = v og h = mv (oransje). «W = ∫ m v dv = ½ · v · mv = ½mv²» (stablede brøker).
 
-### 5. Sett sammen (1:40–2:10)
+### 5. Kinetisk energi (1:45–2:10)
 
-> Nå setter vi inn i arbeidet. W er F ganger s: *m v delt på t*, ganger *en halv v t*.
-> **[Du:** klapp hendene sammen når t-ene forsvinner.**]**
-> Tiden t forkorter seg bort! Igjen står *en halv m v i andre*.
 > Dette arbeidet forsvinner ikke. Det ligger i bevegelsen som kinetisk energi: *E k er lik en halv m v i andre*.
+> Og hadde bilen allerede fart da jeg begynte å dytte, er arbeidet lik *endringen* i kinetisk energi.
 
-*På skjermen:* W = F · s = m·(v/t) · ½·v·t. De to t-ene strykes over med en gul strek («pop»). W = ½mv². Grønn boks: «Kinetisk energi: E_k = ½mv²».
-
-*(Valgfritt for ingeniørfysikk – kan droppes:* «Med integraler går det for enhver kraft: W = ∫ F⃗ · dx⃗ = ∫ m v dv = ½mv² − ½mv₀².» *Vises kort som en liten boks.)*
+*På skjermen:* Grønn boks: «Kinetisk energi: E_k = ½mv²». Under, mindre: «W = ½mv² − ½mv₀² = ΔE_k» (stablede brøker).
 
 ### 6. Hva betyr v i andre? (2:10–2:40)
 
