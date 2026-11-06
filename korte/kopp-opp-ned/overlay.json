@@ -1,0 +1,168 @@
+{
+ "lengde": 56.8,
+ "slutt": 53.8,
+ "tekst": [
+  [
+   4.3,
+   7.0,
+   "Visste du at luft faktisk kan holde opp vann?"
+  ],
+  [
+   7.05,
+   7.65,
+   "Nei."
+  ],
+  [
+   7.75,
+   8.4,
+   "Eller cola?"
+  ],
+  [
+   8.5,
+   9.15,
+   "Nei."
+  ],
+  [
+   9.25,
+   10.5,
+   "Da kan jeg vise deg."
+  ],
+  [
+   10.6,
+   11.95,
+   "Jeg har nemlig et glass her."
+  ],
+  [
+   12.1,
+   13.0,
+   "Sånn ja, bra."
+  ],
+  [
+   13.4,
+   15.0,
+   "Hva tror du skjer nå?"
+  ],
+  [
+   21.85,
+   24.7,
+   "Det var litt for mye bobler i den brusen, så vi må få det ut."
+  ],
+  [
+   25.4,
+   27.1,
+   "Rister på den, så åpner jeg."
+  ],
+  [
+   27.25,
+   30.2,
+   "Så nå skal jeg lære deg litt fysikk her."
+  ],
+  [
+   30.3,
+   31.4,
+   "Ok, Bjørn."
+  ],
+  [
+   31.7,
+   33.5,
+   "Ja vel, Gaupe."
+  ],
+  [
+   49.7,
+   51.4,
+   "Mer på fysikkhjelp.no"
+  ],
+  [
+   51.5,
+   53.6,
+   "Mindre på kjemihjelp.no 😜"
+  ]
+ ],
+ "stempler": [
+  [
+   0.1,
+   4.0,
+   "KÅFFER DET?! 🤯",
+   "topp"
+  ],
+  [
+   7.8,
+   1.4,
+   "🥤",
+   "emoji"
+  ],
+  [
+   15.2,
+   1.4,
+   "🤔",
+   "emoji"
+  ],
+  [
+   17.8,
+   1.6,
+   "FAIL 😩",
+   "midt"
+  ],
+  [
+   19.4,
+   2.4,
+   "For mye kullsyre! 🫧",
+   "topp"
+  ],
+  [
+   21.9,
+   2.6,
+   "Prøve på nytt! 🔁",
+   "topp"
+  ],
+  [
+   31.8,
+   1.6,
+   "🐻",
+   "emoji"
+  ],
+  [
+   33.2,
+   1.4,
+   "🐆",
+   "emoji"
+  ],
+  [
+   36.4,
+   1.6,
+   "🤯🤯🤯",
+   "emoji"
+  ],
+  [
+   38.2,
+   6.0,
+   "Lufta presser tallerkenen OPP ⬆️💨",
+   "forklar"
+  ],
+  [
+   40.6,
+   3.8,
+   "… mye hardere enn colaen presser NED ⬇️",
+   "forklar2"
+  ],
+  [
+   48.7,
+   1.0,
+   "SPLÆSJ! 💦",
+   "midt"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  4.2,
+  7.7,
+  9.2,
+  12.0,
+  16.7,
+  21.8,
+  27.2,
+  36.2,
+  44.4,
+  49.6
+ ]
+}
