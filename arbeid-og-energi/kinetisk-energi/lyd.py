@@ -7,10 +7,10 @@ from pathlib import Path
 H = Path(__file__).resolve().parent; LYD = H.parents[1] / '_verktoy' / 'lyd'
 import json
 O = json.load(open(H / 'klipp' / 'edl_utkast1.json')); N = json.load(open(H / 'klipp' / 'edl.json'))
-KLIPP = [(a['nT0'], a['nT0'] + a['lengde'], b['nT0'], b['lengde']) for a, b in zip(O, N)]
+KLIPP = [(a['nT0'], a['nT0'] + a['lengde'], b['nT0'], b['lengde'], a['start'] - b['start']) for a, b in zip(O, N)]
 def R(T):   # tid i klippet til utkast 1 → tid i nytt klipp
-    for a, b, n, l in KLIPP:
-        if T < b: return n + min(max(T - a, 0), l)
+    for a, b, n, l, d in KLIPP:
+        if T < b: return n + min(max(T - a + d, 0), l)
     return KLIPP[-1][2] + KLIPP[-1][3]
 KALD, TITTEL, HOVED = 6.0, 1.6, round(N[-1]['nT0'] + N[-1]['lengde'], 2)
 M = lambda T: KALD + TITTEL + R(T)

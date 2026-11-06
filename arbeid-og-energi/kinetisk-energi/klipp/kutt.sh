@@ -18,7 +18,7 @@ ffmpeg -v error -y -ss 271.240 -i "$K" -frames:v 155 -t 6.200 -c:v libx264 -crf 
 ffmpeg -v error -y -ss 278.360 -i "$K" -frames:v 215 -t 8.600 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c14.mkv
 ffmpeg -v error -y -ss 290.600 -i "$K" -frames:v 71 -t 2.840 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c15.mkv
 ffmpeg -v error -y -ss 294.120 -i "$K" -frames:v 183 -t 7.320 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c16.mkv
-ffmpeg -v error -y -ss 302.760 -i "$K" -frames:v 75 -t 3.000 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c17.mkv
+ffmpeg -v error -y -ss 302.120 -i "$K" -frames:v 91 -t 3.640 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c17.mkv
 ffmpeg -v error -y -ss 326.680 -i "$K" -frames:v 188 -t 7.520 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c18.mkv
 ffmpeg -v error -y -ss 360.400 -i "$K" -frames:v 131 -t 5.240 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c19.mkv
 ffmpeg -v error -y -ss 366.280 -i "$K" -frames:v 41 -t 1.640 -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c20.mkv

@@ -4,7 +4,9 @@ grønnfargen varierer over bildet. Lager bare bildet (uten lyd).
 
 Bruk: python3 komponer.py --anim anim.mp4 --opptak klippet.mkv --ut bilde.mp4 --plan plan.json
 plan.json: liste med {"fra": G0, "til": G1, "opptak": T0, "hoyde": 680, "midt": 1660}  (G = tid i animasjonen,
-T0 = tid i opptaket ved G0). Utenfor planen vises bare animasjonen."""
+T0 = tid i opptaket ved G0). Utenfor planen vises bare animasjonen.
+Valgfritt "foran": [x0, y0, x1, y1]: innenfor dette rektangelet legges tavlestrekene (lyse/fargede piksler i animasjonen)
+oppå læreren, så han står «bak» tegningen (f.eks. ser ned på Dashman i bilen)."""
 import argparse, json, subprocess, numpy as np
 
 def nokkel(rgb, t0=14, t1=46):
@@ -56,7 +58,12 @@ def main():
                 xa, xb = max(0, x0), min(W, x0 + w); ya, yb = max(0, y0), min(H, y0 + h)
                 rs = rgb[ya - y0:yb - y0, xa - x0:xb - x0]; als = al[ya - y0:yb - y0, xa - x0:xb - x0, None]
                 bit = bilde[ya:yb, xa:xb].astype(np.float32)
+                anim0 = bilde.copy() if p.get('foran') else None
                 bilde[ya:yb, xa:xb] = (bit * (1 - als) + rs * als).astype(np.uint8)
+                if anim0 is not None:
+                    x0f, y0f, x1f, y1f = p['foran']; A = anim0[y0f:y1f, x0f:x1f].astype(np.float32)
+                    lys = A.max(-1); fa = np.clip((lys - 60) / 50, 0, 1)[..., None]
+                    bilde[y0f:y1f, x0f:x1f] = (bilde[y0f:y1f, x0f:x1f] * (1 - fa) + A * fa).astype(np.uint8)
                 break
         enc.stdin.write(bilde.tobytes()); n += 1
         if n % 900 == 0: print(f'{n / fps:.0f} s', flush=True)
