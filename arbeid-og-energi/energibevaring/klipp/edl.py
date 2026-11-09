@@ -10,16 +10,16 @@ U = [
  (141.6, 154.46, False, 0), (177.76, 183.10, False, 0), (189.56, 199.08, False, 0.5),
  # 2 Dashman i rampa (med «idealisert»)
  (212.56, 249.06, False, 0.5),
- # 3 eksempel: rampa 2 m
- (306.9, 308.58, False, 0), (310.66, 325.24, False, 0), (332.34, 347.68, False, 0), (359.48, 363.18, False, 0), (370.08, 377.94, False, 0.5),
- # 4 fjærkraften: fjæra presses (hel), fjærkanonen, høyden
- (394.62, 407.38, True, 0), (415.04, 432.30, False, 0), (433.04, 441.88, False, 0), (443.02, 465.52, False, 0),
+ # 3 eksempel: rampa 2 m («Da» + «vil» hentet fra stammingen 309.2–310.3)
+ (306.9, 308.58, False, 0), (309.18, 309.40, True, 0), (310.10, 310.34, True, 0), (310.66, 325.24, False, 0), (332.34, 347.68, False, 0), (359.48, 363.18, False, 0), (370.08, 377.94, False, 0.5),
+ # 4 fjærkraften: fjæra presses (hel, med fjæra som spretter ut ved 408.3), fjærkanonen, høyden
+ (394.62, 410.40, True, 0), (415.04, 432.30, False, 0), (433.04, 441.88, False, 0), (443.02, 465.52, False, 0),
  (597.44, 607.80, False, 0), (609.18, 613.74, False, 0), (627.76, 633.50, False, 0), (635.70, 636.52, False, 0), (638.78, 641.68, False, 0.5),
  # 5 hvor ble det av energien
  (654.44, 677.50, False, 0), (688.20, 688.62, False, 0), (689.48, 699.56, False, 0), (713.30, 717.80, False, 0.5),
  # 6 konservative krefter
  (774.08, 784.02, False, 0), (787.04, 816.18, False, 0), (817.70, 851.42, False, 0), (852.86, 882.86, False, 0.3),
- (997.92, 1056.66, False, 0.3), (1058.12, 1063.22, False, 0.5),
+ (997.92, 1056.66, False, 0.3), (1058.12, 1063.22, False, 0),
  # avslutning
  (1102.0, 1121.6, False, 0.6),
 ]
@@ -55,5 +55,6 @@ print(len(ut), 'biter, total', round(nT, 2), 's')
 with open('kutt.sh', 'w') as f:
     f.write('set -e\nK="../Meg_Energibevaring.mov"\nmkdir -p biter\n')
     for i, d in enumerate(ut):
-        f.write(f'[ -s biter/c{i:03d}.mkv ] || ffmpeg -v error -y -ss {d["start"]:.3f} -i "$K" -frames:v {d["frames"]} -t {d["lengde"]:.3f} -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/c{i:03d}.mkv\n')
-    f.write('ls biter/c*.mkv | sed "s/^/file /" > liste.txt\nffmpeg -v error -y -f concat -safe 0 -i liste.txt -c copy opptak.mkv\nffprobe -v error -show_entries format=duration -of csv=p=0 opptak.mkv\n')
+        f.write(f'[ -s biter/s{d["start"]:.2f}_{d["frames"]}.mkv ] || ffmpeg -v error -y -ss {d["start"]:.3f} -i "$K" -frames:v {d["frames"]} -t {d["lengde"]:.3f} -c:v libx264 -crf 17 -preset veryfast -pix_fmt yuv420p -r 25 -c:a pcm_s16le -ar 48000 -ac 1 biter/s{d["start"]:.2f}_{d["frames"]}.mkv\n')
+    f.write("cat > liste.txt <<'SLUTT'\n" + '\n'.join(f'file biter/s{d["start"]:.2f}_{d["frames"]}.mkv' for d in ut) + '\nSLUTT\n')
+    f.write('ffmpeg -v error -y -f concat -safe 0 -i liste.txt -c copy opptak.mkv\nffprobe -v error -show_entries format=duration -of csv=p=0 opptak.mkv\n')

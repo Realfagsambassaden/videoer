@@ -1,9 +1,9 @@
 {
-  "tema": "Mekanikk",
-  "tittel": "ENERGIBEVARING",
-  "undertittel": "hvor ble den av?",
-  "person": "person.png",
-  "person_hoyde": 640,
-  "tegning": "tegning-rampe.png",
-  "person_hoyre": -30
+ "tema": "Mekanikk",
+ "tittel": "ENERGIBEVARING",
+ "undertittel": "Hvor ble energien av?",
+ "person": "person.png",
+ "person_hoyde": 640,
+ "tegning": "tegning-rampe.png",
+ "person_hoyre": -30
 }

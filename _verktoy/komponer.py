@@ -6,7 +6,8 @@ Bruk: python3 komponer.py --anim anim.mp4 --opptak klippet.mkv --ut bilde.mp4 --
 plan.json: liste med {"fra": G0, "til": G1, "opptak": T0, "hoyde": 680, "midt": 1660}  (G = tid i animasjonen,
 T0 = tid i opptaket ved G0). Utenfor planen vises bare animasjonen.
 Valgfritt "foran": [x0, y0, x1, y1]: innenfor dette rektangelet legges tavlestrekene (lyse/fargede piksler i animasjonen)
-oppå læreren, så han står «bak» tegningen (f.eks. ser ned på Dashman i bilen)."""
+oppå læreren, så han står «bak» tegningen (f.eks. ser ned på Dashman i bilen).
+Valgfritt "speil": true speilvender læreren (så han ser mot tavla)."""
 import argparse, json, subprocess, numpy as np
 
 def nokkel(rgb, t0=14, t1=46):
@@ -52,6 +53,7 @@ def main():
             if p['fra'] <= G < p['til']:
                 ramme = les_opp(round((p['opptak'] + G - p['fra']) * fps))
                 if ramme is None: break
+                if p.get('speil'): ramme = ramme[:, ::-1]
                 rgb, al = nokkel(ramme)
                 h = p['hoyde']; rgb = skaler(rgb, h); al = skaler((al * 255).astype(np.uint8), h).astype(np.float32) / 255
                 w = rgb.shape[1]; x0 = round(p['midt'] - w / 2); y0 = H - h
