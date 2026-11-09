@@ -12,9 +12,11 @@ def R(T):   # tid i klippet til utkast 1 → tid i nytt klipp (samme som R() i i
     for a, b, n, l in KLIPP:
         if T < b: return n + min(max(T - a, 0), l)
     return KLIPP[-1][2] + KLIPP[-1][3]
-KALD, TITTEL, LENGDE_KLIPP = 10.4, 1.6, round(N[-1]['nT0'] + N[-1]['lengde'], 2)
+KUTT0, KUTT1 = 119.68, 132.56   # utkast 3: fjær-sammenpressingen kuttet (som C() i innhold.js)
+C = lambda T2: T2 if T2 < KUTT0 else KUTT0 if T2 < KUTT1 else T2 - (KUTT1 - KUTT0)
+KALD, TITTEL, LENGDE_KLIPP = 10.4, 1.6, round(N[-1]['nT0'] + N[-1]['lengde'] - (KUTT1 - KUTT0), 2)
 MN = lambda Tn: Tn if Tn < KALD else KALD + TITTEL + (Tn - KALD)
-M = lambda T: MN(R(T))
+M = lambda T: MN(C(R(T)))
 sr = 48000
 tale, _ = sf.read(sys.argv[1], dtype='float32')
 if tale.ndim > 1: tale = tale.mean(1)
@@ -28,7 +30,6 @@ legg(E['svisj'], KALD - 0.3, .3)
 for s in (38.3, 72.2, 116.2, 197.9, 236.2, 326.4, 386.4): legg(E['svisj'], M(s) - .3, .35)
 for T in (7.0, 92.6, 95.5, 183.3, 222.2, 261.0, 318.4, 341.1, 357.2, 368.6, 383.9): legg(E['pop'], M(T), .25)
 legg(E['boing'], M(53.0), .35); legg(E['boing'], M(143.2), .45)
-legg(E['boing'], MN(130.43), .45); legg(E['pop'], MN(130.45), .2)   # fjæra i hånda spretter ut
 for T in (336.4,): legg(E['svisj'], M(T), .2)
 sf.write(sys.argv[2], np.clip(np.stack([ut, ut], 1)[:int((LENGDE_KLIPP + TITTEL) * sr)], -1, 1), sr)
 print('lyd', sys.argv[2])
