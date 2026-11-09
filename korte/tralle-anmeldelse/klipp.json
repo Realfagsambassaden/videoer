@@ -1,0 +1,7 @@
+{"ut": "12_tralle_anmeldelse_tiktok.mp4",
+ "kilder": {"e": "/home/claude/kilder/n1_e2.mov"},
+ "biter": [
+  {"k": "e", "fra": 1.5, "til": 21.6, "utsnitt": "boks", "forhold": 1.0, "x": 0.55, "zoom": "inn", "tekst": [[1.7, 3.9, "Veldig behagelig tralle."], [4.0, 6.0, "God tralle."], [6.6, 8.6, "Godt konstruert,"], [8.7, 10.4, "firehjulstrekk."], [10.6, 12.9, "Mye bra ventilasjon,"], [13.0, 15.0, "lufta kommer fra alle kanter."], [15.1, 16.4, "Og god sikt!"], [16.6, 20.9, "Jeg anbefaler tralla til alle som er ute etter en tralle."]],
+   "stempler": [[1.6, "Ærlig anmeldelse av tralla 🛒", 3.0, "topp"], [8.7, "⭐⭐⭐⭐", 1.6, "emoji"], [13.0, "💨", 1.4, "emoji"], [15.1, "👀", 1.3, "emoji"], [17.0, "Treghet: 10/10 ⭐⭐⭐⭐⭐", 3.2, "topp"]]},
+  {"k": "e", "fra": 23.0, "til": 29.5, "utsnitt": "boks", "forhold": 1.0, "x": 0.5, "zoom": "punch", "tekst": [[23.2, 25.3, "Har du spørsmål?"], [25.4, 29.3, "Jeg synes det er så klart som det kan bli."]], "stempler": [[25.5, "Klart som det kan bli 😌", 3.6, "topp"]]}
+ ]}

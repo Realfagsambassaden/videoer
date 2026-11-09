@@ -1,0 +1,94 @@
+{
+ "lengde": 32.5,
+ "slutt": 29.7,
+ "tekst": [
+  [
+   24.7,
+   26.4,
+   "Fysikk er viktig!"
+  ],
+  [
+   26.5,
+   28.8,
+   "Eksperimentell fysikk!"
+  ]
+ ],
+ "stempler": [
+  [
+   0.0,
+   2.6,
+   "Kan Kenny velte bøttetårnet? 🪣",
+   "topp"
+  ],
+  [
+   3.1,
+   1.4,
+   "❌",
+   "emoji"
+  ],
+  [
+   5.4,
+   2.0,
+   "FAIL 😩",
+   "midt"
+  ],
+  [
+   7.6,
+   2.4,
+   "🤔",
+   "emoji"
+  ],
+  [
+   11.3,
+   1.6,
+   "💡",
+   "emoji"
+  ],
+  [
+   13.1,
+   2.2,
+   "Forsøk 4 …",
+   "topp"
+  ],
+  [
+   15.45,
+   1.8,
+   "BOM! 💥",
+   "midt"
+  ],
+  [
+   17.525,
+   1.6,
+   "Sakte film 🐌",
+   "topp"
+  ],
+  [
+   18.15,
+   4.25,
+   "Tyngdepunktet havner utenfor støtteflaten …",
+   "forklar"
+  ],
+  [
+   19.9,
+   2.5,
+   "… og da VELTER tårnet 🪣💥",
+   "forklar2"
+  ],
+  [
+   22.5,
+   2.2,
+   "KÅFFER DET?! 🤯",
+   "topp"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  2.6,
+  4.6,
+  7.4,
+  10.2,
+  13.0,
+  17.4,
+  22.4
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "lengde": 31.7,
+ "slutt": 28.9,
+ "tekst": [
+  [
+   0.1,
+   1.4,
+   "Friksjonsfysikk!"
+  ],
+  [
+   1.8,
+   3.1,
+   "Vi sklir på gulvet."
+  ],
+  [
+   3.2,
+   4.5,
+   "Jeg kan vise først."
+  ],
+  [
+   7.2,
+   9.5,
+   "Og så kan vi skli på gresset, vått gress,"
+  ],
+  [
+   9.5,
+   11.5,
+   "og så kan vi skli på ishockeybanen,"
+  ],
+  [
+   11.7,
+   13.7,
+   "så kutter vi til en tredemølle."
+  ],
+  [
+   13.7,
+   15.3,
+   "Vi legger oss på tredemølla."
+  ],
+  [
+   15.5,
+   17.5,
+   "Og så trykker noen på knappen,"
+  ],
+  [
+   17.5,
+   19.1,
+   "og så sklir vi,"
+  ],
+  [
+   19.2,
+   22.3,
+   "og så forklarer vi friksjonskoeffisienten."
+  ],
+  [
+   22.45,
+   24.5,
+   "Og så kan vi skli på ryggen."
+  ],
+  [
+   26.1,
+   28.5,
+   "Altså, mange andre ting sikkert!"
+  ]
+ ],
+ "stempler": [
+  [
+   0.05,
+   2.5,
+   "Kenny har en plan 💡",
+   "topp"
+  ],
+  [
+   5.1,
+   1.8,
+   "WHEEE 🛷",
+   "midt"
+  ],
+  [
+   7.5,
+   1.8,
+   "🌱💦",
+   "emoji"
+  ],
+  [
+   9.8,
+   1.6,
+   "🏒",
+   "emoji"
+  ],
+  [
+   11.9,
+   3.0,
+   "🏃‍♂️",
+   "emoji"
+  ],
+  [
+   19.7,
+   2.6,
+   "μ = friksjonstallet",
+   "forklar"
+  ],
+  [
+   25.5,
+   3.4,
+   "Hvor skal Kenny skli? 👇",
+   "topp"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  7.1,
+  22.4
+ ]
+}

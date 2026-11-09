@@ -1,0 +1,12 @@
+{"ut": "06_bottetarnet_tiktok.mp4",
+ "kilder": {"b": "/home/claude/kilder/k_botte.mov", "i": "/home/claude/kilder/k_ide2.mov"},
+ "biter": [
+  {"k": "b", "fra": 0.0, "til": 2.6, "zoom": "punch", "stempler": [[0.0, "Kan Kenny velte bøttetårnet? 🪣", 2.6, "topp"]]},
+  {"k": "b", "fra": 5.0, "til": 7.0, "zoom": "inn", "stempler": [[5.5, "❌", 1.4, "emoji"]]},
+  {"k": "b", "fra": 10.8, "til": 13.6, "zoom": "inn", "stempler": [[11.6, "FAIL 😩", 2.0, "midt"]]},
+  {"k": "b", "fra": 15.6, "til": 18.4, "zoom": "punch", "stempler": [[15.8, "🤔", 2.4, "emoji"]]},
+  {"k": "i", "fra": 9.8, "til": 12.6, "zoom": "punch", "stempler": [[10.9, "💡", 1.6, "emoji"]]},
+  {"k": "i", "fra": 37.0, "til": 41.4, "zoom": "none", "stempler": [[37.1, "Forsøk 4 …", 2.2, "topp"], [39.45, "BOM! 💥", 1.8, "midt"]]},
+  {"k": "i", "fra": 39.0, "til": 41.0, "fart": 0.4, "lyd": false, "zoom": "puls", "stempler": [[39.05, "Sakte film 🐌", 1.6, "topp"], [39.3, "Tyngdepunktet havner utenfor støtteflaten …", 4.6, "forklar"], [40.0, "… og da VELTER tårnet 🪣💥", 2.6, "forklar2"]]},
+  {"k": "i", "fra": 42.0, "til": 49.3, "zoom": "punch", "tekst": [[44.3, 46.0, "Fysikk er viktig!"], [46.1, 48.4, "Eksperimentell fysikk!"]], "stempler": [[42.1, "KÅFFER DET?! 🤯", 2.2, "topp"]]}
+ ]}

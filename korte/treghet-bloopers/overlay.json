@@ -1,0 +1,89 @@
+{
+ "lengde": 27.0,
+ "slutt": 24.2,
+ "tekst": [
+  [
+   0.15,
+   1.5,
+   "Uh-oh!"
+  ],
+  [
+   3.05,
+   4.6,
+   "Treghetsloven! Woho!"
+  ],
+  [
+   4.8,
+   7.9,
+   "Alt som har masse fortsetter med samme fart."
+  ],
+  [
+   10.0,
+   11.6,
+   "Det var en dårlig sving."
+  ],
+  [
+   11.6,
+   12.9,
+   "Du har krasjet litt her."
+  ],
+  [
+   13.2,
+   14.9,
+   "Alt som har masse"
+  ],
+  [
+   15.3,
+   16.6,
+   "fortsetter med samme fart"
+  ],
+  [
+   17.2,
+   19.6,
+   "hvis summen av krefter er null."
+  ],
+  [
+   21.8,
+   24.1,
+   "Jeg husker ikke hva jeg skal si."
+  ]
+ ],
+ "stempler": [
+  [
+   0.0,
+   2.9,
+   "Fysikktime gone wrong 😅",
+   "topp"
+  ],
+  [
+   3.0,
+   1.6,
+   "Take 1 🎬",
+   "topp"
+  ],
+  [
+   10.1,
+   1.4,
+   "🙃",
+   "emoji"
+  ],
+  [
+   13.1,
+   1.6,
+   "Take 2 🎬",
+   "topp"
+  ],
+  [
+   22.0,
+   2.0,
+   "🤦‍♂️",
+   "emoji"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  2.9,
+  9.8,
+  13.0
+ ]
+}

@@ -71,4 +71,6 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Ordslutter:** kutt aldri slutten av et ord eller en setning («… ganger høyden», «… mv i andre»). Sjekk slutten av hver bit med tale-til-tekst.
 - **Korte videoer** (TikTok/Instagram/Shorts) har egne manus: enkle «Visste du at …?»- og «Kåffer det?!»-eksperimenter, maks 1 minutt, med DrNormann-logoen og en peker til fysikkhjelp.no. Se «Korte videoer» i CLAUDE.md. Stilen læreren likte («Kopp opp ned», `korte/kopp-opp-ned/`): den mest spektakulære scenen først som krok, plutselige zoom inn/ut og hvite blink med svisj ved kutt, teksting ord for ord, emojier, store stempler («KÅFFER DET?! 🤯», «FAIL 😩»), **bloopers med morsom lyd** (skuffet trombone) og en kort forklaring på hva som gikk galt, forklaringen i fargede bokser, og til slutt svart skjerm med DrNormann-logoen, «Mer fysikk på fysikkhjelp.no» og ut-musikken.
 
+- **TikTok:** kort (helst 15–40 s), krok de første 1–2 sekundene (det mest spektakulære eller et spørsmål), ingen «Ken & Ben»-tekst foreløpig. Læreren vil ha en rekke på 15 snutter før han begynner å legge ut, og senere en rekke med eksamenstips.
+
 (Flere faste ønsker for tone, åpning og avslutning noteres her etter hvert.)

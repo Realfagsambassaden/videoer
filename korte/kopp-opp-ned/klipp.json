@@ -1,0 +1,271 @@
+{
+ "ut": "03_kopp_opp_ned_tiktok.mp4",
+ "slutt": 3.0,
+ "kilder": {
+  "a": "/mnt/user-data/uploads/Filmprosjekt/ArtiFyssik/Kopp opp ned/IMG_5884.MOV",
+  "b": "/mnt/user-data/uploads/Filmprosjekt/ArtiFyssik/Kopp opp ned/IMG_5885.MOV"
+ },
+ "biter": [
+  {
+   "k": "b",
+   "fra": 31.0,
+   "til": 35.2,
+   "fart": 1.0,
+   "zoom": "punch",
+   "tekst": [],
+   "stempler": [
+    [
+     31.1,
+     "KÅFFER DET?! 🤯",
+     4.0,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "a",
+   "fra": 0.3,
+   "til": 3.8,
+   "fart": 1.0,
+   "zoom": "punch",
+   "tekst": [
+    [
+     0.4,
+     3.1,
+     "Visste du at luft faktisk kan holde opp vann?"
+    ],
+    [
+     3.15,
+     3.75,
+     "Nei."
+    ]
+   ],
+   "stempler": []
+  },
+  {
+   "k": "a",
+   "fra": 19.4,
+   "til": 20.9,
+   "fart": 1.0,
+   "zoom": "punch",
+   "tekst": [
+    [
+     19.45,
+     20.1,
+     "Eller cola?"
+    ],
+    [
+     20.2,
+     20.85,
+     "Nei."
+    ]
+   ],
+   "stempler": [
+    [
+     19.5,
+     "🥤",
+     1.4,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "a",
+   "fra": 22.2,
+   "til": 25.0,
+   "fart": 1.0,
+   "zoom": "none",
+   "tekst": [
+    [
+     22.25,
+     23.5,
+     "Da kan jeg vise deg."
+    ],
+    [
+     23.6,
+     24.95,
+     "Jeg har nemlig et glass her."
+    ]
+   ],
+   "stempler": []
+  },
+  {
+   "k": "a",
+   "fra": 53.6,
+   "til": 58.3,
+   "fart": 1.0,
+   "zoom": "inn",
+   "tekst": [
+    [
+     53.7,
+     54.6,
+     "Sånn ja, bra."
+    ],
+    [
+     55.0,
+     56.6,
+     "Hva tror du skjer nå?"
+    ]
+   ],
+   "stempler": [
+    [
+     56.8,
+     "🤔",
+     1.4,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "a",
+   "fra": 63.5,
+   "til": 68.6,
+   "fart": 1.0,
+   "zoom": "inn",
+   "tekst": [],
+   "stempler": [
+    [
+     64.6,
+     "FAIL 😩",
+     1.6,
+     "midt"
+    ],
+    [
+     66.2,
+     "For mye kullsyre! 🫧",
+     2.4,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "b",
+   "fra": 0.0,
+   "til": 5.4,
+   "fart": 1.0,
+   "zoom": "punch",
+   "tekst": [
+    [
+     0.05,
+     2.9,
+     "Det var litt for mye bobler i den brusen, så vi må få det ut."
+    ],
+    [
+     3.6,
+     5.3,
+     "Rister på den, så åpner jeg."
+    ]
+   ],
+   "stempler": [
+    [
+     0.1,
+     "Prøve på nytt! 🔁",
+     2.6,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "b",
+   "fra": 22.0,
+   "til": 31.0,
+   "fart": 1.0,
+   "zoom": "none",
+   "tekst": [
+    [
+     22.05,
+     25.0,
+     "Så nå skal jeg lære deg litt fysikk her."
+    ],
+    [
+     25.1,
+     26.2,
+     "Ok, Bjørn."
+    ],
+    [
+     26.5,
+     28.3,
+     "Ja vel, Gaupe."
+    ]
+   ],
+   "stempler": [
+    [
+     26.6,
+     "🐻",
+     1.6,
+     "emoji"
+    ],
+    [
+     28.0,
+     "🐆",
+     1.4,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "b",
+   "fra": 33.0,
+   "til": 41.2,
+   "fart": 1.0,
+   "zoom": "puls",
+   "tekst": [],
+   "stempler": [
+    [
+     33.2,
+     "🤯🤯🤯",
+     1.6,
+     "emoji"
+    ],
+    [
+     35.0,
+     "Lufta presser tallerkenen OPP ⬆️💨",
+     6.0,
+     "forklar"
+    ],
+    [
+     37.4,
+     "… mye hardere enn colaen presser NED ⬇️",
+     3.8,
+     "forklar2"
+    ]
+   ]
+  },
+  {
+   "k": "b",
+   "fra": 44.4,
+   "til": 49.6,
+   "fart": 1.0,
+   "zoom": "puls",
+   "tekst": [],
+   "stempler": [
+    [
+     48.7,
+     "SPLÆSJ! 💦",
+     1.0,
+     "midt"
+    ]
+   ]
+  },
+  {
+   "k": "b",
+   "fra": 52.4,
+   "til": 56.6,
+   "fart": 1.0,
+   "zoom": "punch",
+   "tekst": [
+    [
+     52.5,
+     54.2,
+     "Mer på fysikkhjelp.no"
+    ],
+    [
+     54.3,
+     56.4,
+     "Mindre på kjemihjelp.no 😜"
+    ]
+   ],
+   "stempler": []
+  }
+ ]
+}

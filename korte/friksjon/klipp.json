@@ -1,0 +1,8 @@
+{"ut": "05_friksjon_tiktok.mp4",
+ "kilder": {"f": "/home/claude/kilder/k_friksjon.mov"},
+ "biter": [
+  {"k": "f", "fra": 0.5, "til": 7.6, "zoom": "punch", "tekst": [[0.6, 1.9, "Friksjonsfysikk!"], [2.3, 3.6, "Vi sklir på gulvet."], [3.7, 5.0, "Jeg kan vise først."]], "stempler": [[0.55, "Kenny har en plan 💡", 2.5, "topp"], [5.6, "WHEEE 🛷", 1.8, "midt"]]},
+  {"k": "f", "fra": 7.6, "til": 22.9, "zoom": "inn", "tekst": [[7.7, 10.0, "Og så kan vi skli på gresset, vått gress,"], [10.0, 12.0, "og så kan vi skli på ishockeybanen,"], [12.2, 14.2, "så kutter vi til en tredemølle."], [14.2, 15.8, "Vi legger oss på tredemølla."], [16.0, 18.0, "Og så trykker noen på knappen,"], [18.0, 19.6, "og så sklir vi,"], [19.7, 22.8, "og så forklarer vi friksjonskoeffisienten."]],
+   "stempler": [[8.0, "🌱💦", 1.8, "emoji"], [10.3, "🏒", 1.6, "emoji"], [12.4, "🏃‍♂️", 3.0, "emoji"], [20.2, "μ = friksjonstallet", 2.6, "forklar"]]},
+  {"k": "f", "fra": 22.9, "til": 29.4, "zoom": "punch", "tekst": [[22.95, 25.0, "Og så kan vi skli på ryggen."], [26.6, 29.0, "Altså, mange andre ting sikkert!"]], "stempler": [[26.0, "Hvor skal Kenny skli? 👇", 3.4, "topp"]]}
+ ]}

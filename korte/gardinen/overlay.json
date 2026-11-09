@@ -1,0 +1,47 @@
+{
+ "lengde": 13.899999999999999,
+ "slutt": 11.1,
+ "tekst": [
+  [
+   8.2,
+   9.7,
+   "Cut! Cut! Cut!"
+  ],
+  [
+   9.8,
+   11.0,
+   "Ja, men det var bra."
+  ]
+ ],
+ "stempler": [
+  [
+   0.1,
+   3.5,
+   "POV: Du har endelig skjønt fysikk 😎",
+   "topp"
+  ],
+  [
+   5.1,
+   2.0,
+   "Kul. 🕶️",
+   "midt"
+  ],
+  [
+   6.5,
+   1.5,
+   "Newtons lover: ✅",
+   "topp"
+  ],
+  [
+   8.2,
+   1.4,
+   "🎬",
+   "emoji"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  3.6,
+  8.0
+ ]
+}

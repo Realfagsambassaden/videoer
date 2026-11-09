@@ -1,0 +1,75 @@
+{
+ "lengde": 22.3,
+ "slutt": 19.5,
+ "tekst": [
+  [
+   2.7,
+   4.5,
+   "Nå skal vi stikke hull,"
+  ],
+  [
+   4.5,
+   6.8,
+   "og se at strålen står normalt på."
+  ],
+  [
+   8.4,
+   9.1,
+   "Nei!"
+  ],
+  [
+   10.1,
+   11.2,
+   "Oi! Nice!"
+  ],
+  [
+   11.3,
+   12.5,
+   "Ser du det?"
+  ]
+ ],
+ "stempler": [
+  [
+   0.0,
+   2.6,
+   "Stikk hull i en vannballong 💦",
+   "topp"
+  ],
+  [
+   4.7,
+   1.4,
+   "📐",
+   "emoji"
+  ],
+  [
+   8.3,
+   1.6,
+   "FAIL 😩",
+   "midt"
+  ],
+  [
+   10.0,
+   2.2,
+   "KÅFFER DET?! 🤯",
+   "topp"
+  ],
+  [
+   12.9,
+   6.5,
+   "Vanntrykket virker vinkelrett på veggen 👉",
+   "forklar"
+  ],
+  [
+   14.9,
+   4.5,
+   "… derfor står strålene normalt på ballongen 💦",
+   "forklar2"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  2.6,
+  6.9,
+  9.9
+ ]
+}

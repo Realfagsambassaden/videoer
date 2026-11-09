@@ -1,0 +1,72 @@
+{
+ "lengde": 28.400000000000002,
+ "slutt": 25.6,
+ "tekst": [
+  [
+   0.1,
+   1.9,
+   "Hvor langt er tauet?"
+  ],
+  [
+   2.1,
+   4.0,
+   "Jeg skal ringe vaktmesteren."
+  ],
+  [
+   13.4,
+   16.8,
+   "Arrivederci!"
+  ],
+  [
+   17.6,
+   21.5,
+   "Ciao! Tau, hvor langt er?"
+  ],
+  [
+   22.3,
+   23.5,
+   "Tre metro."
+  ],
+  [
+   23.6,
+   25.5,
+   "Ja vel, det er bra."
+  ]
+ ],
+ "stempler": [
+  [
+   0.0,
+   4.1,
+   "Fysikere uten målebånd 📏❌",
+   "topp"
+  ],
+  [
+   4.3,
+   3.0,
+   "Vaktmesteren er italiensk 🇮🇹",
+   "topp"
+  ],
+  [
+   8.0,
+   1.6,
+   "🤌",
+   "emoji"
+  ],
+  [
+   13.5,
+   1.4,
+   "🍝",
+   "emoji"
+  ],
+  [
+   22.4,
+   3.1,
+   "L = 3 m ✅",
+   "topp"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  4.1
+ ]
+}

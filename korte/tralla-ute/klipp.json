@@ -1,0 +1,8 @@
+{"ut": "11_tralla_ute_tiktok.mp4",
+ "kilder": {"a": "/home/claude/kilder/n2_t7.mov", "b": "/home/claude/kilder/n2_t1.mov", "c": "/home/claude/kilder/n2_t8.mov"},
+ "biter": [
+  {"k": "a", "fra": 4.2, "til": 8.2, "utsnitt": "boks", "forhold": 1.0, "skala": 2.0, "x": 0.33, "y": 0.58, "zoom": "punch", "stempler": [[4.2, "Newtons 2. lov på en tralle 🛒💨", 4.0, "topp"]]},
+  {"k": "b", "fra": 7.3, "til": 15.4, "utsnitt": "boks", "skala": 1.15, "y": 0.62, "zoom": "inn", "tekst": [[7.4, 11.2, "Summen av kreftene er lik masse ganger akselerasjon!"], [11.4, 15.3, "Dette hadde vært en bra eksamensoppgave!"]], "stempler": [[8.0, "ΣF = m · a", 3.4, "topp"], [11.5, "📝", 1.6, "emoji"]]},
+  {"k": "c", "fra": 2.8, "til": 8.4, "utsnitt": "boks", "forhold": 1.0, "skala": 1.4, "x": 0.45, "y": 0.6, "zoom": "none", "tekst": [[2.9, 6.1, "Summen av kreftene er lik masse ganger akselerasjon."], [6.2, 8.2, "Newtons andre lov."]], "stempler": [[2.9, "Take 2 🎬", 1.6, "topp"]]},
+  {"k": "c", "fra": 8.6, "til": 16.9, "utsnitt": 0.52, "zoom": "punch", "tekst": [[8.7, 12.4, "Det er også den tidsderiverte av bevegelsesmengden"], [12.5, 15.3, "om du snakker nynorsk og liker den gamle definisjonen."], [15.4, 16.8, "Det er veldig bra."]], "stempler": [[9.2, "F = dp/dt   (p = m · v)", 5.5, "forklar"], [13.0, "🤓", 1.6, "emoji"]]}
+ ]}

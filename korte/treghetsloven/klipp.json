@@ -1,0 +1,8 @@
+{"ut": "09_treghetsloven_tiktok.mp4",
+ "kilder": {"t": "/home/claude/kilder/n1_t1.mov"},
+ "biter": [
+  {"k": "t", "fra": 62.6, "til": 65.0, "utsnitt": "boks", "forhold": 0.8, "x": 0.42, "zoom": "punch", "stempler": [[62.6, "Hva skjer når tralla stopper? 🛒", 2.4, "topp"]]},
+  {"k": "t", "fra": 56.7, "til": 62.6, "utsnitt": "boks", "forhold": 0.8, "x": 0.45, "zoom": "none", "tekst": [[57.3, 58.9, "Treghetsloven!"], [59.0, 61.3, "Sier altså at alt som har masse fortsetter …"]], "stempler": [[57.3, "Newtons 1. lov 🍎", 1.8, "topp"]]},
+  {"k": "t", "fra": 62.8, "til": 65.2, "fart": 0.45, "lyd": false, "utsnitt": "boks", "forhold": 0.8, "x": 0.42, "zoom": "puls", "stempler": [[62.85, "Sakte film 🐌", 1.6, "topp"], [63.3, "Tralla stopper, men Ben fortsetter med samme fart 👉", 4.0, "forklar"]]},
+  {"k": "t", "fra": 65.2, "til": 69.2, "utsnitt": "boks", "forhold": 0.8, "x": 0.4, "zoom": "punch", "tekst": [[65.3, 67.0, "… med samme fart"], [67.0, 69.0, "hvis summen av krefter som virker på det er null."]], "stempler": [[67.2, "ΣF = 0 ⇒ samme fart", 1.9, "forklar2"]]}
+ ]}

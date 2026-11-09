@@ -1,0 +1,273 @@
+{
+ "ut": "04_male_g_tiktok.mp4",
+ "kilder": {
+  "t1": "/home/claude/kilder/e3_tavle1.mov",
+  "t2": "/home/claude/kilder/e3_tavle2.mov",
+  "p": "/home/claude/kilder/e3_pendel.mov",
+  "v": "/home/claude/kilder/e3_vakt.mov"
+ },
+ "biter": [
+  {
+   "k": "t1",
+   "fra": 36.3,
+   "til": 41.0,
+   "zoom": "punch",
+   "tekst": [
+    [
+     36.4,
+     40.0,
+     "Stemmer det at tyngdeakselerasjonen er 9.81?"
+    ]
+   ],
+   "stempler": [
+    [
+     36.35,
+     "Er g virkelig 9.81? 🤨",
+     3.6,
+     "topp"
+    ],
+    [
+     39.2,
+     "✏️⬇️",
+     1.6,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "t1",
+   "fra": 113.1,
+   "til": 120.2,
+   "zoom": "none",
+   "tekst": [
+    [
+     113.15,
+     116.3,
+     "Vi kan sjekke om det stemmer"
+    ],
+    [
+     116.3,
+     120.1,
+     "hvis vi har en disse, eller huske som det heter på pent."
+    ]
+   ],
+   "stempler": [
+    [
+     117.0,
+     "🛝",
+     1.4,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "t1",
+   "fra": 127.25,
+   "til": 137.3,
+   "zoom": "inn",
+   "tekst": [
+    [
+     127.3,
+     132.0,
+     "Ved Newtons andre lov kan vi vise at g skal være sånn."
+    ],
+    [
+     132.3,
+     135.0,
+     "Vi må måle svingeperioden til disse,"
+    ],
+    [
+     135.0,
+     137.2,
+     "og vi må måle lengden på disse."
+    ]
+   ],
+   "stempler": [
+    [
+     129.0,
+     "g = 4π² · L / T²",
+     8.0,
+     "forklar"
+    ],
+    [
+     132.5,
+     "T = svingetid,  L = lengden på tauet",
+     4.7,
+     "forklar2"
+    ]
+   ]
+  },
+  {
+   "k": "p",
+   "fra": 6.9,
+   "til": 10.25,
+   "zoom": "punch",
+   "tekst": [
+    [
+     6.95,
+     10.2,
+     "Hvor lang tid bruker han på ti svingninger?"
+    ]
+   ],
+   "stempler": []
+  },
+  {
+   "k": "p",
+   "fra": 13.5,
+   "til": 21.5,
+   "fart": 2.0,
+   "lyd": false,
+   "zoom": "none",
+   "stempler": [
+    [
+     13.6,
+     "Tidtaking ⏱️",
+     4.0,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "v",
+   "fra": 2.0,
+   "til": 4.1,
+   "zoom": "punch",
+   "tekst": [
+    [
+     2.1,
+     4.0,
+     "Jeg skal ringe vaktmesteren."
+    ]
+   ],
+   "stempler": [
+    [
+     2.2,
+     "📞",
+     1.6,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "v",
+   "fra": 17.6,
+   "til": 23.6,
+   "zoom": "none",
+   "tekst": [
+    [
+     17.65,
+     21.5,
+     "Ciao! Tau, hvor langt er?"
+    ],
+    [
+     22.3,
+     23.5,
+     "Tre metro."
+    ]
+   ],
+   "stempler": [
+    [
+     17.7,
+     "🇮🇹🤌",
+     1.6,
+     "emoji"
+    ],
+    [
+     22.4,
+     "L = 3 m ✅",
+     1.2,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "t2",
+   "fra": 50.8,
+   "til": 56.5,
+   "zoom": "none",
+   "tekst": [
+    [
+     50.9,
+     54.4,
+     "Nå har vi vært ute og målt"
+    ],
+    [
+     54.5,
+     56.4,
+     "og svingeperioden var på 3.5 sekunder."
+    ]
+   ],
+   "stempler": [
+    [
+     54.6,
+     "T = 3.5 s",
+     2.0,
+     "midt"
+    ]
+   ]
+  },
+  {
+   "k": "t2",
+   "fra": 68.4,
+   "til": 76.7,
+   "zoom": "punch",
+   "tekst": [
+    [
+     68.5,
+     70.8,
+     "Da fant vi at g er"
+    ],
+    [
+     70.8,
+     73.0,
+     "9.67 meter per sekund i andre."
+    ],
+    [
+     73.1,
+     76.6,
+     "Altså ikke det teorien sier, det vi har lært på skolen."
+    ]
+   ],
+   "stempler": [
+    [
+     70.9,
+     "g = 9.67 m/s² 😱",
+     2.6,
+     "midt"
+    ],
+    [
+     73.6,
+     "Avviket? En huske er ingen perfekt pendel 😉",
+     3.1,
+     "forklar"
+    ]
+   ]
+  },
+  {
+   "k": "t2",
+   "fra": 76.8,
+   "til": 82.2,
+   "zoom": "punch",
+   "tekst": [
+    [
+     76.85,
+     80.6,
+     "Så hvis du ikke har skjønt at eksperimentell fysikk er viktig,"
+    ],
+    [
+     80.7,
+     82.1,
+     "så skjønner du det aldri."
+    ]
+   ],
+   "stempler": [
+    [
+     80.8,
+     "🧪",
+     1.4,
+     "emoji"
+    ]
+   ]
+  }
+ ]
+}

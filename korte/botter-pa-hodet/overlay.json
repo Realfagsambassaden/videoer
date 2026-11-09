@@ -1,0 +1,76 @@
+{
+ "lengde": 27.866666666666664,
+ "slutt": 25.066666666666663,
+ "tekst": [
+  [
+   0.1,
+   2.7,
+   "Hvis du ikke har skjønt at fysikk er viktig,"
+  ],
+  [
+   2.8,
+   5.3,
+   "da er det noe galt med deg!"
+  ],
+  [
+   5.7,
+   6.7,
+   "Aldri!"
+  ],
+  [
+   10.35,
+   11.8,
+   "Let's go!"
+  ],
+  [
+   22.767,
+   24.367,
+   "Var du i kamera?"
+  ]
+ ],
+ "stempler": [
+  [
+   0.1,
+   2.6,
+   "Fysikk-advarsel ⚠️🪣",
+   "topp"
+  ],
+  [
+   7.05,
+   3.1,
+   "⏪ Hvordan havnet vi her?",
+   "topp"
+  ],
+  [
+   11.2,
+   1.4,
+   "🙌",
+   "emoji"
+  ],
+  [
+   16.333,
+   1.8,
+   "BOM BOM BOM 🪣",
+   "midt"
+  ],
+  [
+   18.467,
+   2.0,
+   "Navigasjon: 0/10 🙈",
+   "topp"
+  ],
+  [
+   20.667,
+   1.6,
+   "😂",
+   "emoji"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  7.0,
+  10.2,
+  13.8,
+  20.467
+ ]
+}

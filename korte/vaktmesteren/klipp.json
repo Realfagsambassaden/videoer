@@ -1,0 +1,7 @@
+{"ut": "15_vaktmesteren_tiktok.mp4",
+ "kilder": {"v": "/home/claude/kilder/e3_vakt.mov"},
+ "biter": [
+  {"k": "v", "fra": 0.0, "til": 4.1, "zoom": "punch", "tekst": [[0.1, 1.9, "Hvor langt er tauet?"], [2.1, 4.0, "Jeg skal ringe vaktmesteren."]], "stempler": [[0.0, "Fysikere uten målebånd 📏❌", 4.1, "topp"]]},
+  {"k": "v", "fra": 4.1, "til": 25.6, "zoom": "inn", "tekst": [[13.4, 16.8, "Arrivederci!"], [17.6, 21.5, "Ciao! Tau, hvor langt er?"], [22.3, 23.5, "Tre metro."], [23.6, 25.5, "Ja vel, det er bra."]],
+   "stempler": [[4.3, "Vaktmesteren er italiensk 🇮🇹", 3.0, "topp"], [8.0, "🤌", 1.6, "emoji"], [13.5, "🍝", 1.4, "emoji"], [22.4, "L = 3 m ✅", 3.1, "topp"]]}
+ ]}

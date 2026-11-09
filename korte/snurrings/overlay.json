@@ -1,0 +1,78 @@
+{
+ "lengde": 21.2,
+ "slutt": 18.4,
+ "tekst": [
+  [
+   0.05,
+   1.7,
+   "Hva i alle dager skjedde der?"
+  ],
+  [
+   9.133,
+   10.933,
+   "Hvorfor ble det sånn?"
+  ],
+  [
+   11.133,
+   12.733,
+   "Mystisk."
+  ]
+ ],
+ "stempler": [
+  [
+   0.0,
+   1.73,
+   "Ball + karusell = ??? 🎠⚽",
+   "topp"
+  ],
+  [
+   1.783,
+   3.4,
+   "Full fart på karusellen 🌀",
+   "topp"
+  ],
+  [
+   5.433,
+   2.2,
+   "Trill ballen til kameraet! 🎯",
+   "topp"
+  ],
+  [
+   7.733,
+   1.1,
+   "Hvor havner den? 🤔",
+   "topp"
+  ],
+  [
+   11.133,
+   1.6,
+   "🕵️",
+   "emoji"
+  ],
+  [
+   12.944,
+   1.6,
+   "Ikke så mystisk 😎",
+   "topp"
+  ],
+  [
+   13.722,
+   4.68,
+   "Ballen tar med seg karusellens fart sidelengs 🎠➡️",
+   "forklar"
+  ],
+  [
+   15.5,
+   2.9,
+   "Sett fra karusellen ser banen krum ut: Corioliseffekten 🌀",
+   "forklar2"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  1.733,
+  5.233,
+  8.833,
+  12.833
+ ]
+}

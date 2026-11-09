@@ -1,0 +1,136 @@
+{
+ "ut": "10_treghet_bloopers_tiktok.mp4",
+ "kilder": {
+  "a": "/home/claude/kilder/n1_t3.mov",
+  "b": "/home/claude/kilder/n1_t4.mov"
+ },
+ "biter": [
+  {
+   "k": "b",
+   "fra": 10.0,
+   "til": 12.9,
+   "utsnitt": "boks",
+   "forhold": 0.8,
+   "x": 0.4,
+   "zoom": "punch",
+   "tekst": [
+    [
+     10.15,
+     11.5,
+     "Uh-oh!"
+    ]
+   ],
+   "stempler": [
+    [
+     10.0,
+     "Fysikktime gone wrong 😅",
+     2.9,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "a",
+   "fra": 3.3,
+   "til": 10.2,
+   "utsnitt": "boks",
+   "forhold": 0.8,
+   "x": 0.45,
+   "zoom": "none",
+   "tekst": [
+    [
+     3.45,
+     5.0,
+     "Treghetsloven! Woho!"
+    ],
+    [
+     5.2,
+     8.3,
+     "Alt som har masse fortsetter med samme fart."
+    ]
+   ],
+   "stempler": [
+    [
+     3.4,
+     "Take 1 🎬",
+     1.6,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "a",
+   "fra": 11.1,
+   "til": 14.3,
+   "utsnitt": "boks",
+   "forhold": 0.8,
+   "x": 0.5,
+   "zoom": "inn",
+   "tekst": [
+    [
+     11.3,
+     12.9,
+     "Det var en dårlig sving."
+    ],
+    [
+     12.9,
+     14.2,
+     "Du har krasjet litt her."
+    ]
+   ],
+   "stempler": [
+    [
+     11.4,
+     "🙃",
+     1.4,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "b",
+   "fra": 15.8,
+   "til": 27.0,
+   "utsnitt": "boks",
+   "forhold": 0.8,
+   "x": 0.25,
+   "zoom": "inn",
+   "tekst": [
+    [
+     16.0,
+     17.7,
+     "Alt som har masse"
+    ],
+    [
+     18.1,
+     19.4,
+     "fortsetter med samme fart"
+    ],
+    [
+     20.0,
+     22.4,
+     "hvis summen av krefter er null."
+    ],
+    [
+     24.6,
+     26.9,
+     "Jeg husker ikke hva jeg skal si."
+    ]
+   ],
+   "stempler": [
+    [
+     15.9,
+     "Take 2 🎬",
+     1.6,
+     "topp"
+    ],
+    [
+     24.8,
+     "🤦‍♂️",
+     2.0,
+     "emoji"
+    ]
+   ]
+  }
+ ]
+}

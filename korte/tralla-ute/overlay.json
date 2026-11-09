@@ -1,0 +1,85 @@
+{
+ "lengde": 28.8,
+ "slutt": 26.0,
+ "tekst": [
+  [
+   4.1,
+   7.9,
+   "Summen av kreftene er lik masse ganger akselerasjon!"
+  ],
+  [
+   8.1,
+   12.0,
+   "Dette hadde vært en bra eksamensoppgave!"
+  ],
+  [
+   12.2,
+   15.4,
+   "Summen av kreftene er lik masse ganger akselerasjon."
+  ],
+  [
+   15.5,
+   17.5,
+   "Newtons andre lov."
+  ],
+  [
+   17.8,
+   21.5,
+   "Det er også den tidsderiverte av bevegelsesmengden"
+  ],
+  [
+   21.6,
+   24.4,
+   "om du snakker nynorsk og liker den gamle definisjonen."
+  ],
+  [
+   24.5,
+   25.9,
+   "Det er veldig bra."
+  ]
+ ],
+ "stempler": [
+  [
+   0.0,
+   4.0,
+   "Newtons 2. lov på en tralle 🛒💨",
+   "topp"
+  ],
+  [
+   4.7,
+   3.4,
+   "ΣF = m · a",
+   "topp"
+  ],
+  [
+   8.2,
+   1.6,
+   "📝",
+   "emoji"
+  ],
+  [
+   12.2,
+   1.6,
+   "Take 2 🎬",
+   "topp"
+  ],
+  [
+   18.3,
+   5.5,
+   "F = dp/dt   (p = m · v)",
+   "forklar"
+  ],
+  [
+   22.1,
+   1.6,
+   "🤓",
+   "emoji"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  4.0,
+  12.1,
+  17.7
+ ]
+}

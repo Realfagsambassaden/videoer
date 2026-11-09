@@ -1,0 +1,64 @@
+{
+ "lengde": 20.433333333333334,
+ "slutt": 17.633333333333333,
+ "tekst": [
+  [
+   3.0,
+   4.6,
+   "Treghetsloven!"
+  ],
+  [
+   4.7,
+   7.0,
+   "Sier altså at alt som har masse fortsetter …"
+  ],
+  [
+   13.733,
+   15.433,
+   "… med samme fart"
+  ],
+  [
+   15.433,
+   17.433,
+   "hvis summen av krefter som virker på det er null."
+  ]
+ ],
+ "stempler": [
+  [
+   0.0,
+   2.4,
+   "Hva skjer når tralla stopper? 🛒",
+   "topp"
+  ],
+  [
+   3.0,
+   1.8,
+   "Newtons 1. lov 🍎",
+   "topp"
+  ],
+  [
+   8.411,
+   1.6,
+   "Sakte film 🐌",
+   "topp"
+  ],
+  [
+   9.411,
+   4.0,
+   "Tralla stopper, men Ben fortsetter med samme fart 👉",
+   "forklar"
+  ],
+  [
+   15.633,
+   1.9,
+   "ΣF = 0 ⇒ samme fart",
+   "forklar2"
+  ]
+ ],
+ "kutt": [
+  0.0,
+  2.4,
+  8.3,
+  13.633
+ ]
+}

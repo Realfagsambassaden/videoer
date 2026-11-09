@@ -1,0 +1,7 @@
+{"ut": "08_gardinen_tiktok.mp4",
+ "kilder": {"s": "/home/claude/kilder/k_skjort.mov"},
+ "biter": [
+  {"k": "s", "fra": 58.3, "til": 60.1, "fart": 0.5, "lyd": false, "zoom": "inn", "stempler": [[58.35, "POV: Du har endelig skjønt fysikk 😎", 3.6, "topp"]]},
+  {"k": "s", "fra": 60.1, "til": 64.5, "zoom": "puls", "stempler": [[61.6, "Kul. 🕶️", 2.0, "midt"], [63.0, "Newtons lover: ✅", 1.5, "topp"]]},
+  {"k": "s", "fra": 64.5, "til": 67.6, "zoom": "punch", "tekst": [[64.7, 66.2, "Cut! Cut! Cut!"], [66.3, 67.5, "Ja, men det var bra."]], "stempler": [[64.7, "🎬", 1.4, "emoji"]]}
+ ]}

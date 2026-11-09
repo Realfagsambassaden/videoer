@@ -1,0 +1,9 @@
+{"ut": "07_botter_pa_hodet_tiktok.mp4",
+ "kilder": {"a": "/home/claude/kilder/k_angard.mov"},
+ "biter": [
+  {"k": "a", "fra": 118.9, "til": 125.9, "zoom": "punch", "tekst": [[119.0, 121.6, "Hvis du ikke har skjønt at fysikk er viktig,"], [121.7, 124.2, "da er det noe galt med deg!"], [124.6, 125.6, "Aldri!"]], "stempler": [[119.0, "Fysikk-advarsel ⚠️🪣", 2.6, "topp"]]},
+  {"k": "a", "fra": 38.0, "til": 41.2, "zoom": "inn", "stempler": [[38.05, "⏪ Hvordan havnet vi her?", 3.1, "topp"]]},
+  {"k": "a", "fra": 44.0, "til": 47.6, "zoom": "none", "tekst": [[44.15, 45.6, "Let's go!"]], "stempler": [[45.0, "🙌", 1.4, "emoji"]]},
+  {"k": "a", "fra": 109.0, "til": 119.0, "fart": 1.5, "zoom": "inn", "stempler": [[112.8, "BOM BOM BOM 🪣", 1.8, "midt"], [116.0, "Navigasjon: 0/10 🙈", 2.0, "topp"]]},
+  {"k": "a", "fra": 127.0, "til": 131.6, "zoom": "punch", "tekst": [[129.3, 130.9, "Var du i kamera?"]], "stempler": [[127.2, "😂", 1.6, "emoji"]]}
+ ]}

@@ -1,0 +1,229 @@
+{
+ "ut": "01_gjennom_jorda_tiktok.mp4",
+ "kilder": {
+  "j": "/home/claude/kilder/jorda.mov"
+ },
+ "biter": [
+  {
+   "k": "j",
+   "fra": 11.25,
+   "til": 14.55,
+   "fart": 1.0,
+   "zoom": "punch",
+   "lyd": true,
+   "tekst": [
+    [
+     11.35,
+     14.3,
+     "Hvordan komme seg til Kina gjennom jordkloden?"
+    ]
+   ],
+   "stempler": [
+    [
+     11.3,
+     "Hoppe GJENNOM jorda? 🌍⬇️",
+     3.2,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "j",
+   "fra": 17.85,
+   "til": 25.4,
+   "fart": 1.0,
+   "zoom": "none",
+   "lyd": true,
+   "tekst": [
+    [
+     17.9,
+     19.9,
+     "Poenget er: vi bare suger bort all luft."
+    ],
+    [
+     19.95,
+     22.9,
+     "Så alle menneskene dør egentlig på grunn av eksperimentet."
+    ],
+    [
+     23.0,
+     25.3,
+     "Riktig. Det er en antakelse."
+    ]
+   ],
+   "stempler": [
+    [
+     21.2,
+     "💀",
+     1.4,
+     "emoji"
+    ],
+    [
+     23.1,
+     "Antakelse ✅",
+     1.9,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "j",
+   "fra": 26.45,
+   "til": 30.25,
+   "fart": 2.0,
+   "zoom": "inn",
+   "lyd": false,
+   "tekst": [],
+   "stempler": [
+    [
+     26.6,
+     "🇳🇴 ➡️ 🇨🇳",
+     1.7,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "j",
+   "fra": 55.9,
+   "til": 59.95,
+   "fart": 1.0,
+   "zoom": "punch",
+   "lyd": true,
+   "tekst": [
+    [
+     56.02,
+     57.3,
+     "Hvilken kraft er det som virker?"
+    ],
+    [
+     57.53,
+     58.9,
+     "Gravitasjonskraften."
+    ],
+    [
+     58.95,
+     59.88,
+     "Halleluja."
+    ]
+   ],
+   "stempler": [
+    [
+     59.0,
+     "🙏",
+     0.95,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "j",
+   "fra": 62.0,
+   "til": 134.0,
+   "fart": 14.4,
+   "zoom": "none",
+   "lyd": false,
+   "tekst": [],
+   "stempler": [
+    [
+     62.5,
+     "Regner … 🧮",
+     4.86,
+     "topp"
+    ],
+    [
+     70.0,
+     "Inni jorda drar tyngden deg mot sentrum",
+     4.44,
+     "forklar"
+    ],
+    [
+     98.0,
+     "… som en fjær: du svinger fram og tilbake 🔁",
+     2.5,
+     "forklar2"
+    ]
+   ]
+  },
+  {
+   "k": "j",
+   "fra": 135.9,
+   "til": 146.95,
+   "fart": 1.0,
+   "zoom": "none",
+   "lyd": true,
+   "tekst": [
+    [
+     135.95,
+     137.7,
+     "Jeg har funnet ut at det tar"
+    ],
+    [
+     137.94,
+     139.5,
+     "5068 sekunder."
+    ],
+    [
+     139.73,
+     140.95,
+     "Så vi må dele det på to."
+    ],
+    [
+     141.0,
+     142.9,
+     "2500 sekunder derfra til dit."
+    ],
+    [
+     142.95,
+     144.3,
+     "Og i minutter så er jo det …"
+    ],
+    [
+     144.35,
+     145.2,
+     "Cirka 42."
+    ],
+    [
+     145.25,
+     146.0,
+     "Alt er 42."
+    ],
+    [
+     146.05,
+     146.9,
+     "Alt er rundt 42."
+    ]
+   ],
+   "stempler": [
+    [
+     144.4,
+     "42 MIN ⏱️",
+     2.0,
+     "midt"
+    ],
+    [
+     146.0,
+     "🤯",
+     0.95,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "j",
+   "fra": 147.0,
+   "til": 150.25,
+   "fart": 1.0,
+   "zoom": "punch",
+   "lyd": true,
+   "tekst": [
+    [
+     147.06,
+     150.15,
+     "Hvis dere fortsatt ikke har skjønt hvor viktig fysikk er …"
+    ]
+   ],
+   "stempler": []
+  }
+ ]
+}

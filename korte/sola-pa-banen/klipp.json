@@ -1,0 +1,10 @@
+{"ut": "13_sola_pa_banen_tiktok.mp4",
+ "kilder": {"s": "/home/claude/kilder/sol.mp4"},
+ "biter": [
+  {"k": "s", "fra": 33.0, "til": 38.3, "zoom": "punch", "tekst": [[37.25, 38.2, "For et monster!"]], "stempler": [[33.0, "Hvis sola var en ball på Lerkendal ☀️🏟️", 4.0, "topp"]]},
+  {"k": "s", "fra": 41.6, "til": 46.7, "zoom": "inn", "tekst": [[41.7, 43.9, "Hvor store tror dere planetene er"], [43.9, 46.6, "i forhold til den groteske kjempen?"]], "stempler": [[45.5, "🤔", 1.2, "emoji"]]},
+  {"k": "s", "fra": 48.3, "til": 63.6, "fart": 1.2, "zoom": "none", "tekst": [[48.4, 50.6, "Vi starter innerst:"]],
+   "stempler": [[51.0, "MERKUR", 1.1, "midt"], [52.3, "VENUS", 1.0, "midt"], [53.5, "JORDA 🌍", 1.1, "midt"], [54.9, "MARS", 1.0, "midt"], [56.1, "JUPITER 😮", 1.9, "midt"], [58.6, "SATURN", 1.4, "midt"], [60.4, "URANUS", 1.3, "midt"], [62.0, "NEPTUN", 1.3, "midt"]]},
+  {"k": "s", "fra": 76.3, "til": 83.5, "zoom": "none", "tekst": [[76.4, 78.3, "Og det er avstandene."], [78.5, 83.4, "Ingen av planetene er egentlig så nær hverandre."]], "stempler": [[76.4, "Men én ting stemmer ikke … 📏", 2.6, "topp"]]},
+  {"k": "s", "fra": 84.9, "til": 87.95, "zoom": "punch", "tekst": [[85.1, 87.9, "Hvor på banen tror dere de egentlig skal være?"]], "stempler": [[85.0, "Svar i kommentarene 👇", 2.95, "topp"]]}
+ ]}
