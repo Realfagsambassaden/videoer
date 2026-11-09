@@ -7,7 +7,7 @@ Les i rolig tempo, ca. 140 ord i minuttet. Du står foran grønnskjermen og havn
 
 **Rekvisitter:** en ball som spretter godt (sprettball eller liten gummiball – ikke tennisball, den er for grønn), og fjæra fra «Potensiell energi».
 
-**Tavla:** Dashman på skateboard i en halvrør-rampe (U-formet, din tegning `tegninger.pdf` = `_verktoy/dashman/skaterampe.pdf`), med tre søyler ved siden av: E_p (turkis), E_k (oransje) og varme (rød). Søylene går opp og ned mens Dashman ruller. Dashman med en fjærkanon (en fjær i et rør som skyter ut en kule). Alt tegnes på nytt i tavlestil.
+**Tavla:** Dashman på skateboard i en halvrør-rampe (U-formet, din tegning `tegninger.pdf` = `_verktoy/dashman/skaterampe.pdf`), med tre søyler ved siden av: E_p (turkis), E_k (oransje) og varme (rød). Søylene går opp og ned mens Dashman ruller. Dashman med fjærkanon (din tegning `_verktoy/dashman/fjaerkanon.pdf`: «HIHI!» med sammenpresset fjær, så kula skytes opp). Alt tegnes på nytt i tavlestil.
 
 To eksempler på krefter der energien er bevart: **tyngdekraften** (ballen, rampa) og **fjærkraften** (fjærkanonen). Til slutt, for den spesielt interesserte: hva som er felles for dem – de er **konservative krefter**.
 

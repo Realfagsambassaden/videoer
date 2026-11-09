@@ -10,6 +10,7 @@ Alle Dashman-tegninger fra læreren (og én Claude-tegnet) samlet på ett sted, 
 | `slede-fjaer-skraplan.png` (+ `_mork`) | Dashman i slede på skråplan med fjær. | TRES (dynamikk) |
 | `dashline-tyngdekraft.png` (+ `_mork`) | Dashman og DashLine («ØH … HEI.» / «OH-LALA!» / «KNIS») med tyngdekraftpil. | TRES (dynamikk) |
 | `skaterampe.pdf` / `.png` | Dashman på skateboard i en halvrør-rampe (tre stillinger: på vei ned, i lufta, på kanten med «R»-lue), en tom rampe, og en stor skater med «R»-lue og skateboard. | Energibevaring (rampa) |
+| `fjaerkanon.pdf` / `.png` | Dashman med fjærkanon i to ruter: kula ligger på den sammenpressede (gule) fjæra – «HIHI!» – og så skytes kula opp mens Dashman vinker. | Energibevaring (fjærkraften) |
 | `claude-dashman-lop.svg` / `.png` | Claude-tegnet Dashman som løper («DASH!»), i lærerens stil. Kan animeres (armer/bein). Ikke lærerens egen. | – |
 
 **Merknad om bilteksten:** På bensinstasjon-tegningen står det «BENSIN MACHT FREI» på bilen. Claude har frarådet det (ordspill på slagordet over porten til Auschwitz) og bruker en nøytral tekst på bilen til læreren har bestemt seg.
