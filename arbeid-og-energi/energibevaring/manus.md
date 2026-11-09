@@ -24,14 +24,14 @@ To eksempler på krefter der energien er bevart: **tyngdekraften** (ballen, ramp
 
 > **[Du:** hold ballen opp igjen.**]**
 > Når jeg holder ballen her oppe, har den potensiell energi. Slipper jeg den, faller den og får fart: Den potensielle energien blir til kinetisk energi. Rett før den treffer gulvet, er nesten all energien kinetisk.
-> Energien forsvinner ikke. Den bare bytter form.
+> Energien forsvinner ikke. Den bare bytter form. Dette er et viktig prinsipp i fysikken, som kalles "Energibevaring"!
 
 *På skjermen:* Tittelen «Energibevaring» i oransje. Ballen tegnes ved hånda di, med to søyler: E_p høy og E_k null. Når den «faller» på tavla, krymper E_p og E_k vokser like mye. «E_p = mgh → E_k = ½mv²» (stablede brøker, g oppreist).
 
 ### 2. Dashman i rampa (0:30–1:00)
 
 > Se på Dashman i skaterampa. Øverst står han nesten stille: masse potensiell energi, lite kinetisk. Nederst går det fortest: lite potensiell, masse kinetisk. Og så opp på andre siden igjen.
-> Summen av de to er hele tiden den samme. Det kaller vi bevaring av mekanisk energi.
+> Summen av de to er hele tiden den samme. Det kaller vi bevaring av mekanisk energi. I alle fall om det er uendelig god glid på hjulene, og null luftmotstand. 
 
 *På skjermen:* Dashman ruller fram og tilbake i halvrøret (med svisj). Søylene E_p og E_k går opp og ned i takt, og en stiplet linje over dem viser at summen er konstant. Så: «E_k + E_p = konstant», og under: «E_k1 + E_p1 = E_k2 + E_p2».
 
