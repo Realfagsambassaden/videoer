@@ -19,23 +19,23 @@ Ingenting i dette repoet vises direkte på nettsidene. Videoene lastes opp til Y
 CLAUDE.md              instruksen til Claude (arbeidsgang, regler, kommandoer, status)
 ferdige.yml            register: <side-id> → YouTube-lenke
 _verktoy/              verktøyene (lag.js, finn_pauser.py, sett_sammen.py) og fonter, bakgrunn, logo
-<emne>/<video>/        én mappe per video, sortert etter emne, f.eks. arbeid-og-energi/potensiell-energi/
+<tema>/<video>/        én mappe per video, sortert etter tema, f.eks. arbeid-og-energi/potensiell-energi/
 ```
 
-Videoene sorteres etter **emne** (som på nettstedet), ikke etter fag, fordi samme video kan brukes i flere fag.
+Videoene sorteres etter **tema** (som på nettstedet), ikke etter fag, fordi samme video kan brukes i flere fag.
 
 ## Redigere manus i VS Code
 
 1. Klon repoet én gang: Cmd+Shift+P → **Git: Clone** → `https://github.com/Realfagsambassaden/videoer`.
 2. Hent siste versjon før du begynner (synk-pilene nederst til venstre).
-3. Rediger `<emne>/<video>/manus.md`. Cmd+K V gir forhåndsvisning.
+3. Rediger `<tema>/<video>/manus.md`. Cmd+K V gir forhåndsvisning.
 4. Lagre, skriv en melding i Source Control, **Commit** og **Sync Changes**.
 
 ## Lærerens stil
 
 Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier noe nytt.
 
-- **Kursnøytrale videoer.** En video skal kunne brukes i flere fag og løyper. Ikke referer til et bestemt kurs, kapittel eller rekkefølge: ikke «i dette kurset/forkurset», «i kapittel 3», «forrige video» eller «neste gang ser vi på …». Det gjelder både manus og tekst på skjermen. Knytt i stedet videoen til emnet (f.eks. «Arbeid og energi · Potensiell energi»). Henvisninger til nettstedet («fysikkhjelp») og til «oppgavene under videoen» er greit.
+- **Kursnøytrale videoer.** En video skal kunne brukes i flere fag og løyper. Ikke referer til et bestemt kurs, kapittel eller rekkefølge: ikke «i dette kurset/forkurset», «i kapittel 3», «forrige video» eller «neste gang ser vi på …». Det gjelder både manus og tekst på skjermen. Knytt i stedet videoen til temaet (f.eks. «Arbeid og energi · Potensiell energi»). Henvisninger til nettstedet («fysikkhjelp») og til «oppgavene under videoen» er greit.
 - **Tavla tegnes alltid på nytt** med TikZ/SVG eller lignende, med uformelle bokstaver i håndskriftfonten. Lærerens tegninger er **bare inspirasjon** for hva som skal stå der. Unntak: Dashman-tegneserien og lignende figurer brukes som de er. Finn gjerne et bedre pedagogisk oppsett ut fra det læreren sier.
 - **Ting som beveger seg følger læreren:** når læreren presser sammen eller strekker en fjær, presses/strekkes fjæra på tavla i takt, og kraftvektoren vokser. Vis likevektsposisjonen og hva x er.
 - **Merkelappen** øverst til venstre på miniatyrbildet er «Mekanikk» for alt som er kinematikk, dynamikk eller statikk (ikke underområdet).

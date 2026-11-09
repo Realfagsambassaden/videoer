@@ -1,6 +1,6 @@
 # Manus: Overslag og størrelsesordener
 
-**Emne: Hva er fysikk? · ca. 2 min 40 s**
+**Tema: Hva er fysikk? · ca. 2 min 40 s**
 
 Leses i rolig tempo, ca. 140 ord i minuttet. Animasjonen er laget for at du står nede i høyre hjørne (omtrent den nederste høyre tredjedelen av bildet). Der er det alltid tomt. Tidskodene er når hver ting dukker opp. Snakker du litt raskere eller saktere, kan du kutte eller forlenge pausene i redigeringen.
 

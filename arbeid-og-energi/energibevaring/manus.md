@@ -1,6 +1,6 @@
 # Manus: Energibevaring og energitap
 
-**Emne: Arbeid og energi · delemne: Energibevaring og energitap · ca. 3 min**
+**Tema: Arbeid og energi · undertema: Energibevaring og energitap · ca. 3 min**
 **Brukes på:** (ingen side ennå)
 
 Les i rolig tempo, ca. 140 ord i minuttet. Du står foran grønnskjermen og havner nede til høyre. Tidskodene er omtrentlige. Ta en kort pause mellom avsnittene, og **klapp før du tar noe på nytt**. **[Du:]** er forslag til ting du gjør i bildet. Improviser gjerne: jeg følger det du faktisk sier.

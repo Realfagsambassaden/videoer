@@ -1,6 +1,6 @@
 # Manus: Potensiell energi
 
-**Emne: Arbeid og energi · delemne: Kinetisk og potensiell energi · ca. 3 min**
+**Tema: Arbeid og energi · undertema: Kinetisk og potensiell energi · ca. 3 min**
 **Brukes på:** (ingen side ennå)
 
 Leses i rolig tempo, ca. 140 ord i minuttet. Du filmer deg selv foran grønnskjermen og havner nede til høyre i videoen. Tidskodene er omtrentlige. Animasjonen tilpasses det du faktisk sier og gjør i opptaket, så du trenger ikke følge dem. Ta en kort pause mellom avsnittene. **[Du:]** er forslag til ting du gjør i bildet. Ta med det du vil, eller hopp over det.

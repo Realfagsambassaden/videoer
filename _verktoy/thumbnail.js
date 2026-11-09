@@ -4,7 +4,7 @@
 //
 // thumbnail.json (alle stier relativt til videomappa):
 // {
-//   "emne": "Mekanikk",                 liten håndskrevet merkelapp øverst til venstre (område/emne)
+//   "tema": "Mekanikk",                 liten håndskrevet merkelapp øverst til venstre (område/tema; gammelt navn «emne» virker også)
 //   "tittel": "POTENSIELL",             stor hvit tittel (1–2 ord; lang tittel blir automatisk mindre)
 //   "tittel2": "ENERGI",                valgfri andre linje i samme stil
 //   "undertittel": "lagret arbeid",     grønn, lysende (kort!)
@@ -39,8 +39,8 @@ const path = require('path');
   .a{position:absolute}
   #bg{inset:0;background:url(file://${V}/tavle-bakgrunn.webp) center/cover;opacity:.22}
   #glod{right:-120px;top:40px;width:820px;height:820px;background:radial-gradient(circle,rgba(110,240,74,.28),rgba(110,240,74,0) 65%)}
-  #emne{left:40px;top:22px;font:42px Hand;color:#ecefe6}
-  #emne:after{content:'';display:block;height:5px;margin-top:4px;background:#6ef04a;border-radius:3px;box-shadow:0 0 10px #6ef04a}
+  #tema{left:40px;top:22px;font:42px Hand;color:#ecefe6}
+  #tema:after{content:'';display:block;height:5px;margin-top:4px;background:#6ef04a;border-radius:3px;box-shadow:0 0 10px #6ef04a}
   #tittel{left:30px;top:${c.tittel2 ? 85 : 110}px;font:900 ${tSize}px/0.95 Mont;color:#fff;letter-spacing:-3px;text-shadow:0 6px 18px rgba(0,0,0,.7);white-space:nowrap}
   #under{left:40px;font:900 ${Math.round(tSize * 0.62)}px/1 Mont;color:#6ef04a;text-shadow:0 0 18px rgba(110,240,74,.85),0 0 40px rgba(110,240,74,.45)}
   #person{right:-10px;bottom:0;height:700px;filter:drop-shadow(0 0 3px #6ef04a) drop-shadow(0 0 16px rgba(110,240,74,.9)) drop-shadow(0 0 36px rgba(110,240,74,.5))}
@@ -53,7 +53,7 @@ const path = require('path');
   ${c.tegning ? `<img class="a" id="tegning" src="${url(c.tegning)}">` : ''}
   ${c.formel ? `<div class="a" id="formel">${c.formel.replace(/(.)\u20d7/g, '<span class="vek">$1</span>')}</div>` : ''}
   ${c.person ? `<canvas class="a" id="person"></canvas>` : ''}
-  <div class="a" id="emne">${c.emne || ''}</div>
+  <div class="a" id="tema">${c.tema || c.emne || ''}</div>
   <div class="a" id="tittel">${c.tittel || ''}${c.tittel2 ? '<br>' + c.tittel2 : ''}</div>
   <div class="a" id="under">${c.undertittel || ''}</div>
   <img class="a" id="logo" src="file://${V}/drnormann-logo.svg">

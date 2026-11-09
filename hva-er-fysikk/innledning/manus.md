@@ -1,6 +1,6 @@
 # Manus: Hva er fysikk?
 
-**Emne: Hva er fysikk? · ca. 2 min 45 s**
+**Tema: Hva er fysikk? · ca. 2 min 45 s**
 
 Leses i rolig tempo, ca. 140 ord i minuttet. Animasjonen er laget for at du står nede i høyre hjørne (omtrent den nederste høyre tredjedelen av bildet). Der er det alltid tomt. Tidskodene er når hver ting dukker opp. Snakker du litt raskere eller saktere, kan du kutte eller forlenge pausene i redigeringen.
 
@@ -44,6 +44,6 @@ Leses i rolig tempo, ca. 140 ord i minuttet. Animasjonen er laget for at du stå
 
 ### 6. Avslutning (2:28–2:45)
 
-> Hvert av disse områdene kan du utforske videre, emne for emne. Men først: prøv deg på oppgavene under videoen. Vi ses!
+> Hvert av disse områdene kan du utforske videre, tema for tema. Men først: prøv deg på oppgavene under videoen. Vi ses!
 
-*På skjermen:* De seks områdene samles til ett kart med emnene som små lapper rundt hvert område (2:29), «Prøv oppgavene under videoen!» (2:38), og logoen (2:42).
+*På skjermen:* De seks områdene samles til ett kart med temaene som små lapper rundt hvert område (2:29), «Prøv oppgavene under videoen!» (2:38), og logoen (2:42).
