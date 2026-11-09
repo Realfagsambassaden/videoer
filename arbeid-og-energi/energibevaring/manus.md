@@ -55,7 +55,7 @@ To eksempler på krefter der energien er bevart: **tyngdekraften** (ballen, ramp
 
 > **[Du:** slipp ballen igjen og pek på at den kommer lavere.**]**
 > Men ballen min kommer jo ikke helt opp igjen. Og i en ekte skaterampe er det friksjon i hjulene og luftmotstand. Er ikke energien bevart likevel?
-> Jo, egentlig er den det! Den går bare over til andre former, som varme og lyd. Den mekaniske energien blir mindre, men den totale energien er den samme. Vi sier gjerne «energitap», fordi vi ikke får brukt den energien igjen.
+> Jo, egentlig er den det! Den går bare over til andre former, som varme og lyd. Den mekaniske energien til systemet blir mindre, Og vi snakker derfor om et «energitap» for systemet, fordi energien forlater systemet, eller går over til unyttige former, slik som varme eller lyd. 
 
 *På skjermen:* Kort og enkelt: ved siden av søylene E_p og E_k dukker en rød søyle «varme» (og en liten «lyd») opp, og ved hvert sprett flytter en bit seg over dit. En stiplet linje over alle søylene viser at summen fortsatt er den samme. «E_k + E_p + varme + … = konstant». Dashman i rampa kommer litt lavere opp hver tur, med noen vindstreker og varme hjul.
 
