@@ -1,68 +1,80 @@
 {
- "lengde": 25.266666666666666,
- "slutt": 22.466666666666665,
+ "lengde": 27.566666666666666,
+ "slutt": 24.766666666666666,
  "tekst": [
   [
-   4.117,
-   5.767,
+   6.417,
+   8.067,
    "Hva i alle dager skjedde der?"
   ],
   [
-   13.2,
-   15.0,
+   15.5,
+   17.3,
    "Hvorfor ble det sånn?"
   ],
   [
-   15.2,
-   16.8,
+   17.5,
+   19.1,
    "Mystisk."
   ]
  ],
  "stempler": [
   [
-   0.083,
-   3.98,
+   0.05,
+   3.35,
    "Hvorfor SVINGER ballen?! 😳",
    "forklar"
   ],
   [
-   5.85,
+   3.42,
+   0.6,
+   "⏪ Spol tilbake",
+   "topp"
+  ],
+  [
+   4.05,
+   2.3,
+   "Se på banen! 🌀",
+   "topp"
+  ],
+  [
+   8.15,
    3.4,
    "Full fart på karusellen 🌀",
    "topp"
   ],
   [
-   9.5,
+   11.8,
    2.2,
    "Trill ballen til kameraet! 🎯",
    "topp"
   ],
   [
-   11.8,
+   14.1,
    1.1,
    "Hvor havner den? 🤔",
    "topp"
   ],
   [
-   15.2,
+   17.5,
    1.6,
    "🕵️",
    "emoji"
   ],
   [
-   17.011,
+   19.311,
    1.6,
    "Ikke så mystisk 😎",
    "topp"
   ],
   [
-   17.789,
+   20.089,
    4.68,
    "Ballen tar med seg karusellens fart sidelengs 🎠➡️",
    "forklar"
   ],
   [
-   19.567,
+   21.867,
    2.9,
    "Sett fra karusellen ser banen krum ut: Corioliseffekten 🌀",
    "forklar2"
@@ -70,10 +82,10 @@
  ],
  "kutt": [
   0.0,
-  4.067,
-  5.8,
-  9.3,
-  12.9,
-  16.9
+  6.367,
+  8.1,
+  11.6,
+  15.2,
+  19.2
  ]
 }

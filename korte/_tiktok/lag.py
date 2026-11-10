@@ -35,7 +35,7 @@ for i, b in enumerate(C['biter']):
     else:
         if us is None:   # stående kilde
             cw, ch = (W, int(W * 16 / 9)) if H / W >= 16 / 9 else (int(H * 9 / 16), H)
-            cx = 0.5
+            cx = b.get('x', 0.5)
         else:
             ch = H; cw = int(H * 9 / 16); cx = us
         cw2, ch2 = int(cw / sk) // 2 * 2, int(ch / sk) // 2 * 2
