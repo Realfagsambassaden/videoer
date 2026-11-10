@@ -49,35 +49,15 @@
   },
   {
    "k": "r",
-   "fra": 21.0,
-   "til": 28.0,
+   "fra": 24.0,
+   "til": 27.2,
    "fart": 2.0,
    "lyd": false,
    "zoom": "inn",
    "stempler": [
     [
-     21.1,
-     "Full fart på karusellen 🌀",
-     3.4,
-     "topp"
-    ]
-   ]
-  },
-  {
-   "k": "r",
-   "fra": 28.8,
-   "til": 32.4,
-   "zoom": "none",
-   "stempler": [
-    [
-     29.0,
-     "Trill ballen til kameraet! 🎯",
-     2.2,
-     "topp"
-    ],
-    [
-     31.3,
-     "Hvor havner den? 🤔",
+     24.05,
+     "Karusellen snurrer 🌀",
      1.6,
      "topp"
     ]
@@ -100,39 +80,32 @@
      "Mystisk."
     ]
    ],
-   "stempler": [
-    [
-     15.3,
-     "🕵️",
-     1.6,
-     "emoji"
-    ]
-   ]
+   "stempler": []
   },
   {
-   "k": "r",
-   "fra": 29.8,
-   "til": 32.3,
-   "fart": 0.45,
+   "k": "s",
+   "fra": 4.6,
+   "til": 8.03,
+   "fart": 0.7,
    "lyd": false,
-   "zoom": "puls",
+   "zoom": "none",
    "stempler": [
     [
-     29.85,
+     4.65,
      "Ikke så mystisk 😎",
      1.6,
      "topp"
     ],
     [
-     30.2,
-     "Ballen tar med seg karusellens fart sidelengs 🎠➡️",
-     4.8,
+     4.7,
+     "På karusellen: friksjon drar ballen sidelengs ↪️",
+     4.9,
      "forklar"
     ],
     [
-     31.0,
-     "Sett fra karusellen ser banen krum ut: Corioliseffekten 🌀",
-     3.0,
+     6.4,
+     "På bakken: ingen sidekraft, den ruller rett ⬇️",
+     2.5,
      "forklar2"
     ]
    ]
