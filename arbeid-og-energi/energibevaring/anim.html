@@ -84,10 +84,13 @@ const vekTekst = (x, y, txt, farge, str = 46) => `<text x="${x}" y="${y}" font-f
 const KLIPP = [[0.0,10.36,0.0,10.36],[10.36,15.88,10.36,5.52],[15.88,22.76,15.88,6.88],[22.76,28.28,22.76,5.52],[28.28,31.88,28.28,3.6],[31.88,38.32,31.88,6.44],[38.32,51.16,38.32,12.84],[51.16,55.92,51.16,4.76],[55.92,60.48,55.92,4.56],[60.48,64.56,60.48,4.08],[64.56,68.84,64.56,4.28],[68.84,70.24,68.84,1.4],[70.24,72.24,70.24,2.0],[72.24,74.12,72.24,1.88],[74.12,78.96,74.64,4.84],[78.96,85.28,79.48,6.32],[85.28,88.48,85.8,3.2],[88.48,97.48,89.0,9.0],[97.48,103.88,98.0,6.4],[103.88,105.32,104.4,1.44],[105.32,107.64,105.84,2.32],[107.64,116.24,108.16,8.6],[116.24,129.04,116.76,15.8],[129.04,132.12,132.56,3.08],[132.12,141.28,135.64,9.16],[141.28,146.08,144.8,4.8],[146.08,148.4,149.6,2.32],[148.4,149.68,151.92,1.28],[149.68,150.2,153.2,0.52],[150.2,150.84,153.72,0.64],[150.84,153.32,154.36,2.48],[153.32,160.6,156.84,7.28],[160.6,163.84,164.12,3.24],[163.84,167.2,167.36,3.36],[167.2,172.2,170.72,5.0],[172.2,173.72,175.72,1.52],[173.72,176.64,177.24,2.92],[176.64,180.48,180.16,3.84],[180.48,183.28,184.0,2.8],[183.28,186.28,186.8,3.0],[186.28,187.88,189.8,1.6],[187.88,189.4,191.4,1.52],[189.4,193.6,192.92,4.2],[193.6,194.64,197.12,1.04],[194.64,198.24,198.16,3.6],[198.24,206.24,201.76,8.0],[206.24,208.48,209.76,2.24],[208.48,217.52,212.0,9.04],[217.52,220.56,221.04,3.04],[220.56,221.12,224.08,0.56],[221.12,228.64,224.64,7.52],[228.64,231.0,232.16,2.36],[231.0,236.2,234.52,5.2],[236.2,246.32,239.72,10.12],[246.32,250.36,249.84,4.04],[250.36,253.6,253.88,3.24],[253.6,256.72,257.12,3.12],[256.72,260.56,260.24,3.84],[260.56,267.72,264.08,7.16],[267.72,271.96,271.24,4.24],[271.96,273.84,275.48,1.88],[273.84,279.36,277.36,5.52],[279.36,280.4,282.88,1.04],[280.4,283.48,283.92,3.08],[283.48,284.68,287.0,1.2],[284.68,285.76,288.2,1.08],[285.76,287.12,289.28,1.36],[287.12,287.88,290.64,0.76],[287.88,289.8,291.4,1.92],[289.8,291.16,293.32,1.36],[291.16,292.84,294.68,1.68],[292.84,296.96,296.36,4.12],[296.96,300.16,300.48,3.2],[300.16,301.76,303.68,1.6],[301.76,306.4,305.28,4.64],[306.4,313.04,309.92,6.64],[313.04,318.32,316.56,5.28],[318.32,322.64,321.84,4.32],[322.64,326.36,326.16,3.72],[326.36,327.48,329.88,1.12],[327.48,328.0,331.0,0.52],[328.0,331.56,331.52,3.56],[331.56,334.44,335.08,2.88],[334.44,341.0,337.96,6.56],[341.0,343.2,344.52,2.2],[343.2,352.16,346.72,8.96],[352.16,357.0,355.68,4.84],[357.0,360.96,360.52,3.96],[360.96,364.0,364.48,3.04],[364.0,367.76,367.52,3.76],[367.76,373.88,371.28,6.12],[373.88,380.76,377.4,6.88],[380.76,386.6,384.28,5.32],[386.6,402.96,389.6,16.36],[402.96,406.8,405.96,3.84]];
 const R = T => { for (const [a, b, n, l] of KLIPP) if (T < b) return n + Math.min(Math.max(T - a, 0), l); const k = KLIPP[KLIPP.length - 1]; return k[2] + k[3]; };
 const Rinv = Tn => { for (const [a, b, n, l] of KLIPP) if (Tn < n + l) return a + Math.min(Math.max(Tn - n, 0), b - a); return 406.8; };
-// Utkast 3: biten der læreren presser sammen fjæra (T2 119.68–132.56 i utkast 2-klippet) er kuttet bort: C() og Cinv().
-const KUTT0 = 119.68, KUTT1 = 132.56, KL = KUTT1 - KUTT0;
-const C = T2 => T2 < KUTT0 ? T2 : T2 < KUTT1 ? KUTT0 : T2 - KL;
-const Cinv = T3 => T3 < KUTT0 ? T3 : T3 + KL;
+// Utkast 3–4: C() oversetter tid i utkast 2-klippet (T2) til tid i klippet nå (opptak3.mkv, klipp/lag_opptak3.sh):
+// «Da vil» erstattet med én bit på 0.68 s, fjær-sammenpressingen (T2 119.68–132.56) og «Tilsvarende … bevegelsen» (T2 177.24–180.16) kuttet.
+const KL2 = [[0, 74.12, 0, 74.12], [74.12, 74.64, 74.12, 0.68], [74.64, 119.68, 74.80, 45.04], [119.68, 132.56, 119.84, 0],
+             [132.56, 177.24, 119.84, 44.68], [177.24, 180.16, 164.52, 0], [180.16, 409.8, 164.52, 229.64]];
+const C = T2 => { for (const [a, b, n, l] of KL2) if (T2 < b) return n + Math.min(Math.max(T2 - a, 0), l); return 394.16; };
+const Cinv = T3 => { for (const [a, b, n, l] of KL2) if (l > 0 && T3 < n + l) return a + Math.min(Math.max(T3 - n, 0), b - a); return 409.8; };
+const KL = 409.8 - 394.16;
 const KALD = 10.4, TITTEL = 1.6, HOVED = 409.8 - KL - KALD;
 const MN = Tn => Tn < KALD ? Tn : KALD + TITTEL + (Tn - KALD);   // ny klipp-tid → animasjonstid
 const M = T => MN(C(R(T)));                                          // gammel klipp-tid → animasjonstid
@@ -149,7 +152,7 @@ egen(A0, A1, (s, G) => {
   h += `<path d="M260 390 L700 390" stroke="#9aa49e" stroke-width="2" stroke-dasharray="8 8"/><text x="710" y="400" font-family="Hand" font-size="34" fill="#9aa49e">h</text>`;
   for (let s2 = 0.1; s2 < tf - 0.02; s2 += 0.1) h += `<circle cx="480" cy="${420 + 440 * s2 * s2 - 30}" r="30" fill="none" stroke="#ecefe6" stroke-width="3" opacity=".22"/>`;
   h += `<circle cx="480" cy="${yb - 30}" r="30" fill="none" stroke="#ecefe6" stroke-width="5"/>`;
-  if (uu > 0.03) h += pilsvg(545, yb - 30 - 50 * uu, 545, yb - 30 + 50 * uu, '#f19c2c', 5) + `<text x="565" y="${yb - 18}" font-family="Hand" font-size="40" fill="#f19c2c">v</text>`;   // pila midt på ballen
+  if (uu > 0.03) h += pilsvg(545, yb - 30, 545, yb - 30 + 110 * uu, '#f19c2c', 5) + `<text x="565" y="${yb - 18 + 55 * uu}" font-family="Hand" font-size="40" fill="#f19c2c">v</text>`;   // pila starter i høyde med midtpunktet   // pila midt på ballen
   const f = (yb - 420) / 440;
   h += soyler(820, 840, 380, [ep(1 - f), ek(f)], true);
   s.innerHTML = h;
@@ -247,7 +250,7 @@ skriv('= ' + brok('200 N/m · (0.050 m)' + p2, '2 · 0.020 kg · 9.81 m/s' + p2)
 const E0 = SEKSJON[3], E1 = SEKSJON[4];
 skriv('HVOR BLE DET AV ENERGIEN?', 90, 60, E0 + 0.2, E1, 'h2', 1.4);
 egen(E0, E1, (s, G) => {   // ballen slippes øverst (når læreren slipper sin) og spretter lavere og lavere
-  const T = Tg(G), t = Math.max(0, T - 207.4), H0 = 330, Y = 860 - 30, X = 330;
+  const T = Tg(G), t0 = Math.max(0, T - 207.4), t = t0 >= 8.5 && t0 < 17 ? t0 - 8.5 : t0, H0 = 330, Y = 860 - 30, X = 330;   // spilles to ganger (ny slipp etter 8.5 s)
   let y = Y - H0, hk = 1, tt = t, n = 0, epa = 1; const KR = 0.7;   // epa = andel av den mekaniske energien som er potensiell
   if (T >= 207.4) {
     // første fall fra toppen (halv bue), så sprett med 70 % av energien igjen hver gang
@@ -323,7 +326,22 @@ skriv('Konservative krefter (tyngde, fjær):', 100, 370, M(392.8), H1, 'tl', 1.4
 skriv('E<sub>mek</sub> = E<sub>k</sub> + E<sub>p</sub> = konstant', 100, 430, M(399.0), H1, 'f', 1.2, { css: 'color:#6ef04a' });
 skriv('Prøv deg på noen oppgaver! ✏️', 90, 600, M(403.6), H1, 't', 1.2);
 lag('<img src="../../_verktoy/fh-logo-linje.png" style="height:60px">', 90, 700, M(404.6), H1, 'fade');
-egen(H0, H1, (s, G) => { const T = Tg(G), th = -1.2 * Math.cos(2 * Math.PI / 6 * (T - 386)); s.innerHTML = rampe(820, 760, 170, 0.9) + skater(820, 760, 170 - 4, th, 0.6); });
+const HS = 0.6, HX = 600, HY = 820;   // fjærkanonen i oppsummeringen: rørets midtlinje og munning
+lag(`<img src="elementer/fk_skudd_tom.png" style="width:${351 * HS}px">`, HX - 271.5 * HS, HY - 12 * HS, H0, H1, 'fade');
+egen(H0, H1, (s, G) => {
+  const T = Tg(G), th = -1.2 * Math.cos(2 * Math.PI / 6 * (T - 386));
+  // kula skytes opp og faller ned igjen i røret, i løkke (2.6 s)
+  const t = ((T - 386.6) % 2.6 + 2.6) % 2.6, y0 = HY - 10, hm = 170, L = 170 * HS, ytopp = c => y0 + 0.55 * L * c;
+  let y, c;
+  if (t < 0.12) { c = 1 - t / 0.12; y = ytopp(c); }
+  else if (t < 1.12) { const u = t - 0.12; c = 0; y = y0 - hm * (1 - (1 - u) * (1 - u)); }
+  else if (t < 2.12) { const w = t - 1.12; c = 0; y = y0 - hm * (1 - w * w); }
+  else { c = glatt((t - 2.12) / 0.3); y = ytopp(c); }
+  const yb = HY + L - 4, yt = HY + 0.55 * L * c, n = 7, w = 13; let d = `M${HX} ${yb}`;
+  for (let i = 1; i <= 2 * n; i++) d += ` L${HX + (i % 2 ? -w : w)} ${yb - (yb - yt) * i / (2 * n)}`;
+  const fj = `<path d="${d} L${HX} ${yt}" stroke="#eee462" stroke-width="3" fill="none" stroke-linejoin="round"/><path d="M${HX - 15} ${yt} l30 0" stroke="#eee462" stroke-width="4"/>`;
+  s.innerHTML = rampe(980, 760, 170, 0.9) + skater(980, 760, 170 - 4, th, 0.6) + fj + `<circle cx="${HX}" cy="${y}" r="10" fill="#0d1110" stroke="#ecefe6" stroke-width="4"/>`;
+});
 
 // ---------- tegning av et bilde ----------
 const sone = document.getElementById('sone');

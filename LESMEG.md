@@ -78,8 +78,10 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Energisøyler:** stiplet linje merket «E_tot» over søylene fra starten av. Kall den mekaniske energien E_mek (= E_k + E_p) når den nevnes i formler.
 - **Fargekoding i energiligninger:** potensiell energi turkis (venstre side, mgh), kinetisk oransje (høyre side, ½mv²). Strekene gjennom ting som forkortes skal være tydelige (klassen `.stryk.tykk`).
 - **Rottegn** skal ha strek over hele uttrykket (hjelperen `rot()` i `energibevaring/innhold.js`), ikke bare √ foran.
-- **Pila for fart** står midt på ballen (på høyde med tyngdepunktet).
+- **Pila for fart** starter i ballens midtpunkt (samme vannrette linje som tyngdepunktet) og vokser med farten.
 - **Fjærer i tegninger** tegnes og animeres av Claude (sammenpressing, utskyting), så energien i fjæra blir synlig – ikke lærerens stillestående fjær.
+- **Dubbede ord:** bruk hele stavelser med naturlig utklang (ikke kutt midt i en vokal), og fyll hull med romtone, aldri digital stillhet – ellers hører læreren at noe er rart.
+- **Oppsummeringen** viser gjerne igjen figurene fra videoen i bevegelse (skateren i rampa, kula i fjærkanonen).
 - **Ordslutter:** kutt aldri slutten av et ord eller en setning («… ganger høyden», «… mv i andre»). Sjekk slutten av hver bit med tale-til-tekst.
 - **Repoet på Macen:** læreren har en klone av repoet i `Filmprosjekt/DrNormann/Realfagsambassaden_manus github` og åpner den i VS Code. Lever filer dit med commit + push og så `git pull` i klonen (krever slettetillatelse i mappa for git sine låsefiler) – **kopier aldri filer rett inn i klonen**, det gir konflikter når han trykker på synkroniser.
 - **Korte videoer** (TikTok/Instagram/Shorts) har egne manus: enkle «Visste du at …?»- og «Kåffer det?!»-eksperimenter, maks 1 minutt, med DrNormann-logoen og en peker til fysikkhjelp.no. Se «Korte videoer» i CLAUDE.md. Stilen læreren likte («Kopp opp ned», `korte/kopp-opp-ned/`): den mest spektakulære scenen først som krok, plutselige zoom inn/ut og hvite blink med svisj ved kutt, teksting ord for ord, emojier, store stempler («KÅFFER DET?! 🤯», «FAIL 😩»), **bloopers med morsom lyd** (skuffet trombone) og en kort forklaring på hva som gikk galt, forklaringen i fargede bokser, og til slutt svart skjerm med DrNormann-logoen, «Mer fysikk på fysikkhjelp.no» og ut-musikken.

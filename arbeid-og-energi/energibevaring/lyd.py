@@ -12,9 +12,13 @@ def R(T):   # tid i klippet til utkast 1 → tid i nytt klipp (samme som R() i i
     for a, b, n, l in KLIPP:
         if T < b: return n + min(max(T - a, 0), l)
     return KLIPP[-1][2] + KLIPP[-1][3]
-KUTT0, KUTT1 = 119.68, 132.56   # utkast 3: fjær-sammenpressingen kuttet (som C() i innhold.js)
-C = lambda T2: T2 if T2 < KUTT0 else KUTT0 if T2 < KUTT1 else T2 - (KUTT1 - KUTT0)
-KALD, TITTEL, LENGDE_KLIPP = 10.4, 1.6, round(N[-1]['nT0'] + N[-1]['lengde'] - (KUTT1 - KUTT0), 2)
+KL2 = [(0, 74.12, 0, 74.12), (74.12, 74.64, 74.12, 0.68), (74.64, 119.68, 74.80, 45.04), (119.68, 132.56, 119.84, 0),
+       (132.56, 177.24, 119.84, 44.68), (177.24, 180.16, 164.52, 0), (180.16, 409.8, 164.52, 229.64)]   # som C() i innhold.js
+def C(T2):
+    for a, b, n, l in KL2:
+        if T2 < b: return n + min(max(T2 - a, 0), l)
+    return 394.16
+KALD, TITTEL, LENGDE_KLIPP = 10.4, 1.6, 394.16
 MN = lambda Tn: Tn if Tn < KALD else KALD + TITTEL + (Tn - KALD)
 M = lambda T: MN(C(R(T)))
 sr = 48000
