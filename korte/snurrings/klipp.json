@@ -1,9 +1,131 @@
-{"ut": "02_snurrings_tiktok.mp4",
- "kilder": {"f": "/home/claude/kilder/sn_ferdig.mp4", "r": "/home/claude/kilder/sn_5743.mov"},
+{
+ "ut": "02_snurrings_tiktok.mp4",
+ "kilder": {
+  "f": "/home/claude/kilder/sn_ferdig.mp4",
+  "r": "/home/claude/kilder/sn_5743.mov"
+ },
  "biter": [
-  {"k": "f", "fra": 1.5, "til": 3.25, "zoom": "punch", "tekst": [[1.55, 3.2, "Hva i alle dager skjedde der?"]], "stempler": [[1.5, "Ball + karusell = ??? 🎠⚽", 1.75, "topp"]]},
-  {"k": "r", "fra": 21.0, "til": 28.0, "fart": 2.0, "lyd": false, "zoom": "inn", "stempler": [[21.1, "Full fart på karusellen 🌀", 3.4, "topp"]]},
-  {"k": "r", "fra": 28.8, "til": 32.4, "zoom": "none", "stempler": [[29.0, "Trill ballen til kameraet! 🎯", 2.2, "topp"], [31.3, "Hvor havner den? 🤔", 1.6, "topp"]]},
-  {"k": "f", "fra": 13.0, "til": 17.0, "zoom": "punch", "tekst": [[13.3, 15.1, "Hvorfor ble det sånn?"], [15.3, 16.9, "Mystisk."]], "stempler": [[15.3, "🕵️", 1.6, "emoji"]]},
-  {"k": "r", "fra": 29.8, "til": 32.3, "fart": 0.45, "lyd": false, "zoom": "puls", "stempler": [[29.85, "Ikke så mystisk 😎", 1.6, "topp"], [30.2, "Ballen tar med seg karusellens fart sidelengs 🎠➡️", 4.8, "forklar"], [31.0, "Sett fra karusellen ser banen krum ut: Corioliseffekten 🌀", 3.0, "forklar2"]]}
- ]}
+  {
+   "k": "r",
+   "fra": 9.0,
+   "til": 11.45,
+   "fart": 0.6,
+   "lyd": false,
+   "zoom": "none",
+   "skala": 1.25,
+   "y": 0.5,
+   "stempler": [
+    [
+     9.05,
+     "Hvorfor SVINGER ballen?! 😳",
+     4.1,
+     "forklar"
+    ]
+   ]
+  },
+  {
+   "k": "f",
+   "fra": 1.5,
+   "til": 3.25,
+   "zoom": "punch",
+   "tekst": [
+    [
+     1.55,
+     3.2,
+     "Hva i alle dager skjedde der?"
+    ]
+   ],
+   "stempler": []
+  },
+  {
+   "k": "r",
+   "fra": 21.0,
+   "til": 28.0,
+   "fart": 2.0,
+   "lyd": false,
+   "zoom": "inn",
+   "stempler": [
+    [
+     21.1,
+     "Full fart på karusellen 🌀",
+     3.4,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "r",
+   "fra": 28.8,
+   "til": 32.4,
+   "zoom": "none",
+   "stempler": [
+    [
+     29.0,
+     "Trill ballen til kameraet! 🎯",
+     2.2,
+     "topp"
+    ],
+    [
+     31.3,
+     "Hvor havner den? 🤔",
+     1.6,
+     "topp"
+    ]
+   ]
+  },
+  {
+   "k": "f",
+   "fra": 13.0,
+   "til": 17.0,
+   "zoom": "punch",
+   "tekst": [
+    [
+     13.3,
+     15.1,
+     "Hvorfor ble det sånn?"
+    ],
+    [
+     15.3,
+     16.9,
+     "Mystisk."
+    ]
+   ],
+   "stempler": [
+    [
+     15.3,
+     "🕵️",
+     1.6,
+     "emoji"
+    ]
+   ]
+  },
+  {
+   "k": "r",
+   "fra": 29.8,
+   "til": 32.3,
+   "fart": 0.45,
+   "lyd": false,
+   "zoom": "puls",
+   "stempler": [
+    [
+     29.85,
+     "Ikke så mystisk 😎",
+     1.6,
+     "topp"
+    ],
+    [
+     30.2,
+     "Ballen tar med seg karusellens fart sidelengs 🎠➡️",
+     4.8,
+     "forklar"
+    ],
+    [
+     31.0,
+     "Sett fra karusellen ser banen krum ut: Corioliseffekten 🌀",
+     3.0,
+     "forklar2"
+    ]
+   ]
+  }
+ ]
+}
