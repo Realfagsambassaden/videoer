@@ -4,11 +4,14 @@
 **Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.3)
 **Format:** animert Dashman nede til høyre, bare stemmen din. Les sitatblokkene; **[Dashman: …]** og *På skjermen* er for meg.
 
+**Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
+
 Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randverdiproblem blir et lineært ligningssystem, (3) i tid marsjerer vi steg for steg – eksplisitt (direkte, men med små steg) eller implisitt (et ligningssystem per steg, men stabilt).
 
 ---
 
 ### 0. Kald start (ca. 6 s)
+*Kartet:* lyser på «numerisk metode → endelige differanser».
 
 > En datamaskin kan ikke derivere. Den kan bare legge sammen, trekke fra, gange og dele. Så hvordan i all verden løser den en differensialligning?
 
@@ -16,6 +19,7 @@ Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randve
 *På skjermen:* En kalkulator med knappene + − × ÷ og et grått «d/dx» som blir strøket over (lyd: «dunk»).
 
 ### 1. Derivert → differanse (0:00–1:00)
+*Kartet:* lyser på «endelige differanser».
 
 > Triks nummer én: Vi legger et rutenett med avstand h, og ser bare på verdiene i punktene: U i minus én, U i og U i pluss én.
 > Den deriverte er stigningstallet. Det kan vi tilnærme med en sekant: U i pluss én minus U i minus én, delt på to h.
@@ -26,6 +30,7 @@ Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randve
 *På skjermen:* Tittel «Endelige differanser» (oransje). En glatt kurve, så prikker på et rutenett med «h» mellom (pop for hver prikk). Tre prikker lyser: U_{i−1}, U_i, U_{i+1}. En tangent i midtpunktet og en sekant mellom ytterpunktene som nesten faller sammen: «u′ ≈ (U_{i+1} − U_{i−1})/(2h)». Så: «u″ ≈ (U_{i+1} − 2U_i + U_{i−1})/h²» i grønn boks (stablede brøker). Til slutt en liten tegning: midtpunktet sammenlignet med en stiplet linje mellom naboene, avstanden i gult: «avvik fra naboene».
 
 ### 2. Randverdiproblem → ligningssystem (1:00–2:00)
+*Kartet:* lyser på «RVP: ligningssystem».
 
 > Ta u dobbeltderivert lik minus to på intervallet fra null til én, med u lik null i begge ender. Vi deler i fire, så vi har tre ukjente punkter.
 > I hvert punkt bytter vi u dobbeltderivert med differansen. Da får vi tre vanlige ligninger med tre ukjente – og hver ligning inneholder bare et punkt og naboene dets. Matrisen blir tridiagonal.
@@ -36,6 +41,7 @@ Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randve
 *På skjermen:* Intervallet [0, 1] med to røde randpunkter «u = 0» og tre blå ukjente U₁, U₂, U₃ (h = 0.25). Tre ligninger bygges én og én (pop): «(0 − 2U₁ + U₂)/h² = −2» osv. Matrisen tegnes med tall bare på de tre diagonalene (−2, 1, 1), resten tomme ruter: «tridiagonal». Løsningen dukker opp i punktene og en stiplet parabel x(1 − x) går gjennom alle tre: «eksakt ✓» (pling). Så en 2D-rute med et pluss-formet stensil (−1, −1, 4, −1, −1): «fempunktsformelen». Til slutt et lite varmekart som «roer seg» iterasjon for iterasjon (tikk-lyder) med teksten «Jacobi / Gauss-Seidel».
 
 ### 3. Marsjere i tid: eksplisitt og implisitt (2:00–3:40)
+*Kartet:* lyser på «tid: eksplisitt · implisitt».
 
 > Varmeligningen har også tid. Da gjør vi det samme i rommet, og så tar vi små skritt fram i tid. Spørsmålet er bare: *Hvilke* verdier bruker vi i krumningen – de vi har *nå*, eller de vi skal finne i *neste* steg?
 > Bruker vi verdiene vi har nå, er skjemaet *eksplisitt*. Den nye verdien i hvert punkt regnes ut direkte fra tre kjente naboer: den gamle verdien, pluss delta t ganger krumningen. Ett punkt om gangen – raskt og enkelt.
@@ -50,6 +56,7 @@ Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randve
 - Til slutt en liten tabell: «eksplisitt: billig per steg · krever små steg» og «implisitt: ligningssystem per steg · tåler store steg».
 
 ### 4. Avslutning (3:40–3:55)
+*Kartet:* lyser på «endelige differanser (hele grenen)».
 
 > Endelige differanser: deriverte blir differanser, randverdiproblemer blir ligningssystemer, og i tid marsjerer vi – eksplisitt med små steg, eller implisitt med et ligningssystem i hvert steg. Prøv deg på noen oppgaver!
 
