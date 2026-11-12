@@ -9,6 +9,8 @@ Fire korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert
 | `3-endelig-volum` | 3.2, 3.4, 3.5 Bevaringslover og EVM i 1D | bevaringsloven · bevaring i hver celle · randen og kilder |
 | `4-endelig-volum-2d-og-tid` | 3.6, 3.7 (og 3.8) EVM i 2D og i tid | fire naboer · eksplisitt tidsskjema · tidssteget ved randen |
 
+**Målet er alltid HVORFOR:** kort, men hver regel og hvert kriterium får en forklaring på hvorfor (vektet gjennomsnitt → r ≤ ½, halv avstand → dobbel ledningsevne, rotasjon → tre typer …).
+
 ## Grafisk språk (felles for alle fire filmene)
 
 **Fra det generelle til det konkrete.** Hver film og hver del går samme vei: først idéen i generell form (ord + formel), så en figur som viser hva den betyr, og til slutt et konkret eksempel med tall. Kald start er bare en kort krok; selve forklaringen starter alltid generelt.

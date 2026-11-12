@@ -43,9 +43,9 @@ Tre idéer: (1) bevaringsloven – endring = inn − ut + produksjon, (2) endeli
 ### 3. Randen og kilder (2:05–3:15)
 *Kartet:* lyser på «1D (rand og kilder)».
 
-> Ved randen er avstanden fra noden til kanten bare en *halv* celle. Da blir ledningsevnen dobbel. Vi klipper koblingen til randen, og legger den kjente temperaturen inn i S u – og den doble ledningsevnen inn i S P.
+> Ved randen er avstanden fra noden til kanten bare en *halv* celle. Og ledningsevnen er omvendt proporsjonal med avstanden – halv vei, dobbelt så lett for varmen. Da blir ledningsevnen dobbel. Vi klipper koblingen til randen, og legger den kjente temperaturen inn i S u – og den doble ledningsevnen inn i S P.
 > Er det i stedet *fluksen* som er kjent, legger vi den bare inn i S u. En isolert vegg gir ingenting i det hele tatt.
-> Og en kilde – for eksempel varme fra strøm – skrives som S u pluss S P ganger T P. S P skal være null eller negativ, ellers kan løsningen stikke av.
+> Og en kilde – for eksempel varme fra strøm – skrives som S u pluss S P ganger T P. S P skal være null eller negativ. *Hvorfor?* En negativ S P er et sluk som blir sterkere jo varmere det er – det bremser seg selv. En positiv S P ville gjort at varmt blir enda varmere, og da kan løsningen stikke av.
 > Prøv med en stav som er hundre grader i den ene enden og fem hundre i den andre. Fem celler gir hundre og førti, to hundre og tjue, tre hundre, tre hundre og åtti og fire hundre og seksti grader. Akkurat en rett linje – den eksakte løsningen.
 
 **[Dashman: skrive → skuldre (ved «isolert vegg gir ingenting») → overrasket → tada]**
