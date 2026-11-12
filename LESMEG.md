@@ -85,6 +85,7 @@ Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier
 - **Når en video er ferdig:** lagre den som `<video>.mp4` (eller `_ferdig.mp4`) i videomappa på Macen og slett de gamle utkastene. Råopptaket (`Meg*.mov`) kan da også slettes – men bare for videoer Claude har laget.
 - **Matematikkfilmer (forelesningsvideoer):** så korte som mulig, pedagogiske og grafiske; én idé per film (høyst tre), og høyst én film per delkapittel i kompendiet (flere delkapitler kan dele film).
 - **Det visuelle skal utfylle og forsterke det som sies** (veldig viktig prinsipp): tavla følger det læreren *faktisk* sier i opptaket (han sier nesten, ikke ordrett, det som står i manuset), og viser det som gjør ordene tydeligere – ikke noe annet samtidig.
+- **Nok detaljer, men ikke for mye:** ta med det som trengs for å forstå hvorfor, og kutt resten (ekstra varianter, sidespor, «til orientering»).
 - **Kort, men HVORFOR – alltid målet med filmene.** **Forklar hvorfor, ikke bare hva:** læreren vil ha den typen forklaring som viser *hvorfor* et kriterium er som det er, med et geometrisk eller intuitivt bilde (f.eks. klassifisering av PDE-er: rotasjon som gjør koeffisientmatrisen diagonal, og informasjon som går i 2, 1 eller 0 retninger). Vis det grafisk med vektorer, rotasjoner og formler som bygges.
 - **Fagord i matematikk:** «ordinær differensialligning» (ikke «vanlig differensialligning»).
 - **Ordslutter:** kutt aldri slutten av et ord eller en setning («… ganger høyden», «… mv i andre»). Sjekk slutten av hver bit med tale-til-tekst.
