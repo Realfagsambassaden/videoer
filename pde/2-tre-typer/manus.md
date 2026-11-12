@@ -20,9 +20,11 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 > En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Leddene med de andrederiverte bestemmer *typen*. Resten spiller ingen rolle. a og b kan her godt være funksjoner av variablene x og y.
 > Hvis vi nå foretar en liten omskrivning til matriseform, så får vi samlet a og b i en symmetrisk matrise, A: en rad med derivasjonene, ganger A, ganger en søyle med derivasjonene, brukt på u. Ganger vi ut, får vi nøyaktig u x x pluss a u x y pluss b u y y tilbake – blandingsleddet kommer to ganger, derfor står a over to på hver side av diagonalen. Det er fortsatt bare én ligning – men nå ser vi at alt som bestemmer typen, ligger i A.
 > Og her er greia: en symmetrisk matrise kan alltid gjøres diagonal, ved å dreie koordinatsystemet langs egenvektorene til A. De nye aksene, ksi og eta, peker langs egenvektorene, og tallene på diagonalen blir egenverdiene, lambda én og lambda to. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
-> Nå er det bare tre muligheter. Har egenverdiene like fortegn, får vi Laplace-ligningen. Er én av dem null, får vi varmeligningen. Har de motsatte fortegn, får vi bølgeligningen. Hver andreordens PDE er altså, i de riktige koordinatene, en av disse tre.
+> Nå er det bare tre muligheter:
+
+> Enten har egenverdiene samme fortegn, forskjellig fortegn, eller så er en av egenverdiene null. Hver andreordens PDE er altså, i de riktige koordinatene, en av disse tre.
 > Og forskjellen handler om hvordan *informasjon* beveger seg.
-> I bølgeligningen går den langs *to* retninger – en puls deler seg i to og løper hver sin vei. Den er *hyperbolsk*.
+> I bølgeligningen er egenverdiene av motsatt fortegn.går den langs *to* retninger – en puls deler seg i to og løper hver sin vei. Den er *hyperbolsk*.
 > I varmeligningen, u t lik alfa u x x, finnes det bare *én* slik retning: tiden. Og langs staven sprer varmen seg øyeblikkelig – litt overalt med en gang. Den *jevner ut*. Den er *parabolsk*.
 > I Laplace-ligningen, u x x pluss u y y pluss u z z lik null, finnes det *ingen* spesiell retning. Hvert punkt kjenner hele området rundt seg – det gir en *likevektstilstand*, for eksempel temperaturen i et materiale etter lang, lang tid. Den er *elliptisk*.
 > Men hvordan sjekker vi typen i praksis, uten å dreie noe? Vi trenger bare fortegnene til egenverdiene. Og produktet av egenverdiene er determinanten til A: b minus a i andre over fire.
