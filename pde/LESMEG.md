@@ -1,6 +1,6 @@
 # PDE-videoene (matematikk)
 
-Fem korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert Dashman** nede i høyre hjørne og bare lærerens stemme. Hver film har høyst tre idéer. Som hovedregel dekker én film høyst ett delkapittel (noen samler flere), men §3.1 er delt i to filmer (bestemt 12. november 2026): en helt grunnleggende om ODE mot PDE, orden, lineær og homogen, og en om de tre typene.
+Fem korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **læreren på video** foran grønnskjerm nede til høyre og tavla bak (animert Dashman i hjørnet ble prøvd 12. november 2026, men fungerte ikke godt nok). Hver film har høyst tre idéer. Som hovedregel dekker én film høyst ett delkapittel (noen samler flere), men §3.1 er delt i to filmer (bestemt 12. november 2026): en helt grunnleggende om ODE mot PDE, orden, lineær og homogen, og en om de tre typene.
 
 | Film | Delkapittel | Idéer |
 |---|---|---|
@@ -45,6 +45,6 @@ PDE  ──►  type: varme · bølge · Laplace  ──►  betingelser: initia
 
 **Hvert nytt begrep** (node, flate, fluks, stensil, eksplisitt, implisitt …) dukker opp som en liten merkelapp ved figuren i det øyeblikket det sies, og blir stående litt.
 
-**Innlesing:** Les bare sitatblokkene. **[Dashman: …]** sier hva figuren gjør; det trenger du ikke tenke på. Ta en kort pause mellom avsnittene, og klapp før du tar noe på nytt. Én lydfil per film. God mikrofon er alt som trengs, ingen grønnskjerm.
+**Opptak:** video foran grønnskjerm (se «Opptak» i `CLAUDE.md`). Les sitatblokkene; **[Du: …]** er det du gjør (peke, gestikulere, rekvisitter). Ta en kort pause mellom avsnittene, og klapp før du tar noe på nytt. Én fil per film. **Lyden:** klypemikrofon tett på (ca. 20 cm fra munnen), opptaksnivå så toppene ligger rundt −12 dB, og et rom med myke flater (lite ekko). Opptaket PDE_1_take2 var svakt (snitt ca. −32 dB) og dumpt (lite diskant), så det måtte forsterkes mye.
 
-Posituren til Dashman (fra riggen i `Realfagsambassaden/dashman`): `noytral`, `noytral_kopp`, `peker_tavla`, `peker_opp`, `armer_opp`, `tada`, `undrende`, `mystisk`, `lattermild`, `hoho`, `skuldre`, `gruble`, `overrasket`, `skrive`, og ekstra `lyspaere`, `svette`, `spm`, `utrop`.
+(Ikke i bruk nå.) Posituren til Dashman (fra riggen i `Realfagsambassaden/dashman`): `noytral`, `noytral_kopp`, `peker_tavla`, `peker_opp`, `armer_opp`, `tada`, `undrende`, `mystisk`, `lattermild`, `hoho`, `skuldre`, `gruble`, `overrasket`, `skrive`, og ekstra `lyspaere`, `svette`, `spm`, `utrop`.

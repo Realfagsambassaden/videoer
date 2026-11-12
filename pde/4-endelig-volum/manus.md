@@ -2,7 +2,7 @@
 
 **Tema: Partielle differensialligninger · undertema: Bevaringslover og endelig volum-metoden i 1D · ca. 3.5 min**
 **Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.2, §3.4–3.5)
-**Format:** animert Dashman nede til høyre, bare stemmen din. Les sitatblokkene; **[Dashman: …]** og *På skjermen* er for meg.
+**Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
 **Grunnlag:** foilene F23–F24.
 
 **Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.

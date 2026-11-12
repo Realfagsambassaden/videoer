@@ -2,7 +2,7 @@
 
 **Tema: Partielle differensialligninger · undertema: Introduksjon til PDE-er (klassifisering) · ca. 4.5 min**
 **Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.1)
-**Format:** animert Dashman nede til høyre, bare stemmen din.
+**Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
 
 **Grafisk språk:** se `pde/LESMEG.md`.
 
