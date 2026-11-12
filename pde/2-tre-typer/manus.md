@@ -22,11 +22,12 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 > Og her er greia: en symmetrisk matrise kan alltid gjøres diagonal, ved å dreie koordinatsystemet langs egenvektorene til A. De nye aksene, ksi og eta, peker langs egenvektorene, og tallene på diagonalen blir egenverdiene, lambda én og lambda to. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
 > Nå er det bare tre muligheter:
 
-> Enten har egenverdiene samme fortegn, forskjellig fortegn, eller så er en av egenverdiene null. Hver andreordens PDE er altså, i de riktige koordinatene, en av disse tre.
+> Enten har egenverdiene samme fortegn, forskjellig fortegn, eller så er en av egenverdiene null. Alle andreordens PDE er altså i en av disse tre kategoriene. 
 > Og forskjellen handler om hvordan *informasjon* beveger seg.
-> I bølgeligningen er egenverdiene av motsatt fortegn.går den langs *to* retninger – en puls deler seg i to og løper hver sin vei. Den er *hyperbolsk*.
-> I varmeligningen, u t lik alfa u x x, finnes det bare *én* slik retning: tiden. Og langs staven sprer varmen seg øyeblikkelig – litt overalt med en gang. Den *jevner ut*. Den er *parabolsk*.
-> I Laplace-ligningen, u x x pluss u y y pluss u z z lik null, finnes det *ingen* spesiell retning. Hvert punkt kjenner hele området rundt seg – det gir en *likevektstilstand*, for eksempel temperaturen i et materiale etter lang, lang tid. Den er *elliptisk*.
+> I bølgeligningen er egenverdiene av motsatt fortegn.En bølge-puls på en streng vil dele seg i to, og løpe hver sin vei. Denne typen PDEer kaller vi *hyperbolsk*.
+> Varmeligningen er et eksempel på en PDE hvor én av egenverdiene er 0. Her finnes det bare én retning informasjonen kan bre seg i, nemlig tiden. Dette fører til at varme jevner seg ut. Varmen brer seg øyeblikkelig, over alt. Slike liknigner kaller vi *parabolske*.
+> Dersom begge egenverdiene har samme fortegn, finnes det *ingen* spesiell retning. Slike likninger beskriver likevektstilstander. For eksempel Poisson-likningen, som beskriver gravitasjonsfeltet rundt en massefordeling. Disse likninene kaller vi *elliptiske*.
+
 > Men hvordan sjekker vi typen i praksis, uten å dreie noe? Vi trenger bare fortegnene til egenverdiene. Og produktet av egenverdiene er determinanten til A: b minus a i andre over fire.
 > Er determinanten positiv, har egenverdiene like fortegn. Er den null, er én av dem null. Er den negativ, har de motsatte fortegn. Ganger vi med minus fire, får vi det kjente kriteriet: a i andre minus fire b. Negativ betyr elliptisk, null betyr parabolsk, positiv betyr hyperbolsk.
 > Og de to, én eller null retningene? De er røttene i en andregradsligning – med akkurat den samme diskriminanten.
