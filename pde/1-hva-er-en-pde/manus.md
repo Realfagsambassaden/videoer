@@ -24,13 +24,15 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre familier 
 > I en ordinær differensialligning er den ukjente en funksjon av én variabel, for eksempel tiden.
 > I en *partiell* differensialligning avhenger den ukjente av flere variabler på en gang. Temperaturen u i en stav avhenger både av hvor og når du måler.
 
-> Da får vi to slags deriverte: hvor fort temperaturen endrer seg i tid, u t, og hvordan den endrer seg langs staven, u x x. En PDE er en ligning som binder dem sammen.
+> Da får vi *partielle* deriverte: hvordan u endrer seg når bare tiden endres, u t, eller når bare posisjonen endres, u x – og deriverer vi én gang til, u x x.
+> En PDE er rett og slett en ligning som binder u og de partielle deriverte sammen. *Hvilke* deriverte som er med, bestemmer hva slags fysikk ligningen beskriver.
 
 **[Dashman: peker_tavla]**
 *På skjermen:* (generelt → konkret)
 1. Tittel «Hva er en PDE?» (oransje). Generelt først: «ODE: y(t)» – én akse, én kurve. Ved siden av: «PDE: u(x, t)» – to akser, og den turkise u-en (den ukjente) får to små piler ut til «x» og «t» (pop, pop). Merkelapp: «flere variabler».
 2. Så det konkrete: en stav som er rød i midten og blå i endene. Over den grafen u(x) ved én tid; en klokke tikker og grafen flater ut. Grafene for flere tider stables bakover og blir en flate u(x, t) som vris litt i perspektiv (svisj).
-3. Formelen bygges fra figuren: fra klokka flyr «∂u/∂t» ut og blir til «u_t» (lapp: «endring i tid»); fra krumningen på grafen (en liten bue tegnes over toppen) flyr «∂²u/∂x²» ut og blir til «u_xx» (lapp: «krumning langs staven»). De to møtes med et «=» imellom (popp) i grønn boks: «u_t = u_xx». Under boksen, liten: «en PDE binder de partielle deriverte sammen».
+3. De partielle deriverte bygges fra figuren: fra klokka flyr «∂u/∂t» ut og blir til «u_t» (lapp: «bare t endres»); fra helningen på grafen (en liten tangent) flyr «∂u/∂x» ut og blir til «u_x» (lapp: «bare x endres»); en liten bue over toppen gir «u_xx» (lapp: «deriverer én gang til»). De tre symbolene legger seg i en rad.
+4. Generelt: grønn boks «F(x, t, u, u_t, u_x, u_xx, …) = 0» – symbolene fra raden flyr inn i parentesen (popp, popp, popp). Lapp under: «en PDE: en ligning mellom u og de partielle deriverte». Tre grå ligninger (uten navn) svever forbi med et «?» – de får navn i neste del.
 
 ### 2. Tre familier (0:40–1:35)
 *Kartet:* lyser på «type».
