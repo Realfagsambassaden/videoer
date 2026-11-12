@@ -1,13 +1,14 @@
 # PDE-videoene (matematikk)
 
-Fire korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert Dashman** nede i høyre hjørne og bare lærerens stemme. Én film dekker høyst ett delkapittel, men noen samler flere, og hver film har høyst tre idéer.
+Fem korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert Dashman** nede i høyre hjørne og bare lærerens stemme. Hver film har høyst tre idéer. Som hovedregel dekker én film høyst ett delkapittel (noen samler flere), men §3.1 er delt i to filmer (bestemt 12. november 2026): en helt grunnleggende om ODE mot PDE, orden, lineær og homogen, og en om de tre typene.
 
 | Film | Delkapittel | Idéer |
 |---|---|---|
-| `1-hva-er-en-pde` | 3.1 Introduksjon til PDE-er | ukjent funksjon av flere variabler · tre familier (likevekt, utjevning, bølge) · rand- og initialbetingelser |
-| `2-endelige-differanser` | 3.3 Endelige differanser | derivert → differanse · randverdiproblem → ligningssystem · marsjere i tid: eksplisitt og implisitt skjema |
-| `3-endelig-volum` | 3.2, 3.4, 3.5 Bevaringslover og EVM i 1D | bevaringsloven · bevaring i hver celle · randen og kilder |
-| `4-endelig-volum-2d-og-tid` | 3.6, 3.7 (og 3.8) EVM i 2D og i tid | fire naboer · eksplisitt tidsskjema · tidssteget ved randen |
+| `1-hva-er-en-pde` | 3.1 Introduksjon til PDE-er | ODE mot PDE: ukjent funksjon av flere variabler · orden og lineær (superposisjon) · homogen eller med kilde |
+| `2-tre-typer` | 3.1 Klassifisering | rotasjon → tre typer, informasjon i 2/1/0 retninger · kriteriet a² − 4b fra determinanten · rand- og initialbetingelser |
+| `3-endelige-differanser` | 3.3 Endelige differanser | derivert → differanse · randverdiproblem → ligningssystem · marsjere i tid: eksplisitt og implisitt skjema |
+| `4-endelig-volum` | 3.2, 3.4, 3.5 Bevaringslover og EVM i 1D | bevaringsloven · bevaring i hver celle · randen og kilder |
+| `5-endelig-volum-2d-og-tid` | 3.6, 3.7 (og 3.8) EVM i 2D og i tid | fire naboer · eksplisitt tidsskjema · tidssteget ved randen |
 
 **Lengde:** alt under 5 minutter er greit (bestemt 12. november 2026).
 
@@ -15,7 +16,7 @@ Fire korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert
 
 **Det visuelle skal utfylle og forsterke det som sies.** Læreren leser nesten, men ikke ordrett. Tavla tidsettes og tilpasses etter opptaket (tale til tekst med ordtider): hvert begrep, hver formel og hver animasjon kommer i det øyeblikket det sies, og ingenting på tavla konkurrerer med det som sies akkurat da.
 
-## Grafisk språk (felles for alle fire filmene)
+## Grafisk språk (felles for alle filmene)
 
 **Fra det generelle til det konkrete.** Hver film og hver del går samme vei: først idéen i generell form (ord + formel), så en figur som viser hva den betyr, og til slutt et konkret eksempel med tall. Kald start er bare en kort krok; selve forklaringen starter alltid generelt.
 
