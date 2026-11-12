@@ -37,6 +37,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 ### 2. Tre typer – og hvorfor (0:40–2:30)
 *Kartet:* lyser på «type».
 
+> Vi sa at *hvilke* deriverte som er med, bestemmer fysikken. Det kan vi gjøre helt presist. De viktigste ligningene i fysikken er av andre orden – den høyeste deriverte er en andrederivert. Og det er nettopp de høyeste deriverte som bestemmer hvordan løsningen oppfører seg.
 > En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Leddene med de andrederiverte bestemmer *typen*. Resten spiller ingen rolle.
 > Koeffisientene foran de andrederiverte – a og b kan godt være funksjoner av x og y – kan vi samle i en symmetrisk matrise, A. Den sier hvordan ligningen setter de andrederiverte sammen.
 > Og en symmetrisk matrise kan alltid gjøres diagonal: Vi dreier koordinatsystemet langs egenvektorene til A. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
@@ -49,7 +50,8 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 
 **[Dashman: skrive → peker_tavla (ved matrisen A) → lyspaere (ved «gjøres diagonal») → gruble (ved «bare tre muligheter») → lattermild (ved «løper hver sin vei») → undrende (ved varme) → mystisk (ved Laplace) → tada (ved «a i andre minus fire b»)]**
 *På skjermen:* (generelt → hvorfor → konkret)
-1. **Den generelle formen:** «u_xx + a·u_xy + b·u_yy = (lavere orden)». Andreordensleddene lyser, resten blir grått. Lapp: «bare andreordensleddene bestemmer typen». Liten grå lapp ved a og b: «a(x, y), b(x, y) → typen kan variere fra punkt til punkt».
+0. **Overgangen:** den grønne F-boksen fra del 1 står igjen øverst. Lappen «hvilke deriverte?» lyser opp. Inni F-parentesen lyser u_xx (og de andre andrederiverte) gult, mens u, u_t og u_x blir grå: «de høyeste deriverte bestemmer». De tre grå ligningene med «?» fra del 1 glir inn til høyre og blir stående og vente – de skal sorteres i treet nedenfor.
+1. **Den generelle formen** (F-boksen folder seg ut til): «u_xx + a·u_xy + b·u_yy = (lavere orden)». Andreordensleddene lyser, resten blir grått. Lapp: «bare andreordensleddene bestemmer typen». Liten grå lapp ved a og b: «a(x, y), b(x, y) → typen kan variere fra punkt til punkt».
 2. **Matrisen A:** tallene 1, a, b flyr ut av ligningen og inn i «A = [1, a/2; a/2, b]» (popp; a/2 havner på begge sidene av diagonalen). Ved siden av, mindre og grå: Hessematrisen til u, «[u_xx, u_xy; u_xy, u_yy]», og en lapp: «A virker på de andrederiverte – typen avgjøres av A, ikke av u».
 3. **Rotasjonen (vektorer):** et x–y-koordinatsystem med et rutenett. To egenvektorer til A tegnes som piler fra origo, vinkelrett på hverandre, med lengde |λ₁| og |λ₂|, og farge etter fortegn (grønn = +, rød = −). Hele koordinatsystemet dreier seg langs pilene (svisj), og aksene får nye navn: ξ og η. Samtidig krymper «a·u_xy» og strykes over, og ligningen blir «λ₁·u_ξξ + λ₂·u_ηη + … = 0». A blir «[λ₁, 0; 0, λ₂]».
 4. **Tre muligheter:** tre ruter side om side, hver med de to egenvektor-pilene og sin standardform (skalert så λ-ene blir ±1 eller 0):
