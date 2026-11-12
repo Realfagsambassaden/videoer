@@ -28,7 +28,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler – ODE mot PDE, (
 > I en ordinær differensialligning er den ukjente en funksjon av én variabel, for eksempel tiden.
 > I en *partiell* differensialligning avhenger den ukjente av flere variabler på en gang. Et eksempel er temperaturen, som avhenger både av hvor og når du måler.
 
-> Da får vi *partielle* deriverte: Hvis u(x,t) er størrelsen vi studerer, for eksempel temperatur, så kan jeg se på endringen av u når bare t endrer seg. Det kaller vi u_t, og det er altså den partiellderiverte mhp tid. Tilsvarende kaller vi den partiellderiverte mhp posisjon for u x – og deriverer vi én gang til, skriver vi u x x, altså to ganger derivert med hensyn på x.
+> Da får vi *partielle* deriverte: Hvis u(x,t) er størrelsen vi studerer, for eksempel temperatur, eller utslaget på en gitarstreng, så kan jeg se på endringen av u når bare t endrer seg. Det kaller vi u_t, og det er altså den partiellderiverte mhp tid. Tilsvarende kaller vi den partiellderiverte mhp posisjon for u x – og deriverer vi én gang til, skriver vi u x x, altså to ganger derivert med hensyn på x.
 
 > En PDE er rett og slett en ligning som binder u og dens partielle deriverte sammen. Hva slags fysikk ligningen beskriver er bestemt av *hvilke* deriverte som er med.
 
@@ -65,7 +65,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler – ODE mot PDE, (
 ### 3. Avslutning (ca. 2:30–2:45)
 *Kartet:* lyser på «PDE», og lyset glir videre til «type».
 
-> Så: en PDE er en ligning for en ukjent funksjon av flere variabler. Vi klassifiserer etter orden, linearitet og homogenitet. 
+> Så: en PDE er en ligning som inneholder en ukjent funksjon av flere variabler og dens deriverte. Vi klassifiserer etter orden, linearitet og homogenitet. 
 
 **[Du: tre fingre igjen ved «tre første spørsmålene», peker ned mot oppgavene ved slutten.]**
 *På skjermen:* De tre merkelappene orden · lineær · homogen med haker, og flaten u(x, t). Fysikkhjelp-logoen.
