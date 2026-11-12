@@ -22,8 +22,9 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre familier 
 *Kartet:* lyser på «PDE».
 
 > I en ordinær differensialligning er den ukjente en funksjon av én variabel, for eksempel tiden.
-> I en *partiell* differensialligning avhenger den ukjente av flere variabler på en gang. Temperaturen u i en stav avhenger både av hvor du er, x, og når du ser, t.
-> Da får vi to slags deriverte: hvor fort temperaturen endrer seg i tid, u t, og hvordan den krummer seg langs staven, u x x. En PDE er en ligning som binder dem sammen.
+> I en *partiell* differensialligning avhenger den ukjente av flere variabler på en gang. Temperaturen u i en stav avhenger både av hvor og når du måler.
+
+> Da får vi to slags deriverte: hvor fort temperaturen endrer seg i tid, u t, og hvordan den endrer seg langs staven, u x x. En PDE er en ligning som binder dem sammen.
 
 **[Dashman: peker_tavla]**
 *På skjermen:* (generelt → konkret)
