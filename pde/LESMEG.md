@@ -16,9 +16,9 @@ Fem korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **læreren
 
 **Det visuelle skal utfylle og forsterke det som sies.** Læreren leser nesten, men ikke ordrett. Tavla tidsettes og tilpasses etter opptaket (tale til tekst med ordtider): hvert begrep, hver formel og hver animasjon kommer i det øyeblikket det sies, og ingenting på tavla konkurrerer med det som sies akkurat da.
 
-## Grafisk språk
+## Grafisk språk (felles for alle filmene)
 
-- **Egenvektorer og egenverdier holdes adskilt** (læreren, 12. november 2026): egenvektorer er *retninger* og tegnes som piler (like lange, kritt, merket e₁, e₂); egenverdier er *tall* og vises bare som tall (λ₁, λ₂, fortegn som «+ / 0 / −»). Ikke la pilenes lengde eller farge bære egenverdiene. (felles for alle filmene)
+- **Egenvektorer og egenverdier holdes adskilt** (læreren, 12. november 2026): egenvektorer er *retninger* og tegnes som piler (like lange, kritt, merket e₁, e₂); egenverdier er *tall* og vises bare som tall (λ₁, λ₂, fortegn som «+ / 0 / −»). Ikke la pilenes lengde eller farge bære egenverdiene.
 
 **Fra det generelle til det konkrete.** Hver film og hver del går samme vei: først idéen i generell form (ord + formel), så en figur som viser hva den betyr, og til slutt et konkret eksempel med tall. Kald start er bare en kort krok; selve forklaringen starter alltid generelt.
 
