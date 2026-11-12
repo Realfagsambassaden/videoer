@@ -5,7 +5,7 @@ Fire korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert
 | Film | Delkapittel | Idéer |
 |---|---|---|
 | `1-hva-er-en-pde` | 3.1 Introduksjon til PDE-er | ukjent funksjon av flere variabler · tre familier (likevekt, utjevning, bølge) · rand- og initialbetingelser |
-| `2-endelige-differanser` | 3.3 Endelige differanser | derivert → differanse · randverdiproblem → ligningssystem · marsjere i tid og stabilitet |
+| `2-endelige-differanser` | 3.3 Endelige differanser | derivert → differanse · randverdiproblem → ligningssystem · marsjere i tid: eksplisitt og implisitt skjema |
 | `3-endelig-volum` | 3.2, 3.4, 3.5 Bevaringslover og EVM i 1D | bevaringsloven · bevaring i hver celle · randen og kilder |
 | `4-endelig-volum-2d-og-tid` | 3.6, 3.7 (og 3.8) EVM i 2D og i tid | fire naboer · eksplisitt tidsskjema · tidssteget ved randen |
 
