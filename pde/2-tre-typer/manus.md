@@ -8,16 +8,16 @@
 
 Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diagonal, og informasjonen kan gå i 2, 1 eller 0 retninger, (2) kriteriet a² − 4b kommer fra determinanten, (3) typen bestemmer hvilke rand- og initialbetingelser vi trenger.
 
-**Opptak:** innspilt i PDE_1_take2 (12. november 2026), del 2–4. Klippet: «Vi sa at hvilke deriverte …», «på denne måten kan alle … klassifiseres» og «viktige ligninger i fysikken» er kuttet som gjentakelser, og talen er gjort 8 % raskere (læreren ønsket det). Filmen begynner rett på «De viktigste ligningene i fysikken er av andre orden».
+**Opptak:** tas opp på video (lydopptaket PDE_1_take2 brukes ikke videre).
 
 ---
 
 ### 1. Tre typer – og hvorfor (0:00–2:50)
 *Kartet:* lyser på «type».
 
-> Vi sa at *hvilke* deriverte som er med, bestemmer fysikken. Det kan vi gjøre helt presist. De viktigste ligningene i fysikken er av andre orden – den høyeste deriverte er en andrederivert. Og det er nettopp de høyeste deriverte som bestemmer hvordan løsningen oppfører seg.
+> *Hvilke* deriverte som er med i en PDE, bestemmer hva slags fysikk den beskriver. Det kan vi gjøre helt presist. De viktigste ligningene i fysikken er av andre orden – den høyeste deriverte er en andrederivert. Og det er nettopp de høyeste deriverte som bestemmer hvordan løsningen oppfører seg.
 > En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Leddene med de andrederiverte bestemmer *typen*. Resten spiller ingen rolle.
-> Koeffisientene foran de andrederiverte – a og b kan godt være funksjoner av x og y – kan vi samle i en symmetrisk matrise, A. Den sier hvordan ligningen setter de andrederiverte sammen.
+> Koeffisientene foran de andrederiverte – a og b kan godt være funksjoner av x og y – kan vi samle i en symmetrisk matrise, A. For leddene med de andrederiverte kan faktisk skrives om slik: en rad med derivasjonene, ganger A, ganger en søyle med derivasjonene, brukt på u. Ganger vi ut, får vi nøyaktig u x x pluss a u x y pluss b u y y tilbake. Blandingsleddet kommer to ganger, derfor står a over to på hver side av diagonalen. Det er fortsatt bare én ligning – men nå ser vi at alt som bestemmer typen, ligger i A. Matrisen A er det viktige.
 > Og en symmetrisk matrise kan alltid gjøres diagonal: Vi dreier koordinatsystemet langs egenvektorene til A. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
 > Nå er det bare tre muligheter. Har egenverdiene like fortegn, får vi Laplace-ligningen. Er én av dem null, får vi varmeligningen. Har de motsatte fortegn, får vi bølgeligningen. Hver andreordens PDE er altså, i de riktige koordinatene, en av disse tre.
 > Og forskjellen handler om hvordan *informasjon* beveger seg.
@@ -28,11 +28,11 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 > Er determinanten positiv, har egenverdiene like fortegn. Er den null, er én av dem null. Er den negativ, har de motsatte fortegn. Ganger vi med minus fire, får vi det kjente kriteriet: a i andre minus fire b. Negativ betyr elliptisk, null betyr parabolsk, positiv betyr hyperbolsk.
 > Og de to, én eller null retningene? De er røttene i en andregradsligning – med akkurat den samme diskriminanten.
 
-**[Dashman: skrive → peker_tavla (ved matrisen A) → lyspaere (ved «gjøres diagonal») → gruble (ved «bare tre muligheter») → lattermild (ved «løper hver sin vei») → undrende (ved varme) → mystisk (ved Laplace) → tada (ved «a i andre minus fire b»)]**
+**[Du: peker på ligningen øverst; ved «rad … ganger A … ganger søyle» peker du på de tre delene etter tur. Ved «dreier koordinatsystemet»: drei begge hendene som et kors. Ved «tre muligheter»: tre fingre. Ved «løper hver sin vei»: hendene ut til hver side. Ved «jevner ut»: flat hånd som glatter ut. Ved «hvert punkt kjenner hele området»: armene i en sirkel. Ved «a i andre minus fire b»: pek på den grønne boksen.]**
 *På skjermen:* (generelt → hvorfor → konkret)
 0. **Overgangen:** den grønne F-boksen «F(x, t, u, u_t, u_x, u_xx, …) = 0» står øverst. Lappen «hvilke deriverte?» lyser opp. Inni F-parentesen lyser u_xx (og de andre andrederiverte) gult, mens u, u_t og u_x blir grå: «de høyeste deriverte bestemmer». Tre grå ligninger med «?» glir inn til høyre og blir stående og vente – de skal sorteres i treet nedenfor.
 1. **Den generelle formen** (F-boksen folder seg ut til): «u_xx + a·u_xy + b·u_yy = (lavere orden)». Andreordensleddene lyser, resten blir grått. Lapp: «bare andreordensleddene bestemmer typen». Liten grå lapp ved a og b: «a(x, y), b(x, y) → typen kan variere fra punkt til punkt».
-2. **Matrisen A:** tallene 1, a, b flyr ut av ligningen og inn i «A = [1, a/2; a/2, b]» (popp; a/2 havner på begge sidene av diagonalen). Ved siden av, mindre og grå: Hessematrisen til u, «[u_xx, u_xy; u_xy, u_yy]», og en lapp: «A virker på de andrederiverte – typen avgjøres av A, ikke av u».
+2. **Matrisen A – omskrivingen vises:** under ligningen bygges, ledd for ledd, «[∂ₓ  ∂ᵧ] · [1, a/2; a/2, b] · [∂ₓ; ∂ᵧ] u» (radvektoren og søylevektoren i kritt, A med 1 i kritt og a/2, a/2, b i turkis; tallene 1, a, b flyr ut av ligningen og inn i A – a deler seg i to halvdeler som legger seg på hver side av diagonalen, popp). Så ganges det ut på tavla, trinn for trinn: først «A · søylen» blir «[∂ₓ + (a/2)∂ᵧ ; (a/2)∂ₓ + b∂ᵧ]», så raden ganger inn og gir «u_xx + (a/2)u_xy + (a/2)u_yx + b u_yy». De to midtleddene lyser gult, lapp «u_xy = u_yx», og de slår seg sammen til «a·u_xy» (popp). Likhetstegn tilbake til den opprinnelige ligningen med grønn hake. Lapp: «samme ligning – bare skrevet med A». Så lyser A opp grønt, og lappen byttes til «alt som bestemmer typen, ligger i A». Ved siden av, mindre og grå: Hessematrisen til u, «[u_xx, u_xy; u_xy, u_yy]», og en lapp: «typen avgjøres av A, ikke av u».
 3. **Rotasjonen (vektorer):** et x–y-koordinatsystem med et rutenett. To egenvektorer til A tegnes som piler fra origo, vinkelrett på hverandre, med lengde |λ₁| og |λ₂|, og farge etter fortegn (grønn = +, rød = −). Hele koordinatsystemet dreier seg langs pilene (svisj), og aksene får nye navn: ξ og η. Samtidig krymper «a·u_xy» og strykes over, og ligningen blir «λ₁·u_ξξ + λ₂·u_ηη + … = 0». A blir «[λ₁, 0; 0, λ₂]».
 4. **Tre muligheter:** tre ruter side om side, hver med de to egenvektor-pilene og sin standardform (skalert så λ-ene blir ±1 eller 0):
    - **like fortegn** (to grønne piler): «u_ξξ + u_ηη = 0» → «Laplace»
@@ -53,7 +53,7 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 > Det som velger ut den ene riktige løsningen, er betingelsene. *Initialbetingelser* sier hvordan alt er ved start, t lik null. *Randbetingelser* sier hva som skjer på kanten – for eksempel at endene av staven holdes på fast temperatur.
 > Og typen bestemmer hva du trenger: Varme og bølger marsjerer fram i tid fra en starttilstand. Laplace trenger randverdier rundt hele området.
 
-**[Dashman: skuldre (ved «uendelig mange») → lyspaere → peker_opp]**
+**[Du: trekk på skuldrene ved «uendelig mange»; løft en finger ved «her er kluet»; vis stav med hendene (endene) ved randbetingelser.]**
 *På skjermen:*
 1. Problemet: «u = f(x − ct) + g(x + ct)», der f og g er gule bokser. Formene i boksene byttes raskt (lyd: «brrrt»), og bølgeformene under flimrer forbi. Et stort gult «∞ løsninger».
 2. Generelt: et område (grått) med randen tegnet rundt. To merkelapper: «initialbetingelse: hvordan det er ved start» (turkis) og «randbetingelse: hva som skjer på kanten» (oransje).
@@ -66,7 +66,7 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 
 > Andreordens PDE-er: tre familier med helt ulik oppførsel, og betingelser som plukker ut den ene løsningen. Prøv deg på noen oppgaver!
 
-**[Dashman: tada]**
+**[Du: åpne armer ved oppsummeringen; pek ned mot oppgavene til slutt.]**
 *På skjermen:* De tre kolonnene som små ikoner, og ramma med initial- og randbetingelser. Fysikkhjelp-logoen.
 
 
