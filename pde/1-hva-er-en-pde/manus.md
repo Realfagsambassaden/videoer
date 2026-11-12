@@ -46,7 +46,9 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 > I bølgeligningen går den langs *to* retninger – en puls deler seg i to og løper hver sin vei. Den er *hyperbolsk*.
 > I varmeligningen, u t lik alfa u x x, finnes det bare *én* slik retning: tiden. Og langs staven sprer varmen seg øyeblikkelig – litt overalt med en gang. Den *jevner ut*. Den er *parabolsk*.
 > I Laplace-ligningen, u x x pluss u y y pluss u z z lik null, finnes det *ingen* spesiell retning. Hvert punkt kjenner hele området rundt seg – det gir en *likevektstilstand*, for eksempel temperaturen i et materiale etter lang, lang tid. Den er *elliptisk*.
-> To, én eller null retninger: Det er akkurat det fortegnet til a i andre minus fire b sier.
+> Men hvordan sjekker vi typen i praksis, uten å dreie noe? Vi trenger bare fortegnene til egenverdiene. Og produktet av egenverdiene er determinanten til A: b minus a i andre over fire.
+> Er determinanten positiv, har egenverdiene like fortegn. Er den null, er én av dem null. Er den negativ, har de motsatte fortegn. Ganger vi med minus fire, får vi det kjente kriteriet: a i andre minus fire b. Negativ betyr elliptisk, null betyr parabolsk, positiv betyr hyperbolsk.
+> Og de to, én eller null retningene? De er røttene i en andregradsligning – med akkurat den samme diskriminanten.
 
 **[Dashman: skrive → peker_tavla (ved matrisen A) → lyspaere (ved «gjøres diagonal») → gruble (ved «bare tre muligheter») → lattermild (ved «løper hver sin vei») → undrende (ved varme) → mystisk (ved Laplace) → tada (ved «a i andre minus fire b»)]**
 *På skjermen:* (generelt → hvorfor → konkret)
@@ -62,7 +64,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
    - **Hyperbolsk – bølge:** to lysende linjer går ut fra punktet i hver sin retning (en V-form i x–t-planet), med endelig fart. En pukkel under deler seg i to og løper ut til sidene. Stempel: «FRAKTER · 2 retninger».
    - **Parabolsk – varme:** én retning, oppover i tid, merket med pil «t». Langs x sprer en svak klokke-kurve seg ut over hele staven på en gang, og blir lavere og bredere. Stempel: «JEVNER UT · 1 retning».
    - **Elliptisk – Laplace:** punktet påvirker hele området; en myk sky av farge brer seg ut i alle retninger samtidig, og en plate med varm venstrekant legger seg i ro. Stempel: «LIKEVEKT · 0 retninger».
-6. **Koblingen til kriteriet:** retningene er røttene i «m² − a·m + b = 0» (m = stigningen til retningen). Diskriminanten «a² − 4b» flyr inn i grønn boks, med tre utganger: «> 0: 2 røtter → hyperbolsk», «= 0: 1 rot → parabolsk», «< 0: ingen reelle røtter → elliptisk». Eksemplene leses av i en liten tabell: Laplace −4, varme 0 (u_t er bare av første orden), bølge 4/c².
+6. **Fra egenverdier til kriteriet (bygges trinn for trinn):** matrisen A fra punkt 2 kommer tilbake. «λ₁ · λ₂ = det A» skrives under; determinanten regnes ut i A med kryss-strek (1·b − a/2·a/2) og blir «b − a²/4» (popp). Tre linjer med fortegn: «det A > 0 → like fortegn», «= 0 → én er null», «< 0 → motsatte fortegn», med de små pilparene fra punkt 4 ved siden av. Så ganges det med «· (−4)», som flyr inn fra siden, og «b − a²/4» blir til «a² − 4b» i grønn boks (popp) – fortegnene snus: «< 0 elliptisk · = 0 parabolsk · > 0 hyperbolsk». Til slutt, lite: «m² − a·m + b = 0» med «retningene = røttene, samme diskriminant», og de 2, 1 eller 0 lysende linjene fra punkt 5 blinker én gang. Eksemplene leses av i en liten tabell: Laplace −4, varme 0 (u_t er bare av første orden), bølge 4/c².
 (I denne delen har familiene hver sin farge i animasjonene: bølge lilla, varme rød, Laplace kritt.)
 
 ### 3. Rand- og initialbetingelser (2:30–3:20)
