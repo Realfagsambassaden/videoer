@@ -1,10 +1,10 @@
 # Manus: Endelige differanser
 
-**Tema: Partielle differensialligninger · undertema: Endelige differanser · ca. 3.5 min**
+**Tema: Partielle differensialligninger · undertema: Endelige differanser · ca. 4 min**
 **Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.3)
 **Format:** animert Dashman nede til høyre, bare stemmen din. Les sitatblokkene; **[Dashman: …]** og *På skjermen* er for meg.
 
-Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randverdiproblem blir et lineært ligningssystem, (3) i tid marsjerer vi steg for steg – men tidssteget må ikke være for stort.
+Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randverdiproblem blir et lineært ligningssystem, (3) i tid marsjerer vi steg for steg – eksplisitt (direkte, men med små steg) eller implisitt (et ligningssystem per steg, men stabilt).
 
 ---
 
@@ -35,22 +35,26 @@ Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randve
 **[Dashman: skrive → overrasket (ved «nøyaktig») → peker_opp (ved fire naboer) → noytral_kopp]**
 *På skjermen:* Intervallet [0, 1] med to røde randpunkter «u = 0» og tre blå ukjente U₁, U₂, U₃ (h = 0.25). Tre ligninger bygges én og én (pop): «(0 − 2U₁ + U₂)/h² = −2» osv. Matrisen tegnes med tall bare på de tre diagonalene (−2, 1, 1), resten tomme ruter: «tridiagonal». Løsningen dukker opp i punktene og en stiplet parabel x(1 − x) går gjennom alle tre: «eksakt ✓» (pling). Så en 2D-rute med et pluss-formet stensil (−1, −1, 4, −1, −1): «fempunktsformelen». Til slutt et lite varmekart som «roer seg» iterasjon for iterasjon (tikk-lyder) med teksten «Jacobi / Gauss-Seidel».
 
-### 3. Marsjere i tid – og stabilitet (2:00–3:15)
+### 3. Marsjere i tid: eksplisitt og implisitt (2:00–3:40)
 
-> Varmeligningen har også tid. Da gjør vi det samme i rommet, og så tar vi små skritt fram i tid: Den nye verdien er den gamle, pluss delta t ganger krumningen.
-> Men pass på! Forholdet r, delta t delt på h i andre, må være høyst en halv.
-> Med r lik null komma fire smelter en varm flekk pent ut. Med r lik null komma seks begynner punktene å hoppe opp og ned – og etter førti steg er tallene oppe i millioner.
-> For bølgeligningen bruker vi samme idé to ganger, både i tid og i rom. Det kalles leapfrog-metoden – og den har sin egen grense: c delta t delt på h, høyst én.
+> Varmeligningen har også tid. Da gjør vi det samme i rommet, og så tar vi små skritt fram i tid. Spørsmålet er bare: *Hvilke* verdier bruker vi i krumningen – de vi har *nå*, eller de vi skal finne i *neste* steg?
+> Bruker vi verdiene vi har nå, er skjemaet *eksplisitt*. Den nye verdien i hvert punkt regnes ut direkte fra tre kjente naboer: den gamle verdien, pluss delta t ganger krumningen. Ett punkt om gangen – raskt og enkelt.
+> Men pass på! Forholdet r, delta t delt på h i andre, må være høyst en halv. Med r lik null komma fire smelter en varm flekk pent ut. Med r lik null komma seks begynner punktene å hoppe opp og ned – og etter førti steg er tallene oppe i millioner.
+> Bruker vi i stedet verdiene i *neste* steg, er skjemaet *implisitt*. Da inneholder hver ligning tre *ukjente* naboer, så vi kan ikke regne ut punktene ett og ett. Vi må løse et ligningssystem – akkurat som randverdiproblemet – i hvert eneste tidssteg. Det koster mer, men til gjengjeld er det stabilt uansett hvor store tidssteg vi tar.
+> Kort sagt: Eksplisitt er billig per steg, men krever små steg. Implisitt er dyrt per steg, men tåler store steg.
 
-**[Dashman: peker_tavla → svette (ved r = 0.6) → hoho_x (ved «millioner») → peker_opp]**
-*På skjermen:* En stav i elleve punkter med en varm «firkantbølge» i midten. Grønn boks: «U_i^{n+1} = U_i^n + r(U_{i+1}^n − 2U_i^n + U_{i−1}^n), r = Δt/h²». Gul lapp: «r ≤ ½». To ruter side om side, tikk-lyd for hvert tidssteg: venstre «r = 0.4» – kurven glattes pent ut; høyre «r = 0.6» – kurven blir sagtakket, utslagene vokser, aksen må zoome ut (lyd: alarm), og et tall som ruller opp mot «1 800 000». Til slutt en liten frosk som hopper over et tidsnivå: «leapfrog: U^{n+1} fra U^n og U^{n−1}, cΔt/h ≤ 1».
+**[Dashman: peker_tavla → spm (ved «hvilke verdier») → svette (ved r = 0.6) → hoho_x (ved «millioner») → lyspaere (ved «implisitt») → skuldre (ved «koster mer») → noytral_kopp]**
+*På skjermen:* En stav i elleve punkter med en varm «firkantbølge» i midten. Et rutenett med tid oppover: rad n (kjent, hvit) og rad n+1 (ukjent, tom).
+- **Eksplisitt:** Tre fylte prikker i rad n, piler som samles i ett tomt punkt i rad n+1 – formet som en pil oppover (lyd: «pling» når punktet fylles). Punktene i rad n+1 fylles ett og ett fra venstre. Grønn boks: «U_i^{n+1} = U_i^n + r(U_{i+1}^n − 2U_i^n + U_{i−1}^n), r = Δt/h²». Gul lapp: «r ≤ ½». To ruter side om side, tikk-lyd for hvert tidssteg: venstre «r = 0.4» – kurven glattes pent ut; høyre «r = 0.6» – kurven blir sagtakket, utslagene vokser, aksen må zoome ut (lyd: alarm), og et tall som ruller opp mot «1 800 000».
+- **Implisitt:** Én fylt prikk i rad n, og tre tomme punkter i rad n+1 som er bundet sammen med strek – formen snus opp ned. Alle punktene i rad n+1 lenkes sammen i en kjede, og en tridiagonal matrise spretter opp (pop) for hvert tidssteg. Grønn boks: «U_i^{n+1} − r(U_{i+1}^{n+1} − 2U_i^{n+1} + U_{i−1}^{n+1}) = U_i^n». Lapp: «stabil for alle Δt ✓».
+- Til slutt en liten tabell: «eksplisitt: billig per steg · krever små steg» og «implisitt: ligningssystem per steg · tåler store steg».
 
-### 4. Avslutning (3:15–3:30)
+### 4. Avslutning (3:40–3:55)
 
-> Endelige differanser: deriverte blir differanser, randverdiproblemer blir ligningssystemer, og i tid marsjerer vi – med passe små steg. Prøv deg på noen oppgaver!
+> Endelige differanser: deriverte blir differanser, randverdiproblemer blir ligningssystemer, og i tid marsjerer vi – eksplisitt med små steg, eller implisitt med et ligningssystem i hvert steg. Prøv deg på noen oppgaver!
 
 **[Dashman: tada]**
-*På skjermen:* Tre ikoner: tre prikker med sekant, en tridiagonal matrise, en klokke med «r ≤ ½». Fysikkhjelp-logoen.
+*På skjermen:* Tre ikoner: tre prikker med sekant, en tridiagonal matrise, og de to tidsstensilene (pil opp og pil ned) side om side. Fysikkhjelp-logoen.
 
 ---
 
