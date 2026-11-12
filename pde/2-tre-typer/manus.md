@@ -15,7 +15,8 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 ### 1. Tre typer – og hvorfor (0:00–2:50)
 *Kartet:* lyser på «type».
 
-> *Hvilke* deriverte som er med i en PDE, bestemmer hva slags fysikk den beskriver. Det kan vi gjøre helt presist. De viktigste ligningene i fysikken er av andre orden – den høyeste deriverte er en andrederivert. Og det er nettopp de høyeste deriverte som bestemmer hvordan løsningen oppfører seg.
+> *Hvilke* deriverte som er med i en PDE, bestemmer hva slags fysikk den beskriver. Vi skal nå se litt nærmere på det, ved å studere andre-ordens PDE-er. Mange av fysikkens viktigste likninger er nemlig av andre orden – altså likninger hvor den høyeste deriverte involvert er en andrederivert.
+
 > En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Leddene med de andrederiverte bestemmer *typen*. Resten spiller ingen rolle.
 > Koeffisientene foran de andrederiverte – a og b kan godt være funksjoner av x og y – kan vi samle i en symmetrisk matrise, A. For leddene med de andrederiverte kan faktisk skrives om slik: en rad med derivasjonene, ganger A, ganger en søyle med derivasjonene, brukt på u. Ganger vi ut, får vi nøyaktig u x x pluss a u x y pluss b u y y tilbake. Blandingsleddet kommer to ganger, derfor står a over to på hver side av diagonalen. Det er fortsatt bare én ligning – men nå ser vi at alt som bestemmer typen, ligger i A. Matrisen A er det viktige.
 > Og en symmetrisk matrise kan alltid gjøres diagonal: Vi dreier koordinatsystemet langs egenvektorene til A. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
