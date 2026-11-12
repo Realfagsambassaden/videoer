@@ -41,7 +41,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 > Regn ut a i andre minus fire b. Er det negativt, er ligningen *elliptisk*. Er det null, er den *parabolsk*. Er det positivt, er den *hyperbolsk*.
 > Navnene kommer fra kjeglesnittene: x i andre pluss a x y pluss b y i andre lik én er en ellipse, en parabel eller en hyperbel – etter akkurat det samme fortegnet. Og det er det samme som å se på egenverdiene til koeffisientmatrisen foran de andrederiverte: like fortegn gir elliptisk, en null gir parabolsk, motsatte fortegn gir hyperbolsk.
 > Typen bestemmer hvordan løsningen oppfører seg. Laplace-ligningen, u x x pluss u y y lik null, er elliptisk. Den beskriver *likevekt* – temperaturen i en plate etter lang, lang tid.
-> Varmeligningen er parabolsk. Den *jevner ut*: topper synker, daler fylles.
+> Varmeligningen, u t lik alfa u x x, er parabolsk. Konstanten alfa sier hvor fort varmen sprer seg. Ligningen *jevner ut*: topper synker, daler fylles.
 > Og bølgeligningen er hyperbolsk. Den *frakter* ting av gårde: en puls deler seg i to og løper hver sin vei uten å bli mindre.
 
 **[Dashman: skrive → gruble (ved «a i andre minus fire b») → lyspaere (ved kjeglesnittene) → mystisk (ved Laplace) → undrende (ved varme) → lattermild (ved «løper hver sin vei»)]**
@@ -51,7 +51,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 3. **Hvorfor navnene:** ved hver grein tegnes kjeglesnittet «x² + axy + by² = 1» – en ellipse, en parabel og en hyperbel (strekene tegnes fram). Liten lapp ved siden av: matrisen «[1, a/2; a/2, b]» med egenverdiene som to små piler: begge samme vei (elliptisk), én null (parabolsk), motsatt vei (hyperbolsk).
 4. **Konkret:** hver grein får sitt eksempel, formelen flyr inn og a og b leses av (popp). Animasjon i løkke under, og et nøkkelord som stempel (i denne delen har familiene hver sin farge: Laplace kritt, varme rød, bølge lilla):
    - **Elliptisk – Laplace:** «u_xx + u_yy = 0» → «a = 0, b = 1, a² − 4b = −4». En firkantet plate med varm venstrekant der fargene legger seg i ro. Stempel: «LIKEVEKT».
-   - **Parabolsk – varme:** «u_t = u_xx ⇔ u_xx − u_t = 0» → «ingen u_tt: a = b = 0, a² − 4b = 0». En tagget kurve som glattes ut. Stempel: «JEVNER UT».
+   - **Parabolsk – varme:** «u_t = α·u_xx ⇔ u_xx − (1/α)u_t = 0» → «ingen u_tt: a = b = 0, a² − 4b = 0» (lapp ved α: «varmeledningsevne / (ρc) – hvor fort varmen sprer seg»). En tagget kurve som glattes ut. Stempel: «JEVNER UT».
    - **Hyperbolsk – bølge:** «u_tt = c²u_xx ⇔ u_xx − (1/c²)u_tt = 0» → «b = −1/c², a² − 4b = 4/c² > 0». En pukkel som deler seg i to og løper ut til hver side. Stempel: «FRAKTER».
 5. Til slutt står bare de tre nøkkelordene igjen under treet, med ellipse, parabel og hyperbel som små ikoner.
 
@@ -79,4 +79,4 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 
 ---
 
-**Tall:** Laplace (x, y): a = 0, b = 1 → a² − 4b = −4 < 0. Varme u_xx − u_t = 0 i (x, t): a = b = 0 → 0. Bølge u_xx − (1/c²)u_tt = 0: a = 0, b = −1/c² → 4/c² > 0. Koeffisientmatrisen [1, a/2; a/2, b] har determinant b − a²/4 = −(a² − 4b)/4, så fortegnet til a² − 4b avgjør om egenverdiene har like fortegn (elliptisk), en er null (parabolsk) eller motsatte fortegn (hyperbolsk). Samme kriterium som i kompendiet (oppsummeringen «Klassifisering av 2.ordens PDE»).
+**Tall:** Laplace (x, y): a = 0, b = 1 → a² − 4b = −4 < 0. Varme u_t = αu_xx ⇔ u_xx − (1/α)u_t = 0 i (x, t): a = b = 0 → 0 (α = κ/(ρc) > 0). Bølge u_xx − (1/c²)u_tt = 0: a = 0, b = −1/c² → 4/c² > 0. Koeffisientmatrisen [1, a/2; a/2, b] har determinant b − a²/4 = −(a² − 4b)/4, så fortegnet til a² − 4b avgjør om egenverdiene har like fortegn (elliptisk), en er null (parabolsk) eller motsatte fortegn (hyperbolsk). Samme kriterium som i kompendiet (oppsummeringen «Klassifisering av 2.ordens PDE»).
