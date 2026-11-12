@@ -50,26 +50,26 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler – ODE mot PDE, (
 
 > Egenskap nummer tre: er ligningen *homogen*? Flytt alt som har med u å gjøre over til venstre. Står det null igjen til høyre, er den homogen. Står det en funksjon f der – en kilde, som en varmeovn – er den inhomogen.
 
-> Og her er poenget: Er ligningen både lineær *og* homogen, kan vi legge sammen løsninger fritt. Er u_1 og u_2 løsninger, er u_1 + u_2 også en løsning. Tenk på en stav med to varme flekker: hver flekk flater ut for seg, og begge sammen gjør akkurat summen av de to. Med en kilde går ikke det, for summen ville fått kilden to ganger. Men lineariteten hjelper likevel: finner vi én løsning som tar seg av kilden, får vi alle de andre ved å legge til løsninger av den homogene ligningen.
+> Og her er poenget: Er ligningen både lineær *og* homogen, kan vi legge sammen løsninger fritt. Er u_1 og u_2 løsninger, er u_1 + u_2 også en løsning. Ta bølgeligningen, u t t lik c i andre u x x. Den beskriver for eksempel en gitarstreng: akselerasjonen til et lite stykke av strengen er proporsjonal med hvor krum strengen er akkurat der. En sinusformet svingning med én frekvens løser ligningen. Men det gjør sannelig en sinusformet svingning med en annen frekvens også. Og legger vi dem sammen, får vi et tredje, mer sammensatt bølgemønster – som også er en løsning! Det er derfor en gitarstreng kan klinge med grunntone og overtoner på en gang.
 
-**[Du: teller på fingrene – én (orden), to (lineær), tre (homogen). Ved «to varmeovner»: en hånd på hver side, som to varmekilder. Ved «to varme flekker»: hendene som to små pukler som synker og brer seg ut. Ved «kilden to ganger»: hold opp to fingre og rist på hodet.]**
+**[Du: teller på fingrene – én (orden), to (lineær), tre (homogen). Ved «to varmeovner»: en hånd på hver side, som to varmekilder. Ved «gitarstreng»: plukk på strikken igjen. Ved «legger vi dem sammen»: før hendene sammen. Ved «kilden to ganger»: hold opp to fingre og rist på hodet.]**
 *På skjermen:* (generelt → hvorfor → konkret)
 1. **Tre merkelapper** øverst, som en sjekkliste: «orden», «lineær», «homogen» (popp, popp, popp). Den som snakkes om, lyser.
 2. **Orden:** varmeligningen «u_t = α·u_xx» skrives. Under hvert ledd en liten teller: «1» under u_t, «2» under u_xx. Den største ringes inn i grønt: «orden 2».
 3. **Lineær:** to kolonner. Til venstre (grønn hake): «u_t = α·u_xx», «u_xx + u_yy = 0», «u_t = (1 + x²)·u_xx» – koeffisientene er bare x og t. Til høyre (rødt kryss): «u_t + u·u_x = 0» (u ganger u_x lyser rødt), «u_t = u_xx + u²» (u² lyser rødt). Lapp: «u og de deriverte alene, ganget med noe av x og t».
 4. **Hvorfor lineær – virkninger legges sammen:** et rom ovenfra med to varmeovner; to varmeflekker (turkis fra den ene, oransje fra den andre) brer seg ut, og den samlede temperaturen tegnes hvit som summen. Lapp: «to årsaker → summen av virkningene».
-5. **Superposisjon (lineær + homogen):** en stav med to varme flekker (turkis u₁ og oransje u₂). Hver flater ut for seg (tynne grafer), summen (hvit, tykk) flater ut på samme måte. Formelen bygges: «u₁ løsning», «u₂ løsning» → «u₁ + u₂ løsning» i grønn boks.
+5. **Superposisjon (lineær + homogen):** bølgeligningen «u_tt = c²·u_xx» skrives, med en liten streng under: på ett stykke av strengen en pil for akselerasjonen (u_tt) og en bue for krumningen (u_xx), lapp «akselerasjon ∝ krumning». Så en streng mellom to fester som svinger som én sinusbue (turkis, grunntonen), og under den en som svinger med to buer (oransje, overtone). De to tegningene glir sammen til én hvit streng som svinger med summen. Formelen bygges: «u₁ løsning», «u₂ løsning» → «u₁ + u₂ løsning» i grønn boks.
 6. **Homogen:** en vektskål-figur: venstre side «u_t − α·u_xx», høyre side først «0» (grønn lapp «homogen»), så byttes 0 ut med en gul «f(x, t)» og en liten varmeovn i en stav som gløder (gul lapp «inhomogen: kilde»). Par: «Laplace: ∇²u = 0» og «Poisson: ∇²u = f».
-7. **Poenget:** «u₁ + u₂» settes inn i den homogene ligningen: «0 + 0 = 0» med grønn hake. I den inhomogene: høyre side blir «f + f = 2f» med rødt kryss. Grønn boks: «lineær + homogen ⇒ løsninger kan legges sammen». Under, litt mindre: «med kilde: u = (én løsning med kilden) + (løsninger av den homogene)».
+7. **Poenget:** grønn boks: «lineær + homogen ⇒ løsninger kan legges sammen».
 
 ### 3. Avslutning (ca. 2:30–2:45)
 *Kartet:* lyser på «PDE», og lyset glir videre til «type».
 
-> Så: en PDE er en ligning for en ukjent funksjon av flere variabler. Orden, lineær og homogen er de tre første spørsmålene vi stiller den. Prøv deg på en oppgave!
+> Så: en PDE er en ligning for en ukjent funksjon av flere variabler. Vi klassifiserer etter orden, linearitet og homogenitet. 
 
 **[Du: tre fingre igjen ved «tre første spørsmålene», peker ned mot oppgavene ved slutten.]**
 *På skjermen:* De tre merkelappene orden · lineær · homogen med haker, og flaten u(x, t). Fysikkhjelp-logoen.
 
 ---
 
-**Tall og kilde:** kompendiet/foilene F19 «Lineær, kvasi-lineær og homogen PDE»: lineær = lineær i u og alle deriverte, koeffisienter bare av x, y, …; kvasi-lineær = lineær i de høyeste deriverte; homogen = (ledd i u) = f med f = 0. Lineær: L(u₁ + u₂) = Lu₁ + Lu₂ (virkninger legges sammen: Lu₁ = f₁, Lu₂ = f₂ ⇒ L(u₁ + u₂) = f₁ + f₂). Superposisjon: Lu₁ = Lu₂ = 0 ⇒ L(c₁u₁ + c₂u₂) = 0. Med kilde: L(u₁ + u₂) = 2f ≠ f, men alle løsninger er u = u_p + u_h med Lu_p = f og Lu_h = 0. Eksempler: u_t + u·u_x = 0 (Burgers, ikke-lineær), u_t = u_xx + u² (ikke-lineær kilde), u_xx + u·u_yy = u_x² (kvasi-lineær).
+**Tall og kilde: bølgeligningen u_tt = c²·u_xx på en streng med faste ender har løsningene u_n = sin(nπx/L)·cos(nπct/L) (frekvens f_n = n·c/(2L)), og enhver sum av dem er en løsning (grunntone + overtoner). ** kompendiet/foilene F19 «Lineær, kvasi-lineær og homogen PDE»: lineær = lineær i u og alle deriverte, koeffisienter bare av x, y, …; kvasi-lineær = lineær i de høyeste deriverte; homogen = (ledd i u) = f med f = 0. Lineær: L(u₁ + u₂) = Lu₁ + Lu₂ (virkninger legges sammen: Lu₁ = f₁, Lu₂ = f₂ ⇒ L(u₁ + u₂) = f₁ + f₂). Superposisjon: Lu₁ = Lu₂ = 0 ⇒ L(c₁u₁ + c₂u₂) = 0. Med kilde: L(u₁ + u₂) = 2f ≠ f, men alle løsninger er u = u_p + u_h med Lu_p = f og Lu_h = 0. Eksempler: u_t + u·u_x = 0 (Burgers, ikke-lineær), u_t = u_xx + u² (ikke-lineær kilde), u_xx + u·u_yy = u_x² (kvasi-lineær).
