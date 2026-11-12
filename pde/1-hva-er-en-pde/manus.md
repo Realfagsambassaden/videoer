@@ -24,8 +24,8 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 > I en ordinær differensialligning er den ukjente en funksjon av én variabel, for eksempel tiden.
 > I en *partiell* differensialligning avhenger den ukjente av flere variabler på en gang. Temperaturen u i en stav avhenger både av hvor og når du måler.
 
-> Da får vi *partielle* deriverte: hvordan u endrer seg når bare tiden endres, u t, eller når bare posisjonen endres, u x – og deriverer vi én gang til, u x x.
-> En PDE er rett og slett en ligning som binder u og de partielle deriverte sammen. *Hvilke* deriverte som er med, bestemmer hva slags fysikk ligningen beskriver.
+> Da får vi *partielle* deriverte: hvordan u endrer seg når bare tiden endres, u t, eller når bare posisjonen endres, u x – og deriverer vi én gang til, u x x, altså to ganger derivert med hensyn på x.
+> En PDE er rett og slett en ligning som binder u og dens partielle deriverte sammen. *Hvilke* deriverte som er med, bestemmer hva slags fysikk ligningen beskriver.
 
 **[Dashman: peker_tavla]**
 *På skjermen:* (generelt → konkret)
@@ -44,7 +44,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 > Og forskjellen handler om hvordan *informasjon* beveger seg.
 > I bølgeligningen går den langs *to* retninger – en puls deler seg i to og løper hver sin vei. Den er *hyperbolsk*.
 > I varmeligningen, u t lik alfa u x x, finnes det bare *én* slik retning: tiden. Og langs staven sprer varmen seg øyeblikkelig – litt overalt med en gang. Den *jevner ut*. Den er *parabolsk*.
-> I Laplace-ligningen finnes det *ingen* spesiell retning. Hvert punkt kjenner hele området rundt seg – det gir *likevekt*. Den er *elliptisk*.
+> I Laplace-ligningen, u x x pluss u y y pluss u z z lik null, finnes det *ingen* spesiell retning. Hvert punkt kjenner hele området rundt seg – det gir en *likevektstilstand*, for eksempel temperaturen i et materiale etter lang, lang tid. Den er *elliptisk*.
 > To, én eller null retninger: Det er akkurat det fortegnet til a i andre minus fire b sier.
 
 **[Dashman: skrive → peker_tavla (ved matrisen A) → lyspaere (ved «gjøres diagonal») → gruble (ved «bare tre muligheter») → lattermild (ved «løper hver sin vei») → undrende (ved varme) → mystisk (ved Laplace) → tada (ved «a i andre minus fire b»)]**
