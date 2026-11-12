@@ -1,12 +1,12 @@
 # Manus: Hva er en PDE?
 
-**Tema: Partielle differensialligninger · undertema: Introduksjon til PDE-er · ca. 3 min**
+**Tema: Partielle differensialligninger · undertema: Introduksjon til PDE-er · ca. 3.5 min**
 **Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.1)
 **Format:** animert Dashman nede til høyre, bare stemmen din. Les sitatblokkene; **[Dashman: …]** og *På skjermen* er for meg.
 
 **Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer – avgjort av a² − 4b (egenverdiene til koeffisientmatrisen) – som oppfører seg helt ulikt, (3) uten rand- og initialbetingelser er det uendelig mange løsninger.
+Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diagonal, og informasjonen kan gå i 2, 1 eller 0 retninger, (3) uten rand- og initialbetingelser er det uendelig mange løsninger.
 
 ---
 
@@ -34,28 +34,36 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 3. De partielle deriverte bygges fra figuren: fra klokka flyr «∂u/∂t» ut og blir til «u_t» (lapp: «bare t endres»); fra helningen på grafen (en liten tangent) flyr «∂u/∂x» ut og blir til «u_x» (lapp: «bare x endres»); en liten bue over toppen gir «u_xx» (lapp: «deriverer én gang til»). De tre symbolene legger seg i en rad.
 4. Generelt: grønn boks «F(x, t, u, u_t, u_x, u_xx, …) = 0» – symbolene fra raden flyr inn i parentesen (popp, popp, popp). Lapp under: «en PDE: en ligning mellom u og de partielle deriverte». Tre grå ligninger (uten navn) svever forbi med et «?» – de får navn i neste del.
 
-### 2. Tre familier (0:40–1:55)
+### 2. Tre typer – og hvorfor (0:40–2:30)
 *Kartet:* lyser på «type».
 
-> En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Det er bare tallene a og b foran de andrederiverte som bestemmer *typen*.
-> Regn ut a i andre minus fire b. Er det negativt, er ligningen *elliptisk*. Er det null, er den *parabolsk*. Er det positivt, er den *hyperbolsk*.
-> Navnene kommer fra kjeglesnittene: x i andre pluss a x y pluss b y i andre lik én er en ellipse, en parabel eller en hyperbel – etter akkurat det samme fortegnet. Og det er det samme som å se på egenverdiene til koeffisientmatrisen foran de andrederiverte: like fortegn gir elliptisk, en null gir parabolsk, motsatte fortegn gir hyperbolsk.
-> Typen bestemmer hvordan løsningen oppfører seg. Laplace-ligningen, u x x pluss u y y lik null, er elliptisk. Den beskriver *likevekt* – temperaturen i en plate etter lang, lang tid.
-> Varmeligningen, u t lik alfa u x x, er parabolsk. Konstanten alfa sier hvor fort varmen sprer seg. Ligningen *jevner ut*: topper synker, daler fylles.
-> Og bølgeligningen er hyperbolsk. Den *frakter* ting av gårde: en puls deler seg i to og løper hver sin vei uten å bli mindre.
+> En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Leddene med de andrederiverte bestemmer *typen*. Resten spiller ingen rolle.
+> Tallene foran de andrederiverte kan vi samle i en symmetrisk matrise, A. Den sier hvordan ligningen setter de andrederiverte sammen.
+> Og en symmetrisk matrise kan alltid gjøres diagonal: Vi dreier koordinatsystemet langs egenvektorene til A. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
+> Nå er det bare tre muligheter. Har egenverdiene like fortegn, får vi Laplace-ligningen. Er én av dem null, får vi varmeligningen. Har de motsatte fortegn, får vi bølgeligningen. Hver andreordens PDE er altså, i de riktige koordinatene, en av disse tre.
+> Og forskjellen handler om hvordan *informasjon* beveger seg.
+> I bølgeligningen går den langs *to* retninger – en puls deler seg i to og løper hver sin vei. Den er *hyperbolsk*.
+> I varmeligningen, u t lik alfa u x x, finnes det bare *én* slik retning: tiden. Og langs staven sprer varmen seg øyeblikkelig – litt overalt med en gang. Den *jevner ut*. Den er *parabolsk*.
+> I Laplace-ligningen finnes det *ingen* spesiell retning. Hvert punkt kjenner hele området rundt seg – det gir *likevekt*. Den er *elliptisk*.
+> To, én eller null retninger: Det er akkurat det fortegnet til a i andre minus fire b sier.
 
-**[Dashman: skrive → gruble (ved «a i andre minus fire b») → lyspaere (ved kjeglesnittene) → mystisk (ved Laplace) → undrende (ved varme) → lattermild (ved «løper hver sin vei»)]**
-*På skjermen:* (generelt → konkret)
-1. **Den generelle formen:** «u_xx + a·u_xy + b·u_yy = (lavere orden)», der a og b er gule. Lapp: «bare a og b bestemmer typen».
-2. **Kriteriet:** a og b flyr ned i «a² − 4b» i grønn boks. Under vokser et tre med tre greiner (svisj): «< 0 → elliptisk», «= 0 → parabolsk», «> 0 → hyperbolsk».
-3. **Hvorfor navnene:** ved hver grein tegnes kjeglesnittet «x² + axy + by² = 1» – en ellipse, en parabel og en hyperbel (strekene tegnes fram). Liten lapp ved siden av: matrisen «[1, a/2; a/2, b]» med egenverdiene som to små piler: begge samme vei (elliptisk), én null (parabolsk), motsatt vei (hyperbolsk).
-4. **Konkret:** hver grein får sitt eksempel, formelen flyr inn og a og b leses av (popp). Animasjon i løkke under, og et nøkkelord som stempel (i denne delen har familiene hver sin farge: Laplace kritt, varme rød, bølge lilla):
-   - **Elliptisk – Laplace:** «u_xx + u_yy = 0» → «a = 0, b = 1, a² − 4b = −4». En firkantet plate med varm venstrekant der fargene legger seg i ro. Stempel: «LIKEVEKT».
-   - **Parabolsk – varme:** «u_t = α·u_xx ⇔ u_xx − (1/α)u_t = 0» → «ingen u_tt: a = b = 0, a² − 4b = 0» (lapp ved α: «varmeledningsevne / (ρc) – hvor fort varmen sprer seg»). En tagget kurve som glattes ut. Stempel: «JEVNER UT».
-   - **Hyperbolsk – bølge:** «u_tt = c²u_xx ⇔ u_xx − (1/c²)u_tt = 0» → «b = −1/c², a² − 4b = 4/c² > 0». En pukkel som deler seg i to og løper ut til hver side. Stempel: «FRAKTER».
-5. Til slutt står bare de tre nøkkelordene igjen under treet, med ellipse, parabel og hyperbel som små ikoner.
+**[Dashman: skrive → peker_tavla (ved matrisen A) → lyspaere (ved «gjøres diagonal») → gruble (ved «bare tre muligheter») → lattermild (ved «løper hver sin vei») → undrende (ved varme) → mystisk (ved Laplace) → tada (ved «a i andre minus fire b»)]**
+*På skjermen:* (generelt → hvorfor → konkret)
+1. **Den generelle formen:** «u_xx + a·u_xy + b·u_yy = (lavere orden)». Andreordensleddene lyser, resten blir grått. Lapp: «bare andreordensleddene bestemmer typen».
+2. **Matrisen A:** tallene 1, a, b flyr ut av ligningen og inn i «A = [1, a/2; a/2, b]» (popp; a/2 havner på begge sidene av diagonalen). Ved siden av, mindre og grå: Hessematrisen til u, «[u_xx, u_xy; u_xy, u_yy]», og en lapp: «A virker på de andrederiverte – typen avgjøres av A, ikke av u».
+3. **Rotasjonen (vektorer):** et x–y-koordinatsystem med et rutenett. To egenvektorer til A tegnes som piler fra origo, vinkelrett på hverandre, med lengde |λ₁| og |λ₂|, og farge etter fortegn (grønn = +, rød = −). Hele koordinatsystemet dreier seg langs pilene (svisj), og aksene får nye navn: ξ og η. Samtidig krymper «a·u_xy» og strykes over, og ligningen blir «λ₁·u_ξξ + λ₂·u_ηη + … = 0». A blir «[λ₁, 0; 0, λ₂]».
+4. **Tre muligheter:** tre ruter side om side, hver med de to egenvektor-pilene og sin standardform (skalert så λ-ene blir ±1 eller 0):
+   - **like fortegn** (to grønne piler): «u_ξξ + u_ηη = 0» → «Laplace»
+   - **én null** (én grønn pil og en prikk): «u_ξξ – (førsteordens ledd) = 0» → «varme»
+   - **motsatte fortegn** (én grønn og én rød pil): «u_ξξ − u_ηη = 0» → «bølge»
+5. **Informasjon – 2, 1 eller 0 retninger:** i hver rute settes et lysende punkt («en forstyrrelse»), og vi ser hvordan den sprer seg (løkke):
+   - **Hyperbolsk – bølge:** to lysende linjer går ut fra punktet i hver sin retning (en V-form i x–t-planet), med endelig fart. En pukkel under deler seg i to og løper ut til sidene. Stempel: «FRAKTER · 2 retninger».
+   - **Parabolsk – varme:** én retning, oppover i tid, merket med pil «t». Langs x sprer en svak klokke-kurve seg ut over hele staven på en gang, og blir lavere og bredere. Stempel: «JEVNER UT · 1 retning».
+   - **Elliptisk – Laplace:** punktet påvirker hele området; en myk sky av farge brer seg ut i alle retninger samtidig, og en plate med varm venstrekant legger seg i ro. Stempel: «LIKEVEKT · 0 retninger».
+6. **Koblingen til kriteriet:** retningene er røttene i «m² − a·m + b = 0» (m = stigningen til retningen). Diskriminanten «a² − 4b» flyr inn i grønn boks, med tre utganger: «> 0: 2 røtter → hyperbolsk», «= 0: 1 rot → parabolsk», «< 0: ingen reelle røtter → elliptisk». Eksemplene leses av i en liten tabell: Laplace −4, varme 0 (u_t er bare av første orden), bølge 4/c².
+(I denne delen har familiene hver sin farge i animasjonene: bølge lilla, varme rød, Laplace kritt.)
 
-### 3. Rand- og initialbetingelser (1:55–2:45)
+### 3. Rand- og initialbetingelser (2:30–3:20)
 *Kartet:* lyser på «betingelser».
 
 > Men det er et problem. En PDE har uendelig mange løsninger. For bølgeligningen er f av x minus c t, pluss g av x pluss c t, en løsning *uansett* hvilke funksjoner f og g du velger.
@@ -69,7 +77,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 3. Konkret for varme og bølge: en x–t-ramme. Nederste kant lyser turkis «u(x, 0) = f(x)», sidekantene lyser oransje «u(0, t), u(1, t)». En pil glir oppover gjennom ramma: «marsjer i tid».
 4. Konkret for Laplace: en firkant der *hele* randen lyser oransje – «rand rundt hele området». Til slutt krympes «∞» til «1» i grønn boks: «betingelser → én løsning».
 
-### 4. Avslutning (2:45–3:00)
+### 4. Avslutning (3:20–3:35)
 *Kartet:* lyser på «hele kartet (første halvdel lyser)».
 
 > En PDE: en ukjent funksjon av flere variabler, tre familier med helt ulik oppførsel, og betingelser som plukker ut den ene løsningen. Prøv deg på noen oppgaver!
@@ -79,4 +87,4 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre typer –
 
 ---
 
-**Tall:** Laplace (x, y): a = 0, b = 1 → a² − 4b = −4 < 0. Varme u_t = αu_xx ⇔ u_xx − (1/α)u_t = 0 i (x, t): a = b = 0 → 0 (α = κ/(ρc) > 0). Bølge u_xx − (1/c²)u_tt = 0: a = 0, b = −1/c² → 4/c² > 0. Koeffisientmatrisen [1, a/2; a/2, b] har determinant b − a²/4 = −(a² − 4b)/4, så fortegnet til a² − 4b avgjør om egenverdiene har like fortegn (elliptisk), en er null (parabolsk) eller motsatte fortegn (hyperbolsk). Samme kriterium som i kompendiet (oppsummeringen «Klassifisering av 2.ordens PDE»).
+**Tall:** Laplace (x, y): a = 0, b = 1 → a² − 4b = −4 < 0. Varme u_t = αu_xx ⇔ u_xx − (1/α)u_t = 0 i (x, t): a = b = 0 → 0 (α = κ/(ρc) > 0). Bølge u_xx − (1/c²)u_tt = 0: a = 0, b = −1/c² → 4/c² > 0. Koeffisientmatrisen [1, a/2; a/2, b] har determinant b − a²/4 = −(a² − 4b)/4, så fortegnet til a² − 4b avgjør om egenverdiene har like fortegn (elliptisk), en er null (parabolsk) eller motsatte fortegn (hyperbolsk). Samme kriterium som i kompendiet (oppsummeringen «Klassifisering av 2.ordens PDE»). Karakteristikkene: for u_xx + a·u_xy + b·u_yy har retningene med stigning m = dy/dx (m² − a·m + b = 0) diskriminant a² − 4b. NB: typen avgjøres av egenverdiene til A, ikke Hessematrisen til u (for Laplace har Hessematrisen til enhver løsning spor 0, f.eks. u = xy med egenverdier ±1, men ligningen er elliptisk).
