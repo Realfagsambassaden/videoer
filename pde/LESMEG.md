@@ -9,6 +9,8 @@ Fire korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert
 | `3-endelig-volum` | 3.2, 3.4, 3.5 Bevaringslover og EVM i 1D | bevaringsloven · bevaring i hver celle · randen og kilder |
 | `4-endelig-volum-2d-og-tid` | 3.6, 3.7 (og 3.8) EVM i 2D og i tid | fire naboer · eksplisitt tidsskjema · tidssteget ved randen |
 
+**Lengde:** alt under 5 minutter er greit (bestemt 12. november 2026).
+
 **Målet er alltid HVORFOR:** kort, men hver regel og hvert kriterium får en forklaring på hvorfor (vektet gjennomsnitt → r ≤ ½, halv avstand → dobbel ledningsevne, rotasjon → tre typer …).
 
 **Det visuelle skal utfylle og forsterke det som sies.** Læreren leser nesten, men ikke ordrett. Tavla tidsettes og tilpasses etter opptaket (tale til tekst med ordtider): hvert begrep, hver formel og hver animasjon kommer i det øyeblikket det sies, og ingenting på tavla konkurrerer med det som sies akkurat da.
