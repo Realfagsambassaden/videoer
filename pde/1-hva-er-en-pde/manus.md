@@ -21,7 +21,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler, (2) tre familier 
 ### 1. En funksjon av flere variabler (0:00–0:40)
 *Kartet:* lyser på «PDE».
 
-> I en vanlig differensialligning er den ukjente en funksjon av én variabel, for eksempel tiden.
+> I en ordinær differensialligning er den ukjente en funksjon av én variabel, for eksempel tiden.
 > I en *partiell* differensialligning avhenger den ukjente av flere variabler på en gang. Temperaturen u i en stav avhenger både av hvor du er, x, og når du ser, t.
 > Da får vi to slags deriverte: hvor fort temperaturen endrer seg i tid, u t, og hvordan den krummer seg langs staven, u x x. En PDE er en ligning som binder dem sammen.
 
