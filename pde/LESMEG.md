@@ -11,6 +11,8 @@ Fire korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **animert
 
 **Målet er alltid HVORFOR:** kort, men hver regel og hvert kriterium får en forklaring på hvorfor (vektet gjennomsnitt → r ≤ ½, halv avstand → dobbel ledningsevne, rotasjon → tre typer …).
 
+**Det visuelle skal utfylle og forsterke det som sies.** Læreren leser nesten, men ikke ordrett. Tavla tidsettes og tilpasses etter opptaket (tale til tekst med ordtider): hvert begrep, hver formel og hver animasjon kommer i det øyeblikket det sies, og ingenting på tavla konkurrerer med det som sies akkurat da.
+
 ## Grafisk språk (felles for alle fire filmene)
 
 **Fra det generelle til det konkrete.** Hver film og hver del går samme vei: først idéen i generell form (ord + formel), så en figur som viser hva den betyr, og til slutt et konkret eksempel med tall. Kald start er bare en kort krok; selve forklaringen starter alltid generelt.
