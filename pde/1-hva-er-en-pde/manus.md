@@ -28,9 +28,13 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler – ODE mot PDE, (
 > I en ordinær differensialligning er den ukjente en funksjon av én variabel, for eksempel tiden.
 > I en *partiell* differensialligning avhenger den ukjente av flere variabler på en gang. Et eksempel er temperaturen, som avhenger både av hvor og når du måler.
 
-> Da får vi *partielle* deriverte: Hvis u(x,t) er størrelsen vi studerer, for eksempel temperatur, eller utslaget på en gitarstreng, så kan jeg se på endringen av u når bare t endrer seg. Det kaller vi u_t, og det er altså den partiellderiverte mhp tid. Tilsvarende kaller vi den partiellderiverte mhp posisjon for u x – og deriverer vi én gang til, skriver vi u x x, altså to ganger derivert med hensyn på x.
+> Da får vi *partielle* deriverte: Hvis u(x,t) er størrelsen vi studerer, for eksempel temperatur, eller utslaget på en gitarstreng, så kan jeg se på endringen av u når bare t endrer seg. Det kaller vi u_t, og det er altså den partiellderiverte mhp tid. Tilsvarende kaller vi den partiellderiverte mhp posisjon for u x – og deriverer vi én gang til, skriver vi u x x, altså to ganger derivert med hensyn på x. x og t er her eksempler på det vi kaller *uavhengige variabler*, mens u og dens deriverte er avhengige variabler.
 
-> En PDE er rett og slett en ligning som binder u og dens partielle deriverte sammen. Hva slags fysikk ligningen beskriver er bestemt av *hvilke* deriverte som er med.
+> En PDE er rett og slett en ligning som binder u og dens partielle deriverte sammen. 
+
+** F(t,x,y,.. u,u_x,u_nx,u_y,... u_mx,...)=0 eller noe sånt vises på skjermen **
+
+> Hva slags fysikk ligningen beskriver er bestemt av *hvilke* deriverte som er med.
 
 **[Du: peker på ODE-grafen til venstre ved «én variabel», så på flaten ved «flere variabler». Ved «u t» og «u x» viser du med hånda: først stille hånd som «tikker» (tid), så hånda som glir sidelengs (posisjon).]**
 *På skjermen:* (generelt → konkret)
@@ -44,7 +48,7 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler – ODE mot PDE, (
 
 > Vi sorterer PDE-er etter tre viktige egenskaper. 
 
-> Den første er *orden*: den høyeste deriverte som er med. En viktig PDE er den såkalte varmelikningen, som beskriver varmetransport. Den høyeste deriverte som er med her, er u x x, så likningen er av 2. orden. En annen viktig PDE er bølgeligningen, som beskriver for eksempel en gitarstreng. Der er både u t t og u x x med – også den er av 2. orden.
+> Den første er *orden*: den høyeste deriverte som er med. En viktig PDE er den såkalte varmelikningen, som beskriver varmetransport. Den høyeste deriverte som er med her, er u x x, så likningen er av 2. orden. En annen viktig PDE er bølgeligningen, som beskriver for eksempel utslag på en gitarstreng. Der er både u t t og u x x med – også den er av 2. orden.
 
 > Egenskap nummer to: *linearitet*. Det betyr at u og de deriverte bare står alene, ganget med noe som avhenger av x og t – aldri u i andre, aldri u ganger u x. Hvorfor bryr vi oss om det? Fordi i en lineær ligning legges virkninger sammen: to varmeovner i et rom gir til sammen summen av det hver av dem varmer.
 
