@@ -32,6 +32,11 @@ Videoene sorteres etter **tema** (som på nettstedet), ikke etter fag, fordi sam
 4. Lagre, skriv en melding i Source Control, **Commit** og **Sync Changes**.
 
 ## Lærerens stil
+- **Ikke klipp midt i en setning** (læreren, 13. november 2026): overganger (kald start → intro, del → del) og innstramming av pauser legges bare der en setning er ferdig sagt. Sjekk med tale til tekst at siste ord er med før du kutter.
+- **Ikke understrek tekst på tavla** (13. november 2026) – bruk farger til å skille og fremheve.
+- **Ta bort det som skjer før læreren begynner å snakke** i en bit (f.eks. at han strekker fjæra), med mindre det er selve poenget.
+- **Grønnskjermopptakene i PDE-serien (take 3) speilvendes**, så læreren ser mot tavla til venstre (`"speil": true` i `plan.json`). Lyden i .mov fra Macen starter 0.08 s etter bildet – vis opptaket 0.08 s tidligere.
+- **Ting som er sagt med rekvisitter skal med** – f.eks. når læreren «spiller» på slinkyen som gitarstreng, ta med biten.
 
 Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier noe nytt.
 

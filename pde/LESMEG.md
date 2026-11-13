@@ -19,6 +19,9 @@ Seks korte filmer til PDE-delen (kompendiet IMAx3012, kapittel 3), med **lærere
 
 ## Grafisk språk (felles for alle filmene)
 
+- **Ingen understreking** – merkelapper skrives i farge uten strek under.
+- Viktige symboler (f.eks. u, ∂u/∂t) **lyser opp et øyeblikk** når de nevnes, og får stå lenge nok til at seeren rekker å lese dem før de endres.
+
 - **Egenvektorer og egenverdier holdes adskilt** (læreren, 12. november 2026): egenvektorer er *retninger* og tegnes som piler (like lange, kritt, merket e₁, e₂); egenverdier er *tall* og vises bare som tall (λ₁, λ₂, fortegn som «+ / 0 / −»). Ikke la pilenes lengde eller farge bære egenverdiene.
 
 **Fra det generelle til det konkrete.** Hver film og hver del går samme vei: først idéen i generell form (ord + formel), så en figur som viser hva den betyr, og til slutt et konkret eksempel med tall. Kald start er bare en kort krok; selve forklaringen starter alltid generelt.
