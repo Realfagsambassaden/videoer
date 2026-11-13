@@ -183,11 +183,11 @@ function del2(){ // 384.9–649
  // ORDEN
  const oa=vis(407.2,448.6);if(oa>0){
    const p1=likn([['u_{t}',KRITT],[' = α·',KRITT],['u_{xx}',KRITT]],120,330,64,oa,pv(407.2,1.2));
-   lapp('varmeligningen: varmetransport',120,480,GRA,409.5,448.6,30);
+   lapp('varmeligningen: varmetransport',120,480,KRITT,409.5,448.6,38);
    const c=vis(416.0,448.6);tx('1',p1[0][0]+20,410,40,GUL,c);tx('2',p1[2][0]+30,410,40,GUL,c);
    const r=vis(423.0,448.6);if(r>0){g.save();g.globalAlpha=r;g.strokeStyle=GRONN;g.lineWidth=4;g.beginPath();g.ellipse(p1[2][0]+42,396,34,32,0,0,7*ease(pv(423.0,0.6)));g.stroke();g.restore();tx('orden 2',p1[2][0]+110,410,36,GRONN,r)}
    const p2=likn([['u_{tt}',KRITT],[' = c^{2}·',KRITT],['u_{xx}',KRITT]],120,600,64,vis(427.7,448.6),pv(427.7,1.2));
-   lapp('bølgeligningen: gitarstrengen',120,760,GRA,428.6,448.6,30);
+   lapp('bølgeligningen: gitarstrengen',120,760,KRITT,428.6,448.6,38);
    streng(700,590,460,70,[[1,1]],tv,LILLA,vis(428.6,448.6));
    const c2=vis(430.6,448.6);tx('2',p2[0][0]+24,680,40,GUL,c2);tx('2',p2[2][0]+30,680,40,GUL,c2);
    const r2=vis(437.9,448.6);if(r2>0)tx('orden 2',p2[2][0]+110,680,36,GRONN,r2);
@@ -238,7 +238,7 @@ function del2(){ // 384.9–649
  }
  // GITARSTRENG: grunntone, to overtoner, og summen
  const ga=vis(622.6,667.0);if(ga>0){
-   likn([['u_{tt} = c^{2}·u_{xx}',KRITT]],120,250,56,ga,1);lapp('bølgeligningen',600,250,GRA,622.6,667.0,38);
+   likn([['u_{tt} = c^{2}·u_{xx}',KRITT]],120,250,56,ga,1);lapp('bølgeligningen',600,250,KRITT,622.6,667.0,46);
    streng(120,390,620,55,[[1,1]],tv,TURKIS,vis(626.5,667.0));tx('grunntone',780,400,42,TURKIS,vis(626.5,667.0),pv(626.5,0.6));
    streng(120,530,620,50,[[2,1]],tv,ORANSJE,vis(630.4,667.0));tx('1. overtone',780,540,42,ORANSJE,vis(630.4,667.0),pv(630.4,0.6));
    streng(120,660,620,45,[[3,1]],tv,LILLA,vis(631.4,667.0));tx('2. overtone',780,670,42,LILLA,vis(631.4,667.0),pv(631.4,0.6));
