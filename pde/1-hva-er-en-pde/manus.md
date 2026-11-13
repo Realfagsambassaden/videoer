@@ -17,10 +17,10 @@ Tre idéer: (1) den ukjente er en funksjon av flere variabler – ODE mot PDE, (
 ### 0. Kald start (ca. 6 s)
 *Kartet:* lyser på «PDE».
 
-> Kaffen min blir kald. En gitarstreng svinger. En metallplate får etter hvert jevn temperatur. Tre helt forskjellige fenomener – men de har faktisk noe felles: De beskrives alle sammen av partielle differensialligninger, altså PDE-er.
+> Kaffen min blir kald. En gitarstreng svinger. Og jorda trekker på alt rundt seg med tyngdekraften. Tre helt forskjellige fenomener – men de har faktisk noe felles: De beskrives alle sammen av partielle differensialligninger, altså PDE-er.
 
-**[Du: står med kaffekoppen og blåser på den; ved «gitarstreng» plukker du på en strikk du holder utspent; ved «PDE-er» ser du rett i kamera.]**
-*På skjermen:* Tre små ruter som spretter inn (pop, pop, pop): en kaffekopp med damp som blir svakere, en streng som svinger, en plate med fargeskala fra rødt til blått.
+**[Du: står med kaffekoppen og blåser på den; ved «gitarstreng» plukker du på en strikk du holder utspent; ved «jorda» peker du ned i bakken; ved «PDE-er» ser du rett i kamera.]**
+*På skjermen:* Tre små ruter som spretter inn (pop, pop, pop): en kaffekopp med damp som blir svakere, en streng som svinger, en planet med feltlinjer som peker inn mot den.
 
 ### 1. En funksjon av flere variabler (0:00–0:40)
 *Kartet:* lyser på «PDE».
