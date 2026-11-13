@@ -1,0 +1,254 @@
+[
+[
+19.8,
+24.96,
+"K",
+"kaffen (bl\u00e5ser f\u00f8rst)",
+129
+],
+[
+30.0,
+35.52,
+"K",
+"gitarstreng (slinky)",
+138
+],
+[
+54.2,
+57.92,
+"K",
+"jorda",
+93
+],
+[
+58.32,
+70.4,
+"K",
+"tre fenomener \u2192 PDE-er",
+302
+],
+[
+119.52,
+128.0,
+"1",
+"ODE/PDE (f\u00f8rste hele tagning)",
+212
+],
+[
+129.16,
+136.28,
+"1",
+"ODE/PDE (f\u00f8rste hele tagning)",
+178
+],
+[
+136.96,
+143.0,
+"1",
+"ODE/PDE (f\u00f8rste hele tagning)",
+151
+],
+[
+262.12,
+264.96,
+"1",
+"partielle deriverte",
+71
+],
+[
+265.4,
+272.24,
+"1",
+"partielle deriverte",
+171
+],
+[
+276.8,
+282.0,
+"1",
+"u_t",
+130
+],
+[
+283.72,
+292.12,
+"1",
+"u_x, u_xx",
+210
+],
+[
+292.64,
+296.32,
+"1",
+"u_x, u_xx",
+92
+],
+[
+309.04,
+322.2,
+"1",
+"uavhengige/avhengige",
+329
+],
+[
+322.72,
+324.44,
+"1",
+"uavhengige/avhengige",
+43
+],
+[
+332.2,
+341.28,
+"1",
+"PDE = ligning; hvilke deriverte",
+227
+],
+[
+346.36,
+354.48,
+"1",
+"PDE = ligning; hvilke deriverte",
+203
+],
+[
+384.88,
+390.4,
+"2",
+"tre egenskaper",
+138
+],
+[
+396.8,
+399.2,
+"2",
+"orden",
+60
+],
+[
+407.12,
+415.56,
+"2",
+"varme- og b\u00f8lgeligningen",
+211
+],
+[
+415.96,
+422.24,
+"2",
+"varme- og b\u00f8lgeligningen",
+157
+],
+[
+422.84,
+427.04,
+"2",
+"varme- og b\u00f8lgeligningen",
+105
+],
+[
+427.48,
+437.32,
+"2",
+"varme- og b\u00f8lgeligningen",
+246
+],
+[
+437.68,
+441.2,
+"2",
+"varme- og b\u00f8lgeligningen",
+88
+],
+[
+448.8,
+452.4,
+"2",
+"linearitet",
+90
+],
+[
+465.68,
+480.28,
+"2",
+"hva line\u00e6r betyr; hvorfor",
+365
+],
+[
+480.88,
+482.8,
+"2",
+"hva line\u00e6r betyr; hvorfor",
+48
+],
+[
+497.28,
+517.72,
+"2",
+"varmeovnene",
+511
+],
+[
+525.72,
+530.08,
+"2",
+"homogenitet",
+109
+],
+[
+552.4,
+565.2,
+"2",
+"venstre side, null \u2192 homogen",
+320
+],
+[
+575.0,
+577.72,
+"2",
+"kilde; her er greia",
+68
+],
+[
+578.08,
+579.28,
+"2",
+"kilde; her er greia",
+30
+],
+[
+579.4,
+604.6,
+"2",
+"superposisjon",
+630
+],
+[
+622.4,
+631.68,
+"2",
+"gitarstreng: grunntone og overtone",
+232
+],
+[
+632.88,
+639.4,
+"2",
+"gitarstreng: grunntone og overtone",
+163
+],
+[
+643.8,
+648.36,
+"2",
+"vakkert klingende l\u00f8sning",
+114
+],
+[
+667.0,
+684.8,
+"3",
+"oppsummering",
+445
+]
+]

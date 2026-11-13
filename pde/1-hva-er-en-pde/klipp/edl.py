@@ -1,0 +1,27 @@
+# Klippeliste for PDE film 1, take 3. Kildetider (s) i PDE_1_take3.mov.
+# (fra, til, seksjon, merknad). Tidene justeres til tale-start/-slutt og 0.04 s-rutenettet i lag_edl.py.
+B = [
+ (19.8,25.2,'K','kaffen (blåser først)'),
+ (30.0,35.6,'K','gitarstreng (slinky)'),
+ (54.2,57.9,'K','jorda'),
+ (58.3,70.4,'K','tre fenomener → PDE-er'),
+ (119.5,143.0,'1','ODE/PDE (første hele tagning)'),
+ (262.1,272.8,'1','partielle deriverte'),
+ (276.8,282.0,'1','u_t'),
+ (283.6,296.3,'1','u_x, u_xx'),
+ (309.0,324.45,'1','uavhengige/avhengige'),
+ (332.2,354.5,'1','PDE = ligning; hvilke deriverte'),
+ (384.9,390.4,'2','tre egenskaper'),
+ (396.8,399.2,'2','orden'),
+ (407.1,441.2,'2','varme- og bølgeligningen'),
+ (448.8,452.4,'2','linearitet'),
+ (465.7,482.8,'2','hva lineær betyr; hvorfor'),
+ (497.3,517.7,'2','varmeovnene'),
+ (525.7,530.1,'2','homogenitet'),
+ (552.4,565.2,'2','venstre side, null → homogen'),
+ (575.0,579.3,'2','kilde; her er greia'),
+ (579.4,604.6,'2','superposisjon'),
+ (622.3,639.5,'2','gitarstreng: grunntone og overtone'),
+ (642.7,648.35,'2','vakkert klingende løsning'),
+ (667.0,684.8,'3','oppsummering'),
+]

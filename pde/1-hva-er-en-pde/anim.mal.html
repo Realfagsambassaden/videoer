@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- Tavla til «Hva er en PDE?». Bygges til anim.html med klipp/bygg.py (setter inn KART og TEMPO).
+     Alle tider i manus er KILDETIDER i opptaket PDE_1_take3 (s); M(T) gir tid i tavlevideoen. -->
+<html lang="no"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:AD;src:url(../../_verktoy/ArchitectsDaughter-Norsk.ttf)}
+@font-face{font-family:Mont;font-weight:900;src:url(../../_verktoy/Montserrat-Black.ttf)}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#0d1110}
+#bg{position:absolute;inset:0;background:url(../../_verktoy/tavle-bakgrunn.webp) center/cover;opacity:.09}
+#logo{position:absolute;right:30px;top:30px;height:90px}
+#fh{position:absolute;left:760px;top:930px;height:70px;opacity:0}
+canvas{position:absolute;left:0;top:0}
+#sone{position:absolute;left:1300px;top:420px;width:620px;height:660px;border:4px dashed #f19c2c;box-sizing:border-box;display:none}
+</style></head><body>
+<div id="bg"></div>
+<canvas id="c" width="1920" height="1080"></canvas>
+<img id="logo" src="../../_verktoy/drnormann-logo.svg">
+<img id="fh" src="../../_verktoy/fh-logo-linje.png">
+<div id="sone"></div>
+<div style="position:absolute;left:-999px;font-family:AD">Aa λξη</div><div style="position:absolute;left:-999px;font:900 20px Mont">Aa</div>
+<script>
+const KART=/*KART*/[], TEMPO=/*TEMPO*/1;
+const LENGDE=/*LENGDE*/300;
+// kildetid → videotid
+function M(T){for(const [a,b,c,d] of KART){if(T<c)return a/TEMPO;if(T<=d)return (a+(T-c))/TEMPO;}return LENGDE;}
+window.S=[['hele',LENGDE]];
+const C=document.getElementById('c'),g=C.getContext('2d');
+const KRITT='#ecefe6',GRONN='#6ef04a',ORANSJE='#f19c2c',GUL='#eee462',TURKIS='#56d7b8',ROD='#e0573d',GRA='#7d8781',LILLA='#b48cff';
+const F='AD';
+let T=0; // kildetid nå
+const kl=x=>Math.max(0,Math.min(1,x)), ease=x=>{x=kl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2};
+// p(t0,d): fremdrift fra kildetid t0 over d sekunder (i videotid)
+const p=(t0,d=0.6)=>kl((M(T)-M(t0))/d*1);
+const pv=(t0,d)=>kl((tv-M(t0))/d);
+let tv=0; // videotid nå
+// synlighet: inn ved t0, ut ved t1 (kildetider)
+function vis(t0,t1){const a=kl((tv-M(t0)+0.0)/0.35);const b=t1==null?1:kl((M(t1)-tv)/0.4);return Math.min(a,b);}
+function pop(t0){const x=(tv-M(t0))/0.35;if(x<0)return 0;if(x>1)return 1;return 1+0.25*Math.sin(Math.PI*x)*(1-x)+ (x<0.3? -0.3*(1-x/0.3):0);}
+
+// ---- tekst med enkel matte-markup: a_{xx}, a^{2}
+function tokens(s){const out=[];let i=0;while(i<s.length){const ch=s[i];if((ch==='_'||ch==='^')&&i+1<s.length){let j=i+1,inner;if(s[j]==='{'){const k=s.indexOf('}',j);inner=s.slice(j+1,k);i=k+1}else{inner=s[j];i=j+1}out.push([ch==='_'?'sub':'sup',inner])}else{let j=i;while(j<s.length&&s[j]!=='_'&&s[j]!=='^')j++;out.push(['n',s.slice(i,j)]);i=j}}return out}
+function maal(s,sz){let w=0;for(const [k,v] of tokens(s)){g.font=`${k==='n'?sz:sz*0.62}px ${F}`;w+=g.measureText(v).width}return w}
+// skriv tekst; skriv = fremdrift 0..1 (skrives fram fra venstre)
+function tx(s,x,y,sz,col,alpha=1,skriv=1,align='left'){if(alpha<=0||skriv<=0)return 0;const w=maal(s,sz);if(align==='center')x-=w/2;if(align==='right')x-=w;
+ g.save();g.globalAlpha*=alpha;if(skriv<1){g.beginPath();g.rect(x-10,y-sz*1.3,(w+20)*skriv,sz*2.2);g.clip()}
+ g.fillStyle=col;g.textBaseline='alphabetic';let cx=x;for(const [k,v] of tokens(s)){const f=k==='n'?sz:sz*0.62;g.font=`${f}px ${F}`;const dy=k==='sub'?sz*0.28:k==='sup'?-sz*0.42:0;g.fillText(v,cx,y+dy);cx+=g.measureText(v).width}
+ g.restore();return w}
+// tekst som skrives fram når den sies
+function txt(s,x,y,sz,col,t0,t1,dur=0.9,align='left'){const a=vis(t0,t1);if(a<=0)return;tx(s,x,y,sz,col,a,pv(t0,dur),align)}
+// ligning satt sammen av deler: [[tekst,farge,alpha]], returnerer x-posisjoner
+function likn(deler,x,y,sz,alpha=1,skriv=1){let cx=x;const pos=[];const tot=deler.reduce((s,d)=>s+maal(d[0],sz),0);let brukt=0;
+ for(const d of deler){const w=maal(d[0],sz);const lok=kl((skriv*tot-brukt)/w);pos.push([cx,w]);tx(d[0],cx,y,sz,d[1],alpha*(d[2]??1),lok);cx+=w;brukt+=w}return pos}
+// lapp: liten merkelapp med strek under
+function lapp(s,x,y,col,t0,t1,sz=34){const a=vis(t0,t1);if(a<=0)return;const w=tx(s,x,y,sz,col,a,pv(t0,0.7));g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=3;g.lineCap='round';g.beginPath();g.moveTo(x,y+12);g.lineTo(x+w*ease(pv(t0+0.2,0.6)),y+12);g.stroke();g.restore()}
+function boks(x,y,w,h,col,alpha,glod=true){if(alpha<=0)return;g.save();g.globalAlpha=alpha;g.strokeStyle=col;g.lineWidth=4;if(glod){g.shadowColor=col;g.shadowBlur=18}rr(x,y,w,h,16);g.stroke();g.restore()}
+function rr(x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
+function strek(x1,y1,x2,y2,col,lw,fr=1,alpha=1){if(fr<=0||alpha<=0)return;g.save();g.globalAlpha=alpha;g.strokeStyle=col;g.lineWidth=lw;g.lineCap='round';g.beginPath();g.moveTo(x1,y1);g.lineTo(x1+(x2-x1)*fr,y1+(y2-y1)*fr);g.stroke();g.restore()}
+function pil(x1,y1,x2,y2,col,lw,fr=1,alpha=1,hode=18){if(fr<=0||alpha<=0)return;const ex=x1+(x2-x1)*fr,ey=y1+(y2-y1)*fr;strek(x1,y1,ex,ey,col,lw,1,alpha);const a=Math.atan2(ey-y1,ex-x1);g.save();g.globalAlpha=alpha;g.fillStyle=col;g.beginPath();g.moveTo(ex+Math.cos(a)*4,ey+Math.sin(a)*4);g.lineTo(ex-hode*Math.cos(a-0.45),ey-hode*Math.sin(a-0.45));g.lineTo(ex-hode*Math.cos(a+0.45),ey-hode*Math.sin(a+0.45));g.closePath();g.fill();g.restore()}
+function stempel(s,x,y,col,t0,t1,sz=34){const a=vis(t0,t1);if(a<=0)return;const sc=pop(t0);g.save();g.translate(x,y);g.rotate(-0.06);g.scale(sc,sc);g.globalAlpha=a;g.font=`${sz}px Mont`;g.font=`900 ${sz}px Mont`;const w=g.measureText(s).width;g.strokeStyle=col;g.lineWidth=4;g.shadowColor=col;g.shadowBlur=12;rr(-w/2-18,-sz*0.95,w+36,sz*1.45,10);g.stroke();g.shadowBlur=0;g.fillStyle=col;g.textAlign='center';g.fillText(s,0,sz*0.18);g.restore()}
+function matrise(rader,x,y,sz,col,alpha,cw=110,rh=null){if(alpha<=0)return;rh=rh||sz*1.25;const n=rader.length,m=rader[0].length;const W=cw*m,H=rh*n;g.save();g.globalAlpha=alpha;g.strokeStyle=col;g.lineWidth=3.5;g.lineCap='round';
+ g.beginPath();g.moveTo(x+14,y-sz);g.lineTo(x,y-sz);g.lineTo(x,y-sz+H+10);g.lineTo(x+14,y-sz+H+10);g.stroke();g.beginPath();g.moveTo(x+W+16,y-sz);g.lineTo(x+W+30,y-sz);g.lineTo(x+W+30,y-sz+H+10);g.lineTo(x+W+16,y-sz+H+10);g.stroke();g.restore();
+ for(let i=0;i<n;i++)for(let j=0;j<m;j++){const c=rader[i][j];if(c==null)continue;const [s,cc,aa]=Array.isArray(c)?c:[c,col,1];tx(s,x+15+cw*j+cw/2,y+i*rh+rh*0.12,sz,cc,alpha*(aa??1),1,'center')}}
+
+// ---- kartet øverst til venstre
+function kart(lys,alpha){if(alpha<=0)return;const noder=[['PDE',60],['type',190],['betingelser',330]];g.save();g.globalAlpha=alpha*0.9;
+ for(let i=0;i<noder.length;i++){const [s,x]=noder[i];const on=s===lys;g.font=`28px ${F}`;const w=g.measureText(s).width;g.globalAlpha=alpha*(on?1:0.38);g.strokeStyle=on?ORANSJE:GRA;g.lineWidth=on?3:2;if(on){g.shadowColor=ORANSJE;g.shadowBlur=12}rr(x,34,w+24,44,10);g.stroke();g.shadowBlur=0;g.fillStyle=on?ORANSJE:KRITT;g.fillText(s,x+12,65);
+  if(i<noder.length-1){g.globalAlpha=alpha*0.38;pil(x+w+30,56,noder[i+1][1]-6,56,GRA,2,1,1,9)}}g.restore()}
+
+// ---- små pilpar for egenverdier
+function pilpar(x,y,type,alpha,sk=1){if(alpha<=0)return;const L=48*sk;const a1=-0.5;
+ pil(x,y,x+L*Math.cos(a1),y+L*Math.sin(a1),GRONN,4,1,alpha,11);
+ if(type==='like')pil(x,y,x+L*Math.cos(a1+Math.PI/2)*0.75,y+L*Math.sin(a1+Math.PI/2)*0.75,GRONN,4,1,alpha,11);
+ if(type==='null'){g.save();g.globalAlpha=alpha;g.fillStyle=KRITT;g.beginPath();g.arc(x,y,5,0,7);g.fill();g.restore()}
+ if(type==='mot')pil(x,y,x+L*Math.cos(a1+Math.PI/2)*0.75,y+L*Math.sin(a1+Math.PI/2)*0.75,ROD,4,1,alpha,11)}
+
+// ---- fargeskala kald→varm
+function varmefarge(v){v=kl(v);const r=Math.round(40+215*v),gg=Math.round(90+60*Math.sin(Math.PI*v)),b=Math.round(230-200*v);return `rgb(${r},${gg},${b})`}
+// stasjonær plate med varm venstrekant (Laplace), forhåndsberegnet
+const PLATE=(()=>{const N=40,u=[];for(let i=0;i<N;i++){u.push([]);for(let j=0;j<N;j++){const x=(j+0.5)/N,y=(i+0.5)/N;let s=0;for(let k=1;k<40;k+=2)s+=4/(Math.PI*k)*Math.sin(k*Math.PI*y)*Math.sinh(k*Math.PI*(1-x))/Math.sinh(k*Math.PI);u[i].push(s)}}return u})();
+
+
+// ================= TEGNEHJELP =================
+function kopp(x,y,s,a,t){if(a<=0)return;g.save();g.globalAlpha=a;g.translate(x,y);g.scale(s,s);g.strokeStyle=KRITT;g.lineWidth=5;g.lineCap='round';
+ g.beginPath();g.moveTo(-60,-50);g.lineTo(-50,60);g.quadraticCurveTo(0,80,50,60);g.lineTo(60,-50);g.stroke();
+ g.beginPath();g.ellipse(0,-50,60,14,0,0,7);g.stroke();g.beginPath();g.arc(75,0,26,-1.2,1.2);g.stroke();
+ const damp=Math.max(0,1-t/10);g.strokeStyle=`rgba(236,239,230,${0.7*damp})`;g.lineWidth=4;
+ for(let k=-1;k<=1;k++){g.beginPath();for(let j=0;j<=20;j++){const yy=-70-j*5;const xx=k*25+8*Math.sin(j*0.6+t*3+k);j?g.lineTo(xx,yy):g.moveTo(xx,yy)}g.stroke()}g.restore()}
+function streng(x0,y0,L,amp,modus,t,col,a,lw=4){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=lw;g.lineCap='round';g.beginPath();
+ for(let k=0;k<=80;k++){const s=k/80;let u=0;for(const [n,A] of modus)u+=A*Math.sin(n*Math.PI*s)*Math.cos(n*t*5);const X=x0+s*L,Y=y0-u*amp;k?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke();
+ g.fillStyle=KRITT;g.beginPath();g.arc(x0,y0,6,0,7);g.arc(x0+L,y0,6,0,7);g.fill();g.restore()}
+function planet(x,y,r,a,t){if(a<=0)return;g.save();g.globalAlpha=a;const gr=g.createRadialGradient(x-r*0.3,y-r*0.3,r*0.2,x,y,r);gr.addColorStop(0,'#4f9fd8');gr.addColorStop(1,'#1d4f7a');g.fillStyle=gr;g.beginPath();g.arc(x,y,r,0,7);g.fill();
+ for(let k=0;k<12;k++){const v=k*Math.PI/6;const f=((t*0.4+k*0.13)%1);pil(x+Math.cos(v)*(r+110-60*f),y+Math.sin(v)*(r+110-60*f),x+Math.cos(v)*(r+40-60*f*0.2),y+Math.sin(v)*(r+40-60*f*0.2),TURKIS,3,1,a*0.8,10)}g.restore()}
+function klokke(x,y,r,a,vinkel){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=KRITT;g.lineWidth=4;g.beginPath();g.arc(x,y,r,0,7);g.stroke();
+ for(let k=0;k<12;k++){const v=k*Math.PI/6;strek(x+Math.cos(v)*r*0.82,y+Math.sin(v)*r*0.82,x+Math.cos(v)*r*0.95,y+Math.sin(v)*r*0.95,KRITT,2,1,a)}
+ strek(x,y,x+Math.sin(vinkel)*r*0.75,y-Math.cos(vinkel)*r*0.75,ORANSJE,4,1,a);g.restore()}
+// varmeprofil på en stav: u(x,t) = sum av gaussere som flater ut
+const prof=(xx,tt)=>{const s=0.02+0.08*tt;return Math.sqrt(0.02/s)*Math.exp(-Math.pow(xx-0.5,2)/s)};
+function graf(x0,y0,W,H,tt,col,a,lw=4){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=lw;g.beginPath();for(let k=0;k<=80;k++){const s=k/80;const X=x0+s*W,Y=y0-prof(s,tt)*H;k?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke();g.restore()}
+function stav(x0,y0,W,h,tt,a){if(a<=0)return;g.save();g.globalAlpha=a;for(let k=0;k<60;k++){const s=(k+0.5)/60;g.fillStyle=varmefarge(prof(s,tt));g.fillRect(x0+k*W/60,y0,W/60+1,h)}g.strokeStyle=KRITT;g.lineWidth=2;g.strokeRect(x0,y0,W,h);g.restore()}
+function akser(x0,y0,W,H,xn,yn,a,col=KRITT){pil(x0,y0,x0+W,y0,col,3,1,a,12);pil(x0,y0,x0,y0-H,col,3,1,a,12);tx(xn,x0+W-10,y0+40,32,col,a);tx(yn,x0-36,y0-H+20,32,col,a)}
+function hake(x,y,a,col=GRONN){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=6;g.lineCap='round';g.beginPath();g.moveTo(x,y);g.lineTo(x+12,y+14);g.lineTo(x+36,y-18);g.stroke();g.restore()}
+function kryss(x,y,a){if(a<=0)return;strek(x,y-16,x+30,y+14,ROD,6,1,a);strek(x+30,y-16,x,y+14,ROD,6,1,a)}
+function varmeovn(x,y,col,a,t){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=4;rr(x-30,y-22,60,44,8);g.stroke();for(let k=-1;k<=1;k++)strek(x+k*16,y-14,x+k*16,y+14,col,3,1,a);g.restore()}
+
+// ================= DELENE =================
+function kaldstart(){ // kilde 19.8–70.4 (læreren stor i midten)
+ if(tv>M(119.0))return;
+ const t=tv;
+ {const a=vis(19.8,118.9);if(a>0){const s=pop(20.0);g.save();g.translate(300,330);g.scale(s,s);g.translate(-300,-330);boks(120,170,360,320,KRITT,a*0.6,false);kopp(300,360,1.3,a,tv-M(19.8));g.restore()}}
+ {const a=vis(31.1,118.9);if(a>0){const s=pop(31.2);g.save();g.translate(300,760);g.scale(s,s);g.translate(-300,-760);boks(120,600,360,320,KRITT,a*0.6,false);streng(150,760,300,60,[[1,1],[2,0.4]],tv,LILLA,a);g.restore()}}
+ {const a=vis(54.5,118.9);if(a>0){const s=pop(54.6);g.save();g.translate(1620,560);g.scale(s,s);g.translate(-1620,-560);boks(1440,400,360,320,KRITT,a*0.6,false);planet(1620,560,70,a,tv);g.restore()}}
+ const pd=vis(66.0,118.9);if(pd>0){const s=pop(69.4);g.save();g.translate(1620,900);g.scale(s,s);tx('PDE-er',0,0,90,ORANSJE,pd,1,'center');g.restore();
+   tx('partielle differensialligninger',1620,980,34,KRITT,pd,pv(64.0,1.2),'center')}
+}
+
+function del1(){ // 119.5–354.5
+ if(tv<M(119.4)||tv>M(384.0))return;
+ const ut1=262.0;
+ txt('Hva er en PDE?',60,140,60,ORANSJE,119.5,384.0,1.0);
+ // ODE
+ const oa=vis(119.7,ut1);if(oa>0){akser(100,520,420,260,'t','y',oa);g.save();g.globalAlpha=oa;g.strokeStyle=TURKIS;g.lineWidth=5;g.beginPath();const fr=pv(120.5,1.5);for(let k=0;k<=60*fr;k++){const X=100+k*7,Y=520-40-170*Math.exp(-k/25);k?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke();g.restore();
+   tx('ODE: y(t)',100,600,44,KRITT,oa,pv(119.7,0.8));lapp('én variabel – for eksempel tida',100,660,GRA,123.1,ut1,30)}
+ // PDE-flate
+ const pa=vis(129.4,ut1);if(pa>0){const x0=680,y0=520;akser(x0,y0,460,280,'x','u',pa);pil(x0,y0,x0+150,y0-110,KRITT,3,1,pa,12);tx('t',x0+160,y0-110,32,KRITT,pa);
+   for(let j=0;j<6;j++){const fr=kl((tv-M(130)-j*0.25)/0.4);graf(x0+j*28,y0-j*20,360,170,j*0.6,j===0?TURKIS:'rgba(86,215,184,0.55)',pa*fr,j===0?5:3)}
+   tx('PDE: u(x, t)',680,600,44,KRITT,pa,pv(129.4,0.8));lapp('flere variabler på en gang',680,660,GRA,132.5,ut1,30)}
+ // stav, klokke
+ const sa=vis(137.2,ut1);if(sa>0){const tt=((tv-M(137.2))%4)/4*2;stav(680,740,460,40,tt,sa);tx('temperaturen i en stav',680,830,32,KRITT,sa,pv(137.2,0.8));
+   klokke(1220,640,40,vis(139.3,ut1),(tv-M(139.3))*2);pil(680,880,1140,880,KRITT,3,pv(140.6,0.6),vis(140.6,ut1),12);tx('hvor: x',1150,890,30,KRITT,vis(140.6,ut1));tx('når: t',1190,710,30,ORANSJE,vis(139.3,ut1))}
+ // partielle deriverte (262–332)
+ const pd=vis(262.3,332.0);if(pd>0){
+   lapp('partielle deriverte',60,210,GUL,262.3,332.0,40);
+   const x0=100,y0=620,W=560,H=300;akser(x0,y0,W+40,H+40,'x','u',pd);
+   const tfryst=tv<M(283.6)?((tv-M(265.3))>0?((tv-M(265.3))%3)/3*1.2:0):0.3;
+   graf(x0,y0,W,H,tfryst,TURKIS,pd,5);
+   // fast x: punkt som synker (bare t endres)
+   const ta=vis(265.3,283.6);if(ta>0){const X=x0+0.5*W,Y=y0-prof(0.5,tfryst)*H;g.save();g.globalAlpha=ta;g.fillStyle=ORANSJE;g.beginPath();g.arc(X,Y,10,0,7);g.fill();g.restore();pil(X+30,Y-30,X+30,Y+40,ORANSJE,4,1,ta,12);klokke(560,300,36,ta,(tv-M(265.3))*2)}
+   // fast t: tangent som glir langs x
+   const xa=vis(283.9,309.0);if(xa>0){const s=0.2+0.6*((tv-M(283.9))%4)/4;const X=x0+s*W,Y=y0-prof(s,0.3)*H;const d=(prof(s+0.001,0.3)-prof(s-0.001,0.3))/0.002*H/W;strek(X-90,Y+90*d,X+90,Y-90*d,GRONN,4,1,xa);g.save();g.globalAlpha=xa;g.fillStyle=GRONN;g.beginPath();g.arc(X,Y,9,0,7);g.fill();g.restore()}
+   // symbolene
+   const sy=[[277.0,'∂u/∂t','u_{t}','bare t endres'],[290.0,'∂u/∂x','u_{x}','bare x endres'],[292.9,'∂²u/∂x²','u_{xx}','deriverer én gang til']];
+   sy.forEach(([t0,a1,a2,l],k)=>{const a=vis(t0,332.0);if(a<=0)return;const f=ease(pv(t0+1.0,0.6));const Y=290+k*90;tx(a1,780,Y,40,KRITT,a*(1-f),pv(t0,0.6));tx(a2,780,Y,56,ORANSJE,a*f);tx(l,900,Y,30,GRA,a*f)});
+   // uavhengig / avhengig
+   lapp('x og t: uavhengige variabler',100,720,KRITT,309.2,332.0,34);lapp('u: avhengig variabel – avhenger av x og t',100,790,TURKIS,316.5,332.0,34);
+ }
+ // F-boks
+ const fa=vis(332.3,384.0);if(fa>0){const s=pop(332.5);g.save();g.translate(640,560);g.scale(s,s);g.translate(-640,-560);
+   const pos=likn([['F( x, y, …, t, ',KRITT],['u',TURKIS],[', u_{x}, u_{y}, …, u_{t}, u_{xx}, …',ORANSJE],[' ) = 0',KRITT]],120,580,56,fa,pv(332.3,3.0));
+   boks(90,500,pos[3][0]+pos[3][1]-60,120,GRONN,fa);g.restore();
+   lapp('en PDE: en ligning mellom u og de partielle deriverte',120,690,KRITT,336.0,384.0,34);
+   lapp('hvilke deriverte som er med → hva slags fysikk',120,780,GUL,346.6,384.0,34);
+   ['u_{tt} = c^{2}·u_{xx}','u_{t} = α·u_{xx}','u_{xx} + u_{yy} = 0'].forEach((e,k)=>{const a=vis(350.0+k*0.6,384.0)*0.55;tx(e+'  ?',120+k*380,890,34,GRA,a)})}
+}
+
+function etiketter(aktiv,a){if(a<=0)return;['orden','lineær','homogen'].forEach((s,k)=>{const t0=388.4+k*0.7;const v=vis(t0,null)*a;if(v<=0)return;const on=s===aktiv;const sc=pop(t0);const x=80+k*260;g.save();g.translate(x+90,150);g.scale(sc,sc);g.translate(-x-90,-150);
+ g.globalAlpha=v*(on?1:0.45);g.strokeStyle=on?ORANSJE:GRA;g.lineWidth=on?4:2;if(on){g.shadowColor=ORANSJE;g.shadowBlur=14}rr(x,112,200,56,12);g.stroke();g.shadowBlur=0;g.restore();tx(s,x+100,152,36,on?ORANSJE:KRITT,v*(on?1:0.6),1,'center')})}
+
+function del2(){ // 384.9–649
+ if(tv<M(384.8)||tv>M(667.0))return;
+ const ea=vis(385.0,667.0);
+ const akt=tv<M(396.8)?'':tv<M(448.8)?'orden':tv<M(525.7)?'lineær':'homogen';
+ etiketter(akt,ea);
+ // ORDEN
+ const oa=vis(407.2,448.6);if(oa>0){
+   const p1=likn([['u_{t}',KRITT],[' = α·',KRITT],['u_{xx}',KRITT]],120,330,64,oa,pv(407.2,1.2));
+   lapp('varmeligningen: varmetransport',120,480,GRA,409.5,448.6,30);
+   const c=vis(416.0,448.6);tx('1',p1[0][0]+20,410,40,GUL,c);tx('2',p1[2][0]+30,410,40,GUL,c);
+   const r=vis(423.0,448.6);if(r>0){g.save();g.globalAlpha=r;g.strokeStyle=GRONN;g.lineWidth=4;g.beginPath();g.ellipse(p1[2][0]+42,396,34,32,0,0,7*ease(pv(423.0,0.6)));g.stroke();g.restore();tx('orden 2',p1[2][0]+110,410,36,GRONN,r)}
+   const p2=likn([['u_{tt}',KRITT],[' = c^{2}·',KRITT],['u_{xx}',KRITT]],120,600,64,vis(427.7,448.6),pv(427.7,1.2));
+   lapp('bølgeligningen: gitarstrengen',120,760,GRA,428.6,448.6,30);
+   streng(700,590,460,70,[[1,1]],tv,LILLA,vis(428.6,448.6));
+   const c2=vis(430.6,448.6);tx('2',p2[0][0]+24,680,40,GUL,c2);tx('2',p2[2][0]+30,680,40,GUL,c2);
+   const r2=vis(437.9,448.6);if(r2>0)tx('orden 2',p2[2][0]+110,680,36,GRONN,r2);
+ }
+ // LINEÆR
+ const la=vis(465.8,497.2);if(la>0){
+   lapp('u og de deriverte står alene – ganget med funksjoner av x og t',100,270,KRITT,465.8,497.2,30);
+   ['u_{t} = α·u_{xx}','u_{xx} + u_{yy} = 0','u_{t} = (1 + x^{2})·u_{xx}'].forEach((e,k)=>{const t0=467.0+k*1.2;const a=vis(t0,497.2);tx(e,140,380+k*90,44,KRITT,a,pv(t0,0.8));hake(90,368+k*90,a)});
+   [['u_{t} + ','u·u_{x}',' = 0'],['u_{t} = u_{xx} + ','u^{2}','']].forEach((e,k)=>{const t0=475.5+k*1.6;const a=vis(t0,497.2);likn([[e[0],KRITT],[e[1],ROD],[e[2],KRITT]],760,380+k*90,44,a,pv(t0,0.8));kryss(700,368+k*90,a)});
+   const q=vis(481.1,497.2);if(q>0){const s=pop(481.1);g.save();g.translate(1100,700);g.scale(s,s);tx('Hvorfor?',0,0,56,GUL,q,1,'center');g.restore()}
+ }
+ const va=vis(497.4,525.6);if(va>0){
+   lapp('lineær: virkninger legges sammen',100,270,GUL,497.4,525.6,38);
+   // rom ovenfra med to varmeovner
+   const x0=100,y0=340,W=560,H=420;g.save();g.globalAlpha=va;g.strokeStyle=KRITT;g.lineWidth=4;g.strokeRect(x0,y0,W,H);g.restore();
+   const t1=kl((tv-M(507.0))/3),t2=kl((tv-M(510.0))/3);
+   const flekk=(cx,col,f)=>{if(f<=0)return;const gr=g.createRadialGradient(cx,y0+H/2,4,cx,y0+H/2,40+160*f);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(0,0,0,0)');g.save();g.globalAlpha=va*0.55;g.fillStyle=gr;g.fillRect(x0,y0,W,H);g.restore()};
+   flekk(x0+150,'rgba(86,215,184,0.9)',t1);flekk(x0+410,'rgba(241,156,44,0.9)',t2);
+   varmeovn(x0+150,y0+H/2,TURKIS,vis(507.0,525.6),tv);varmeovn(x0+410,y0+H/2,ORANSJE,vis(510.0,525.6),tv);
+   // temperatur langs midtlinja
+   const gx=760,gy=720,GW=460,GH=260;akser(gx,gy,GW+20,GH+30,'x','T',vis(507.0,525.6));
+   const kurve=(c,s,col,a,lw)=>{if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=lw;g.beginPath();for(let k=0;k<=80;k++){const xx=k/80;let u=0;if(c&1)u+=t1*Math.exp(-Math.pow((xx-0.27)/0.18,2));if(c&2)u+=t2*Math.exp(-Math.pow((xx-0.73)/0.18,2));const X=gx+xx*GW,Y=gy-u*GH*0.55;k?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke();g.restore()};
+   kurve(1,0,TURKIS,vis(507.0,525.6),3);kurve(2,0,ORANSJE,vis(510.0,525.6),3);kurve(3,0,KRITT,vis(512.3,525.6),6);
+   lapp('to varmeovner → summen av virkningene',760,380,KRITT,512.3,525.6,30);
+ }
+ // HOMOGEN
+ const ha=vis(552.5,579.4);if(ha>0){
+   const inh=ease(pv(562.7,0.6));
+   likn([['u_{t} − α·u_{xx}',KRITT]],120,420,60,ha,pv(552.5,1.4));tx('=',600,420,60,KRITT,vis(553.5,579.4));
+   tx('0',690,420,64,GRONN,vis(557.0,579.4)*(1-inh));tx('f(x, t)',690,420,60,GUL,ha*inh);
+   lapp('venstre: alt med u',120,500,KRITT,552.6,579.4,30);
+   lapp('høyre side = 0 → homogen',120,600,GRONN,557.0,579.4,34);
+   lapp('høyre side ≠ 0 → inhomogen',120,680,GUL,562.7,579.4,34);
+   const ka=vis(575.1,579.4);if(ka>0){stav(700,620,460,40,0.1,ka);varmeovn(930,600,GUL,ka,tv);tx('kilde',1080,580,34,GUL,ka)}
+ }
+ const sa=vis(579.6,620.0);if(sa>0){
+   const s=pop(579.6);g.save();g.translate(640,320);g.scale(s,s);tx('lineær + homogen',0,0,56,GRONN,sa,1,'center');g.restore();boks(380,250,520,100,GRONN,sa);
+   txt('u_{1} løsning,   u_{2} løsning',220,460,46,KRITT,585.0,620.0,1.2);
+   txt('⇒   u_{1} + u_{2} løsning',220,550,52,GRONN,590.2,620.0,1.0);
+   stempel('SUPERPOSISJONSPRINSIPPET',640,700,GUL,594.2,620.0,34);
+   lapp('lett å finne nye løsninger når du har funnet noen',220,820,KRITT,598.3,620.0,32);
+ }
+ // GITARSTRENG
+ const ga=vis(622.6,667.0);if(ga>0){
+   likn([['u_{tt} = c^{2}·u_{xx}',KRITT]],120,250,50,ga,1);lapp('bølgeligningen',600,250,GRA,622.6,667.0,30);
+   streng(120,420,640,70,[[1,1]],tv,TURKIS,vis(626.5,667.0));tx('grunntone',800,430,36,TURKIS,vis(626.5,667.0),pv(626.5,0.6));
+   streng(120,600,640,60,[[2,1]],tv,ORANSJE,vis(630.4,667.0));tx('overtone',800,610,36,ORANSJE,vis(630.4,667.0),pv(630.4,0.6));
+   lapp('begge løser bølgeligningen',120,330,GRONN,633.1,667.0,30);
+   const su=vis(644.0,667.0);streng(120,820,640,70,[[1,1],[2,0.8]],tv,KRITT,su,6);tx('sammen: ny løsning ✓',800,830,36,GRONN,su,pv(644.5,0.8));
+   if(su>0)tx('+',420,720,50,KRITT,su,1,'center');
+ }
+}
+
+function del3(){ // 667–slutt
+ if(tv<M(666.9))return;
+ const a=vis(667.0,null);
+ txt('Oppsummert',60,140,60,ORANSJE,667.0,null,1.0);
+ const pos=likn([['F( x, t, ',KRITT],['u',TURKIS],[', u_{x}, u_{t}, u_{xx}, …',ORANSJE],[' ) = 0',KRITT]],120,330,52,a,pv(667.6,2.0));
+ boks(90,250,pos[3][0]+pos[3][1]-60,115,GRONN,a);
+ lapp('en ukjent funksjon av flere variabler og dens deriverte',120,430,KRITT,668.5,null,32);
+ [['orden',680.5],['linearitet',682.0],['homogenitet',683.0]].forEach(([s,t0],k)=>{const v=vis(t0,null);const sc=pop(t0);g.save();g.translate(220+k*330,600);g.scale(sc,sc);tx(s,0,0,44,ORANSJE,v,1,'center');g.restore();hake(190+k*330,660,v)});
+ document.getElementById('fh').style.opacity=vis(682.5,null);
+}
+
+window.render=function(n,t){tv=t;g.clearRect(0,0,1920,1080);kaldstart();del1();del2();del3()};
+</script></body></html>
