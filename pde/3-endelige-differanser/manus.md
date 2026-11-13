@@ -13,26 +13,40 @@ Tre idéer: (1) en derivert blir en differanse mellom naboverdier, (2) et randve
 ### 0. Kald start (ca. 6 s)
 *Kartet:* lyser på «numerisk metode → endelige differanser».
 
-> En datamaskin kan ikke derivere. Den kan bare legge sammen, trekke fra, gange og dele. Så hvordan i all verden løser den en differensialligning?
+> En datamaskin kan ikke derivere. Den kan bare legge sammen, trekke fra, gange og dele. Så hvordan i all verden løser den en differensialligning? 
 
 **[Dashman: gruble → spm]**
 *På skjermen:* En kalkulator med knappene + − × ÷ og et grått «d/dx» som blir strøket over (lyd: «dunk»).
 
+> Vel, vi kan lære datamaskinen opp i regler, sånn at den kan løse ting symbolsk, uten egentlig å forstå hva den holder på med (litt som studentene mine). Det er et viktig, og mye brukt verktøy, og for eksempel biblioteket SymPy i Python, er god på sånt. Men noen ganger er det vanskelig, eller kanskje til og med umulig, å løse PDEer eksakt, uansett hvor mange triks og regler du har i puggeboka di. Og da finnes det en annen metode, som vi skal se på her: NUMMERIKK!!
+
+**[Tada...!]**
+
+> Numerikk handler om å gi avkall på presisjon, og til gjengjeld finne løsninger. Derfor er det også viktig å ha kontroll på hvor stor feilen kan bli, når man holder på med numerikk. Spesielt sårbart er det hvis man deler på veldig små tall, slik som i definisjonen av deriverte, for eksempel. Der deler vi jo på infinitessimale, altså uendelige små, størrelser. Hvordan håndterer vi sånt i en datamaskin, hvor alt må være endelig? Jo, la meg vise deg.
+
 ### 1. Derivert → differanse (0:00–1:00)
 *Kartet:* lyser på «endelige differanser».
 
-> Triks nummer én: Vi legger et rutenett med avstand h, og ser bare på verdiene i punktene: U i minus én, U i og U i pluss én.
-> Den deriverte er stigningstallet. Det kan vi tilnærme med en sekant: U i pluss én minus U i minus én, delt på to h.
-> Og den andrederiverte – krumningen – er hvor mye stigningen *endrer seg*: U i pluss én, minus to U i, pluss U i minus én, delt på h i andre.
-> Den siste skal vi bruke hele tiden. Den sier rett og slett: Hvor mye skiller punktet seg fra gjennomsnittet av naboene sine?
+> Punkt 1: Vi må være litt diskrét...! Altså diskretisére problemet vårt (**[Ben blunker med øyet]**). Det gjør vi vet å legge et rutenett med avstand h, og ser bare på verdiene i punktene på rutenettet. Verdien av u(x) i punktet x_i kaller vi nå bare U_i. U_(i-1) blir da verdien av funksjonen vi ser på, evaluert i punktet til venstre for x_i, og U_(i+1) er evaluert et steg til høyre. 
+
+ > Punkt 2: Next up: i definisjonen av deriverte, tar vi nå rett og slett bare å droppe lim h går mot 0. I stedet gjør vi bare h veldig liten. Så nå tilnærmer vi den deriverte med stigningstallet til sekanten gjennom to punkt. Det er jo ikke helt riktig, men om h blir ltien nok, så blir ikke feilen så stor. Denne formelen kalles *framoverdifferanse.* Tilsvarende kaller vi det bakoverdifferanse dersom vi bruker sekanten gjennom x_i og x_(i-1). Men den aller beste tilnærmingen til den deriverte i punktet x_i får vi faktisk ved å bruke stigningstalle til sekanten gjennom  x_(i-1) og x_(i+1) i stedet. Det kaller vi *sentraldifferanse,* og formelen ser sånn ut.
+
+ CHECK: Fyll ut med noen nummeriske eksempler som viser at sentraldifferanse er det beste.
+
+ > Alright... i denne videoen har vi altså diskretisert, og tilnærmet de deriverte ved hjelp av endelige differanser. Dette kan vi f.eks. bruke til å løse differensiallikninger.
+
 
 **[Dashman: peker_tavla → skrive → lyspaere (ved «gjennomsnittet av naboene»)]**
 *På skjermen:* Tittel «Endelige differanser» (oransje). En glatt kurve, så prikker på et rutenett med «h» mellom (pop for hver prikk). Tre prikker lyser: U_{i−1}, U_i, U_{i+1}. En tangent i midtpunktet og en sekant mellom ytterpunktene som nesten faller sammen: «u′ ≈ (U_{i+1} − U_{i−1})/(2h)». Så: «u″ ≈ (U_{i+1} − 2U_i + U_{i−1})/h²» i grønn boks (stablede brøker). Til slutt en liten tegning: midtpunktet sammenlignet med en stiplet linje mellom naboene, avstanden i gult: «avvik fra naboene».
 
-### 2. Randverdiproblem → ligningssystem (1:00–2:00)
+CHECK: Flytte til egen video: "KUNSTEN Å LØSE PDE VHA ENDELIGE DIFFERANSER." Så legger vi inn RVP og IVP (+RVP) der.
+
+### 2. Løse PDE vha endelige differanser: Randverdiproblem → ligningssystem (1:00–2:00)
 *Kartet:* lyser på «RVP: ligningssystem».
 
-> Ta u dobbeltderivert lik minus to på intervallet fra null til én, med u lik null i begge ender. Vi deler i fire, så vi har tre ukjente punkter.
+> Punkt 3: Nå kan vi bruke dette til å løse en differensiallikning. Men da må vi i tillegg ha noen betingelser.
+
+> La oss se på et randverdiproblem først. La oss si at jeg vet at krumningen på en strømledning er gitt som u_xx=2, og at utslaget i endene, altså på randen, er u(0)=u(L)=0. til å løse Ta u dobbeltderivert lik minus to på intervallet fra null til én, med u lik null i begge ender. Vi deler i fire, så vi har tre ukjente punkter.
 > I hvert punkt bytter vi u dobbeltderivert med differansen. Da får vi tre vanlige ligninger med tre ukjente – og hver ligning inneholder bare et punkt og naboene dets. Matrisen blir tridiagonal.
 > Løser vi den, får vi null komma én åtte sju fem, null komma to fem, og null komma én åtte sju fem. Nøyaktig den eksakte løsningen, x ganger én minus x!
 > I to dimensjoner er det samme triks, bare med fire naboer: fempunktsformelen. Og blir systemet stort, kan vi løse det iterativt: Hvert punkt oppdaterer seg om og om igjen fra naboene sine, til alt står stille.
