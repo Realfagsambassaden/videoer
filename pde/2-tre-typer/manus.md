@@ -17,7 +17,8 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 
 > *Hvilke* deriverte som er med i en PDE, bestemmer hva slags fysikk den beskriver. Vi skal nå se litt nærmere på det, ved å studere andre-ordens PDE-er. Mange av fysikkens viktigste likninger er nemlig av andre orden – altså likninger hvor den høyeste deriverte involvert er en andrederivert.
 
-> En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Leddene med de andrederiverte bestemmer *typen*. Resten spiller ingen rolle. a og b kan her godt være funksjoner av variablene x og y.
+> En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Her er a og b generelt funksjoner av de uavhengige variablene, x og y. Det er leddene med de andrederiverte bestemmer *typen* til PDEen. 
+
 > Hvis vi nå foretar en liten omskrivning til matriseform, så får vi samlet a og b i en symmetrisk matrise, A: en rad med derivasjonene, ganger A, ganger en søyle med derivasjonene, brukt på u. Ganger vi ut, får vi nøyaktig u x x pluss a u x y pluss b u y y tilbake – blandingsleddet kommer to ganger, derfor står a over to på hver side av diagonalen. Er a og b funksjoner, gir produktregelen riktignok noen ekstra ledd med førstederiverte – men de er av lavere orden, så vi flytter dem bare over på høyre side, der de ikke påvirker typen. Det er fortsatt bare én ligning – og nå ser vi at alt som bestemmer typen, ligger i A.
 > Og her er greia: en symmetrisk matrise kan alltid gjøres diagonal, ved å dreie koordinatsystemet langs egenvektorene til A. De nye aksene, ksi og eta, peker langs egenvektorene, og tallene på diagonalen blir egenverdiene, lambda én og lambda to. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
 > Nå er det bare tre muligheter: Enten har egenverdiene samme fortegn, eller motsatte fortegn, eller så er én av dem null. Alle andreordens PDE-er havner altså i én av disse tre kategoriene.
@@ -25,9 +26,11 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 > I bølgeligningen har egenverdiene motsatte fortegn. Her går informasjonen langs *to* retninger: løfter du midten av et stramt tau og slipper, deler bulen seg i to som løper ut mot hver sin ende. Denne typen PDE-er kaller vi *hyperbolske*.
 > Varmeligningen er et eksempel på en PDE der én av egenverdiene er null. Her finnes det bare *én* spesiell retning, nemlig tiden: varmen sprer seg framover i tid, og det skjer øyeblikkelig på alle punkt på legemet. Vi ser det som at varmen jevner seg ut. Slike ligninger kaller vi *parabolske*.
 
-> Har begge egenverdiene samme fortegn, finnes det *ingen* spesiell retning: hvert punkt påvirkes av hele området rundt seg på en gang. Slike ligninger beskriver likevektstilstander og statiske felt – for eksempel Laplace-ligningen for temperaturen i et materiale etter lang tid, eller Poisson-ligningen for gravitasjonspotensialet rundt en massefordeling. Disse ligningene kaller vi *elliptiske*.
+> Har begge egenverdiene samme fortegn, finnes det *ingen* spesiell retning: hvert punkt påvirkes av hele området rundt seg på en gang. Slike ligninger beskriver likevektstilstander og statiske felt – for eksempel Laplace-ligningen for temperaturen i et materiale etter lang tid, når det ikke er noen tidsendring lenger. Eller Poisson-ligningen for gravitasjonspotensialet rundt en massefordeling. Denne kategorien PDEer kaller vi *elliptiske*.
 
-> Men hvordan sjekker vi typen i praksis, uten å dreie noe? Vi trenger bare fortegnene til egenverdiene. Og produktet av egenverdiene er determinanten til A: b minus a i andre over fire.
+> Alright... vi brukte nå på andreordens PDEer i to variabler x og y. Et tilsvarende argument kunne vært ført i tre dimensjoner, men vi hopper bukk over det, gitt. 
+
+> Så... hvordan sjekker vi typen i praksis, uten å måtte gjøre koordinattransformasjoner og den slags? Vi trenger bare fortegnene til egenverdiene. Og produktet av egenverdiene er determinanten til A: b minus a i andre over fire.
 > Er determinanten positiv, har egenverdiene like fortegn. Er den null, er én av dem null. Er den negativ, har de motsatte fortegn. Ganger vi med minus fire, får vi det kjente kriteriet: a i andre minus fire b. Negativ betyr elliptisk, null betyr parabolsk, positiv betyr hyperbolsk.
 > Og de to, én eller null retningene? De er røttene i en andregradsligning – med akkurat den samme diskriminanten.
 
@@ -53,9 +56,9 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 *Kartet:* lyser på «betingelser».
 
 > Men det er et problem. En PDE har uendelig mange løsninger. For bølgeligningen er f av x minus c t, pluss g av x pluss c t, en løsning *uansett* hvilke funksjoner f og g du velger.
-> Det som velger ut den ene riktige løsningen, er betingelsene. *Initialbetingelser* sier hvordan alt er ved start, t lik null. *Randbetingelser* sier hva som skjer på kanten – for eksempel at endene av staven holdes på fast temperatur.
-> Og typen bestemmer hva du trenger: Varme og bølger marsjerer fram i tid fra en starttilstand, så de trenger initialbetingelser – i tillegg til randbetingelser. Elliptiske ligninger, som Laplace og Poisson, har ingen tid og trenger randbetingelser rundt hele området.
-> Randbetingelser finnes i tre varianter: *Dirichlet* gir verdien på randen – for eksempel fast temperatur i enden av staven. *Neumann* gir den deriverte på randen, altså strømmen ut – en isolert ende har null varmestrøm. Og *Robin* er en blanding av de to – for eksempel en ende som taper varme til lufta rundt.
+> Det som velger ut den ene riktige løsningen, er betingelsene. *Initialbetingelser* sier hvordan alt er ved start, t lik null. *Randbetingelser* sier hva som skjer på randen, altså kanten. For eksempel at utsvinget på enden av gitarstrengen alltid er null.
+> Og typen til PDEen bestemmer hva du trenger: Varme og bølger marsjerer fram i tid fra en starttilstand, så de trenger initialbetingelser – i tillegg til randbetingelser. Elliptiske ligninger, som Laplace og Poisson, har ingen tid og trenger randbetingelser rundt hele området.
+> Randbetingelser finnes i tre varianter: *Dirichlet* gir verdien på randen. Se for deg en stav som varmes fra én side, og har oppnåd likevekt, så ingenting endrer seg i tid. Da trenger jeg verdi om temperaturen på randa, for å kunne løse PDE-en for temperaturfordelingen inne i staven. *Neumann* gir den deriverte på randen, altså strømmen ut – en isolert ende har null varmestrøm. Og *Robin* er en blanding av de to.
 
 **[Du: trekk på skuldrene ved «uendelig mange»; løft en finger ved «her er kluet»; vis stav med hendene (endene) ved randbetingelser.]**
 *På skjermen:*
@@ -69,7 +72,7 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 ### 3. Avslutning (4:00–4:30)
 *Kartet:* lyser på «hele kartet (første halvdel lyser)».
 
-> Andreordens PDE-er: tre familier med helt ulik oppførsel, og betingelser som plukker ut den ene løsningen. Prøv deg på noen oppgaver!
+> Andreordens PDE-er: tre familier med helt ulik oppførsel, sånn pleier det å være med familier vettu. Når vi faktisk skal løse et konkret PDE-problem, trenger vi i tilleggsbetingelser som plukker ut den rette løsningen. Kos dæ --- ubetinga!
 
 **[Du: åpne armer ved oppsummeringen; pek ned mot oppgavene til slutt.]**
 *På skjermen:* De tre kolonnene som små ikoner, og ramma med initial- og randbetingelser. Fysikkhjelp-logoen.
