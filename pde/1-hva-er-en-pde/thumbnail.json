@@ -2,10 +2,10 @@
  "tema": "Matematikk · PDE",
  "tittel": "HVA ER EN",
  "tittel2": "PDE?",
- "undertittel": "Kaffe · streng · jord",
+ "undertittel": "Kaffe, streng, tyngde",
  "person": "person.png",
  "person_hoyde": 560,
- "person_hoyre": -20,
+ "person_hoyre": -120,
  "tegning": "tegning.png",
  "formel": "uₜ = α·uₓₓ"
 }

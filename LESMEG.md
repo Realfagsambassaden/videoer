@@ -36,6 +36,8 @@ Videoene sorteres etter **tema** (som på nettstedet), ikke etter fag, fordi sam
 - **Ikke understrek tekst på tavla** (13. november 2026) – bruk farger til å skille og fremheve.
 - **Ta bort det som skjer før læreren begynner å snakke** i en bit (f.eks. at han strekker fjæra), med mindre det er selve poenget.
 - **Grønnskjermopptakene i PDE-serien (take 3) speilvendes**, så læreren ser mot tavla til venstre (`"speil": true` i `plan.json`). Lyden i .mov fra Macen starter 0.08 s etter bildet – vis opptaket 0.08 s tidligere.
+- **Læreren skal mer inn i bildet** (13. november 2026): større og lenger inn mot midten, så begge hendene synes når han gestikulerer – men alltid **bak** teksten på tavla (`"foran": [0, 0, 1920, 1080]` i `plan.json`). Flytt eller krymp læreren heller enn å dekke tekst.
+- **Tydelig skrift:** ingen svake grå merkelapper; minst ca. 36 px, ligninger større.
 - **Ting som er sagt med rekvisitter skal med** – f.eks. når læreren «spiller» på slinkyen som gitarstreng, ta med biten.
 
 Faste ønsker som gjelder alle videoer. Claude fyller på her når læreren sier noe nytt.

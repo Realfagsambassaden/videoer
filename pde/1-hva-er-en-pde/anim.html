@@ -19,13 +19,13 @@ canvas{position:absolute;left:0;top:0}
 <div id="sone"></div>
 <div style="position:absolute;left:-999px;font-family:AD">Aa λξη</div><div style="position:absolute;left:-999px;font:900 20px Mont">Aa</div>
 <script>
-const KART=[[0, 5.16, 19.8, 24.96], [5.16, 9.48, 31.2, 35.519999999999996], [9.48, 13.2, 54.2, 57.92], [13.2, 25.28, 58.32, 70.4], [25.28, 33.76, 119.52, 128.0], [33.76, 40.88, 129.16, 136.28], [40.88, 46.92, 136.96, 143.0], [46.92, 49.76, 262.12, 264.96], [49.76, 56.6, 265.4, 272.24], [56.6, 61.8, 276.8, 282.0], [61.8, 70.2, 283.72, 292.12], [70.2, 73.88, 292.64, 296.32], [73.88, 87.04, 309.04, 322.2], [87.04, 89.52, 322.72, 325.2], [89.52, 98.6, 332.2, 341.28], [98.6, 106.72, 346.36, 354.48], [106.72, 112.24, 384.88, 390.4], [112.24, 114.64, 396.8, 399.2], [114.64, 123.08, 407.12, 415.56], [123.08, 129.36, 415.96, 422.24], [129.36, 133.56, 422.84, 427.04], [133.56, 143.4, 427.48, 437.32], [143.4, 146.92, 437.68, 441.2], [146.92, 150.52, 448.8, 452.4], [150.52, 165.12, 465.68, 480.28], [165.12, 167.04, 480.88, 482.8], [167.04, 187.48, 497.28, 517.72], [187.48, 191.84, 525.72, 530.08], [191.84, 204.64, 552.4, 565.2], [204.64, 207.36, 575.0, 577.72], [207.36, 208.56, 578.08, 579.28], [208.56, 233.76, 579.4, 604.6], [233.76, 243.04, 622.4, 631.68], [243.04, 249.56, 632.88, 639.4], [249.56, 256.36, 643.8, 650.6], [256.36, 274.16, 667.0, 684.8]], TEMPO=1.0;
-const LENGDE=274.16;
+const KART=[[0, 5.16, 19.8, 24.96], [5.16, 9.48, 31.2, 35.519999999999996], [9.48, 13.2, 54.2, 57.92], [13.2, 26.08, 58.32, 71.2], [26.08, 34.56, 119.52, 128.0], [34.56, 41.68, 129.16, 136.28], [41.68, 47.72, 136.96, 143.0], [47.72, 50.56, 262.12, 264.96], [50.56, 57.4, 265.4, 272.24], [57.4, 62.6, 276.8, 282.0], [62.6, 71.0, 283.72, 292.12], [71.0, 74.68, 292.64, 296.32], [74.68, 87.84, 309.04, 322.2], [87.84, 90.32, 322.72, 325.2], [90.32, 99.4, 332.2, 341.28], [99.4, 107.52, 346.36, 354.48], [107.52, 113.04, 384.88, 390.4], [113.04, 115.44, 396.8, 399.2], [115.44, 123.88, 407.12, 415.56], [123.88, 130.16, 415.96, 422.24], [130.16, 134.36, 422.84, 427.04], [134.36, 144.2, 427.48, 437.32], [144.2, 147.72, 437.68, 441.2], [147.72, 151.32, 448.8, 452.4], [151.32, 165.92, 465.68, 480.28], [165.92, 167.84, 480.88, 482.8], [167.84, 188.28, 497.28, 517.72], [188.28, 192.64, 525.72, 530.08], [192.64, 205.44, 552.4, 565.2], [205.44, 208.16, 575.0, 577.72], [208.16, 209.36, 578.08, 579.28], [209.36, 234.56, 579.4, 604.6], [234.56, 243.84, 622.4, 631.68], [243.84, 250.36, 632.88, 639.4], [250.36, 257.16, 643.8, 650.6], [257.16, 274.96, 667.0, 684.8]], TEMPO=1.0;
+const LENGDE=274.96;
 // kildetid → videotid
 function M(T){for(const [a,b,c,d] of KART){if(T<c)return a/TEMPO;if(T<=d)return (a+(T-c))/TEMPO;}return LENGDE;}
 window.S=[['hele',LENGDE]];
 const C=document.getElementById('c'),g=C.getContext('2d');
-const KRITT='#ecefe6',GRONN='#6ef04a',ORANSJE='#f19c2c',GUL='#eee462',TURKIS='#56d7b8',ROD='#e0573d',GRA='#7d8781',LILLA='#b48cff';
+const KRITT='#ecefe6',GRONN='#6ef04a',ORANSJE='#f19c2c',GUL='#eee462',TURKIS='#56d7b8',ROD='#e0573d',GRA='#b3bdb6',LILLA='#b48cff';
 const F='AD';
 let T=0; // kildetid nå
 const kl=x=>Math.max(0,Math.min(1,x)), ease=x=>{x=kl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2};
@@ -51,7 +51,7 @@ function txt(s,x,y,sz,col,t0,t1,dur=0.9,align='left'){const a=vis(t0,t1);if(a<=0
 function likn(deler,x,y,sz,alpha=1,skriv=1){let cx=x;const pos=[];const tot=deler.reduce((s,d)=>s+maal(d[0],sz),0);let brukt=0;
  for(const d of deler){const w=maal(d[0],sz);const lok=kl((skriv*tot-brukt)/w);pos.push([cx,w]);tx(d[0],cx,y,sz,d[1],alpha*(d[2]??1),lok);cx+=w;brukt+=w}return pos}
 // lapp: liten merkelapp med strek under
-function lapp(s,x,y,col,t0,t1,sz=34){const a=vis(t0,t1);if(a<=0)return;tx(s,x,y,sz,col,a,pv(t0,0.7))}
+function lapp(s,x,y,col,t0,t1,sz=34){const a=vis(t0,t1);if(a<=0)return;tx(s,x,y,Math.max(sz,36),col,a,pv(t0,0.7))}
 function boks(x,y,w,h,col,alpha,glod=true){if(alpha<=0)return;g.save();g.globalAlpha=alpha;g.strokeStyle=col;g.lineWidth=4;if(glod){g.shadowColor=col;g.shadowBlur=18}rr(x,y,w,h,16);g.stroke();g.restore()}
 function rr(x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
 function strek(x1,y1,x2,y2,col,lw,fr=1,alpha=1){if(fr<=0||alpha<=0)return;g.save();g.globalAlpha=alpha;g.strokeStyle=col;g.lineWidth=lw;g.lineCap='round';g.beginPath();g.moveTo(x1,y1);g.lineTo(x1+(x2-x1)*fr,y1+(y2-y1)*fr);g.stroke();g.restore()}
@@ -132,9 +132,16 @@ function del1(){ // 119.5–354.5
    pil(ox,oy,xx,xy,KRITT,3,1,pa,12);pil(ox,oy,tx2,ty2,ORANSJE,3,1,pa,12);pil(ox,oy,ux,uy,TURKIS,3,1,pa,12);
    tx('x',xx+8,xy+10,34,KRITT,pa);tx('t',tx2+8,ty2+10,34,ORANSJE,pa);tx('u',ux-30,uy+10,34,TURKIS,pa);
    tx('PDE: u(x, t)',680,640,44,KRITT,pa,pv(129.4,0.8));lapp('flere variabler på en gang',680,700,GRA,132.5,ut1,30)}
- // stav, klokke
- const sa=vis(137.2,ut1);if(sa>0){const tt=((tv-M(137.2))%4)/4*2;stav(680,770,460,40,tt,sa);tx('temperaturen i en stav',680,850,32,KRITT,sa,pv(137.2,0.8));
-   klokke(1210,790,36,vis(139.3,ut1),(tv-M(139.3))*2);pil(680,900,1140,900,KRITT,3,pv(140.6,0.6),vis(140.6,ut1),12);tx('hvor: x',1150,910,30,KRITT,vis(140.6,ut1));tx('når: t',1150,860,30,ORANSJE,vis(139.3,ut1))}
+ // værkart over Norge: u(x, y, t) – temperaturen avhenger av hvor og når
+ const sa=vis(137.2,ut1);if(sa>0){const ox=800,oy=1045,sk=25;
+   const NO=[[5.0,58.9],[5.6,58.0],[7.0,58.0],[8.2,58.1],[9.5,58.9],[10.6,59.3],[11.2,59.0],[11.8,59.9],[12.4,60.5],[12.2,61.6],[12.6,62.0],[12.1,63.3],[13.9,64.5],[14.3,65.1],[16.0,67.0],[18.0,68.5],[20.0,69.0],[21.0,69.8],[23.5,69.0],[25.0,68.6],[26.5,69.9],[28.5,69.0],[30.5,69.8],[31.0,70.4],[28.0,71.1],[25.5,71.1],[23.0,70.8],[19.5,70.2],[17.0,69.4],[15.0,68.3],[13.5,67.6],[12.5,66.4],[12.0,65.0],[10.5,64.4],[9.0,63.5],[7.2,62.9],[5.5,62.3],[4.9,61.5],[5.0,60.5],[5.2,59.5]];
+   const proj=([lo,la])=>[ox+(lo-4.5)*sk*0.45,oy-(la-57.8)*sk];
+   g.save();g.globalAlpha=sa;g.beginPath();NO.forEach((q,k)=>{const [X,Y]=proj(q);k?g.lineTo(X,Y):g.moveTo(X,Y)});g.closePath();g.save();g.clip();
+   const tt=(tv-M(137.2))*0.6;
+   for(let X=ox;X<ox+320;X+=7)for(let Y=oy-340;Y<oy;Y+=7){const la=57.8+(oy-Y)/sk,lo=4.5+(X-ox)/(sk*0.45);const v=0.85-0.055*(la-58)+0.18*Math.sin(tt+lo*0.35)+0.12*Math.sin(tt*0.7-la*0.5);g.fillStyle=varmefarge(v);g.fillRect(X,Y,7.5,7.5)}
+   g.restore();g.strokeStyle=KRITT;g.lineWidth=3;g.stroke();g.restore();
+   const ha=vis(140.6,ut1);if(ha>0){const [px,py]=proj([10.4,63.4]);g.save();g.globalAlpha=ha;g.fillStyle=GRONN;g.beginPath();g.arc(px,py,9,0,7);g.fill();g.restore();tx('hvor',px+16,py-10,34,GRONN,ha)}
+   klokke(1150,860,40,vis(139.3,ut1),(tv-M(139.3))*2);tx('når',1200,875,34,ORANSJE,vis(139.3,ut1))}
  // partielle deriverte (262–332)
  const pd=vis(262.3,332.0);if(pd>0){
    lapp('partielle deriverte',60,210,GUL,262.3,332.0,40);
@@ -147,19 +154,20 @@ function del1(){ // 119.5–354.5
    const xa=vis(283.9,309.0);if(xa>0){const s=0.2+0.6*((tv-M(283.9))%4)/4;const X=x0+s*W,Y=y0-prof(s,0.3)*H;const d=(prof(s+0.001,0.3)-prof(s-0.001,0.3))/0.002*H/W;strek(X-90,Y+90*d,X+90,Y-90*d,GRONN,4,1,xa);g.save();g.globalAlpha=xa;g.fillStyle=GRONN;g.beginPath();g.arc(X,Y,9,0,7);g.fill();g.restore()}
    // symbolene
    const sy=[[277.0,'∂u/∂t','u_{t}','bare t endres'],[289.0,'∂u/∂x','u_{x}','bare x endres'],[292.9,'∂²u/∂x²','u_{xx}','deriverer én gang til']];
-   sy.forEach(([t0,a1,a2,l],k)=>{const a=vis(t0,332.0);if(a<=0)return;const f=ease(pv(t0+2.6,0.7));const gl=Math.sin(Math.PI*kl((tv-M(t0+0.6))/2.0));if(gl>0&&f<1){g.save();g.shadowColor=GUL;g.shadowBlur=24*gl;tx(a1,780,290+k*90,40,GUL,a*gl*(1-f));g.restore()}const Y=290+k*90;tx(a1,780,Y,40,KRITT,a*(1-f),pv(t0,0.6));tx(a2,780,Y,56,ORANSJE,a*f);tx(l,900,Y,30,GRA,a*f)});
+   sy.forEach(([t0,a1,a2,l],k)=>{const a=vis(t0,332.0);if(a<=0)return;const f=ease(pv(t0+2.6,0.7));const Y=290+k*90;const X=900+(780-900)*f,Yb=560+(Y-560)*f,sz=110+(56-110)*f;const gl=Math.sin(Math.PI*kl((tv-M(t0+0.4))/2.2));
+   if(f<1){g.save();if(gl>0){g.shadowColor=GUL;g.shadowBlur=30*gl}tx(a1,X,Yb,sz,gl>0.3?GUL:KRITT,a*(1-f),pv(t0,0.6));g.restore()}tx(a2,780,Y,56,ORANSJE,a*f);tx(l,900,Y,36,GRA,a*f)});
    // uavhengig / avhengig
-   lapp('x og t: uavhengige variabler',100,720,KRITT,309.2,332.0,34);lapp('u: avhengig variabel – avhenger av x og t',100,790,TURKIS,316.5,332.0,34);
+   {const a=vis(309.2,332.0);if(a>0)likn([['x',GRONN],[' og ',KRITT],['t',GRONN],[': uavhengige variabler',KRITT]],100,720,38,a,pv(309.2,1.0));const gl=Math.sin(Math.PI*kl((tv-M(309.2))/1.6));if(gl>0){g.save();g.shadowColor=GRONN;g.shadowBlur=26*gl;tx('x',x0+W+30,y0+40,40,GRONN,gl);g.restore()}}lapp('u: avhengig variabel – avhenger av x og t',100,790,TURKIS,316.5,332.0,34);
  }
  // F-boks: rammen, så u, så de deriverte, så resten
  const fa=vis(332.3,384.0);if(fa>0){const s=pop(332.5);g.save();g.translate(640,560);g.scale(s,s);g.translate(-640,-560);
    const ua=vis(337.0,384.0),da=vis(339.6,384.0),ra=vis(341.0,384.0);
-   const pos=likn([['F( ',KRITT],['x, y, …, t, ',KRITT,ra],['u',TURKIS,ua],[', u_{x}, u_{y}, …, u_{t}, u_{xx}, …',ORANSJE,da],[' ) = 0',KRITT]],120,580,56,fa,1);
+   const pos=likn([['F( ',KRITT],['x, y, …, t, ',KRITT,ra],['u',TURKIS,ua],[', u_{x}, u_{y}, …, u_{t}, u_{xx}, u_{yy}, …',ORANSJE,da],[' ) = 0',KRITT]],110,580,52,fa,1);
    const gl=Math.sin(Math.PI*kl((tv-M(337.0))/1.6));if(gl>0){g.save();g.shadowColor=TURKIS;g.shadowBlur=30*gl;tx('u',pos[2][0],580,56,TURKIS,ua*gl);g.restore()}
    boks(90,500,pos[4][0]+pos[4][1]-60,120,GRONN,fa);g.restore();
    lapp('en ligning mellom u og dens partielle deriverte',120,690,KRITT,339.6,384.0,34);
    lapp('hvilke deriverte som er med → hva slags fysikk',120,780,GUL,346.6,384.0,34);
-   ['u_{tt} = c^{2}·u_{xx}','u_{t} = α·u_{xx}','u_{xx} + u_{yy} = 0'].forEach((e,k)=>{const a=vis(350.0+k*0.6,384.0)*0.55;tx(e+'  ?',120+k*380,890,34,GRA,a)})}
+   ['u_{tt} = c^{2}·u_{xx}','u_{t} = α·u_{xx}','u_{xx} + u_{yy} = 0'].forEach((e,k)=>{const t0=350.0+k*0.6;const a=vis(t0,384.0);const sc=pop(t0);g.save();g.translate(260+k*390,890);g.scale(sc,sc);tx(e,0,0,46,KRITT,a,1,'center');tx('?',0,60,44,GUL,a,1,'center');g.restore()})}
 }
 
 function etiketter(aktive,a){if(a<=0)return;const krymp=ease(pv(395.8,0.9));['orden','lineær','homogen'].forEach((n,k)=>{const t0=388.4+k*0.7;const v=vis(t0,null)*a;if(v<=0)return;const on=aktive.includes(n);const sc=pop(t0);
@@ -187,8 +195,8 @@ function del2(){ // 384.9–649
  // LINEÆR
  const la=vis(465.8,497.2);if(la>0){
    lapp('u og de deriverte står alene – ganget med funksjoner av x og t',100,270,KRITT,465.8,497.2,30);
-   ['u_{t} = α·u_{xx}','u_{xx} + u_{yy} = 0','u_{t} = (1 + x^{2})·u_{xx}'].forEach((e,k)=>{const t0=467.0+k*1.2;const a=vis(t0,497.2);tx(e,140,380+k*90,44,KRITT,a,pv(t0,0.8));hake(90,368+k*90,a)});
-   [['u_{t} + ','u·u_{x}',' = 0'],['u_{t} = u_{xx} + ','u^{2}','']].forEach((e,k)=>{const t0=475.5+k*1.6;const a=vis(t0,497.2);likn([[e[0],KRITT],[e[1],ROD],[e[2],KRITT]],760,380+k*90,44,a,pv(t0,0.8));kryss(700,368+k*90,a)});
+   ['u_{t} = α·u_{xx}','u_{xx} + u_{yy} = 0','u_{t} = (1 + x^{2})·u_{xx}'].forEach((e,k)=>{const t0=467.0+k*1.2;const a=vis(t0,497.2);tx(e,140,390+k*100,52,KRITT,a,pv(t0,0.8));hake(90,376+k*100,a)});
+   [['u_{t} + ','u·u_{x}',' = 0'],['u_{t} = u_{xx} + ','u^{2}','']].forEach((e,k)=>{const t0=475.5+k*1.6;const a=vis(t0,497.2);likn([[e[0],KRITT],[e[1],ROD],[e[2],KRITT]],760,390+k*100,52,a,pv(t0,0.8));kryss(700,376+k*100,a)});
    const q=vis(481.1,497.2);if(q>0){const s=pop(481.1);g.save();g.translate(1100,700);g.scale(s,s);tx('Hvorfor?',0,0,56,GUL,q,1,'center');g.restore()}
  }
  const va=vis(497.4,525.6);if(va>0){
@@ -230,13 +238,13 @@ function del2(){ // 384.9–649
  }
  // GITARSTRENG: grunntone, to overtoner, og summen
  const ga=vis(622.6,667.0);if(ga>0){
-   likn([['u_{tt} = c^{2}·u_{xx}',KRITT]],120,250,50,ga,1);lapp('bølgeligningen',600,250,GRA,622.6,667.0,30);
-   streng(120,390,620,55,[[1,1]],tv,TURKIS,vis(626.5,667.0));tx('grunntone',780,400,34,TURKIS,vis(626.5,667.0),pv(626.5,0.6));
-   streng(120,530,620,50,[[2,1]],tv,ORANSJE,vis(630.4,667.0));tx('1. overtone',780,540,34,ORANSJE,vis(630.4,667.0),pv(630.4,0.6));
-   streng(120,660,620,45,[[3,1]],tv,LILLA,vis(631.4,667.0));tx('2. overtone',780,670,34,LILLA,vis(631.4,667.0),pv(631.4,0.6));
+   likn([['u_{tt} = c^{2}·u_{xx}',KRITT]],120,250,56,ga,1);lapp('bølgeligningen',600,250,GRA,622.6,667.0,38);
+   streng(120,390,620,55,[[1,1]],tv,TURKIS,vis(626.5,667.0));tx('grunntone',780,400,42,TURKIS,vis(626.5,667.0),pv(626.5,0.6));
+   streng(120,530,620,50,[[2,1]],tv,ORANSJE,vis(630.4,667.0));tx('1. overtone',780,540,42,ORANSJE,vis(630.4,667.0),pv(630.4,0.6));
+   streng(120,660,620,45,[[3,1]],tv,LILLA,vis(631.4,667.0));tx('2. overtone',780,670,42,LILLA,vis(631.4,667.0),pv(631.4,0.6));
    lapp('alle løser bølgeligningen',120,320,GRONN,633.1,667.0,30);
    const su=vis(644.0,667.0);if(su>0){tx('+',420,605,44,KRITT,su,1,'center');tx('=',420,735,44,KRITT,su,1,'center')}
-   streng(120,850,620,55,[[1,1],[2,0.6],[3,0.45]],tv,KRITT,su,6);tx('sammen: ny løsning ✓',780,860,34,GRONN,su,pv(644.5,0.8));
+   streng(120,850,620,55,[[1,1],[2,0.6],[3,0.45]],tv,KRITT,su,6);tx('sammen: ny løsning ✓',780,860,42,GRONN,su,pv(644.5,0.8));
  }
 }
 
@@ -244,7 +252,7 @@ function del3(){ // 667–slutt
  if(tv<M(666.9))return;
  const a=vis(667.0,null);
  txt('Oppsummert',60,140,60,ORANSJE,667.0,null,1.0);
- const pos=likn([['F( x, t, ',KRITT],['u',TURKIS],[', u_{x}, u_{t}, u_{xx}, …',ORANSJE],[' ) = 0',KRITT]],120,330,52,a,pv(667.6,2.0));
+ const pos=likn([['F( x, t, ',KRITT],['u',TURKIS],[', u_{x}, u_{t}, u_{xx}, u_{yy}, …',ORANSJE],[' ) = 0',KRITT]],120,330,52,a,pv(667.6,2.0));
  boks(90,250,pos[3][0]+pos[3][1]-60,115,GRONN,a);{const gl=Math.sin(Math.PI*kl((tv-M(672.2))/1.8));if(gl>0){g.save();g.shadowColor=TURKIS;g.shadowBlur=34*gl;const sc=1+0.35*gl;g.translate(pos[1][0]+14,315);g.scale(sc,sc);tx('u',-14,15,52,TURKIS,a);g.restore()}}
  lapp('en ukjent funksjon av flere variabler og dens deriverte',120,430,KRITT,668.5,null,32);
  [['orden',680.5],['linearitet',682.0],['homogenitet',683.0]].forEach(([s,t0],k)=>{const v=vis(t0,null);const sc=pop(t0);g.save();g.translate(220+k*330,600);g.scale(sc,sc);tx(s,0,0,44,ORANSJE,v,1,'center');g.restore();hake(190+k*330,660,v)});

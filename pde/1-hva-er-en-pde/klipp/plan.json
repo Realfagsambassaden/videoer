@@ -1,2 +1,2 @@
-[{"fra": 0, "til": 26.08, "opptak": 0.0, "hoyde": 1080, "midt": 960},
- {"fra": 26.08, "til": 272.36, "opptak": 26.08, "hoyde": 760, "midt": 1600}]
+[{"fra": 0, "til": 26.08, "opptak": 0.08, "hoyde": 1080, "midt": 1250, "speil": true, "foran": [0, 0, 1920, 1080]},
+ {"fra": 26.08, "til": 274.96, "opptak": 26.16, "hoyde": 780, "midt": 1350, "speil": true, "foran": [0, 0, 1920, 1080]}]
