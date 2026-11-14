@@ -6,12 +6,12 @@ Les også `LESMEG.md`. Avsnittet **«Lærerens stil»** der inneholder faste øn
 
 ## Hva en video er
 
-- Én video per tema, **ca. 3 minutter** (aldri over 5). **Målet er alltid HVORFOR:** kort, men alltid med hvorfor ting er som de er (et intuitivt eller geometrisk bilde), ikke bare hva. Videoene er **kursnøytrale** og kan brukes på flere sider i flere fag.
+- Én video per tema, **ca. 3 minutter** (aldri over 5). **Målet er alltid HVORFOR:** kort, men alltid med hvorfor ting er som de er (et intuitivt eller geometrisk bilde), ikke bare hva. Videoene er **kursnøytrale** og kan brukes på flere sider i flere lærebøker, løyper og kurs.
 - Læreren står foran **grønnskjerm**, snakker og gjør ting med rekvisitter. Du lager **tavla** bak: lærerens egne tegninger (og TikZ/animasjon der det er bedre), animert i takt med det læreren sier.
 - Den ferdige videoen = animasjonen + læreren (grønnskjermen fjernet) **nede i høyre hjørne** + lyden fra opptaket, med **DrNormann-logoen** i et hjørne hele tiden. Til hver video lager du også et **YouTube-miniatyrbilde** (thumbnail). Læreren laster begge opp til YouTube.
 - **Intro og outro skal alltid med, som i Arbeid-videoen men med grønn DrNormann** (lærerens kjennemerke): `python3 _verktoy/intro_gronn.py <Intro.mp4> intro.mp4` (de første 2.2 s av `Intro.mp4` i negativ, «Dr. Normann» farget neongrønn med glød) og `python3 _verktoy/outro_gronn.py <Intro.mp4> outro.mp4` (grønn DrNormann-logo spretter fram på dempet tavle, 2.8 s, tones til svart). `Intro.mp4` ligger i `Filmprosjekt/DrNormann/` på Macen. Rekkefølge: eventuell kald start (morsom bit fra opptaket) → intro → **miniatyrbildet som tittelkort** (ca. 1.6 s) → videoen → eventuell Dashman-stinger → outro. Overganger: `xfade` slideleft inn i introen, kort fade (0.3 s) fra intro til tittelkort, fadeblack til outro. **Intromusikken er alltid `_verktoy/lyd/intro_musikk.wav`** (fra Arbeid-videoen v2, 3.25 s), lagt inn fra introens start og over tittelkortet – ikke lyden fra `Intro.mp4`. **Outroen får `_verktoy/lyd/outro_musikk.wav`** (samme musikk, svakere, tones ut), lagt inn fra starten av outroen.
 - **Overganger med lyd:** svisj-lyd ved sceneskift og ved intro/outro (`_verktoy/lyd/svisj.wav`), «boing» når noe fjærer (`boing.wav`), «pop» når bokser dukker opp (`pop.wav`). Mellom delene av tavla brukes et viskelær som sveiper over; inn og ut av introen brukes en kort `xfade` (slideleft/circleopen).
-- Sidene på nettstedet ligger i andre repoer (lærebokrepoene, i koden kalt «fag»). Der står plassholderen «Video kommer» til videoen er registrert i `ferdige.yml`. En automatisk nattjobb bytter da plassholderen ut med videoen. **Du rører aldri fagrepoene.**
+- Sidene på nettstedet ligger i andre repoer (lærebokrepoene, i koden kalt «fag»). Der står plassholderen «Video kommer» til videoen er registrert i `ferdige.yml`. En automatisk nattjobb bytter da plassholderen ut med videoen. **Du rører aldri lærebokrepoene.**
 
 ## Mapper
 
@@ -28,7 +28,7 @@ _verktoy/                 lag.js (anim.html → mp4), finn_pauser.py, sett_samme
   thumbnail.json, thumbnail.jpg  miniatyrbildet (oppsett og ferdig bilde) – person.png (utklipp av læreren) ligger ikke i git
 ```
 
-Eksempler: `arbeid-og-energi/potensiell-energi/`, `hva-er-fysikk/overslag/`. Tema-id-ene står i <https://github.com/Realfagsambassaden/Plattform/blob/main/tema.yml>. (Vi sier «tema», ikke «emne», fordi «emne» også betyr et kurs.)
+Eksempler: `arbeid-og-energi/potensiell-energi/`, `hva-er-fysikk/overslag/`. Tema-id-ene står i <https://github.com/Realfagsambassaden/Plattform/blob/main/tema.yml>. (Vi sier «tema», ikke «emne», fordi «emne» betyr institusjonens emne, f.eks. IFYA1000. Begrepene lærebok, løype, kurs og emne: se `Plattform/AGENTS.md` §0.)
 
 **Opptakene lagres ikke i git** (for store). De ligger i en mappe på Macen som læreren gir deg tilgang til, f.eks. `~/Movies/Realfagsambassaden/opptak/`. Spør læreren hvor, og noter stien i «Lærerens stil» i LESMEG.md. Det samme gjelder ferdige `.mp4`-filer: legg dem i `~/Movies/Realfagsambassaden/ferdig/` (eller der læreren vil), ikke i repoet.
 
