@@ -11,7 +11,7 @@ Les også `LESMEG.md`. Avsnittet **«Lærerens stil»** der inneholder faste øn
 - Den ferdige videoen = animasjonen + læreren (grønnskjermen fjernet) **nede i høyre hjørne** + lyden fra opptaket, med **DrNormann-logoen** i et hjørne hele tiden. Til hver video lager du også et **YouTube-miniatyrbilde** (thumbnail). Læreren laster begge opp til YouTube.
 - **Intro og outro skal alltid med, som i Arbeid-videoen men med grønn DrNormann** (lærerens kjennemerke): `python3 _verktoy/intro_gronn.py <Intro.mp4> intro.mp4` (de første 2.2 s av `Intro.mp4` i negativ, «Dr. Normann» farget neongrønn med glød) og `python3 _verktoy/outro_gronn.py <Intro.mp4> outro.mp4` (grønn DrNormann-logo spretter fram på dempet tavle, 2.8 s, tones til svart). `Intro.mp4` ligger i `Filmprosjekt/DrNormann/` på Macen. Rekkefølge: eventuell kald start (morsom bit fra opptaket) → intro → **miniatyrbildet som tittelkort** (ca. 1.6 s) → videoen → eventuell Dashman-stinger → outro. Overganger: `xfade` slideleft inn i introen, kort fade (0.3 s) fra intro til tittelkort, fadeblack til outro. **Intromusikken er alltid `_verktoy/lyd/intro_musikk.wav`** (fra Arbeid-videoen v2, 3.25 s), lagt inn fra introens start og over tittelkortet – ikke lyden fra `Intro.mp4`. **Outroen får `_verktoy/lyd/outro_musikk.wav`** (samme musikk, svakere, tones ut), lagt inn fra starten av outroen.
 - **Overganger med lyd:** svisj-lyd ved sceneskift og ved intro/outro (`_verktoy/lyd/svisj.wav`), «boing» når noe fjærer (`boing.wav`), «pop» når bokser dukker opp (`pop.wav`). Mellom delene av tavla brukes et viskelær som sveiper over; inn og ut av introen brukes en kort `xfade` (slideleft/circleopen).
-- Sidene på nettstedet ligger i andre repoer (fagrepoene). Der står plassholderen «Video kommer» til videoen er registrert i `ferdige.yml`. En automatisk nattjobb bytter da plassholderen ut med videoen. **Du rører aldri fagrepoene.**
+- Sidene på nettstedet ligger i andre repoer (lærebokrepoene, i koden kalt «fag»). Der står plassholderen «Video kommer» til videoen er registrert i `ferdige.yml`. En automatisk nattjobb bytter da plassholderen ut med videoen. **Du rører aldri fagrepoene.**
 
 ## Mapper
 
@@ -47,7 +47,7 @@ Eksempler: `arbeid-og-energi/potensiell-energi/`, `hva-er-fysikk/overslag/`. Tem
 
 ## Registrere en ferdig video (`ferdige.yml`)
 
-Nøkkelen er **side-id-en fra plassholderen** på siden i fagrepoet, ikke videomappa. Plassholderen ser slik ut: `<!-- video: kommer (videoer/fysikk-forkurs/11-02-potensiell-energi) -->` → nøkkelen er `fysikk-forkurs/11-02-potensiell-energi`. Én video kan registreres på flere sider:
+Nøkkelen er **side-id-en fra plassholderen** på siden i lærebokrepoet, ikke videomappa. Plassholderen ser slik ut: `<!-- video: kommer (videoer/fysikk-forkurs/11-02-potensiell-energi) -->` → nøkkelen er `fysikk-forkurs/11-02-potensiell-energi`. Én video kan registreres på flere sider:
 
 ```yaml
 videoer:
@@ -55,7 +55,7 @@ videoer:
   ingeniorfysikk/04-02-potensiell-energi-og-energibevaring: https://www.youtube.com/watch?v=XXXXXXXXXXX
 ```
 
-Finn sidene med `grep -rl "video: kommer" kapitler/` i de offentlige fagrepoene på github.com/Realfagsambassaden (eller spør læreren). Skriv også i `manus.md` (øverst, «Brukes på:») hvilke sider videoen er registrert på. Finnes det ingen side ennå, vent med å registrere, men noter videoen i «Status» nederst.
+Finn sidene med `grep -rl "video: kommer" kapitler/` i de offentlige lærebokrepoene på github.com/Realfagsambassaden (eller spør læreren). Skriv også i `manus.md` (øverst, «Brukes på:») hvilke sider videoen er registrert på. Finnes det ingen side ennå, vent med å registrere, men noter videoen i «Status» nederst.
 
 ## Klipping (når opptaket har omtak)
 
