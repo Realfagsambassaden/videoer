@@ -1,5 +1,5 @@
 # Ferdige videoer: <side-id> → YouTube-lenke.
-# Side-id-en står i plassholderen på siden i fagrepoet: <!-- video: kommer (videoer/<side-id>) -->
+# Side-id-en står i plassholderen på siden i lærebokrepoet: <!-- video: kommer (videoer/<side-id>) -->
 # Én video kan registreres på flere sider. Nattjobben bytter da ut «Video kommer»-bildet med videoen.
 # Eksempel:
 #   fysikk-forkurs/11-02-potensiell-energi: https://www.youtube.com/watch?v=XXXXXXXXXXX
