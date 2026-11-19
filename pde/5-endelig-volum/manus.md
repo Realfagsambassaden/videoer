@@ -16,7 +16,7 @@ Tre idéer: (1) bevaringsloven – endring = inn − ut + produksjon, (2) endeli
 
 > Det som går ut av én celle, må gå inn i den neste. Det høres opplagt ut – men det er hele hemmeligheten bak metoden som brukes i nesten all strømningsprogramvare.
 
-**[Dashman: noytral_kopp → mystisk]**
+**[Du: hold opp to knyttnever ved siden av hverandre som to celler; «vift» noe fra den ene over i den andre ved «går inn i den neste». Lur mine ved «hele hemmeligheten».]**
 *På skjermen:* En rad med fem celler. Røde varmepiler hopper fra celle til celle (pop-pop-pop). «ut av én = inn i neste» spretter inn.
 
 ### 1. Bevaringsloven (0:00–0:55)
@@ -26,7 +26,7 @@ Tre idéer: (1) bevaringsloven – endring = inn − ut + produksjon, (2) endeli
 > Endring er lik inn minus ut, pluss produksjon. Det er en bevaringslov.
 > Lar vi biten bli uendelig liten, blir det en PDE – for eksempel varmeligningen. Men endelig volum-metoden gjør det motsatte: Den lar bitene være *endelige*, og bruker loven direkte.
 
-**[Dashman: peker_tavla → skrive → lyspaere]**
+**[Du: vis «en liten bit» mellom tommel og pekefinger; pek inn fra én side og ut på den andre; knipse-gest for «lages inni». Ved «endelige»: hold hendene et lite stykke fra hverandre og la dem stå.]**
 *På skjermen:* Tittel «Endelig volum» (oransje). En grå celle med en rød pil inn fra venstre «fluks inn», en rød pil ut til høyre «fluks ut», en gul stjerne inni «kilde S». Grønn boks: «endring = inn − ut + produksjon». En pil ned med «δx → 0» til «ρc u_t = (κu_x)_x + S» (grå), og en pil til siden med «δx endelig» til «endelig volum» (grønn).
 
 ### 2. Bevaring i hver celle (0:55–2:05)
@@ -37,7 +37,7 @@ Tre idéer: (1) bevaringsloven – endring = inn − ut + produksjon, (2) endeli
 > Samler vi alt, får vi én ligning per celle: a P T P er lik a W T W pluss a E T E pluss S u. a-ene er rett og slett ledningsevner – hvor lett varmen slipper over til naboen.
 > Og det fine: Fluksen gjennom en flate regnes ut med samme formel fra begge sider. Det som går ut av én celle, går nøyaktig inn i neste. Bevaringen er eksakt – uansett hvor grovt gitteret er.
 
-**[Dashman: peker_tavla → noytral → armer_opp (ved «eksakt»)]**
+**[Du: pek på cellene på tavla; vis en pil fra varmt til kaldt med hånda. Ved «samme formel fra begge sider»: før hånda over en tenkt flate og tilbake. Armene opp ved «eksakt».]**
 *På skjermen:* Staven deles i fem celler (svisj for hvert snitt), prikker midt i cellene, stiplede flater. Én celle lyser: W, P, E og flatene w, e. En graf med en rett linje mellom T_P og T_E og stigningen «(T_E − T_P)/δx». Formelen bygges med «popp»: «κA(T_E − T_P)/δx − κA(T_P − T_W)/δx + S = 0» → grønn boks «a_P T_P = a_W T_W + a_E T_E + S^u» med «a = κA/δx» og lappen «a = ledningsevne». Så de fem cellene igjen med like store røde piler over hver flate, som hopper videre: «bevaring: eksakt ✓».
 
 ### 3. Randen og kilder (2:05–3:15)
@@ -48,7 +48,7 @@ Tre idéer: (1) bevaringsloven – endring = inn − ut + produksjon, (2) endeli
 > Og en kilde – for eksempel varme fra strøm – skrives som S u pluss S P ganger T P. S P skal være null eller negativ. *Hvorfor?* En negativ S P er et sluk som blir sterkere jo varmere det er – det bremser seg selv. En positiv S P ville gjort at varmt blir enda varmere, og da kan løsningen stikke av.
 > Prøv med en stav som er hundre grader i den ene enden og fem hundre i den andre. Fem celler gir hundre og førti, to hundre og tjue, tre hundre, tre hundre og åtti og fire hundre og seksti grader. Akkurat en rett linje – den eksakte løsningen.
 
-**[Dashman: skrive → skuldre (ved «isolert vegg gir ingenting») → overrasket → tada]**
+**[Du: vis en halv celle med hendene ved «halv vei»; trekk på skuldrene ved «isolert vegg gir ingenting»; ved «stikke av»: hånda som skyter oppover. Til slutt: pek på den rette linja på tavla.]**
 *På skjermen:* Første celle med randen og «δx/2». En saks klipper koblingen (lyd: «snipp»). Fire skuffer «a_W», «a_E», «S^u», «S_P» – bidragene flyr ned i riktig skuff med pop: «kjent T → S^u og S_P», «kjent fluks → S^u», «isolert → –», «kilde → S^u + S_P T_P, S_P ≤ 0». Så eksempelet: stav med «100 °C» (blå) og «500 °C» (rød), «κA/δx = 100». Matrisen fylles rad for rad (300, 200, 200, 200, 300 på diagonalen, −100 ved siden av; høyreside 20 000, 0, 0, 0, 100 000). Cellene farges fra blått til rødt med 140, 220, 300, 380, 460, og en rett linje går gjennom: «= eksakt ✓» (pling).
 
 ### 4. Avslutning (3:15–3:30)
@@ -56,7 +56,7 @@ Tre idéer: (1) bevaringsloven – endring = inn − ut + produksjon, (2) endeli
 
 > Endelig volum: bevaringsloven, skrevet opp for hver celle. Fluksene på flatene, én ligning per celle, og randen og kildene i de samme skuffene. Prøv deg på noen oppgaver!
 
-**[Dashman: noytral_kopp]**
+**[Du: åpne armer ved oppsummeringen; pek ned mot oppgavene til slutt.]**
 *På skjermen:* Grønn boks «a_P T_P = Σ a_nb T_nb + S^u, a_P = Σ a_nb − S_P». Fysikkhjelp-logoen.
 
 ---
