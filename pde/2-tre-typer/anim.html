@@ -224,7 +224,7 @@ function del3(){ // 724–1137: de tre familiene (+ 3D)
  const W=380,Y=250,H=600;const d3=vis(1117.4,1137.2),ud=1-d3;
  // HYPERBOLSK (bølge)
  const h=vis(724.3,1137.2)*ud;
- if(h>0){const x=60;rute(x,Y,W,H,LILLA,h);tx('bølge',x+20,Y+60,46,LILLA,h);fortegn(x+20,Y+130,['+','−'],h,40);
+ if(h>0){const x=40;rute(x,Y,W,H,LILLA,h);tx('bølge',x+20,Y+60,46,LILLA,h);fortegn(x+20,Y+130,['+','−'],h,40);
    const v=vis(735.5,1137.2)*ud;if(v>0){const ox=x+W/2,oy=Y+420;const f=kl((tv-M(735.5))/1.5);strek(ox,oy,ox-150*f,oy-170*f,LILLA,5,1,v);strek(ox,oy,ox+150*f,oy-170*f,LILLA,5,1,v);g.save();g.globalAlpha=v;g.fillStyle=GUL;g.beginPath();g.arc(ox,oy,9,0,7);g.fill();g.restore();
      pil(x+30,oy+30,x+W-30,oy+30,KRITT,2,1,v*0.6,10);tx('x',x+W-40,oy+62,30,KRITT,v*0.6);pil(x+30,oy+30,x+30,oy-200,KRITT,2,1,v*0.6,10);tx('t',x+40,oy-190,30,KRITT,v*0.6)}
    const p=vis(745.7,1137.2)*ud;if(p>0){const tt=tv<M(755.2)?0:((tv-M(755.2))%3.0)/3.0*0.4;tau(x+20,Y+H-40,W-40,60,tt,KRITT,p)}
@@ -232,7 +232,7 @@ function del3(){ // 724–1137: de tre familiene (+ 3D)
    stempel('HYPERBOLSK',x+W/2,Y+H+70,LILLA,768.3,1137.2,36);}
  // PARABOLSK (varme)
  const pa=vis(863.5,1137.2)*ud;
- if(pa>0){const x=480;rute(x,Y,W,H,ROD,pa);tx('varme',x+20,Y+60,46,ROD,pa);fortegn(x+20,Y+130,['+','0'],pa,40);
+ if(pa>0){const x=440;rute(x,Y,W,H,ROD,pa);tx('varme',x+20,Y+60,46,ROD,pa);fortegn(x+20,Y+130,['+','0'],pa,40);
    const v=vis(872.8,1137.2)*ud;if(v>0){pil(x+W/2,Y+480,x+W/2,Y+260,ROD,5,pv(875.7,0.8),v,16);tx('t',x+W/2+16,Y+280,40,ROD,v)}
    lapp('1 retning: tida',x+20,Y+200,ROD,872.8,1137.2,40);
    const s=vis(877.1,1137.2)*ud;if(s>0){const tt=((tv-M(877.1))%4.0)/4.0;varmekurve(x+20,Y+H-40,W-40,160,tt,KRITT,s)}
@@ -240,7 +240,7 @@ function del3(){ // 724–1137: de tre familiene (+ 3D)
    stempel('PARABOLSK',x+W/2,Y+H+70,ROD,893.6,1137.2,36);}
  // ELLIPTISK (likevekt)
  const ea=vis(948.0,1137.2)*ud;
- if(ea>0){const x=900;rute(x,Y,W,H,KRITT,ea);tx('likevekt',x+20,Y+60,46,KRITT,ea);fortegn(x+20,Y+130,['+','+'],ea,40);
+ if(ea>0){const x=840;rute(x,Y,W,H,KRITT,ea);tx('likevekt',x+20,Y+60,46,KRITT,ea);fortegn(x+20,Y+130,['+','+'],ea,40);
    lapp('0 retninger',x+20,Y+200,KRITT,951.5,1137.2,40);
    const sk=vis(960.8,988.0)*ud;if(sk>0){const r=40+110*kl((tv-M(960.8))/1.5);sky(x+W/2,Y+360,r,sk)}
    const la=vis(988.2,1137.2)*ud;if(la>0){plate(x+30,Y+260,130,130,la);tx('Laplace',x+30,Y+440,36,KRITT,la);tx('etter lang tid',x+30,Y+485,30,GRA,la)}
@@ -265,7 +265,7 @@ function del4(){ // 1137–1346: kriteriet
  const rows=[['det A > 0','like fortegn',['+','+'],1227.9],['det A = 0','én er null',['+','0'],1233.8],['det A < 0','motsatte fortegn',['+','−'],1237.4]];
  rows.forEach(([d,n,par,t0],i)=>{const v=vis(t0,1345.9);tx(d,100,500+i*80,46,KRITT,v,pv(t0,0.6));tx('→ '+n,360,500+i*80,42,KRITT,v,pv(t0+0.4,0.6));fortegn(840,500+i*80,par,v,36)});
  // · (−4) → a² − 4b
- const m4=vis(1302.0,1345.9);if(m4>0){const s=pop(1302.0);g.save();g.translate(130,780);g.scale(s,s);tx('· (−4)',0,0,52,GUL,m4);g.restore()}
+ const m4=vis(1302.0,1345.9);if(m4>0){const s=pop(1302.0);g.save();g.translate(40,780);g.scale(s,s);tx('det A · (−4)',0,0,46,GUL,m4);g.restore()}
  const kr2=vis(1316.0,1345.9);if(kr2>0){const s=pop(1316.0);g.save();g.translate(520,770);g.scale(s,s);tx('a^{2} − 4b',-120,0,64,GRONN,kr2);g.restore();boks(370,705,330,95,GRONN,kr2)}
  const ty=[['< 0','elliptisk',KRITT,1285.3],['= 0','parabolsk',ROD,1290.3],['> 0','hyperbolsk',LILLA,1293.4]];
  ty.forEach(([f,n,c,t0],i)=>{const v=vis(t0,1345.9);tx(f,760,720+i*70,44,GRONN,v,pv(t0,0.5));tx(n,880,720+i*70,44,c,v,pv(t0,0.6))});
