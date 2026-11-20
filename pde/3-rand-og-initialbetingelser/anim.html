@@ -174,8 +174,8 @@ function del2(){ // 262–1033: hvilke og hvor mange
    // tabell
    const r1=vis(294.5,408.1),r2=vis(306.1,408.1);
    if(r1>0){tx('varme:',640,420,44,ROD,r1);tx('u_{t}',800,420,44,KRITT,r1);tx('→ 1. orden i tid',900,420,40,KRITT,vis(302.9,408.1),pv(302.9,0.7));tx('→ 1: starttemperaturen u(x, 0)',640,490,38,TURKIS,vis(300.2,408.1),pv(300.2,0.9))}
-   if(r2>0){tx('bølge:',640,600,44,LILLA,r2);tx('u_{tt}',800,600,44,KRITT,r2);tx('→ 2. orden i tid',900,600,40,KRITT,vis(308.0,408.1),pv(308.0,0.7));tx('→ 2: utslaget u(x, 0) og farten u_{t}(x, 0)',640,670,38,TURKIS,vis(325.4,408.1),pv(325.4,1.2));
-     const sa=vis(327.1,408.1);if(sa>0){strengform(660,830,420,70,0,TURKIS,sa);const fa=vis(330.4,408.1);[0.2,0.35,0.55,0.75].forEach(s=>{const X=660+s*420,Y=830-70*(s<0.35?s/0.35:(1-s)/0.65);pil(X,Y,X,Y-60,GUL,4,pv(330.4,0.5),fa,12)});tx('fart',1100,760,36,GUL,fa)}}
+   if(r2>0){tx('bølge:',640,600,44,LILLA,r2);tx('u_{tt}',800,600,44,KRITT,r2);tx('→ 2. orden i tid',900,600,40,KRITT,vis(308.0,408.1),pv(308.0,0.7));tx('→ 2: utslaget u(x, 0)',640,670,38,TURKIS,vis(325.4,408.1),pv(325.4,0.7));tx('og farten u_{t}(x, 0)',688,718,38,TURKIS,vis(326.5,408.1),pv(326.5,0.7));
+     const sa=vis(327.1,408.1);if(sa>0){strengform(660,890,420,70,0,TURKIS,sa);const fa=vis(330.4,408.1);[0.2,0.35,0.55,0.75].forEach(s=>{const X=660+s*420,Y=890-70*(s<0.35?s/0.35:(1-s)/0.65);pil(X,Y,X,Y-60,GUL,4,pv(330.4,0.5),fa,12)});tx('fart',1100,820,36,GUL,fa)}}
  }
  // B: hvorfor? integrasjonskonstanter (408–571)
  const B=vis(408.2,571.0);
