@@ -1,18 +1,18 @@
 # Manus: Tre typer PDE-er – og hvorfor
 
-**Tema: Partielle differensialligninger · undertema: Introduksjon til PDE-er (klassifisering) · ca. 4.5 min**
+**Tema: Partielle differensialligninger · undertema: Introduksjon til PDE-er (klassifisering) · ca. 5 min**
 **Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.1)
 **Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
 
 **Grafisk språk:** se `pde/LESMEG.md`.
 
-Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diagonal, og informasjonen kan gå i 2, 1 eller 0 retninger, (2) kriteriet a² − 4b kommer fra determinanten, (3) typen bestemmer hvilke rand- og initialbetingelser vi trenger.
+Tre idéer: (1) alt som bestemmer typen ligger i matrisen A – og en rotasjon gjør A diagonal, (2) fortegnene til egenverdiene gir tre typer, der informasjonen går i 2, 1 eller 0 retninger, (3) kriteriet a² − 4b kommer fra determinanten – og forklarer navnene (kjeglesnitt). Rand- og initialbetingelser er skilt ut i egen film, `pde/3-rand-og-initialbetingelser` (20. november 2026).
 
 **Opptak:** tas opp på video (lydopptaket PDE_1_take2 brukes ikke videre).
 
 ---
 
-### 1. Tre typer – og hvorfor (0:00–2:50)
+### 1. Tre typer – og hvorfor (0:00–4:40)
 *Kartet:* lyser på «type».
 
 > *Hvilke* deriverte som er med i en PDE, bestemmer hva slags fysikk den beskriver. Vi skal nå se litt nærmere på det, ved å studere andre-ordens PDE-er. Mange av fysikkens viktigste likninger er nemlig av andre orden – altså likninger hvor den høyeste deriverte involvert er en andrederivert.
@@ -57,36 +57,19 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
    - **Elliptisk – Laplace/Poisson:** punktet påvirker hele området; en myk sky av farge brer seg ut i alle retninger samtidig, og en plate med varm venstrekant legger seg i ro (Laplace: «etter lang tid»). Ved «Poisson»: en liten planet med feltlinjer inn mot seg og «∇²φ = 4πGρ». Stempel: «LIKEVEKT · 0 retninger».
 6a. **Flere variabler (kort):** ved «tre dimensjoner» en liten 3×3-matrise med fortegnene (+ + +), (+ + 0) og (+ + −) som popper opp og forsvinner igjen (lapp: «samme tre familier»).
 6. **Fra egenverdier til kriteriet (bygges trinn for trinn):** matrisen A fra punkt 2 kommer tilbake. «λ₁ · λ₂ = det A» skrives under; determinanten regnes ut i A med kryss-strek (1·b − a/2·a/2) og blir «b − a²/4» (popp). Tre linjer med fortegn: «det A > 0 → like fortegn», «= 0 → én er null», «< 0 → motsatte fortegn», med fortegnsmerkene («+ +», «+ 0», «+ −») fra punkt 4 ved siden av. Så ganges det med «· (−4)», som flyr inn fra siden, og «b − a²/4» blir til «a² − 4b» i grønn boks (popp) – fortegnene snus: «< 0 elliptisk · = 0 parabolsk · > 0 hyperbolsk». Til slutt, lite: «m² − a·m + b = 0» med «retningene = røttene, samme diskriminant», og de 2, 1 eller 0 lysende linjene fra punkt 5 blinker én gang. Eksemplene leses av i en liten tabell: Laplace −4, varme 0 (u_t er bare av første orden), bølge 4/c².
+7. **Kjeglesnittene (navnene):** ved «bytter vi ut de andrederiverte med x og y» glir u_xx, u_xy og u_yy i ligningen over til x², xy og y² (popp, popp, popp): «x² + a·xy + b·y² = 1». Tre små kjeglesnitt tegnes fram side om side, i familiefargene: en ellipse (kritt, «a² − 4b < 0 · elliptisk»), en parabel (rød, «= 0 · parabolsk») og en hyperbel (lilla, «> 0 · hyperbolsk»). Over dem, lite: en kjegle som skjæres av et plan i tre vinkler.
 (I denne delen har familiene hver sin farge i animasjonene: bølge lilla, varme rød, Laplace kritt.)
 
 
-### 2. Rand- og initialbetingelser (2:50–4:00)
-*Kartet:* lyser på «betingelser».
+### 2. Avslutning (4:40–5:00)
+*Kartet:* lyser på «type».
 
-> Men ett problem gjenstår. En PDE har uendelig mange løsninger. For bølgeligningen er f av x minus c t, pluss g av x pluss c t, en løsning *uansett* hvilke funksjoner f og g du velger, så lenge de er to ganger deriverbare.
-> Så... hvilken av de uendelig mange løsningene er riktig beskrivelse av akkurat det ingeniørproblemet du forsøker å løse? 
-> Svaret ligger i ekstra betingelser. Vi deler disse i to viktige klasser: *Initialbetingelser* sier hvordan alt er ved start, t lik null. *Randbetingelser* sier hva som skjer på randen, altså kanten. For eksempel at utslaget i endene av gitarstrengen alltid er null.
-> Og typen til PDEen bestemmer hva du trenger: Varme og bølger marsjerer fram i tid fra en starttilstand, så de trenger initialbetingelser – i tillegg til randbetingelser. Varmeligningen er av første orden i tid, så den trenger bare starttemperaturen. Bølgeligningen er av andre orden i tid, så den trenger to: både formen og farten på strengen ved start – akkurat som en ball trenger både startposisjon og startfart. Regelen er den samme som for ordinære differensialligninger: Ordenen i tid sier hvor mange initialbetingelser du trenger. Elliptiske ligninger, som Laplace og Poisson, har ingen tid og trenger randbetingelser rundt hele området.
-> Randbetingelser finnes i tre varianter: *Dirichlet* gir verdien på randen. Se for deg en stav som varmes fra én side, og har oppnådd likevekt, så ingenting endrer seg i tid. Det kan f. eks. være et varmeelement i et tørkeskap. Da trenger jeg å vite temperaturen på randa for å kunne løse PDE-en for temperaturfordelingen inne i staven. *Neumann* gir den deriverte på randen, altså strømmen ut – en isolert ende har null varmestrøm. Og *Robin* er en blanding av de to.
+> Andreordens PDE-er: tre familier med helt ulik oppførsel – sånn pleier det å være med familier, vettu. Og typen avgjøres av fortegnet til a i andre minus fire b. Prøv deg på noen oppgaver!
 
-**[Du: trekk på skuldrene ved «uendelig mange»; vis gitarstrengen med hendene (to faste ender) ved randbetingelser; løft en finger ved «typen til PDE-en bestemmer»; vis staven med hendene ved Dirichlet, og gni hendene (isolert) ved Neumann.]**
-*På skjermen:*
-1. Problemet: «u = f(x − ct) + g(x + ct)», der f og g er gule bokser. Formene i boksene byttes raskt (lyd: «brrrt»), og bølgeformene under flimrer forbi. Et stort gult «∞ løsninger».
-2. Generelt: et område (grått) med randen tegnet rundt. To merkelapper: «initialbetingelse: hvordan det er ved start» (turkis) og «randbetingelse: hva som skjer på kanten» (oransje).
-3. Konkret for varme og bølge: en x–t-ramme. Nederste kant lyser turkis «u(x, 0) = f(x)», sidekantene lyser oransje «u(0, t), u(1, t)». En pil glir oppover gjennom ramma: «marsjer i tid».
-4. Konkret for Laplace: en firkant der *hele* randen lyser oransje – «rand rundt hele området». Til slutt krympes «∞» til «1» i grønn boks: «betingelser → én løsning».
-2a. Ved «gitarstrengen»: en streng mellom to fester, endene merket oransje «u = 0».
-5. **Tre typer randbetingelser** (ca. 20 s): først en stav i likevekt, varmet fra venstre (rød → blå), med termometre i begge ender: «Dirichlet: u = verdi på randen» (oransje). Så den høyre enden pakket inn i isolasjon, med en pil for varmestrøm og «0»: «Neumann: u_x = verdi (strømmen ut)». Til slutt en ende med små bølgete piler ut i lufta: «Robin: blanding av u og u_x». De tre merkelappene blir stående side om side.
+**[Du: tre fingre ved «tre familier»; pek på den grønne boksen ved «a i andre minus fire b»; pek ned mot oppgavene til slutt.]**
+*På skjermen:* De tre rutene som små ikoner (ellipse, parabel, hyperbel) med stemplene «LIKEVEKT · 0 retninger», «JEVNER UT · 1 retning», «FRAKTER · 2 retninger», og den grønne boksen «a² − 4b». Fysikkhjelp-logoen.
 
-
-### 3. Avslutning (4:00–4:30)
-*Kartet:* lyser på «hele kartet (første halvdel lyser)».
-
-> Andreordens PDE-er: tre familier med helt ulik oppførsel – sånn pleier det å være med familier, vettu. Når vi faktisk skal løse et konkret PDE-problem, trenger vi i tillegg betingelser som plukker ut den rette løsningen. Kos dæ --- ubetinga!
-
-**[Du: åpne armer ved oppsummeringen; pek ned mot oppgavene til slutt.]**
-*På skjermen:* De tre kolonnene som små ikoner, og ramma med initial- og randbetingelser. Fysikkhjelp-logoen.
-
+---
 
 **Tall:** Kjeglesnittet x² + a·xy + b·y² = 1 er en ellipse når a² − 4b < 0 og en hyperbel når a² − 4b > 0; når a² − 4b = 0 blir det en parabel bare sammen med førsteordensledd (f.eks. varmeligningen u_t = u_xx ↔ y = x²), ellers to parallelle linjer. Med a, b funksjoner er [∂ₓ ∂ᵧ]·A·[∂ₓ; ∂ᵧ]u = ∇·(A∇u) = u_xx + a·u_xy + b·u_yy + (a_y/2)·u_x + (a_x/2 + b_y)·u_y – de ekstra leddene er av første orden (leses A i stedet som Σ A_ij ∂_i∂_j u, kommer de ikke). Poisson for gravitasjon: ∇²φ = 4πGρ (φ = gravitasjonspotensialet, feltet g = −∇φ). Bølgeløsning fra ro: u = ½f(x − ct) + ½f(x + ct) (bulen deler seg i to halvdeler). Randbetingelser: Dirichlet u = g, Neumann ∂u/∂n = g, Robin αu + β∂u/∂n = g. Laplace (x, y): a = 0, b = 1 → a² − 4b = −4 < 0. Varme u_t = αu_xx ⇔ u_xx − (1/α)u_t = 0 i (x, t): a = b = 0 → 0 (α = κ/(ρc) > 0). Bølge u_xx − (1/c²)u_tt = 0: a = 0, b = −1/c² → 4/c² > 0. Koeffisientmatrisen [1, a/2; a/2, b] har determinant b − a²/4 = −(a² − 4b)/4, så fortegnet til a² − 4b avgjør om egenverdiene har like fortegn (elliptisk), en er null (parabolsk) eller motsatte fortegn (hyperbolsk). a og b kan være funksjoner av x, y (og for kvasi-lineære ligninger av u, u_x, u_y); da avgjøres typen punktvis – f.eks. Tricomi-ligningen y·u_xx + u_yy = 0 er elliptisk for y > 0 og hyperbolsk for y < 0. Samme kriterium som i kompendiet (oppsummeringen «Klassifisering av 2.ordens PDE»). Karakteristikkene: for u_xx + a·u_xy + b·u_yy har retningene med stigning m = dy/dx (m² − a·m + b = 0) diskriminant a² − 4b. NB: typen avgjøres av egenverdiene til A, ikke Hessematrisen til u (for Laplace har Hessematrisen til enhver løsning spor 0, f.eks. u = xy med egenverdier ±1, men ligningen er elliptisk).
 
