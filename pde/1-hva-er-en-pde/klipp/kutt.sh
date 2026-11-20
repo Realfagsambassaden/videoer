@@ -34,3 +34,7 @@
 [ -f b_33.mkv ] || ffmpeg -v error -y -ss 632.88 -i ../../PDE_1_take3.mov -frames:v 163 -af atrim=end_sample=312960 -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p -c:a pcm_s16le b_33.mkv
 [ -f b_35.mkv ] || ffmpeg -v error -y -ss 643.80 -i ../../PDE_1_take3.mov -frames:v 114 -af atrim=end_sample=218880 -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p -c:a pcm_s16le b_35.mkv
 [ -f b_36.mkv ] || ffmpeg -v error -y -ss 667.00 -i ../../PDE_1_take3.mov -frames:v 445 -af atrim=end_sample=854400 -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p -c:a pcm_s16le b_36.mkv
+# utkast 4 (20.11): tagning C for PDE-halvdelen, ny varmeovn-setning fra PDE1_ekstratake.mov
+[ -f b_05c.mkv ] || ffmpeg -v error -y -ss 218.64 -i ../../PDE_1_take3.mov -frames:v 376 -af atrim=end_sample=721920 -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p -c:a pcm_s16le b_05c.mkv
+[ -f b_26k.mkv ] || ffmpeg -v error -y -ss 497.28 -i ../../PDE_1_take3.mov -frames:v 296 -af atrim=end_sample=568320 -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p -c:a pcm_s16le b_26k.mkv
+[ -f b_26x.mkv ] || ffmpeg -v error -y -ss 29.12 -i ../../PDE1_ekstratake.mov -frames:v 263 -af atrim=end_sample=504960 -c:v libx264 -preset veryfast -crf 16 -pix_fmt yuv420p -c:a pcm_s16le b_26x.mkv

@@ -8,6 +8,7 @@ with open('concat.txt','w') as c:
         nf=int(subprocess.check_output(['ffprobe','-v','error','-count_frames','-select_streams','v','-show_entries','stream=nb_read_frames','-of','csv=p=0',U+f]).decode().strip().strip(','))
         subprocess.run(['ffmpeg','-v','error','-y','-i',U+f,'-vn','-ac','1','-ar','48000','-f','wav','tmp.wav'],check=True)
         x,_=sf.read('tmp.wav',dtype='float32'); x=np.pad(x,(0,max(0,n*1920-len(x))))[:n*1920]
+        if 'b_26x' in f: x*=10**(3.5/20)  # ekstratake: svakere opptak
         k=240; x[:k]*=np.linspace(0,1,k); x[-k:]*=np.linspace(1,0,k)
         assert nf==n,(f,nf,n)
         lyd.append(x); kart.append([round(t,3),round(t+n/25,3),a,b,s]); t+=n/25

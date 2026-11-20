@@ -121,7 +121,7 @@ function del1(){ // 119.5–354.5
  const oa=vis(119.7,ut1);if(oa>0){akser(100,520,420,260,'t','u',oa);g.save();g.globalAlpha=oa;g.strokeStyle=TURKIS;g.lineWidth=5;g.beginPath();const fr=pv(120.5,1.5);for(let k=0;k<=60*fr;k++){const X=100+k*7,Y=520-40-170*Math.exp(-k/25);k?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke();g.restore();
    tx('ODE: u(t)',100,600,44,KRITT,oa,pv(119.7,0.8));lapp('én variabel – for eksempel tida',100,660,GRA,123.1,ut1,30)}
  // PDE-flate: u(x, t) i 3D, roterer om u-aksen
- const pa=vis(129.4,ut1);if(pa>0){const cx=900,cy=470;const phi=-0.35+0.9*ease(kl((tv-M(130.0))/8));
+ const pa=vis(218.9,ut1);if(pa>0){const cx=900,cy=470;const phi=-0.35+0.9*ease(kl((tv-M(219.5))/8));
    const P=(x,t,u)=>{const X=(x-0.5)*1.0,Y=(t-0.5)*1.0;const xr=X*Math.cos(phi)-Y*Math.sin(phi),yr=X*Math.sin(phi)+Y*Math.cos(phi);return [cx+xr*330,cy-u*190+yr*95]};
    const U=(x,t)=>prof(x,t*2.4);
    g.save();g.globalAlpha=pa;g.lineWidth=2.5;
@@ -131,17 +131,17 @@ function del1(){ // 119.5–354.5
    const [ox,oy]=P(0,0,0),[xx,xy]=P(1.15,0,0),[tx2,ty2]=P(0,1.2,0),[ux,uy]=P(0,0,1.3);
    pil(ox,oy,xx,xy,KRITT,3,1,pa,12);pil(ox,oy,tx2,ty2,ORANSJE,3,1,pa,12);pil(ox,oy,ux,uy,TURKIS,3,1,pa,12);
    tx('x',xx+8,xy+10,34,KRITT,pa);tx('t',tx2+8,ty2+10,34,ORANSJE,pa);tx('u',ux-30,uy+10,34,TURKIS,pa);
-   tx('PDE: u(x, t)',680,640,44,KRITT,pa,pv(129.4,0.8));lapp('flere variabler på en gang',680,700,GRA,132.5,ut1,30)}
+   tx('PDE: u(x, t)',680,640,44,KRITT,pa,pv(218.9,0.8));lapp('flere variabler på en gang',680,700,GRA,221.4,ut1,30)}
  // værkart over Norge: u(x, y, t) – temperaturen avhenger av hvor og når
- const sa=vis(137.2,ut1);if(sa>0){const ox=800,oy=1045,sk=25;
+ const sa=vis(228.2,ut1);if(sa>0){const ox=800,oy=1045,sk=25;
    const NO=[[5.0,58.9],[5.6,58.0],[7.0,58.0],[8.2,58.1],[9.5,58.9],[10.6,59.3],[11.2,59.0],[11.8,59.9],[12.4,60.5],[12.2,61.6],[12.6,62.0],[12.1,63.3],[13.9,64.5],[14.3,65.1],[16.0,67.0],[18.0,68.5],[20.0,69.0],[21.0,69.8],[23.5,69.0],[25.0,68.6],[26.5,69.9],[28.5,69.0],[30.5,69.8],[31.0,70.4],[28.0,71.1],[25.5,71.1],[23.0,70.8],[19.5,70.2],[17.0,69.4],[15.0,68.3],[13.5,67.6],[12.5,66.4],[12.0,65.0],[10.5,64.4],[9.0,63.5],[7.2,62.9],[5.5,62.3],[4.9,61.5],[5.0,60.5],[5.2,59.5]];
    const proj=([lo,la])=>[ox+(lo-4.5)*sk*0.45,oy-(la-57.8)*sk];
    g.save();g.globalAlpha=sa;g.beginPath();NO.forEach((q,k)=>{const [X,Y]=proj(q);k?g.lineTo(X,Y):g.moveTo(X,Y)});g.closePath();g.save();g.clip();
-   const tt=(tv-M(137.2))*0.6;
+   const tt=(tv-M(228.2))*0.6;
    for(let X=ox;X<ox+320;X+=7)for(let Y=oy-340;Y<oy;Y+=7){const la=57.8+(oy-Y)/sk,lo=4.5+(X-ox)/(sk*0.45);const v=0.85-0.055*(la-58)+0.18*Math.sin(tt+lo*0.35)+0.12*Math.sin(tt*0.7-la*0.5);g.fillStyle=varmefarge(v);g.fillRect(X,Y,7.5,7.5)}
    g.restore();g.strokeStyle=KRITT;g.lineWidth=3;g.stroke();g.restore();
-   const ha=vis(140.6,ut1);if(ha>0){const [px,py]=proj([10.4,63.4]);g.save();g.globalAlpha=ha;g.fillStyle=GRONN;g.beginPath();g.arc(px,py,9,0,7);g.fill();g.restore();tx('hvor',px+16,py-10,34,GRONN,ha)}
-   klokke(1150,860,40,vis(139.3,ut1),(tv-M(139.3))*2);tx('når',1200,875,34,ORANSJE,vis(139.3,ut1))}
+   const ha=vis(231.2,ut1);if(ha>0){const [px,py]=proj([10.4,63.4]);g.save();g.globalAlpha=ha;g.fillStyle=GRONN;g.beginPath();g.arc(px,py,9,0,7);g.fill();g.restore();tx('hvor',px+16,py-10,34,GRONN,ha)}
+   klokke(1150,860,40,vis(233.0,ut1),(tv-M(233.0))*2);tx('når',1200,875,34,ORANSJE,vis(233.0,ut1))}
  // partielle deriverte (262–332)
  const pd=vis(262.3,332.0);if(pd>0){
    lapp('partielle deriverte',60,210,GUL,262.3,332.0,40);
@@ -203,19 +203,19 @@ function del2(){ // 384.9–649
    lapp('lineær: virkninger legges sammen',100,270,GUL,497.4,525.6,38);
    // rom ovenfra med to varmeovner
    const x0=100,y0=340,W=560,H=420;g.save();g.globalAlpha=va;g.strokeStyle=KRITT;g.lineWidth=4;g.strokeRect(x0,y0,W,H);g.restore();
-   const t1=kl((tv-M(507.0))/3),t2=kl((tv-M(510.0))/3);
+   const t1=kl((tv-M(509.4))/3),t2=kl((tv-M(510.8))/3);
    const flekk=(cx,col,f)=>{if(f<=0)return;const gr=g.createRadialGradient(cx,y0+H/2,4,cx,y0+H/2,40+160*f);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(0,0,0,0)');g.save();g.globalAlpha=va*0.55;g.fillStyle=gr;g.fillRect(x0,y0,W,H);g.restore()};
    flekk(x0+150,'rgba(86,215,184,0.9)',t1);flekk(x0+410,'rgba(241,156,44,0.9)',t2);
-   varmeovn(x0+150,y0+H/2,TURKIS,vis(507.0,525.6),tv);varmeovn(x0+410,y0+H/2,ORANSJE,vis(510.0,525.6),tv);
+   varmeovn(x0+150,y0+H/2,TURKIS,vis(509.4,525.6),tv);varmeovn(x0+410,y0+H/2,ORANSJE,vis(510.8,525.6),tv);
    // temperatur langs midtlinja
-   const gx=760,gy=720,GW=460,GH=260;akser(gx,gy,GW+20,GH+30,'x','T',vis(507.0,525.6));
+   const gx=760,gy=720,GW=460,GH=260;akser(gx,gy,GW+20,GH+30,'x','T',vis(509.4,525.6));
    const kurve=(c,s,col,a,lw)=>{if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=lw;g.beginPath();for(let k=0;k<=80;k++){const xx=k/80;let u=0;if(c&1)u+=t1*Math.exp(-Math.pow((xx-0.27)/0.18,2));if(c&2)u+=t2*Math.exp(-Math.pow((xx-0.73)/0.18,2));const X=gx+xx*GW,Y=gy-u*GH*0.55;k?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke();g.restore()};
-   kurve(1,0,TURKIS,vis(507.0,525.6),3);kurve(2,0,ORANSJE,vis(510.0,525.6),3);kurve(3,0,KRITT,vis(512.3,525.6),6);
-   lapp('to varmeovner → summen av virkningene',760,380,KRITT,512.3,525.6,30);
+   kurve(1,0,TURKIS,vis(509.4,525.6),3);kurve(2,0,ORANSJE,vis(510.8,525.6),3);kurve(3,0,KRITT,vis(512.6,525.6),6);
+   lapp('to varmeovner → summen av virkningene',760,380,KRITT,512.6,525.6,30);
    // termometer midt i rommet: hopper når ovn nr. 2 kommer
-   {const ta=vis(505.9,525.6);if(ta>0){const X=x0+280,Y0=y0+H-40,Hh=300;const niv=0.15+0.3*kl((tv-M(507.0))/0.4)+0.3*kl((tv-M(510.0))/0.25);
+   {const ta=vis(505.9,525.6);if(ta>0){const X=x0+280,Y0=y0+H-40,Hh=300;const niv=0.15+0.3*kl((tv-M(509.4))/0.4)+0.3*kl((tv-M(510.8))/0.25);
      g.save();g.globalAlpha=ta;g.strokeStyle=TURKIS;g.lineWidth=3;rr(X-12,Y0-Hh,24,Hh,12);g.stroke();g.fillStyle=TURKIS;g.beginPath();g.arc(X,Y0+8,20,0,7);g.fill();g.fillRect(X-6,Y0-niv*Hh,12,niv*Hh+8);g.restore();
-     const hopp=Math.sin(Math.PI*kl((tv-M(510.0))/0.8));if(hopp>0)tx('!',X+30,Y0-niv*Hh,50,GUL,ta*hopp)}}
+     const hopp=Math.sin(Math.PI*kl((tv-M(510.8))/0.8));if(hopp>0)tx('!',X+30,Y0-niv*Hh,50,GUL,ta*hopp)}}
  }
  // HOMOGEN
  const ha=vis(552.5,579.4);if(ha>0){
