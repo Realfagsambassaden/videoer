@@ -2,10 +2,10 @@
  "tema": "Matematikk · PDE",
  "tittel": "TRE TYPER",
  "tittel2": "PDE-ER",
- "undertittel": "… men hvorfor?",
+ "undertittel": "Hyperbolsk?!",
  "person": "person.png",
- "person_hoyde": 600,
- "person_hoyre": 40,
+ "person_hoyde": 560,
+ "person_hoyre": -230,
  "tegning": "tegning.png",
  "formel": "a² − 4b"
 }

@@ -1,0 +1,11 @@
+{
+ "tema": "Matematikk · PDE",
+ "tittel": "∞ LØSNINGER",
+ "tittel2": "HVILKEN?",
+ "undertittel": "Rand og start",
+ "person": "person.png",
+ "person_hoyde": 560,
+ "person_hoyre": -230,
+ "tegning": "tegning.png",
+ "formel": "u(x, 0) = f(x)"
+}
