@@ -19,20 +19,27 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 
 > En andreordens PDE i to variabler kan skrives som u x x, pluss a ganger u x y, pluss b ganger u y y, er lik noe som er av lavere orden. Her er a og b generelt funksjoner av de uavhengige variablene, x og y. Det er leddene med de andrederiverte som bestemmer *typen* til PDE-en.
 
-> Hvis vi nå foretar en liten omskrivning til matriseform, så får vi samlet a og b i en symmetrisk matrise, A: en rad med derivasjonene, ganger A, ganger en søyle med derivasjonene, brukt på u. Ganger vi ut, får vi nøyaktig u x x pluss a u x y pluss b u y y tilbake – blandingsleddet kommer to ganger, derfor står a over to på hver side av diagonalen. Er a og b funksjoner, gir produktregelen riktignok noen ekstra ledd med førstederiverte – men de er av lavere orden, så vi flytter dem bare over på høyre side, der de ikke påvirker typen. Det er fortsatt bare én ligning – og nå ser vi at alt som bestemmer typen, ligger i A.
-> Og her er greia: en symmetrisk matrise kan alltid gjøres diagonal, ved å dreie koordinatsystemet langs egenvektorene til A. De nye aksene, ksi og eta, peker langs egenvektorene, og tallene på diagonalen blir egenverdiene, lambda én og lambda to. Da forsvinner blandingsleddet, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
+> Hvis vi nå foretar en liten omskrivning til matriseform, så får vi samlet a og b i en symmetrisk matrise, A: en rad med derivasjonene, ganger A, ganger en søyle med derivasjonene, brukt på u. Ganger vi ut, får vi nøyaktig u x x pluss a u x y pluss b u y y tilbake – blandingsleddet kommer to ganger, derfor står a over to på hver side av diagonalen. Er a og b funksjoner, gir produktregelen riktignok noen ekstra ledd med førstederiverte – så vi legger til disse leddene på høyresiden også, slik at de forsvinner mot hverandre. 
+
+> Det er fortsatt bare én ligning – og nå ser vi at alt som bestemmer typen, ligger i A.
+> Og her er greia: en symmetrisk matrise kan alltid gjøres diagonal, ved å dreie koordinatsystemet, slik at de nye aksene, ksi og eta, peker langs egenvektorene. Det fine med det, er at da blir tallene på diagonalen egenverdiene til matrisa, lambda én og lambda to. Blandingsleddet forsvinner, og igjen står bare lambda én ganger u ksi ksi, pluss lambda to ganger u eta eta.
+
 > Nå er det bare tre muligheter: Enten har egenverdiene samme fortegn, eller motsatte fortegn, eller så er én av dem null. Alle andreordens PDE-er havner altså i én av disse tre kategoriene.
 > Og forskjellen handler om hvordan *informasjon* beveger seg.
-> I bølgeligningen har egenverdiene motsatte fortegn. Her går informasjonen langs *to* retninger: løfter du midten av et stramt tau og slipper, deler bulen seg i to som løper ut mot hver sin ende. Denne typen PDE-er kaller vi *hyperbolske*.
+
+> I bølgeligningen har egenverdiene motsatte fortegn. Her går informasjonen langs *to* retninger: løfter du midten av et stramt tau og slipper, deler pulsen seg i to pulser som løper ut mot hver sin ende. Denne typen PDE-er kaller vi *hyperbolske*.
+
 > Varmeligningen er et eksempel på en PDE der én av egenverdiene er null. Her finnes det bare *én* spesiell retning, nemlig tiden: varmen sprer seg framover i tid, og det skjer øyeblikkelig på alle punkt på legemet. Vi ser det som at varmen jevner seg ut. Slike ligninger kaller vi *parabolske*.
 
 > Har begge egenverdiene samme fortegn, finnes det *ingen* spesiell retning: hvert punkt påvirkes av hele området rundt seg på en gang. Slike ligninger beskriver likevektstilstander og statiske felt – for eksempel Laplace-ligningen for temperaturen i et materiale etter lang tid, når det ikke er noen tidsendring lenger. Eller Poisson-ligningen for gravitasjonspotensialet rundt en massefordeling. Denne kategorien PDEer kaller vi *elliptiske*.
 
-> Alright... vi så nå på andreordens PDE-er i to variabler, x og y. Et tilsvarende argument kunne vært ført i tre dimensjoner – og vi ville fått de samme tre familiene – men vi hopper bukk over det, gitt.
+> Alright... vi så nå på andreordens PDE-er i to variabler, x og y. Et tilsvarende argument kunne vært ført i tre dimensjoner – og vi ville fått de samme tre familiene – men vi hopper bukk over det akkurat no, gitt.
 
 > Så... hvordan sjekker vi typen i praksis, uten å måtte gjøre koordinattransformasjoner og den slags? Vi trenger bare fortegnene til egenverdiene. Og produktet av egenverdiene er determinanten til A: b minus a i andre over fire.
 > Er determinanten positiv, har egenverdiene like fortegn. Er den null, er én av dem null. Er den negativ, har de motsatte fortegn. Ganger vi med minus fire, får vi det kjente kriteriet: a i andre minus fire b. Negativ betyr elliptisk, null betyr parabolsk, positiv betyr hyperbolsk.
 > Og de to, én eller null retningene? De er røttene i en andregradsligning – med akkurat den samme diskriminanten.
+
+>Og dette forklarer også navnene på løsningene: Andregradslikningen vi her har å gjøre med, er et kjeglesnitt. Og som vi kanskje husker, så er både hyperbler, paraboler og ellipser kjeglesnitt.
 
 **[Du: peker på ligningen øverst; ved «rad … ganger A … ganger søyle» peker du på de tre delene etter tur. Ved «dreier koordinatsystemet»: drei begge hendene som et kors. Ved «tre muligheter»: tre fingre. Ved «løper hver sin vei»: hendene ut til hver side. Ved «jevner ut»: flat hånd som glatter ut. Ved «hvert punkt påvirkes av hele området»: armene i en sirkel. Ved «tre dimensjoner»: vift det bort med hånda. Ved «a i andre minus fire b»: pek på den grønne boksen.]**
 *På skjermen:* (generelt → hvorfor → konkret)
@@ -56,10 +63,11 @@ Tre idéer: (1) tre typer – fordi en rotasjon gjør koeffisientmatrisen A diag
 ### 2. Rand- og initialbetingelser (2:50–4:00)
 *Kartet:* lyser på «betingelser».
 
-> Men det er et problem. En PDE har uendelig mange løsninger. For bølgeligningen er f av x minus c t, pluss g av x pluss c t, en løsning *uansett* hvilke funksjoner f og g du velger.
-> Det som velger ut den ene riktige løsningen, er betingelsene. *Initialbetingelser* sier hvordan alt er ved start, t lik null. *Randbetingelser* sier hva som skjer på randen, altså kanten. For eksempel at utslaget i endene av gitarstrengen alltid er null.
+> Men ett problem gjenstår. En PDE har uendelig mange løsninger. For bølgeligningen er f av x minus c t, pluss g av x pluss c t, en løsning *uansett* hvilke funksjoner f og g du velger, så lenge de er to ganger deriverbare.
+> Så... hvilken av de uendelig mange løsningene er riktig beskrivelse av akkurat det ingeniørproblemet du forsøker å løse? 
+> Svaret ligger i ekstra betingelser. Vi deler disse i to viktige klasser: *Initialbetingelser* sier hvordan alt er ved start, t lik null. *Randbetingelser* sier hva som skjer på randen, altså kanten. For eksempel at utslaget i endene av gitarstrengen alltid er null.
 > Og typen til PDEen bestemmer hva du trenger: Varme og bølger marsjerer fram i tid fra en starttilstand, så de trenger initialbetingelser – i tillegg til randbetingelser. Elliptiske ligninger, som Laplace og Poisson, har ingen tid og trenger randbetingelser rundt hele området.
-> Randbetingelser finnes i tre varianter: *Dirichlet* gir verdien på randen. Se for deg en stav som varmes fra én side, og har oppnådd likevekt, så ingenting endrer seg i tid. Da trenger jeg å vite temperaturen på randa for å kunne løse PDE-en for temperaturfordelingen inne i staven. *Neumann* gir den deriverte på randen, altså strømmen ut – en isolert ende har null varmestrøm. Og *Robin* er en blanding av de to.
+> Randbetingelser finnes i tre varianter: *Dirichlet* gir verdien på randen. Se for deg en stav som varmes fra én side, og har oppnådd likevekt, så ingenting endrer seg i tid. Det kan f. eks. være et varmeelement i et tørkeskap. Da trenger jeg å vite temperaturen på randa for å kunne løse PDE-en for temperaturfordelingen inne i staven. *Neumann* gir den deriverte på randen, altså strømmen ut – en isolert ende har null varmestrøm. Og *Robin* er en blanding av de to.
 
 **[Du: trekk på skuldrene ved «uendelig mange»; vis gitarstrengen med hendene (to faste ender) ved randbetingelser; løft en finger ved «typen til PDE-en bestemmer»; vis staven med hendene ved Dirichlet, og gni hendene (isolert) ved Neumann.]**
 *På skjermen:*
