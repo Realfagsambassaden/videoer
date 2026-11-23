@@ -11,7 +11,12 @@ for a,b,s,m in B:
     if s=='X': biter.append([F(a),F(b),s,m]); continue
     i0,i1=int(a*50),int(b*50); on=db[i0:i1]>-45; idx=np.where(on)[0]
     ts=a+idx[0]*0.02; te=a+idx[-1]*0.02
-    start=max(a,ts-0.2); slutt=b if s=='K' else min(b,te+0.3)  # kald start: la pausen stå, overgangen spiser 0.4 s
+    start=max(a,ts-0.2)
+    if m.startswith('§'):  # kunstpause: gå bakover i stillheten, opptil 1.0 s før talen
+        j=int(ts*50); k=0
+        while k<50 and db[j-k-1]<-45: k+=1
+        start=min(start,ts-max(0.2,k*0.02-0.05))
+    slutt=b if s=='K' else min(b,te+0.3)  # kald start: la pausen stå, overgangen spiser 0.4 s
     run=0; kutt=[]
     for k,v in enumerate(on):
         if not v: run+=1

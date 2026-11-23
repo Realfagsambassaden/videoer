@@ -27,7 +27,8 @@ function M(T){for(const [a,b,c,d] of KART){if(T>=c&&T<=d)return (a+(T-c))/TEMPO}
 window.S=[['hele',LENGDE]];
 const C=document.getElementById('c'),g=C.getContext('2d');
 const KRITT='#ecefe6',GRONN='#6ef04a',ORANSJE='#f19c2c',GUL='#eee462',TURKIS='#56d7b8',ROD='#e0573d',GRA='#b3bdb6',LILLA='#b48cff';
-const F='AD';
+const F='AD';const ROSA='#ff8fc7';
+function E1(x,y,a,s=1){if(a<=0)return;g.save();g.translate(x+125,y-13);g.scale(s,s);g.translate(-x-125,-y+13);boks(x,y-42,250,58,ROSA,a,true);tx('1. ordens ledd',x+125,y,34,ROSA,a,1,'center');g.restore()}
 let T=0; // kildetid nå
 const kl=x=>Math.max(0,Math.min(1,x)), ease=x=>{x=kl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2};
 // p(t0,d): fremdrift fra kildetid t0 over d sekunder (i videotid)
@@ -35,7 +36,8 @@ const p=(t0,d=0.6)=>kl((M(T)-M(t0))/d*1);
 const pv=(t0,d)=>kl((tv-M(t0))/d);
 let tv=0; // videotid nå
 // synlighet: inn ved t0, ut ved t1 (kildetider)
-function vis(t0,t1){const a=kl((tv-M(t0)+0.0)/0.35);const b=t1==null?1:kl((M(t1)-tv)/0.4);return Math.min(a,b);}
+const UT=0.45; // innhold blir stående UT s etter t1 mens det glir/tones ut
+function vis(t0,t1){const a=kl((tv-M(t0)+0.0)/0.35);const b=t1==null?1:kl((M(t1)+UT-tv)/UT);return Math.min(a,b);}
 function pop(t0){const x=(tv-M(t0))/0.35;if(x<0)return 0;if(x>1)return 1;return 1+0.25*Math.sin(Math.PI*x)*(1-x)+ (x<0.3? -0.3*(1-x/0.3):0);}
 
 // ---- tekst med enkel matte-markup: a_{xx}, a^{2}
@@ -114,7 +116,7 @@ function aksekors(cx,cy,R,vinkel,n1,n2,col,a){if(a<=0)return;const c=Math.cos(vi
  tx(n1,cx+R*c+12,cy+R*s+12,40,col,a);tx(n2,cx+R*s+14,cy-R*c+6,40,col,a)}
 // familie-rute: ramme med tittel og fortegn
 function rute(x,y,w,h,col,a){if(a<=0)return;g.save();g.globalAlpha=a*0.9;g.strokeStyle=col;g.lineWidth=3;rr(x,y,w,h,18);g.stroke();g.restore()}
-function fortegn(x,y,par,a,sz=44){if(a<=0)return;const F={'+':['> 0',GRONN],'−':['< 0',ROD],'0':['= 0',GRA]};const w=tx('λ_{1} ',x,y,sz,KRITT,a);const w2=tx(F[par[0]][0],x+w,y,sz,F[par[0]][1],a);const x2=x+w+w2+sz*0.6;const w3=tx('λ_{2} ',x2,y,sz,KRITT,a);tx(F[par[1]][0],x2+w3,y,sz,F[par[1]][1],a)}
+function fortegn(x,y,par,a,sz=40){if(a<=0)return;const S={'++':'(+, +) eller (−, −)','+−':'(+, −) eller (−, +)','+0':'(±, 0) eller (0, ±)'}[par.join('')];tx(S,x,y,sz,KRITT,a)}
 // pukkel på et tau som deler seg i to (bølge), x0..x0+W
 function tau(x0,y0,W,H,tt,col,a){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=4;g.beginPath();
  for(let k=0;k<=120;k++){const s=k/120;const u=0.5*Math.exp(-Math.pow((s-0.5-tt)/0.07,2))+0.5*Math.exp(-Math.pow((s-0.5+tt)/0.07,2));const X=x0+s*W,Y=y0-u*H*2*(tt<0.02?1:1);k?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke();g.restore()}
@@ -126,6 +128,26 @@ function parabel(cx,cy,k,col,a,fr=1){if(a<=0)return;g.save();g.globalAlpha=a;g.s
 function hyperbel(cx,cy,col,a,fr=1){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=5;for(const sg of [-1,1]){g.beginPath();const n=40*fr;for(let i=0;i<=n;i++){const t=-1.3+2.6*i/40;const X=cx+sg*32*Math.cosh(t),Y=cy+48*Math.sinh(t);i?g.lineTo(X,Y):g.moveTo(X,Y)}g.stroke()}g.restore()}
 function sky(cx,cy,R,a,col='rgba(236,239,230,0.55)'){if(a<=0)return;const gr=g.createRadialGradient(cx,cy,4,cx,cy,R);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(0,0,0,0)');g.save();g.globalAlpha=a;g.fillStyle=gr;g.beginPath();g.arc(cx,cy,R,0,7);g.fill();g.restore()}
 const GLOD=(s,x,y,sz,col,a,t0,dur=1.4)=>{const gl=Math.sin(Math.PI*kl((tv-M(t0))/dur));if(gl<=0)return;g.save();g.shadowColor=col;g.shadowBlur=30*gl;tx(s,x,y,sz,col,a*gl);g.restore()};
+
+
+// ---- dobbel kjegle med snittplan (3D → 2D, kamera litt ovenfra). Planet: Y = y0 + m·(X cosα + Z sinα), eller loddrett X cosβ + Z sinβ = c
+function kjegle(cx,cy,Hh,a,type,col,fp,fk){if(a<=0)return;const sl=0.75,ph=0.42,cp=Math.cos(ph),sp=Math.sin(ph);
+ const P=(X,Y,Z)=>[cx+X,cy-Y*cp+Z*sp];const R=sl*Hh;
+ g.save();g.globalAlpha=a*0.85;g.strokeStyle=KRITT;g.lineWidth=3;
+ for(const sg of [1,-1]){g.beginPath();g.ellipse(cx,cy-sg*Hh*cp,R,R*sp,0,0,7);g.stroke()}
+ g.beginPath();g.moveTo(...P(-R,Hh,0));g.lineTo(...P(R,-Hh,0));g.moveTo(...P(R,Hh,0));g.lineTo(...P(-R,-Hh,0));g.stroke();g.restore();
+ if(!type)return;
+ const Q={e:{y0:0.55*Hh,m:0.4,al:-0.5},p:{y0:0.25*Hh,m:1/sl,al:-1.1}}[type];const W=1.15*R;let hj=[],pts=[[]];
+ if(Q){const ca=Math.cos(Q.al),sa=Math.sin(Q.al);const H=(d1,d2)=>{const X=d1*ca-d2*sa,Z=d1*sa+d2*ca;return [X,Q.y0+Q.m*d1,Z]};
+   const d1a=type==='p'?-0.3*R:-W,d1b=type==='p'?(Hh-Q.y0)/Q.m:W;hj=[H(d1a,-W),H(d1b,-W),H(d1b,W),H(d1a,W)];
+   let th0=0,th1=2*Math.PI;if(type==='p'){const cm=1-Q.y0/Hh;th0=Q.al+Math.acos(cm);th1=Q.al+2*Math.PI-Math.acos(cm)}
+   for(let i=0;i<=120;i++){const th=th0+(th1-th0)*i/120;const Y=Q.y0/(1-Q.m*sl*Math.cos(th-Q.al));const r=sl*Y;pts[0].push([r*Math.cos(th),Y,r*Math.sin(th)])}}
+ else{const be=1.25,c=0.28*R,cb=Math.cos(be),sb=Math.sin(be);hj=[[c*cb-W*sb,-Hh*1.05,c*sb+W*cb],[c*cb-W*sb,Hh*1.05,c*sb+W*cb],[c*cb+W*sb,Hh*1.05,c*sb-W*cb],[c*cb+W*sb,-Hh*1.05,c*sb-W*cb]];pts=[];
+   for(const sg of [1,-1]){const q=[];for(let i=0;i<=80;i++){const u=-1+2*i/80;const Y=sg*(c/sl+(Hh-c/sl)*Math.abs(u));const r=sl*Math.abs(Y);const ph2=Math.sign(u)*Math.acos(Math.min(1,c/r));q.push([r*Math.cos(be+ph2),Y,r*Math.sin(be+ph2)])}pts.push(q)}}
+ if(fp>0){g.save();g.globalAlpha=a*fp;const off=(1-ease(fp))*120;g.translate(off,-off*0.3);g.beginPath();hj.forEach((q,i)=>{const [x,y]=P(...q);i?g.lineTo(x,y):g.moveTo(x,y)});g.closePath();g.fillStyle=col+'2e';g.fill();g.strokeStyle=col;g.globalAlpha=a*fp*0.6;g.lineWidth=2;g.stroke();g.restore()}
+ if(fk<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=6;g.lineCap='round';g.shadowColor=col;g.shadowBlur=10;
+ for(const q of pts){const n=Math.max(2,Math.round(q.length*fk));g.beginPath();for(let i=0;i<n;i++){const [x,y]=P(...q[i]);i?g.lineTo(x,y):g.moveTo(x,y)}g.stroke()}
+ g.restore()}
 
 // ================= DELENE =================
 // Kald start (kilde 55.0–61.6): læreren stor i midten, F-boksen til venstre
@@ -139,11 +161,11 @@ function kaldstart(){
 }
 
 function del1(){ // 62.2–575: andre orden, generell form, matrisen A
- if(tv<M(62.1)||tv>M(575.0))return;
+ if(tv<M(62.1)||tv>M(575.0)+UT)return;
  // A: andreordens PDE-er i fysikken
  const ia=vis(62.3,174.0);
  if(ia>0){
-   [['u_{tt} = c^{2}·u_{xx}','bølger',LILLA],['u_{t} = α·u_{xx}','varme',ROD],['u_{xx} + u_{yy} = 0','likevekt',KRITT]].forEach(([e,n,c],k)=>{const t0=70.4+k*1.0;const v=vis(t0,174.0);tx(e,120,330+k*120,56,KRITT,v,pv(t0,0.8));tx(n,680,330+k*120,40,c,v)});
+   [['u_{tt} = c^{2}·u_{xx}','bølger',LILLA],['u_{t} = α·u_{xx}','varme',ROD],['u_{xx} + u_{yy} = 0','likevekt',GUL]].forEach(([e,n,c],k)=>{const t0=70.4+k*1.0;const v=vis(t0,174.0);tx(e,120,330+k*120,56,KRITT,v,pv(t0,0.8));tx(n,680,330+k*120,40,c,v)});
    lapp('andre orden: den høyeste deriverte er en andrederivert',120,720,GUL,78.3,174.0,40);
    // gul glød på andrederiverte
  }
@@ -160,32 +182,50 @@ function del1(){ // 62.2–575: andre orden, generell form, matrisen A
    lapp('a(x, y), b(x, y): kan variere fra punkt til punkt',100,y+180,TURKIS,191.9,428.3,38);
    const ty=vis(202.5,428.3);if(ty>0){boks(80,600,1060,110,GRONN,ty);tx('andreordensleddene bestemmer typen',610,672,48,GRONN,ty,pv(202.5,1.0),'center')}
  }
- // C: matriseformen
+ // C: matriseformen – «brett ut» og «pakk inn igjen» (utkast 2)
  const ca=vis(428.4,575.0);
  if(ca>0){
-   const y=420;
+   const y=400;const inn=ease(pv(482.6,0.9));
    tx('[ ∂_{x}  ∂_{y} ]',100,y,52,KRITT,vis(444.8,575.0),pv(444.8,0.8));
-   const ma=vis(435.2,575.0);const fly=ease(pv(439.7,1.0));
+   const ma=vis(435.2,575.0);
    matrise([['1',['a/2',TURKIS],],[['a/2',TURKIS],['b',TURKIS]]],380,y-20,48,KRITT,ma,110,62);
-   tx('A',505,y-95,48,GRONN,ma);
-   const halv=Math.sin(Math.PI*kl((tv-M(492.0))/2.5));if(halv>0){boks(470,y-80,250,72,GUL,halv,true);lapp('a/2 + a/2 = a: blandingsleddet kommer to ganger',100,y+250,GUL,492.0,575.0,36)}
+   tx('A',505,y+102,40,GRONN,ma,1,'center');
+   // a/2 kommer to ganger: like rammer rundt begge
+   const hv=Math.sin(Math.PI*kl((tv-M(492.2))/5.5));if(hv>0){boks(560-54,387-46,108,60,GUL,hv,true);boks(450-54,449-46,108,60,GUL,hv,true)}
+   lapp('a/2 + a/2 = a: blandingsleddet kommer to ganger',100,640,GUL,492.2,575.0,40);
    const sk=vis(447.0,575.0);if(sk>0){matrise([['∂_{x}'],['∂_{y}']],680,y-20,48,KRITT,sk,70,62)}
    const ua=vis(454.8,575.0);if(ua>0){tx('u',785,y+12,56,TURKIS,ua,pv(454.8,0.4));tx('= (lavere orden)',850,y+12,48,GRA,ua,pv(455.2,0.8))}
-   // gang ut
-   const ut=vis(457.4,575.0);
-   if(ut>0){
-     likn([['= u_{xx} + ',GUL],['a',TURKIS],['·u_{xy} + ',GUL],['b',TURKIS],['·u_{yy}',GUL]],100,y+150,46,ut,pv(457.6,1.4));
-     hake(720,y+138,vis(461.5,575.0));
-     const fo=vis(465.4,575.0);tx('+ (a_{y}/2)·u_{x} + (a_{x}/2 + b_{y})·u_{y}',100,y+230,40,GRA,fo,pv(465.4,1.4));lapp('produktregelen',820,y+230,GRA,466.5,575.0,36);
-     const hs=vis(469.6,575.0);if(hs>0){tx('… og de samme leddene legges til på høyre side',100,y+300,38,GRA,hs,pv(469.6,1.2));}
-     const ka=vis(474.6,575.0);if(ka>0){tx('→ de kansellerer',100,y+360,40,KRITT,ka,pv(474.6,0.8))}
-     const ty=vis(482.4,575.0);if(ty>0){stempel('FØRSTEORDENSLEDD PÅVIRKER IKKE TYPEN',640,y+470,GRONN,482.4,575.0,30)}
+   // rad 2: ganget ut
+   const y2=560-(560-y)*inn, r2=vis(457.4,575.0)*(1-inn);
+   const lhs=likn([['u_{xx} + ',GUL],['a',TURKIS],['·u_{xy} + ',GUL],['b',TURKIS],['·u_{yy}',GUL]],100,y2,46,r2,pv(457.6,1.4));
+   const xe=lhs[4][0]+lhs[4][1]+20;
+   {const hk=vis(461.5,465.3)*r2;if(hk>0){hake(xe+10,y2-14,hk);tx('= PDE-en',xe+60,y2,40,GRONN,hk)}}
+   const ankom=tv>=M(468.2);
+   if(ankom&&r2>0){tx('+',xe,y2,46,KRITT,r2);E1(xe+40,y2,r2,pop(468.2))}
+   const rh=vis(470.9,575.0)*r2;if(rh>0){tx('= … +',xe+310,y2,46,KRITT,rh,pv(470.9,0.5));E1(xe+450,y2,rh,pop(471.3))}
+   // stryk: de kansellerer
+   if(r2>0){strek(xe+30,y2+6,xe+300,y2-40,KRITT,6,pv(474.7,0.4),r2);strek(xe+440,y2+6,xe+710,y2-40,KRITT,6,pv(475.1,0.4),r2)}
+   // rad 3: hvor førsteordensleddene kommer fra (produktregelen)
+   const r3=vis(465.4,470.4);
+   if(r3>0||(tv>=M(467.6)&&tv<M(468.6))){
+     const L=[['∂_{x}(a/2 · u_{y}) = a/2 · u_{xy} + ','a_{x}/2 · u_{y}'],['∂_{y}(a/2 · u_{x}) = a/2 · u_{xy} + ','a_{y}/2 · u_{x}'],['∂_{y}(b · u_{y}) = b · u_{yy} + ','b_{y} · u_{y}']];
+     const fly=ease(pv(467.6,0.9));
+     L.forEach(([v,r],k)=>{const yk=700+k*72;const t0=465.4+k*0.45;const a=vis(t0,470.4);
+       const p=likn([[v,KRITT],[r,ROSA,tv<M(467.6)?1:0]],100,yk,38,a,pv(t0,0.6));
+       if(tv>=M(467.6)&&fly<1){const x0=p[1][0],x1=xe+60;const yy=yk+(y2-yk)*fly;g.save();g.shadowColor=ROSA;g.shadowBlur=14;tx(r,x0+(x1-x0)*fly,yy,38-10*fly,ROSA,1-0.6*fly);g.restore()}});
+     lapp('produktregelen',820,700,ROSA,465.6,470.4,38);
    }
+   // høyre side i rad 1: førsteordensleddene legges til (flyr opp fra rad 2)
+   if(tv>=M(470.0)){const f=ease(pv(470.0,0.8));const x=xe+40+(1262-xe-40)*f,yy=y2+(y-y2)*f;tx('+',1222,y+12,48,KRITT,ca*f);const gl=inn>0?0.5+0.5*Math.sin((tv-M(482.6))*5):0;E1(x,yy+12,ca);if(gl>0&&tv<M(491.5)){g.save();g.globalAlpha=gl*ca;boks(x-6,yy+12-48,262,70,ROSA,1,true);g.restore()}}
+   stempel('1. ORDENS LEDD PÅVIRKER IKKE TYPEN',640,780,GRONN,483.0,491.8,30);
+   // «Ok, så langt en omskriving. Hvorfor?»
+   const hv2=vis(518.3,575.0);if(hv2>0){const s=pop(518.3);g.save();g.translate(640,800);g.rotate(-0.05);g.scale(s,s);tx('Hvorfor?',0,0,86,GUL,hv2,1,'center');g.restore()}
+   lapp('omskriving ✓',100,800,GRONN,516.0,575.0,44);
  }
 }
 
 function del2(){ // 575–724: rotasjon, egenverdier, tre muligheter
- if(tv<M(574.9)||tv>M(724.1))return;
+ if(tv<M(574.9)||tv>M(724.1)+UT)return;
  const a=vis(575.0,668.0);
  const cx=330,cy=560,R=220;
  const rot=-0.5*ease(pv(587.1,2.4));
@@ -194,10 +234,10 @@ function del2(){ // 575–724: rotasjon, egenverdier, tre muligheter
    aksekors(cx,cy,R,0,'x','y',KRITT,a*(1-ease(pv(587.1,2.4))));
    aksekors(cx,cy,R,rot,'ξ','η',TURKIS,a*ease(pv(587.1,2.4)));
    // egenvektorer: like lange piler (bare retninger)
-   const ev=vis(597.9,668.0);if(ev>0){const c=Math.cos(rot),s=Math.sin(rot);pil(cx,cy,cx+150*c,cy+150*s,KRITT,6,pv(597.9,0.6),ev,18);pil(cx,cy,cx+150*s,cy-150*c,KRITT,6,pv(598.3,0.6),ev,18);tx('e_{1}',cx+160*c+6,cy+160*s+30,38,KRITT,ev);tx('e_{2}',cx+160*s+10,cy-160*c,38,KRITT,ev)}
+   const ev=vis(597.9,668.0);if(ev>0){const c=Math.cos(rot),s=Math.sin(rot);pil(cx,cy,cx+150*c,cy+150*s,ORANSJE,6,pv(597.9,0.6),ev,18);pil(cx,cy,cx+150*s,cy-150*c,ORANSJE,6,pv(598.3,0.6),ev,18);tx('e_{1}',cx+160*c+6,cy+160*s+30,38,ORANSJE,ev);tx('e_{2}',cx+160*s+10,cy-160*c,38,ORANSJE,ev)}
    lapp('symmetrisk matrise',700,330,KRITT,580.5,668.0,40);
    lapp('dreier koordinatsystemet',700,400,TURKIS,587.1,668.0,40);
-   lapp('nye akser langs egenvektorene',700,470,KRITT,594.1,668.0,40);
+   lapp('nye akser langs egenvektorene',700,470,ORANSJE,594.1,668.0,40);
    // A blir diagonal
    const d=ease(pv(600.4,1.0));
    matrise([['1',['a/2',TURKIS]],[['a/2',TURKIS],['b',TURKIS]]],740,620,46,KRITT,vis(577.0,668.0)*(1-d),110,60);
@@ -209,10 +249,11 @@ function del2(){ // 575–724: rotasjon, egenverdier, tre muligheter
  // λ-ligningen og tre muligheter
  const b=vis(668.2,724.1);
  if(b>0){
-   likn([['λ_{1}',GRONN],['·u_{ξξ} + ',KRITT],['λ_{2}',GRONN],['·u_{ηη} + … = 0',KRITT]],120,300,60,b,pv(671.0,1.6));
+   likn([['λ_{1}',GRONN],['·u_{ξξ} + ',KRITT],['λ_{2}',GRONN],['·u_{ηη} = …',KRITT]],120,300,60,b,pv(671.0,1.6));
    lapp('blandingsleddet er borte',120,380,TURKIS,672.5,724.1,38);
    const k=[['samme fortegn',['+','+'],690.0],['motsatte fortegn',['+','−'],693.1],['én er null',['+','0'],695.0]];
-   k.forEach(([n,par,t0],i)=>{const v=vis(t0,724.1);const s=pop(t0);const x=80+i*400;g.save();g.translate(x+180,560);g.scale(s,s);g.translate(-x-180,-560);rute(x,460,360,200,KRITT,v);fortegn(x+40,540,par,v);tx(n,x+180,620,38,KRITT,v,1,'center');g.restore()});
+   k.forEach(([n,par,t0],i)=>{const v=vis(t0,724.1);const s=pop(t0);const x=80+i*400;g.save();g.translate(x+180,560);g.scale(s,s);g.translate(-x-180,-560);rute(x,460,360,200,KRITT,v);fortegn(x+20,540,par,v,36);tx(n,x+180,620,38,KRITT,v,1,'center');g.restore()});
+   lapp('fortegnene til (λ_{1}, λ_{2}):',80,440,GRONN,690.0,724.1,36);
    const tre=vis(679.5,690.0);if(tre>0){const s=pop(679.5);g.save();g.translate(620,560);g.scale(s,s);tx('3 muligheter',0,0,70,GUL,tre,1,'center');g.restore()}
    lapp('alle andreordens PDE-er havner i én av de tre',80,760,KRITT,705.9,724.1,40);
    lapp('forskjellen: hvordan informasjon brer seg',80,840,GUL,711.6,724.1,44);
@@ -220,11 +261,11 @@ function del2(){ // 575–724: rotasjon, egenverdier, tre muligheter
 }
 
 function del3(){ // 724–1137: de tre familiene (+ 3D)
- if(tv<M(724.1)||tv>M(1137.2))return;
+ if(tv<M(724.1)||tv>M(1137.2)+UT)return;
  const W=380,Y=250,H=600;const d3=vis(1117.4,1137.2),ud=1-d3;
  // HYPERBOLSK (bølge)
  const h=vis(724.3,1137.2)*ud;
- if(h>0){const x=40;rute(x,Y,W,H,LILLA,h);tx('bølge',x+20,Y+60,46,LILLA,h);fortegn(x+20,Y+130,['+','−'],h,40);
+ if(h>0){const x=40;rute(x,Y,W,H,LILLA,h);tx('bølge',x+20,Y+60,46,LILLA,h);fortegn(x+20,Y+130,['+','−'],h,36);
    const v=vis(735.5,1137.2)*ud;if(v>0){const ox=x+W/2,oy=Y+420;const f=kl((tv-M(735.5))/1.5);strek(ox,oy,ox-150*f,oy-170*f,LILLA,5,1,v);strek(ox,oy,ox+150*f,oy-170*f,LILLA,5,1,v);g.save();g.globalAlpha=v;g.fillStyle=GUL;g.beginPath();g.arc(ox,oy,9,0,7);g.fill();g.restore();
      pil(x+30,oy+30,x+W-30,oy+30,KRITT,2,1,v*0.6,10);tx('x',x+W-40,oy+62,30,KRITT,v*0.6);pil(x+30,oy+30,x+30,oy-200,KRITT,2,1,v*0.6,10);tx('t',x+40,oy-190,30,KRITT,v*0.6)}
    const p=vis(745.7,1137.2)*ud;if(p>0){const tt=tv<M(755.2)?0:((tv-M(755.2))%3.0)/3.0*0.4;tau(x+20,Y+H-40,W-40,60,tt,KRITT,p)}
@@ -232,7 +273,7 @@ function del3(){ // 724–1137: de tre familiene (+ 3D)
    stempel('HYPERBOLSK',x+W/2,Y+H+70,LILLA,768.3,1137.2,36);}
  // PARABOLSK (varme)
  const pa=vis(863.5,1137.2)*ud;
- if(pa>0){const x=440;rute(x,Y,W,H,ROD,pa);tx('varme',x+20,Y+60,46,ROD,pa);fortegn(x+20,Y+130,['+','0'],pa,40);
+ if(pa>0){const x=440;rute(x,Y,W,H,ROD,pa);tx('varme',x+20,Y+60,46,ROD,pa);fortegn(x+20,Y+130,['+','0'],pa,36);
    const v=vis(872.8,1137.2)*ud;if(v>0){pil(x+W/2,Y+480,x+W/2,Y+260,ROD,5,pv(875.7,0.8),v,16);tx('t',x+W/2+16,Y+280,40,ROD,v)}
    lapp('1 retning: tida',x+20,Y+200,ROD,872.8,1137.2,40);
    const s=vis(877.1,1137.2)*ud;if(s>0){const tt=((tv-M(877.1))%4.0)/4.0;varmekurve(x+20,Y+H-40,W-40,160,tt,KRITT,s)}
@@ -240,39 +281,39 @@ function del3(){ // 724–1137: de tre familiene (+ 3D)
    stempel('PARABOLSK',x+W/2,Y+H+70,ROD,893.6,1137.2,36);}
  // ELLIPTISK (likevekt)
  const ea=vis(948.0,1137.2)*ud;
- if(ea>0){const x=840;rute(x,Y,W,H,KRITT,ea);tx('likevekt',x+20,Y+60,46,KRITT,ea);fortegn(x+20,Y+130,['+','+'],ea,40);
-   lapp('0 retninger',x+20,Y+200,KRITT,951.5,1137.2,40);
+ if(ea>0){const x=840;rute(x,Y,W,H,GUL,ea);tx('likevekt',x+20,Y+60,46,GUL,ea);fortegn(x+20,Y+130,['+','+'],ea,36);
+   lapp('0 retninger',x+20,Y+200,GUL,951.5,1137.2,40);
    const sk=vis(960.8,988.0)*ud;if(sk>0){const r=40+110*kl((tv-M(960.8))/1.5);sky(x+W/2,Y+360,r,sk)}
    const la=vis(988.2,1137.2)*ud;if(la>0){plate(x+30,Y+260,130,130,la);tx('Laplace',x+30,Y+440,36,KRITT,la);tx('etter lang tid',x+30,Y+485,30,GRA,la)}
    const po=vis(1023.6,1137.2)*ud;if(po>0){planet(x+275,Y+325,30,po,tv);tx('Poisson',x+215,Y+440,36,TURKIS,po);tx('∇^{2}φ = 4πGρ',x+40,Y+555,36,TURKIS,po)}
-   stempel('ELLIPTISK',x+W/2,Y+H+70,KRITT,1036.5,1137.2,36);}
+   stempel('ELLIPTISK',x+W/2,Y+H+70,GUL,1036.5,1137.2,36);}
  // tre variabler (kort)
  if(d3>0){
    tx('tre variabler: tre egenverdier',160,400,48,KRITT,d3,pv(1117.4,0.8));
-   [['+ + +','elliptisk',KRITT],['+ + 0','parabolsk',ROD],['+ + −','hyperbolsk',LILLA]].forEach(([f,n,c],i)=>{const v=vis(1118.6+i*0.6,1137.2);tx(f,180+i*340,520,50,GRONN,v);tx(n,180+i*340,590,38,c,v)});
+   [['+ + +','elliptisk',GUL],['+ + 0','parabolsk',ROD],['+ + −','hyperbolsk',LILLA]].forEach(([f,n,c],i)=>{const v=vis(1118.6+i*0.6,1137.2);tx(f,180+i*340,520,50,GRONN,v);tx(n,180+i*340,590,38,c,v)});
    lapp('samme tre familier',160,680,GUL,1119.8,1137.2,40);}
 }
 
 function del4(){ // 1137–1346: kriteriet
- if(tv<M(1137.2)||tv>M(1345.9))return;
+ if(tv<M(1137.2)||tv>M(1345.9)+UT)return;
  txt('Hvordan sjekke typen i praksis?',60,140,56,ORANSJE,1137.3,1345.9,1.0);
  const a=vis(1146.2,1345.9);
  lapp('vi trenger bare fortegnene til λ_{1} og λ_{2}',100,250,KRITT,1146.2,1345.9,42);
  const p=vis(1163.4,1345.9);if(p>0){likn([['λ_{1}·λ_{2}',GRONN],[' = det A',KRITT]],100,360,54,p,pv(1163.4,1.0))}
  matrise([['1',['a/2',TURKIS]],[['a/2',TURKIS],['b',TURKIS]]],560,330,44,KRITT,vis(1167.5,1345.9),100,58);
- const kr=vis(1168.5,1345.9)*0.6;if(kr>0){strek(585,295,790,375,GUL,3,pv(1168.5,0.5),kr);strek(790,295,585,375,GUL,3,pv(1169.0,0.5),kr)}
+ const kr=vis(1168.5,1345.9);if(kr>0){pil(595,300,765,392,ORANSJE,4,pv(1168.5,0.5),kr,16);pil(765,300,595,392,ORANSJE,4,pv(1169.0,0.5),kr,16);tx('+',780,415,40,ORANSJE,kr*kl(pv(1168.9,0.3)));tx('−',560,415,40,ORANSJE,kr*kl(pv(1169.4,0.3)))}
  const dt=vis(1175.4,1345.9);if(dt>0){const s=pop(1175.4);g.save();g.translate(1000,360);g.scale(s,s);tx('= b − a^{2}/4',-120,0,54,KRITT,dt);g.restore()}
  const rows=[['det A > 0','like fortegn',['+','+'],1227.9],['det A = 0','én er null',['+','0'],1233.8],['det A < 0','motsatte fortegn',['+','−'],1237.4]];
  rows.forEach(([d,n,par,t0],i)=>{const v=vis(t0,1345.9);tx(d,100,500+i*80,46,KRITT,v,pv(t0,0.6));tx('→ '+n,360,500+i*80,42,KRITT,v,pv(t0+0.4,0.6));fortegn(840,500+i*80,par,v,36)});
  // · (−4) → a² − 4b
  const m4=vis(1302.0,1345.9);if(m4>0){const s=pop(1302.0);g.save();g.translate(40,780);g.scale(s,s);tx('det A · (−4)',0,0,46,GUL,m4);g.restore()}
  const kr2=vis(1316.0,1345.9);if(kr2>0){const s=pop(1316.0);g.save();g.translate(520,770);g.scale(s,s);tx('a^{2} − 4b',-120,0,64,GRONN,kr2);g.restore();boks(370,705,330,95,GRONN,kr2)}
- const ty=[['< 0','elliptisk',KRITT,1285.3],['= 0','parabolsk',ROD,1290.3],['> 0','hyperbolsk',LILLA,1293.4]];
+ const ty=[['< 0','elliptisk',GUL,1285.3],['= 0','parabolsk',ROD,1290.3],['> 0','hyperbolsk',LILLA,1293.4]];
  ty.forEach(([f,n,c,t0],i)=>{const v=vis(t0,1345.9);tx(f,760,720+i*70,44,GRONN,v,pv(t0,0.5));tx(n,880,720+i*70,44,c,v,pv(t0,0.6))});
 }
 
 function del5(){ // 1346–1495: kjeglesnittene
- if(tv<M(1345.9)||tv>M(1495.7))return;
+ if(tv<M(1345.9)||tv>M(1495.7)+UT)return;
  txt('Hvorfor heter de det?',60,140,56,ORANSJE,1346.0,1495.7,1.0);
  const a=vis(1346.1,1495.7);
  const by=ease(pv(1352.4,1.6));
@@ -280,29 +321,28 @@ function del5(){ // 1346–1495: kjeglesnittene
  if(by>0){likn([['x^{2}',GUL],[' + a·',KRITT],['xy',GUL],[' + b·',KRITT],['y^{2}',GUL],[' = 1',KRITT,vis(1384.3,1495.7)]],100,320,58,a*by,1)}
  lapp('u_{xx} → x^{2},  u_{xy} → xy,  u_{yy} → y^{2}',100,400,GUL,1352.4,1495.7,38);
  lapp('andregradsligning → kjeglesnitt',100,490,KRITT,1363.9,1495.7,42);
- const k=[['ellipse',KRITT,'< 0',1399.2,(x,y,v,f)=>ellipse(x,y,110,60,KRITT,v,f)],['parabel',ROD,'= 0',1400.3,(x,y,v,f)=>parabel(x,y,1,ROD,v,f)],['hyperbel',LILLA,'> 0',1401.0,(x,y,v,f)=>hyperbel(x,y,LILLA,v,f)]];
- k.forEach(([n,c,f0,t0,tegn],i)=>{const v=vis(t0,1495.7);const x=220+i*380,y=700;tegn(x,y,v,pv(t0,1.0));tx(n,x,y+150,42,c,v,1,'center');tx('a^{2} − 4b '+f0,x,y+210,36,GRONN,vis(1417.8,1495.7),1,'center')});
+ // stor dobbel kjegle når kjeglesnitt nevnes, så tre kjegler med hvert sitt snittplan
+ {const v=vis(1366.0,1399.0);if(v>0){const s2=pop(1366.0);g.save();g.translate(640,740);g.scale(s2,s2);g.translate(-640,-740);kjegle(640,740,160,v,null,KRITT,0,0);g.restore();tx('kjegle',830,650,40,KRITT,v)}}
+ const k=[['ellipse',GUL,'< 0',1399.2,'e'],['parabel',ROD,'= 0',1400.3,'p'],['hyperbel',LILLA,'> 0',1401.0,'h']];
+ k.forEach(([n,c,f0,t0,ty],i)=>{const v=vis(t0-0.3,1495.7);const x=220+i*380,y=680;kjegle(x,y,105,v,ty,c,pv(t0-0.3,0.6),pv(t0+0.2,1.0));tx(n,x,y+170,42,c,v,1,'center');tx('a^{2} − 4b '+f0,x,y+225,36,c,vis(1417.8,1495.7),1,'center')});
  const kb=vis(1413.3,1495.7);if(kb>0){boks(820,355,330,95,GRONN,kb);tx('a^{2} − 4b',985,420,56,GRONN,kb,1,'center')}
 }
 
 function del6(){ // 1495–slutt: oppsummering
  if(tv<M(1495.7))return;
- if(tv>=M(773.4)-0.01&&tv<M(789.3)+1)return;
  const a=vis(1495.8,1512.3);
  txt('Tre familier',60,140,60,ORANSJE,1495.8,1512.3,1.0);
- [['ELLIPTISK','0 retninger',KRITT,(x,y,v)=>ellipse(x,y,80,45,KRITT,v)],['PARABOLSK','1 retning',ROD,(x,y,v)=>parabel(x,y,1,ROD,v)],['HYPERBOLSK','2 retninger',LILLA,(x,y,v)=>hyperbel(x,y,LILLA,v)]].forEach(([n,r,c,tegn],i)=>{const t0=1497.8+i*0.5;const v=vis(t0,1512.3);const x=220+i*380;tegn(x,420,v);stempel(n,x,600,c,t0,1512.3,30);tx(r,x,690,38,c,v,1,'center')});
+ [['ELLIPTISK','0 retninger',GUL,(x,y,v)=>ellipse(x,y,80,45,GUL,v)],['PARABOLSK','1 retning',ROD,(x,y,v)=>parabel(x,y,1,ROD,v)],['HYPERBOLSK','2 retninger',LILLA,(x,y,v)=>hyperbel(x,y,LILLA,v)]].forEach(([n,r,c,tegn],i)=>{const t0=1497.8+i*0.5;const v=vis(t0,1512.3);const x=220+i*380;tegn(x,420,v);stempel(n,x,600,c,t0,1512.3,30);tx(r,x,690,38,c,v,1,'center')});
  const kb=vis(1505.5,1512.3);if(kb>0){boks(380,780,420,110,GRONN,kb);tx('a^{2} − 4b',590,855,64,GRONN,kb,1,'center')}
  document.getElementById('fh').style.opacity=vis(1509.9,1512.3);
 }
 
-function blooper(){ // 773–789: «truly hyperbolic» etter oppsummeringen
- const a=vis(773.5,789.3);if(a<=0||tv<M(1500))return;
- const s=1+0.06*Math.sin(tv*6);g.save();g.translate(520,420);g.rotate(-0.08+0.03*Math.sin(tv*3));g.scale(s,s);tx('HYPERBOLSK!',0,0,96,LILLA,a,1,'center');g.restore();
- lapp('(ikke diabolsk)',300,560,GUL,786.8,789.3,48);
-}
-
 window.render=function(n,t){tv=t;g.clearRect(0,0,1920,1080);document.getElementById('fh').style.opacity=0;
  txt('Tre typer PDE-er',60,140,60,ORANSJE,62.2,1137.2,1.0);
- kaldstart();del1();del2();del3();del4();del5();del6();blooper();
+ kaldstart();
+ // overganger: hver del glir inn fra høyre og ut til venstre (svisj-lyd legges inn i lyden, se klipp/fx.py)
+ for(const [t0,t1,fn] of [[62.1,574.9,del1],[574.9,724.1,del2],[724.1,1137.2,del3],[1137.2,1345.9,del4],[1345.9,1495.7,del5],[1495.7,null,del6]]){
+   const inn=1-ease(pv(t0,0.6)), ut=t1==null?0:ease(kl((tv-M(t1))/UT));
+   g.save();g.translate(900*inn-900*ut,0);fn();g.restore()}
  const ka=tv>M(62.0)&&tv<M(1495.7)?1:0;kart('type',ka)};
 </script></body></html>

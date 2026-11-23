@@ -6,5 +6,25 @@
  "person": "person.png",
  "person_hoyde": 520,
  "person_hoyre": -120,
- "tegning": "tegning.png"
+ "tegning": "tegning.png",
+ "ekstra": [
+  {
+   "tekst": "Parabolsk?",
+   "x": 600,
+   "y": 300,
+   "sz": 38,
+   "farge": "#e0573d",
+   "vinkel": -9,
+   "opacity": 0.9
+  },
+  {
+   "tekst": "Elliptisk?",
+   "x": 700,
+   "y": 40,
+   "sz": 40,
+   "farge": "#eee462",
+   "vinkel": 6,
+   "opacity": 0.85
+  }
+ ]
 }

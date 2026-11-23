@@ -3,7 +3,7 @@
 grønnfargen varierer over bildet. Lager bare bildet (uten lyd).
 
 Bruk: python3 komponer.py --anim anim.mp4 --opptak klippet.mkv --ut bilde.mp4 --plan plan.json
-plan.json: liste med {"fra": G0, "til": G1, "opptak": T0, "hoyde": 680, "midt": 1660}  (G = tid i animasjonen,
+plan.json: liste med {"fra": G0, "til": G1, "opptak": T0, "hoyde": 680, "midt": 1660, "flytt": [[G, midt, hoyde], …]}  (G = tid i animasjonen,
 T0 = tid i opptaket ved G0). Utenfor planen vises bare animasjonen.
 Valgfritt "foran": [x0, y0, x1, y1]: innenfor dette rektangelet legges tavlestrekene (lyse/fargede piksler i animasjonen)
 oppå læreren, så han står «bak» tegningen (f.eks. ser ned på Dashman i bilen).
@@ -55,8 +55,13 @@ def main():
                 if ramme is None: break
                 if p.get('speil'): ramme = ramme[:, ::-1]
                 rgb, al = nokkel(ramme)
-                h = p['hoyde']; rgb = skaler(rgb, h); al = skaler((al * 255).astype(np.uint8), h).astype(np.float32) / 255
-                w = rgb.shape[1]; x0 = round(p['midt'] - w / 2); y0 = H - h
+                h, midt = p['hoyde'], p['midt']
+                for kg, km, kh in p.get('flytt', []):  # glid til ny plassering over 1 s fra kg: [G, midt, hoyde]
+                    if G >= kg:
+                        u = min(1.0, (G - kg) / 1.0); u = u * u * (3 - 2 * u)
+                        midt = midt + (km - midt) * u; h = round(h + (kh - h) * u)
+                rgb = skaler(rgb, h); al = skaler((al * 255).astype(np.uint8), h).astype(np.float32) / 255
+                w = rgb.shape[1]; x0 = round(midt - w / 2); y0 = H - h
                 xa, xb = max(0, x0), min(W, x0 + w); ya, yb = max(0, y0), min(H, y0 + h)
                 rs = rgb[ya - y0:yb - y0, xa - x0:xb - x0]; als = al[ya - y0:yb - y0, xa - x0:xb - x0, None]
                 bit = bilde[ya:yb, xa:xb].astype(np.float32)

@@ -15,6 +15,7 @@
 //   "person_hoyre": -150,              valgfri: avstand fra høyre kant (standard -10); negativ skyver personen delvis ut av bildet
 //   "person_hoyde": 560,                valgfri: høyden på utklippet (standard 700 av 720); mindre for brede utklipp med flere personer
 //   "tegning": "tegning.png",           valgfri: nøkkeltegning eller eksperiment (PNG/SVG, gjennomsiktig) nede til venstre
+//   "ekstra": [{"tekst": "Parabolsk?", "x": 700, "y": 520, "sz": 50, "farge": "#e0573d", "vinkel": -8, "opacity": 0.85}]   valgfri: ekstra ord i bakgrunnen
 //   "formel": "E_p = ½kx²"              valgfri: nøkkelformel i håndskrift nede i midten (vektorpil: skriv F\u20d7, dvs. bokstav + U+20D7)
 // }
 const { chromium } = require('playwright');
@@ -52,6 +53,7 @@ const path = require('path');
   <div class="a" id="bg"></div><div class="a" id="glod"></div>
   ${c.tegning ? `<img class="a" id="tegning" src="${url(c.tegning)}">` : ''}
   ${c.formel ? `<div class="a" id="formel">${c.formel.replace(/(.)\u20d7/g, '<span class="vek">$1</span>')}</div>` : ''}
+  ${(c.ekstra || []).map(e => `<div class="a" style="left:${e.x}px;top:${e.y}px;font:900 ${e.sz || 50}px/1 Mont;color:${e.farge || '#fff'};opacity:${e.opacity ?? 0.9};transform:rotate(${e.vinkel || 0}deg);white-space:nowrap;text-shadow:0 0 14px ${e.farge || '#fff'}88">${e.tekst}</div>`).join('')}
   ${c.person ? `<canvas class="a" id="person"></canvas>` : ''}
   <div class="a" id="tema">${c.tema || c.emne || ''}</div>
   <div class="a" id="tittel">${c.tittel || ''}${c.tittel2 ? '<br>' + c.tittel2 : ''}</div>
