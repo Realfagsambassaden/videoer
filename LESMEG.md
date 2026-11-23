@@ -37,6 +37,12 @@ Videoene sorteres etter **tema** (som på nettstedet), ikke etter lærebok, ford
 - **Ta bort det som skjer før læreren begynner å snakke** i en bit (f.eks. at han strekker fjæra), med mindre det er selve poenget.
 - **Grønnskjermopptakene i PDE-serien (take 3) speilvendes**, så læreren ser mot tavla til venstre (`"speil": true` i `plan.json`). Lyden i .mov fra Macen starter 0.08 s etter bildet – vis opptaket 0.08 s tidligere.
 - **Læreren skal mer inn i bildet** (13. november 2026): større og lenger inn mot midten, så begge hendene synes når han gestikulerer – men alltid **bak** teksten på tavla (`"foran": [0, 0, 1920, 1080]` i `plan.json`). Flytt eller krymp læreren heller enn å dekke tekst.
+- **Illustrasjoner og formler framfor tekst** (23. november 2026): tegn en klokke for tid og en linjal for rom i stedet for å skrive «tid»/«rom»; vis en formel og et bilde (f.eks. strengen med u(x, 0) = f(x)) i stedet for setninger. Lite tekst på tavla.
+- **Farger er faste gjennom hele filmen og bygger opp under historien:** samme ting har samme farge overalt (f.eks. tid/t = 0 i klokkas farge, x i sin egen, hver type/kategori sin farge – hyperbolsk lilla, parabolsk rød, elliptisk gul). Bruk aldri samme farge for to ulike ting (f.eks. rød for både «negativt fortegn» og «parabolsk»). Fortegn skrives nøytralt.
+- **Overganger og lyd ved hvert nytt steg i manus** (23. november 2026): svisj-lyd og en tydelig bevegelse (sveip, rotasjon, fly inn/ut) når noe nytt begynner, så seeren merker at historien går videre.
+- **Lærerens vitser og morsomme bemerkninger tas med** (f.eks. «dritlett»), gjerne med en latterlyd.
+- **Flytt eller krymp læreren mens tavla fylles,** så han aldri står bak tekst, ruter eller formler. Gjerne at han glir litt til side når det kommer nye ting.
+- **Animer omskrivinger:** når en formel skrives om (f.eks. til matriseform), vis det trinn for trinn – «brett ut» og «pakk inn igjen», la ledd fly dit de hører hjemme, og stryk ledd som kansellerer mot hverandre.
 - **Tydelig skrift:** ingen svake grå merkelapper; minst ca. 36 px, ligninger større.
 - **Ting som er sagt med rekvisitter skal med** – f.eks. når læreren «spiller» på slinkyen som gitarstreng, ta med biten.
 

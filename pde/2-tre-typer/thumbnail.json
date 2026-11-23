@@ -4,8 +4,7 @@
  "tittel2": "PDE-ER",
  "undertittel": "Hyperbolsk?!",
  "person": "person.png",
- "person_hoyde": 560,
- "person_hoyre": -230,
- "tegning": "tegning.png",
- "formel": "a² − 4b"
+ "person_hoyde": 520,
+ "person_hoyre": -120,
+ "tegning": "tegning.png"
 }

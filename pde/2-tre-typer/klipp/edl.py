@@ -1,16 +1,18 @@
 # Klippeliste for «Tre typer PDE-er» fra PDE2_take120Nov.mov (kildetider i s).
 # Type: 'K' kald start, '1' hoveddel, 'B' blooper til slutt, 'X' = nøyaktige grenser (innskutte ord), ellers trimmes stillhet.
 B=[
-(55.0,61.6,'K','hvilke deriverte → hva slags fysikk'),
+(55.0,62.15,'K','hvilke deriverte → hva slags fysikk'),
 (62.2,82.3,'1','andreordens PDE-er'),
 (174.0,207.9,'1','generell form, a og b, typen'),
 (428.3,456.6,'1','matriseform'),
 (457.3,476.1,'1','gange ut → ekstra førsteordensledd'),
 (482.3,491.0,'1','førsteordensledd påvirker ikke typen'),
 (492.0,500.5,'1','faktoren en halv'),
-(575.0,602.6,'1','symmetrisk matrise → diagonal'),
-(612.0,619.1,'1','fordelen: egenverdier og fortegn'),
+(515.7,519.0,'1','«Ok, så langt en omskriving. Hvorfor?»'),
+(578.6,602.6,'1','«Jo, her er greia»: symmetrisk matrise → diagonal'),
+(612.0,619.35,'1','fordelen: egenverdier og fortegn'),
 (668.2,682.6,'1','λ1 u_ξξ + λ2 u_ηη; tre muligheter'),
+(683.4,684.12,'X','«Enten»'),
 (690.0,697.0,'1','samme / motsatt / null'),
 (705.9,716.1,'1','alle havner i en av tre; informasjon'),
 (724.1,729.6,'1','bølge: motsatte fortegn'),
@@ -31,7 +33,8 @@ B=[
 (1227.8,1242.7,'1','det > 0, = 0, < 0'),
 (1301.5,1306.08,'X','ganger kravet med …'),
 (1316.56,1317.32,'X','«minus» (innskutt)'),
-(1306.08,1318.4,'X','… fire → a² − 4b'),
+(1306.08,1309.2,'X','… fire, så får du det kanskje mer kjente'),
+(1315.6,1318.4,'X','a² − 4b (lang pause kuttet)'),
 (1284.5,1288.3,'1','negativ → elliptisk'),
 (1290.2,1292.52,'X','null → parabolsk'),
 (1230.28,1230.96,'X','«positiv» (innskutt, fra det-setningen)'),
@@ -42,5 +45,4 @@ B=[
 (1413.2,1419.7,'1','avgjøres av a² − 4b'),
 (1495.8,1509.0,'2','oppsummering'),
 (1509.9,1512.2,'2','prøv deg på oppgaver'),
-(773.4,789.2,'B','«truly hyperbolic» – blooper'),
 ]
