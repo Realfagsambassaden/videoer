@@ -1,10 +1,11 @@
 {
  "tema": "Matematikk · PDE",
- "tittel": "∞ LØSNINGER",
- "tittel2": "HVILKEN?",
+ "tittel": "<span style=\"font-size:1.35em;line-height:0;vertical-align:-0.05em;letter-spacing:0;-webkit-text-stroke:0.075em #fff\">∞</span> MANGE",
+ "tittel2": "LØSNINGER?!",
  "undertittel": "Rand og start",
  "person": "person.png",
  "person_hoyde": 600,
  "person_hoyre": -120,
- "tegning": "tegning.png"
+ "tegning": "tegning.png",
+ "tittel_bredde": 900
 }
