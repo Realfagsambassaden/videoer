@@ -4,17 +4,17 @@
  "tittel2": "PDE-ER",
  "undertittel": "Hyperbolsk?!",
  "person": "person.png",
- "person_hoyde": 520,
- "person_hoyre": -120,
+ "person_hoyde": 540,
+ "person_hoyre": -90,
  "tegning": "tegning.png",
  "ekstra": [
   {
    "tekst": "Parabolsk?",
-   "x": 600,
-   "y": 300,
-   "sz": 38,
+   "x": 880,
+   "y": 200,
+   "sz": 36,
    "farge": "#e0573d",
-   "vinkel": -9,
+   "vinkel": 8,
    "opacity": 0.9
   },
   {

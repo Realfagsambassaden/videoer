@@ -2,13 +2,12 @@
 # Beskrivelse som starter med § = nytt steg i manus: kunstpause (opptil 1 s stillhet) før biten.
 # Type: 'K' kald start, '1' hoveddel, 'B' blooper til slutt, 'X' = nøyaktige grenser (innskutte ord), ellers trimmes stillhet.
 B=[
-(55.0,62.15,'K','hvilke deriverte → hva slags fysikk'),
+(55.0,61.9,'K','hvilke deriverte → hva slags fysikk'),
 (62.2,82.3,'1','andreordens PDE-er'),
-(174.0,207.9,'1','§generell form, a og b, typen'),
+(174.0,208.3,'1','§generell form, a og b, typen'),
 (428.3,456.6,'1','§matriseform'),
 (457.3,476.1,'1','gange ut → ekstra førsteordensledd'),
 (482.3,491.0,'1','førsteordensledd påvirker ikke typen'),
-(492.0,500.5,'1','faktoren en halv'),
 (515.7,519.0,'1','§«Ok, så langt en omskriving. Hvorfor?»'),
 (578.6,602.6,'1','§«Jo, her er greia»: symmetrisk matrise → diagonal'),
 (612.0,619.35,'1','fordelen: egenverdier og fortegn'),

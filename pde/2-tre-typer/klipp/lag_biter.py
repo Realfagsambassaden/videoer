@@ -10,7 +10,7 @@ biter=[]
 for a,b,s,m in B:
     if s=='X': biter.append([F(a),F(b),s,m]); continue
     i0,i1=int(a*50),int(b*50); on=db[i0:i1]>-45; idx=np.where(on)[0]
-    ts=a+idx[0]*0.02; te=a+idx[-1]*0.02
+    ts=a+idx[0]*0.02; on55=np.where(db[i0:i1]>-55)[0]; te=a+on55[-1]*0.02  # slutt: følg utklingingen ned til -55 dB
     start=max(a,ts-0.2)
     if m.startswith('§'):  # kunstpause: gå bakover i stillheten, opptil 1.0 s før talen
         j=int(ts*50); k=0

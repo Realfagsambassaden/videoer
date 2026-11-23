@@ -40,6 +40,12 @@ Videoene sorteres etter **tema** (som på nettstedet), ikke etter lærebok, ford
 - **Illustrasjoner og formler framfor tekst** (23. november 2026): tegn en klokke for tid og en linjal for rom i stedet for å skrive «tid»/«rom»; vis en formel og et bilde (f.eks. strengen med u(x, 0) = f(x)) i stedet for setninger. Lite tekst på tavla.
 - **Farger er faste gjennom hele filmen og bygger opp under historien:** samme ting har samme farge overalt (f.eks. tid/t = 0 i klokkas farge, x i sin egen, hver type/kategori sin farge – hyperbolsk lilla, parabolsk rød, elliptisk gul). Bruk aldri samme farge for to ulike ting (f.eks. rød for både «negativt fortegn» og «parabolsk»). Fortegn skrives nøytralt.
 - **Overganger og lyd ved hvert nytt steg i manus** (23. november 2026): svisj-lyd og en tydelig bevegelse (sveip, rotasjon, fly inn/ut) når noe nytt begynner, så seeren merker at historien går videre.
+- **Overganger er alltid både lyd og bilde** (23. november 2026): en svisj alene merkes ikke – tavla skal også stryke ut, gli eller sveipe. Et lysende sveip over læreren skjuler at han ser ned i pausen før han begynner å snakke.
+- **Lite tekst, bruk tall og piler:** «2. orden» i stedet for «andreordensledd», korte merkelapper med pil til det de beskriver.
+- **Blink det læreren peker på i talen** («den ukjente u», «kravet vårt», «lik en konstant»): glød/pop i det ordet sies, gjerne med en morsom lyd (smokk for hver substitusjon, knirk når koordinatsystemet roteres).
+- **Kutt bort forklaringer seerne kan stoppe og se selv** (f.eks. hvorfor a/2 – «det kommer to ganger»).
+- **Fortegn i samme farge som typen de hører til** (samme fortegn = elliptisk gul, motsatte = hyperbolsk lilla, én null = parabolsk rød), også rutene rundt.
+- **Miniatyrbilde:** et undrende blikk passer godt.
 - **Speeding:** PDE-filmene speedes opp ca. 7 % med samme tonehøyde (atempo). Da er overganger og **kunstpauser** enda viktigere: la det være en pause på ca. 0.8 s (etter speeding) ved hvert nytt steg i manus, med svisj og bevegelse på tavla i pausen.
 - **Lærerens vitser og morsomme bemerkninger tas med** (f.eks. «dritlett»), gjerne med en latterlyd.
 - **Flytt eller krymp læreren mens tavla fylles,** så han aldri står bak tekst, ruter eller formler. Gjerne at han glir litt til side når det kommer nye ting.

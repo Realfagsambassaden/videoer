@@ -58,7 +58,7 @@ const path = require('path');
   <div class="a" id="tema">${c.tema || c.emne || ''}</div>
   <div class="a" id="tittel">${c.tittel || ''}${c.tittel2 ? '<br>' + c.tittel2 : ''}</div>
   <div class="a" id="under">${c.undertittel || ''}</div>
-  <img class="a" id="logo" src="file://${V}/drnormann-logo.svg">
+  <img class="a" id="logo" src="file://${V}/ben/ben-neon-transparent.svg">
   <script>
   window.klar = (async () => {
     await document.fonts.ready;
