@@ -35,7 +35,8 @@ const p=(t0,d=0.6)=>kl((M(T)-M(t0))/d*1);
 const pv=(t0,d)=>kl((tv-M(t0))/d);
 let tv=0; // videotid nå
 // synlighet: inn ved t0, ut ved t1 (kildetider)
-function vis(t0,t1){const a=kl((tv-M(t0)+0.0)/0.35);const b=t1==null?1:kl((M(t1)-tv)/0.4);return Math.min(a,b);}
+const UT=0.45; // innhold blir stående UT s etter t1 mens det glir/tones ut
+function vis(t0,t1){const a=kl((tv-M(t0)+0.0)/0.35);const b=t1==null?1:kl((M(t1)+UT-tv)/UT);return Math.min(a,b);}
 function pop(t0){const x=(tv-M(t0))/0.35;if(x<0)return 0;if(x>1)return 1;return 1+0.25*Math.sin(Math.PI*x)*(1-x)+ (x<0.3? -0.3*(1-x/0.3):0);}
 
 // ---- tekst med enkel matte-markup: a_{xx}, a^{2}
@@ -124,11 +125,15 @@ function bolgepil(x,y,len,col,a,t){if(a<=0)return;g.save();g.globalAlpha=a;g.str
 function bro(x,y,a){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=KRITT;g.lineWidth=5;g.beginPath();g.moveTo(x-200,y);g.lineTo(x+200,y);g.stroke();g.beginPath();g.moveTo(x-200,y);g.quadraticCurveTo(x,y-160,x+200,y);g.stroke();for(let k=-3;k<=3;k++){const X=x+k*50;const Y=y-160*(1-Math.pow(k*50/200,2))*0.5;strek(X,y,X,Y,KRITT,3,1,a)}g.restore()}
 function telleren(x,y,t0,a){if(a<=0)return;const f=ease(pv(t0,1.2));g.save();g.globalAlpha=a;const s=1+0.3*(1-f);g.translate(x,y);g.scale(s,s);tx(f<0.5?'∞':'1',0,0,110,f<0.5?GUL:GRONN,a,1,'center');g.restore()}
 
+function plate(x0,y0,W,H,a){if(a<=0)return;const N=40;g.save();g.globalAlpha=a;for(let i=0;i<N;i++)for(let j=0;j<N;j++){g.fillStyle=varmefarge(PLATE[i][j]);g.fillRect(x0+j*W/N,y0+i*H/N,W/N+1,H/N+1)}g.strokeStyle=KRITT;g.lineWidth=3;g.strokeRect(x0,y0,W,H);g.restore()}
+// faste farger i hele filmen: tid/t/initial = TURKIS (klokka), rom/x/rand = ORANSJE (linjalen)
+function klokke2(x,y,r,col,a,vinkel=0){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=4;g.beginPath();g.arc(x,y,r,0,7);g.stroke();for(let k=0;k<12;k++){const v=k*Math.PI/6;strek(x+Math.cos(v)*r*0.8,y+Math.sin(v)*r*0.8,x+Math.cos(v)*r*0.92,y+Math.sin(v)*r*0.92,col,2,1,a)}g.lineCap='round';g.lineWidth=5;g.beginPath();g.moveTo(x,y);g.lineTo(x+Math.sin(vinkel)*r*0.7,y-Math.cos(vinkel)*r*0.7);g.stroke();g.lineWidth=3;g.beginPath();g.moveTo(x,y);g.lineTo(x,y-r*0.45);g.stroke();g.restore()}
+function linjal(x,y,w,col,a){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=4;g.strokeRect(x,y-22,w,30);for(let k=0;k<=10;k++){const X=x+k*w/10;strek(X,y+8,X,y+8-(k%5===0?18:10),col,2,1,a)}g.restore()}
 // ================= DELENE =================
 function kaldstart(){ // kilde 24.7–100.6, læreren stor
  if(tv>M(202.6))return;
  const T1=94.6;
- [['bølge',LILLA],['varme',ROD],['likevekt',KRITT]].forEach(([n,c],i)=>{const t0=25.0+i*1.0;const v=vis(t0,34.8);const s=pop(t0);g.save();g.translate(180+i*260,200);g.scale(s,s);rute(-110,-70,220,140,c,v);tx(n,0,10,40,c,v,1,'center');g.restore()});
+ [['bølge',LILLA],['varme',ROD],['likevekt',GUL]].forEach(([n,c],i)=>{const t0=25.0+i*1.0;const v=vis(t0,34.8);const s=pop(t0);g.save();g.translate(180+i*260,200);g.scale(s,s);rute(-110,-70,220,140,c,v);tx(n,0,10,40,c,v,1,'center');g.restore()});
  lapp('hyperbolsk · parabolsk · elliptisk',70,330,KRITT,28.0,34.8,36);
  const pr=vis(32.0,57.8);if(pr>0){const s=pop(32.0);g.save();g.translate(380,440);g.scale(s,s);tx('men …',0,0,64,GUL,pr,1,'center');g.restore()}
  const inf=vis(35.9,57.8);if(inf>0){const s=pop(35.9);g.save();g.translate(380,600);g.scale(s,s);tx('∞ løsninger',0,0,90,GUL,inf,1,'center');g.restore()}
@@ -145,7 +150,7 @@ function kaldstart(){ // kilde 24.7–100.6, læreren stor
 }
 
 function del1(){ // 202.7–262: to klasser betingelser
- if(tv<M(202.6)||tv>M(262.1))return;
+ if(tv<M(202.6)||tv>M(262.1)+UT)return;
  const a=vis(202.7,262.1);
  likn([['PDE-problem = ',KRITT],['PDE',KRITT],[' + ',KRITT],['betingelser',GUL]],100,270,54,a,pv(205.0,1.4));
  lapp('to klasser',100,350,KRITT,214.4,262.1,40);
@@ -153,16 +158,19 @@ function del1(){ // 202.7–262: to klasser betingelser
  const x0=160,y0=850,W=520,H=380;const ra=vis(221.2,262.1);
  if(ra>0){g.save();g.globalAlpha=ra*0.25;g.fillStyle=GRA;g.fillRect(x0,y0-H,W,H);g.restore();akser(x0,y0,W+50,H+50,'x','t',ra);
    strek(x0,y0,x0+W,y0,TURKIS,9,pv(221.2,0.8),ra);
-   const ib=vis(223.2,262.1);tx('initialbetingelse: hvordan det er ved start, t = 0',x0-60,y0+70,36,TURKIS,ib,pv(223.2,1.0));
+   const ib=vis(223.2,262.1);klokke2(x0+30,y0+80,28,TURKIS,ib);tx('initialbetingelse',x0+75,y0+92,38,TURKIS,ib,pv(223.2,0.8));tx('t = 0',x0+400,y0+92,38,TURKIS,ib);
    const rb=vis(232.8,262.1);if(rb>0){strek(x0,y0,x0,y0-H,ORANSJE,9,pv(232.8,0.8),rb);strek(x0+W,y0,x0+W,y0-H,ORANSJE,9,pv(233.2,0.8),rb)}
-   tx('randbetingelse: hva som skjer på kanten',x0-60,y0-H-40,36,ORANSJE,rb,pv(233.6,1.0))}
+   linjal(x0+20,y0-H-40,100,ORANSJE,rb);tx('randbetingelse',x0+140,y0-H-30,38,ORANSJE,rb,pv(233.6,0.8))}
  // gitarstreng
- const gs=vis(227.9,262.1);if(gs>0){strengform(820,470,380,90,0,TURKIS,gs);lapp('bøyd ved t = 0',820,560,TURKIS,227.9,262.1,36)}
- const ge=vis(241.5,262.1);if(ge>0){g.save();g.globalAlpha=ge;g.fillStyle=ORANSJE;g.shadowColor=ORANSJE;g.shadowBlur=20;g.beginPath();g.arc(820,470,13,0,7);g.arc(1200,470,13,0,7);g.fill();g.restore();lapp('u = 0 i endene',820,630,ORANSJE,241.5,262.1,40)}
+ const gs=vis(227.9,262.1);if(gs>0){strengform(820,470,380,90,0,TURKIS,gs);{const v=vis(227.9,262.1);klokke2(850,600,26,TURKIS,v);tx('t = 0',890,612,38,TURKIS,v)}}
+ const ge=vis(241.5,262.1);if(ge>0){g.save();g.globalAlpha=ge;g.fillStyle=ORANSJE;g.shadowColor=ORANSJE;g.shadowBlur=20;g.beginPath();g.arc(820,470,13,0,7);g.arc(1200,470,13,0,7);g.fill();g.restore();{const v=vis(241.5,262.1);tx('u = 0',780,420,38,ORANSJE,v);tx('u = 0',1160,420,38,ORANSJE,v)}}
 }
 
+// hvert steg glir inn fra høyre og ut til venstre
+function sek(t0,t1,fn){const inn=1-ease(pv(t0,0.6)),ut=ease(kl((tv-M(t1))/UT));g.save();g.translate(900*inn-900*ut,0);fn();g.restore()}
 function del2(){ // 262–1033: hvilke og hvor mange
- if(tv<M(262.1)||tv>M(1033.0))return;
+ if(tv<M(262.1)||tv>M(1033.0)+UT)return;
+ sek(262.1,408.1,()=>{
  // A: typen bestemmer, varme/bølge marsjerer i tid (262–408)
  const A=vis(262.2,408.1);
  if(A>0){
@@ -177,82 +185,126 @@ function del2(){ // 262–1033: hvilke og hvor mange
    if(r2>0){tx('bølge:',640,600,44,LILLA,r2);tx('u_{tt}',800,600,44,KRITT,r2);tx('→ 2. orden i tid',900,600,40,KRITT,vis(308.0,408.1),pv(308.0,0.7));tx('→ 2: utslaget u(x, 0)',640,670,38,TURKIS,vis(325.4,408.1),pv(325.4,0.7));tx('og farten u_{t}(x, 0)',688,718,38,TURKIS,vis(326.5,408.1),pv(326.5,0.7));
      const sa=vis(327.1,408.1);if(sa>0){strengform(660,890,420,70,0,TURKIS,sa);const fa=vis(330.4,408.1);[0.2,0.35,0.55,0.75].forEach(s=>{const X=660+s*420,Y=890-70*(s<0.35?s/0.35:(1-s)/0.65);pil(X,Y,X,Y-60,GUL,4,pv(330.4,0.5),fa,12)});tx('fart',1100,820,36,GUL,fa)}}
  }
- // B: hvorfor? integrasjonskonstanter (408–571)
+ });
+ sek(408.1,571.0,()=>{
+ // B: hvorfor? integrasjonskonstanter (408–571) – formler i stedet for tekst
  const B=vis(408.2,571.0);
  if(B>0){
    const s=pop(408.2);g.save();g.translate(640,280);g.scale(s,s);tx('hvorfor?',0,0,64,GUL,B,1,'center');g.restore();
    lapp('antall initialbetingelser = orden i tid',320,360,KRITT,410.0,571.0,40);
-   txt('∫ dt  →  1 integrasjonskonstant',140,480,48,KRITT,424.2,571.0,1.2);
-   txt('∫∫ dt dt  →  2 integrasjonskonstanter',140,580,48,KRITT,449.7,571.0,1.2);
-   lapp('bestemmes av initialverdiene',140,660,TURKIS,431.5,571.0,40);
-   const k=vis(516.2,571.0);if(k>0){boks(110,720,1020,170,TURKIS,k);tx('«konstantene» er hele funksjoner av x:',140,790,42,TURKIS,k,pv(516.2,1.0));tx('C_{1}(x) = utslaget,  C_{2}(x) = farten',140,860,38,KRITT,k,pv(519.0,1.2))}
+   const r=vis(424.2,516.0), r2=vis(449.6,516.0);
+   // én gang
+   if(r>0){const p1=likn([['u_{t}',TURKIS],[' = …',KRITT]],120,490,54,r,pv(424.2,0.6));
+     const p2=likn([['⇒   u = ∫ … dt + ',KRITT]],380,490,54,vis(426.8,516.0),pv(426.8,0.9));
+     const c=vis(429.7,516.0);if(c>0){const sc=pop(429.7);const x=p2[0][0]+p2[0][1]+30;g.save();g.translate(x,475);g.scale(sc,sc);g.shadowColor=TURKIS;g.shadowBlur=16;tx('C',0,15,64,TURKIS,c,1,'center');g.restore();
+       const l=vis(431.5,516.0);tx('bestemmes av initialverdien',640,575,38,TURKIS,l,pv(431.5,0.8));pil(820,545,x-6,512,TURKIS,4,pv(432.2,0.5),l,14)}}
+   // to ganger
+   if(r2>0){likn([['u_{tt}',TURKIS],[' = …',KRITT]],120,680,54,r2,pv(449.6,0.6));
+     const p2=likn([['⇒   u = ∬ … dt dt + ',KRITT]],380,680,54,vis(451.8,516.0),pv(451.8,0.9));
+     const c=vis(454.8,516.0);if(c>0){const sc=pop(454.8);const x=p2[0][0]+p2[0][1]+10;g.save();g.translate(x,665);g.scale(sc,sc);g.shadowColor=TURKIS;g.shadowBlur=16;likn([['C_{1}',TURKIS],['·t + ',KRITT],['C_{2}',TURKIS]],0,15,58,c);g.restore();
+       const l=vis(456.8,516.0);tx('bestemmes av initialverdiene',640,770,38,TURKIS,l,pv(456.8,0.8));pil(800,740,x+30,705,TURKIS,4,pv(457.5,0.5),l,14);pil(880,740,x+215,705,TURKIS,4,pv(457.8,0.5),l,14)}}
+   // «konstantene» er funksjoner av x: gitarstrengen ved t = 0
+   const k=vis(516.2,571.0);
+   if(k>0){const sc=pop(516.2);
+     klokke2(170,520,44,TURKIS,k);tx('t = 0',230,535,48,TURKIS,k);
+     strengform(160,700,620,110,0,TURKIS,k);
+     const f=vis(519.0,571.0);if(f>0){[0.15,0.3,0.5,0.7,0.85].forEach(q=>{const X=160+q*620,Y=700-110*(q<0.35?q/0.35:(1-q)/0.65);pil(X,Y,X,Y-55,GUL,4,pv(519.0,0.5),f,12)})}
+     likn([['C_{2}(',TURKIS],['x',ORANSJE],[') = u(',TURKIS],['x',ORANSJE],[', ',KRITT],['0',TURKIS],[')',KRITT]],860,620,48,k,pv(516.6,1.0));lapp('utslaget',860,680,KRITT,517.5,571.0,38);
+     likn([['C_{1}(',TURKIS],['x',ORANSJE],[') = u_{t}(',TURKIS],['x',ORANSJE],[', ',KRITT],['0',TURKIS],[')',KRITT]],860,780,48,f,pv(519.0,1.0));lapp('farten',860,840,GUL,519.6,571.0,38);
+     tx('x',800,720,40,ORANSJE,k)}
  }
- // C: romlige deriverte → randbetingelser (571–785)
+ });
+ sek(571.0,785.0,()=>{
+ // C: romlige deriverte → randbetingelser (571–785): klokke for tid, linjal for rom
  const C=vis(571.1,785.0);
- if(C>0){likn([['u_{t}',TURKIS],[' = α·',KRITT],['u_{xx}',ORANSJE]],160,400,64,C,pv(571.1,1.0));likn([['u_{tt}',TURKIS],[' = c^{2}·',KRITT],['u_{xx}',ORANSJE]],160,520,64,C,pv(572.0,1.0));
-   lapp('tid → initialbetingelser',620,400,TURKIS,577.0,785.0,40);lapp('rom → randbetingelser',620,520,ORANSJE,586.0,785.0,40);
-   const e=vis(586.0,785.0);if(e>0){boks(120,600,1000,110,GRONN,e);tx('entydig løsning: begge deler',620,672,46,GRONN,e,pv(586.0,1.0),'center')}}
+ if(C>0){likn([['u_{t}',TURKIS],[' = α·',KRITT],['u_{xx}',ORANSJE]],160,400,64,C,pv(571.1,1.0));likn([['u_{tt}',TURKIS],[' = c^{2}·',KRITT],['u_{xx}',ORANSJE]],160,540,64,C,pv(572.0,1.0));
+   const t1=vis(577.0,785.0);klokke2(650,385,30,TURKIS,t1);tx('→ initialbetingelser',700,400,42,TURKIS,t1,pv(577.0,0.7));
+   const t2=vis(586.0,785.0);linjal(615,535,75,ORANSJE,t2);tx('→ randbetingelser',705,540,42,ORANSJE,t2,pv(586.0,0.7));
+   const e=vis(588.0,785.0);if(e>0){boks(120,620,1000,110,GRONN,e);tx('entydig løsning: begge deler',620,692,46,GRONN,e,pv(588.0,1.0),'center')}}
+ });
+ sek(785.0,836.7,()=>{
  // D: eksempel staven (785–836)
  const D=vis(786.0,836.7);
  if(D>0){lapp('varmeligningen: stav i et tørkeskap',100,250,ROD,786.0,836.7,42);
-   const tt=tv<M(792.5)?0:((tv-M(792.5))%6)/6;stavT(140,420,900,70,tt,D,1,0.15);
-   const ia=vis(798.9,836.7);if(ia>0){tx('starttemperatur u(x, 0)',140,560,40,TURKIS,ia,pv(798.9,0.8));strek(140,500,1040,500,TURKIS,6,1,ia)}
+   const tt=tv<M(792.5)?0:((tv-M(792.5))%6)/6;stavT(140,420,900,70,tt,D,1,0.15);tx('x',1060,470,40,ORANSJE,D);
+   const ia=vis(798.9,836.7);if(ia>0){klokke2(180,580,30,TURKIS,ia);likn([['u(',KRITT],['x',ORANSJE],[', ',KRITT],['0',TURKIS],[') = f(',KRITT],['x',ORANSJE],[')',KRITT]],230,595,46,ia,pv(798.9,0.8));strek(140,500,1040,500,TURKIS,6,1,ia)}
    const ra=vis(820.1,836.7);if(ra>0){g.save();g.globalAlpha=ra;g.strokeStyle=ORANSJE;g.lineWidth=8;g.shadowColor=ORANSJE;g.shadowBlur=18;g.beginPath();g.moveTo(140,410);g.lineTo(140,500);g.moveTo(1040,410);g.lineTo(1040,500);g.stroke();g.restore();
-     termometer(110,380,0.9,ORANSJE,vis(822.5,836.7));termometer(1070,380,0.3,ORANSJE,vis(822.5,836.7));tx('temperaturen i endene',140,660,40,ORANSJE,ra,pv(822.5,0.8))}}
- // E: eksempel gitarstrengen (836–924)
+     termometer(110,380,0.9,ORANSJE,vis(822.5,836.7));termometer(1070,380,0.3,ORANSJE,vis(822.5,836.7));
+     likn([['u(',KRITT],['0',ORANSJE],[', ',KRITT],['t',TURKIS],[')',KRITT]],120,700,46,ra,pv(822.5,0.6));likn([['u(',KRITT],['L',ORANSJE],[', ',KRITT],['t',TURKIS],[')',KRITT]],900,700,46,ra,pv(823.0,0.6))}}
+ });
+ sek(836.7,924.0,()=>{
+ // E: eksempel gitarstrengen (836–924): turkis (startformen) til den begynner å svinge, så lilla
  const E=vis(836.8,924.0);
  if(E>0){lapp('bølgeligningen: en gitarstreng',100,250,LILLA,836.8,924.0,42);
-   const sv=tv<M(846.5)?0:(tv-M(846.5));strengform(160,560,900,120,sv*0.6,LILLA,E);
-   const ia=vis(846.5,924.0);if(ia>0){tx('utslag og fart ved start',160,700,40,TURKIS,ia,pv(846.5,0.8))}
-   const pk=vis(871.0,924.0);if(pk>0){for(let k=1;k<12;k++){const s=k/12;const u=(s<0.35?s/0.35:(1-s)/0.65)*Math.cos(sv*0.6*4);g.save();g.globalAlpha=pk;g.fillStyle=KRITT;g.beginPath();g.arc(160+s*900,560-u*120,7,0,7);g.fill();g.restore()}tx('en hel streng med punkter',160,770,40,KRITT,pk,pv(871.0,0.8))}
-   const ra=vis(887.1,924.0);if(ra>0){g.save();g.globalAlpha=ra;g.fillStyle=ORANSJE;g.shadowColor=ORANSJE;g.shadowBlur=20;g.beginPath();g.arc(160,560,14,0,7);g.arc(1060,560,14,0,7);g.fill();g.restore();tx('u = 0 i endene',160,840,40,ORANSJE,ra,pv(887.1,0.8))}}
- // F: elliptiske: bare rand (924–972)
+   const t0s=851.5;const sv=tv<M(t0s)?0:(tv-M(t0s));const fs=kl(sv/0.8);
+   strengform(160,560,900,120,sv*0.6,TURKIS,E*(1-fs));strengform(160,560,900,120,sv*0.6,LILLA,E*fs);
+   const ia=vis(846.5,924.0);if(ia>0){klokke2(190,720,30,TURKIS,ia);likn([['u(',KRITT],['x',ORANSJE],[', ',KRITT],['0',TURKIS],[') = f(',KRITT],['x',ORANSJE],[')',KRITT]],240,735,46,ia,pv(846.6,0.8));likn([['u_{t}(',KRITT],['x',ORANSJE],[', ',KRITT],['0',TURKIS],[') = g(',KRITT],['x',ORANSJE],[')',KRITT]],620,735,46,vis(848.0,924.0),pv(848.0,0.8))}
+   const pk=vis(871.0,924.0);if(pk>0){for(let k=1;k<12;k++){const s=k/12;const u=(s<0.35?s/0.35:(1-s)/0.65)*Math.cos(sv*0.6*4);g.save();g.globalAlpha=pk;g.fillStyle=KRITT;g.beginPath();g.arc(160+s*900,560-u*120,7,0,7);g.fill();g.restore()}}
+   const ra=vis(887.1,924.0);if(ra>0){g.save();g.globalAlpha=ra;g.fillStyle=ORANSJE;g.shadowColor=ORANSJE;g.shadowBlur=20;g.beginPath();g.arc(160,560,14,0,7);g.arc(1060,560,14,0,7);g.fill();g.restore();
+     likn([['u(',KRITT],['0',ORANSJE],[', ',KRITT],['t',TURKIS],[') = u(',KRITT],['L',ORANSJE],[', ',KRITT],['t',TURKIS],[') = 0',KRITT]],240,840,46,ra,pv(887.1,0.9))}}
+ });
+ sek(924.0,972.3,()=>{
+ // F: elliptiske: Laplace og Poisson, hver med sitt bilde (924–972)
  const F=vis(924.1,972.3);
- if(F>0){lapp('elliptiske: Laplace og Poisson',100,250,KRITT,924.1,972.3,42);
-   tx('∇^{2}u = 0,   ∇^{2}u = f',100,350,52,KRITT,F,pv(926.2,1.0));lapp('ingen tidsderiverte – bare romlige',100,430,GRA,930.0,972.3,38);
-   g.save();g.globalAlpha=F*0.25;g.fillStyle=GRA;g.fillRect(300,520,420,320);g.restore();
-   const ra=vis(939.0,972.3);boks(300,520,420,320,ORANSJE,ra);lapp('bare randbetingelser',760,700,ORANSJE,941.4,972.3,44)}
+ if(F>0){lapp('elliptiske ligninger',100,250,GUL,924.1,972.3,42);
+   const la=vis(926.2,972.3),po=vis(927.4,972.3);
+   if(la>0){rute(100,290,470,370,GUL,la);tx('Laplace',130,345,46,GUL,la);tx('∇^{2}u = 0',130,405,46,KRITT,la);plate(390,330,140,140,la);tx('temperatur',130,560,36,KRITT,la);tx('etter lang tid',130,610,36,KRITT,la)}
+   if(po>0){rute(610,290,470,370,GUL,po);tx('Poisson',640,345,46,GUL,po);tx('∇^{2}u = f',640,405,46,KRITT,po);planet(960,400,50,po,tv);tx('gravitasjon',640,560,36,KRITT,po);tx('rundt en masse',640,610,36,KRITT,po)}
+   const nt=vis(930.0,972.3);if(nt>0){klokke2(160,720,30,TURKIS,nt);kryss(200,720,nt);tx('ingen tidsderiverte',250,735,42,KRITT,nt,pv(930.0,0.7))}
+   const ra=vis(939.0,972.3);if(ra>0){linjal(115,820,80,ORANSJE,ra);tx('bare randbetingelser',220,830,46,ORANSJE,ra,pv(941.4,0.8))}}
+ });
+ sek(972.3,1033.0,()=>{
  // G: telling av randbetingelser, velstilt (972–1033)
  const G=vis(972.4,1033.0);
- if(G>0){stavT(140,330,700,50,0,G);const d=vis(976.0,1033.0);if(d>0){g.save();g.globalAlpha=d;g.fillStyle=ORANSJE;g.shadowColor=ORANSJE;g.shadowBlur=20;g.beginPath();g.arc(140,355,16,0,7);g.arc(840,355,16,0,7);g.fill();g.restore()}
-   lapp('to randbetingelser – én i hver ende',140,450,ORANSJE,976.0,1033.0,40);
-   lapp('fordi u_{xx}: andre orden i x',140,520,KRITT,981.3,1033.0,40);
-   lapp('endene = hele randen',140,590,KRITT,988.3,1033.0,40);
-   const h=vis(995.2,1033.0);if(h>0){g.save();g.globalAlpha=h;g.strokeStyle=ORANSJE;g.lineWidth=7;g.shadowColor=ORANSJE;g.shadowBlur=16;g.beginPath();g.ellipse(1050,420,150,100,0.2,0,7*pv(995.2,1.0));g.stroke();g.restore();tx('høyere dimensjoner:',900,580,34,KRITT,h);tx('rand rundt hele området',900,625,34,ORANSJE,h)}
-   const v=vis(1012.8,1033.0);if(v>0){telleren(300,820,1013.5,v);stempel('VELSTILT',700,800,GRONN,1015.8,1033.0,40);lapp('én løsning',560,880,GRONN,1015.8,1033.0,40)}}
+ if(G>0){stavT(140,330,700,50,0,G);const d=vis(976.0,1033.0);if(d>0){g.save();g.globalAlpha=d;g.fillStyle=ORANSJE;g.shadowColor=ORANSJE;g.shadowBlur=20;g.beginPath();g.arc(140,355,16,0,7);g.arc(840,355,16,0,7);g.fill();g.restore();tx('1',130,300,40,ORANSJE,d);tx('2',830,300,40,ORANSJE,d)}
+   lapp('to randbetingelser',140,450,ORANSJE,976.0,1033.0,42);
+   {const v=vis(981.3,1033.0);likn([['fordi ',KRITT],['u_{xx}',ORANSJE],[': andre orden i ',KRITT],['x',ORANSJE]],140,520,42,v,pv(981.3,0.8))}
+   lapp('endene = hele randen',140,590,KRITT,988.3,1033.0,42);
+   const h=vis(995.2,1033.0);if(h>0){g.save();g.globalAlpha=h;g.strokeStyle=ORANSJE;g.lineWidth=7;g.shadowColor=ORANSJE;g.shadowBlur=16;g.beginPath();g.ellipse(1020,430,130,85,0.2,0,7*pv(995.2,1.0));g.stroke();g.restore();tx('2D: randen rundt',900,580,36,ORANSJE,h)}
+   // ∞ → 1: velstilt
+   const v=vis(1012.8,1033.0);if(v>0){const inf=vis(1012.8,1016.4);if(inf>0){const s=pop(1012.8);g.save();g.translate(220,820);g.scale(s,s);tx('∞',0,0,120,GUL,inf,1,'center');g.restore()}
+     pil(300,790,420,790,KRITT,5,pv(1014.6,0.6),vis(1014.6,1033.0),18);
+     const en=vis(1015.0,1033.0);if(en>0){const s=pop(1015.0);g.save();g.translate(490,820);g.scale(s,s);tx('1',0,0,120,GRONN,en,1,'center');g.restore()}
+     stempel('VELSTILT',780,800,GRONN,1016.0,1033.0,40);lapp('nøyaktig én løsning',620,890,GRONN,1016.0,1033.0,40)}}
+ });
 }
 
 function del3(){ // 1033–1217: Dirichlet, Neumann, Robin
- if(tv<M(1033.0)||tv>M(1217.8))return;
+ if(tv<M(1033.0)||tv>M(1217.8)+UT)return;
  const a=vis(1033.2,1217.8);
  txt('Tre slags randbetingelser',100,250,52,KRITT,1033.2,1217.8,1.2);
- // staven i midten
- const tt=0.85;stavT(260,480,700,70,tt,a,1,0.3);
- const di=vis(1048.9,1217.8);if(di>0){tx('Dirichlet:',100,700,44,ORANSJE,di);tx('u = verdi på randen',340,700,44,KRITT,di,pv(1048.9,1.0))}
- const t1=vis(1086.2,1217.8);if(t1>0){termometer(230,460,0.95,ORANSJE,t1);tx('100 °C',150,380,40,ORANSJE,t1);varmeovn(180,515,ROD,t1,tv)}
- const ne=vis(1091.8,1217.8);if(ne>0){tx('Neumann:',100,780,44,TURKIS,ne);tx('u_{x} = verdi',340,780,44,KRITT,ne,pv(1094.6,0.8));tx('(strømmen ut)',620,780,36,GRA,ne)}
- const iso=vis(1113.3,1160.0);if(iso>0){isolasjon(960,455,90,120,iso);tx('isolert',960,620,36,GUL,iso);tx('u_{x} = 0',960,660,36,TURKIS,vis(1120.7,1160.0))}
- const ro=vis(1133.9,1217.8);if(ro>0){tx('Robin:',100,860,44,GUL,ro);tx('blanding av u og u_{x}',340,860,44,KRITT,ro,pv(1137.2,0.8))}
+ const ne=vis(1091.8,1217.8);
+ // staven i midten: varm venstre ende i Dirichlet, jevn temperatur når begge ender er isolerte (Neumann)
+ const tt=0.85;stavT(260,480,700,70,tt,a,1-0.5*ne,0.3+0.2*ne);
+ const di=vis(1048.9,1217.8);if(di>0){tx('Dirichlet:',100,700,44,ORANSJE,di);tx('kjenner u på randen',340,700,44,KRITT,di,pv(1048.9,1.0))}
+ const ud=vis(1049.6,1091.6);if(ud>0){likn([['u(',KRITT],['0',ORANSJE],[')',KRITT]],220,620,40,ud);likn([['u(',KRITT],['L',ORANSJE],[')',KRITT]],930,620,40,ud)}
+ stempel('DRITLETT!',780,380,GRONN,1056.6,1086.0,40);
+ const t1=vis(1086.2,1091.6);if(t1>0){termometer(230,460,0.95,ORANSJE,t1);tx('100 °C',150,380,40,ORANSJE,t1);varmeovn(180,515,ROD,t1,tv)}
+ if(ne>0){tx('Neumann:',100,780,44,ORANSJE,ne);likn([['kjenner ',KRITT],['u_{x}',ORANSJE],[' på randen',KRITT]],340,780,44,ne,pv(1094.6,0.8))}
+ const iso=vis(1111.7,1133.0);if(iso>0){isolasjon(170,455,90,120,iso);isolasjon(960,455,90,120,iso);tx('isolert',960,620,36,GUL,iso);tx('isolert',150,620,36,GUL,iso);
+   const d0=vis(1120.7,1133.0);likn([['u_{x}(',KRITT],['0',ORANSJE],[') = 0',KRITT]],170,420,36,d0);likn([['u_{x}(',KRITT],['L',ORANSJE],[') = 0',KRITT]],880,420,36,d0)}
+ const ro=vis(1133.9,1217.8);if(ro>0){tx('Robin:',100,860,44,ORANSJE,ro);likn([['blanding av u og ',KRITT],['u_{x}',ORANSJE]],340,860,44,ro,pv(1137.2,0.8))}
  const lu=vis(1168.1,1217.8);if(lu>0){const vok=tv<M(1179.2)?0.5:0.5+0.5*kl((tv-M(1179.2))/1.5);[-30,0,30].forEach(dy=>bolgepil(975,515+dy,50+60*vok,GUL,lu,tv))}
- const nl=vis(1185.7,1217.8);if(nl>0){boks(80,900,1060,100,GUL,nl);tx('Newtons avkjølingslov:  −k·u_{x} = h·(u − u_{luft})',110,965,40,GUL,nl,pv(1185.7,1.4))}
+ const nl=vis(1185.7,1217.8);if(nl>0){boks(80,900,1060,100,ORANSJE,nl);tx('Newtons avkjølingslov:  −k·u_{x} = h·(u − u_{luft})',110,965,40,KRITT,nl,pv(1185.7,1.4))}
 }
 
 function del4(){ // 1217–slutt: oppsummering
  if(tv<M(1217.8))return;
- if(tv>=M(1250.8)-0.01)return;
- const a=vis(1217.9,1246.9);
- txt('Oppsummert',100,250,60,ORANSJE,1217.9,1246.9,1.0);
- txt('deriverte i tid  →  initialverdier',100,400,48,TURKIS,1219.6,1246.9,1.2);
- lapp('like mange som ordenen i tid',140,470,KRITT,1226.6,1246.9,40);
- txt('romlige deriverte  →  randverdier',100,600,48,ORANSJE,1232.7,1246.9,1.2);
- const lp=vis(1243.0,1246.9);if(lp>0){stempel('LETT SOM EN PLETT',560,780,GRONN,1243.0,1246.9,44)}
- document.getElementById('fh').style.opacity=vis(1243.5,1246.9);
+ const a=vis(1217.9,null);
+ txt('Oppsummert',100,250,60,ORANSJE,1217.9,null,1.0);
+ {const v=vis(1219.6,null);klokke2(140,385,32,TURKIS,v);likn([['deriverte i tid  →  initialverdier',TURKIS]],200,400,48,v,pv(1219.6,1.2))}
+ lapp('like mange som ordenen i tid',200,470,KRITT,1226.6,null,40);
+ {const v=vis(1232.7,null);linjal(100,595,80,ORANSJE,v);likn([['romlige deriverte  →  randverdier',ORANSJE]],200,600,48,v,pv(1232.7,1.2))}
+ const lp=vis(1243.0,null);if(lp>0){stempel('LETT SOM EN PLETT',560,780,GRONN,1243.0,null,44)}
+ document.getElementById('fh').style.opacity=vis(1243.5,null);
 }
 
-function blooper(){ const a=vis(1250.8,null);if(a<=0||tv<M(1250.8))return;lapp('… truly',300,500,GUL,1251.0,null,60)}
 
 window.render=function(n,t){tv=t;g.clearRect(0,0,1920,1080);document.getElementById('fh').style.opacity=0;
  txt('Rand- og initialbetingelser',60,140,60,ORANSJE,202.7,1217.8,1.0);
- kaldstart();del1();del2();del3();del4();blooper();
- kart('betingelser',tv>M(202.6)&&tv<M(1246.9)?1:0)};
+ kaldstart();
+ for(const [t0,t1,fn,fast] of [[202.6,262.1,del1],[262.1,1033.0,del2,1],[1033.0,1217.8,del3],[1217.8,null,del4]]){
+   const inn=1-ease(pv(t0,0.6)), ut=t1==null?0:ease(kl((tv-M(t1))/UT));
+   g.save();if(!fast)g.translate(900*inn-900*ut,0);fn();g.restore()}
+ kart('betingelser',tv>M(202.6)?1:0)};
 </script></body></html>
