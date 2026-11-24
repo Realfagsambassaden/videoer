@@ -46,6 +46,7 @@ Videoene sorteres etter **tema** (som på nettstedet), ikke etter lærebok, ford
 - **Kutt bort forklaringer seerne kan stoppe og se selv** (f.eks. hvorfor a/2 – «det kommer to ganger»).
 - **Fortegn i samme farge som typen de hører til** (samme fortegn = elliptisk gul, motsatte = hyperbolsk lilla, én null = parabolsk rød), også rutene rundt.
 - **Miniatyrbilde:** et undrende blikk passer godt.
+- **VIKTIG (24. november 2026): Aldri kutt læreren midt i en setning eller et ord, eller før han har snakket ferdig, og legg inn noen tidels sekunder kunstpause ved hvert nytt tema / lite steg i manus.** Kunstpausen lages med **frosset første bilde** av neste bit (0.6 s, `§` i `edl.py` → `lag_biter.py`), ikke ved å ta med stillheten før han begynner å snakke – der gjør han rare bevegelser med munnen og ser ned. Sjekk også at to tagninger ikke begge blir med («for eksempel» to ganger).
 - **Speeding:** PDE-filmene speedes opp ca. 7 % med samme tonehøyde (atempo). Da er overganger og **kunstpauser** enda viktigere: la det være en pause på ca. 0.8 s (etter speeding) ved hvert nytt steg i manus, med svisj og bevegelse på tavla i pausen.
 - **Lærerens vitser og morsomme bemerkninger tas med** (f.eks. «dritlett»), gjerne med en latterlyd.
 - **Flytt eller krymp læreren mens tavla fylles,** så han aldri står bak tekst, ruter eller formler. Gjerne at han glir litt til side når det kommer nye ting.

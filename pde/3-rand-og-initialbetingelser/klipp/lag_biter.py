@@ -12,10 +12,7 @@ for a,b,s,m in B:
     i0,i1=int(a*50),int(b*50); on=db[i0:i1]>-45; idx=np.where(on)[0]
     ts=a+idx[0]*0.02; on55=np.where(db[i0:i1]>-55)[0]; te=a+on55[-1]*0.02  # slutt: følg utklingingen ned til -55 dB
     start=max(a,ts-0.2)
-    if m.startswith('§'):  # kunstpause: gå bakover i stillheten, opptil 1.0 s før talen
-        j=int(ts*50); k=0
-        while k<50 and db[j-k-1]<-45: k+=1
-        start=min(start,ts-max(0.2,k*0.02-0.05))
+    # § (nytt steg): kunstpause lages med frosset første bilde (se under), ikke med stillheten før talen – der gjør læreren rare bevegelser
     slutt=b if s=='K' else min(b,te+0.3)  # kald start: la pausen stå, overgangen spiser 0.4 s
     run=0; kutt=[]
     for k,v in enumerate(on):
@@ -39,5 +36,10 @@ for i,q in enumerate(B2):
     a,b=q[0],q[1]; n=round((b-a)*25); q.append(n); k=min(int(a//300+1e-9),NK-1); f=f'{ut}/b_{i:02d}.mkv'; filer.append(f)
     if not os.path.exists(f):
         subprocess.run(['ffmpeg','-v','error','-y','-ss',f'{a-300*k:.3f}','-i',f'{kmappe}/k{k:02d}.mkv','-frames:v',str(n),'-af',f'atrim=end_sample={n*1920}','-c:v','libx264','-preset','veryfast','-crf','16','-pix_fmt','yuv420p','-c:a','pcm_s16le',f],check=True)
+    if q[3].startswith('§') and (i==0 or B2[i-1][3]!=q[3]):  # kunstpause: 15 bilder (0.6 s) frosset første bilde + stillhet foran biten
+        P=15; tmp=f+'.p.mkv'
+        if not os.path.exists(tmp):
+            subprocess.run(['ffmpeg','-v','error','-y','-i',f,'-vf',f'tpad=start={P}:start_mode=clone','-af',f'adelay={P*40}:all=1,atrim=end_sample={(n+P)*1920}','-c:v','libx264','-preset','veryfast','-crf','16','-pix_fmt','yuv420p','-c:a','pcm_s16le',tmp],check=True)
+        filer[-1]=tmp; q[0]=round(a-P/25,2); q[4]=n+P
 json.dump(B2,open('biter.json','w'),indent=0); json.dump(filer,open('filer.json','w'))
 print(len(B2),'biter',sum(q[4] for q in B2)/25,'s')
