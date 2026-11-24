@@ -136,7 +136,7 @@ function klokke2(x,y,r,col,a,vinkel=0){if(a<=0)return;g.save();g.globalAlpha=a;g
 function linjal(x,y,w,col,a){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=col;g.lineWidth=4;g.strokeRect(x,y-22,w,30);for(let k=0;k<=10;k++){const X=x+k*w/10;strek(X,y+8,X,y+8-(k%5===0?18:10),col,2,1,a)}g.restore()}
 // ================= DELENE =================
 function kaldstart(){ // kilde 24.7–100.6, læreren stor
- if(tv>M(202.6))return;
+ if(tv>M(202.12))return;
  const T1=94.6;
  [['bølge','hyperbolsk',LILLA],['varme','parabolsk',ROD],['likevekt','elliptisk',GUL]].forEach(([n,ty,c],i)=>{const t0=25.0+i*1.0;const v=vis(t0,34.8);const s=pop(t0);g.save();g.translate(180+i*260,200);g.scale(s,s);rute(-110,-70,220,140,c,v);tx(n,0,10,40,c,v,1,'center');g.restore();tx(ty,180+i*260,300,38,c,vis(28.0+i*0.4,34.8),pv(28.0+i*0.4,0.5),'center')});
  const pr=vis(32.0,57.8);if(pr>0){const s=pop(32.0);g.save();g.translate(380,440);g.scale(s,s);tx('men …',0,0,64,GUL,pr,1,'center');g.restore()}
@@ -152,11 +152,11 @@ function kaldstart(){ // kilde 24.7–100.6, læreren stor
    const ff=vis(81.3,T1);if(ff>0){const sd=Math.floor((tv-M(81.3))*(tv<M(85.0)?3:7));gulboks(80,360,300,180,ff);gulboks(440,360,300,180,ff);tx('f',90,400,40,GUL,ff);tx('g',450,400,40,GUL,ff);form(100,380,260,150,sd*1.3,KRITT,ff);form(460,380,260,150,sd*2.1+0.7,KRITT,ff)}
    const ui=vis(89.7,T1);if(ui>0){const s=pop(89.7);g.save();g.translate(420,720);g.scale(s,s);tx('∞ løsninger',0,0,80,GUL,ui,1,'center');g.restore()}
  }
- const q=vis(94.4,202.6);if(q>0&&tv>M(94.0)){g.save();g.globalAlpha=q;g.fillStyle='rgba(13,17,16,0.92)';g.fillRect(0,180,1000,900);g.restore();bro(420,760,q);const s=pop(94.4);g.save();g.translate(420,520);g.scale(s,s);tx('?',0,0,200,GUL,q,1,'center');g.restore();lapp('hvilken løsning er din?',160,880,KRITT,95.5,202.6,44)}
+ const q=vis(94.4,202.12);if(q>0&&tv>M(94.0)){g.save();g.globalAlpha=q;g.fillStyle='rgba(13,17,16,0.92)';g.fillRect(0,180,1000,900);g.restore();bro(420,760,q);const s=pop(94.4);g.save();g.translate(420,520);g.scale(s,s);tx('?',0,0,200,GUL,q,1,'center');g.restore();lapp('hvilken løsning er din?',160,880,KRITT,95.5,202.12,44)}
 }
 
 function del1(){ // 202.7–262: to klasser betingelser
- if(tv<M(202.6)||tv>M(262.1)+UT)return;
+ if(tv<M(202.12)||tv>M(262.1)+UT)return;
  const a=vis(202.7,262.1);
  likn([['PDE-problem = ',KRITT],['PDE',KRITT],[' + ',KRITT],['betingelser',GUL]],100,270,54,a,pv(205.0,1.4));
  lapp('to klasser',100,350,KRITT,214.4,262.1,40);
@@ -325,9 +325,9 @@ function del4(){ // 1217–slutt: oppsummering
 window.render=function(n,t){tv=t;g.clearRect(0,0,1920,1080);document.getElementById('fh').style.opacity=0;
  txt('Rand- og initialbetingelser',60,140,60,ORANSJE,202.7,1217.8,1.0);
  kaldstart();
- for(const [t0,t1,fn,fast] of [[202.6,262.1,del1],[262.1,1033.0,del2,1],[1033.0,1217.8,del3],[1217.8,null,del4]]){
+ for(const [t0,t1,fn,fast] of [[202.12,262.1,del1],[262.1,1033.0,del2,1],[1033.0,1217.8,del3],[1217.8,null,del4]]){
    const inn=1-ease(pv(t0,0.6)), ut=t1==null?0:ease(kl((tv-M(t1))/UT));
    g.save();if(!fast)g.translate(900*inn-900*ut,0);fn();g.restore()}
  sveip();
- kart('betingelser',tv>M(202.6)?1:0)};
+ kart('betingelser',tv>M(202.12)?1:0)};
 </script></body></html>
