@@ -2,7 +2,7 @@
  {
   "fra": 0,
   "til": 6.88,
-  "opptak": 0.08,
+  "opptak": 0.18,
   "hoyde": 1080,
   "midt": 1250,
   "speil": true,
@@ -16,7 +16,7 @@
  {
   "fra": 6.88,
   "til": 384.92,
-  "opptak": 6.96,
+  "opptak": 7.06,
   "hoyde": 780,
   "midt": 1350,
   "speil": true,
