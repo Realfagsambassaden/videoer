@@ -2,7 +2,7 @@
 set -e
 V=/home/claude/videoer/pde/1-hva-er-en-pde; VT=/home/claude/videoer/_verktoy
 KS=26.08; FART=1.0  # film 1 speedes ikke
-UT=${UT:-hva-er-en-pde_utkast8.mp4}
+UT=${UT:-hva-er-en-pde_utkast9.mp4}
 KS0=$(python3 -c "print($KS-0.25)")  # kald start kuttes 0.25 s før: lyden i opptaket ligger 0.08 s etter, og starten på neste setning skal ikke med
 ffmpeg -v error -y -i komp.mp4 -i opptak_lyd_fx.wav -t $KS0 -map 0:v -map 1:a -vf setpts=PTS/$FART -af atempo=$FART -r 30 -c:v libx264 -crf 17 -preset veryfast -c:a pcm_s16le -ar 48000 -ac 2 s0.mkv
 ffmpeg -v error -y -ss $KS -i komp.mp4 -ss $KS -i opptak_lyd_fx.wav -map 0:v -map 1:a -vf setpts=PTS/$FART,tpad=start_duration=0.6:start_mode=clone:stop_duration=0.5:stop_mode=clone -af atempo=$FART,adelay=600:all=1,apad=pad_dur=0.5 -r 30 -c:v libx264 -crf 17 -preset veryfast -c:a pcm_s16le -ar 48000 -ac 2 s3.mkv  # 0.6 s stille før hoveddelen: overgangen fra introen skal ikke ta med starten av neste setning
