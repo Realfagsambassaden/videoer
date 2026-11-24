@@ -192,7 +192,7 @@ function del2(){ // 262–1033: hvilke og hvor mange
    const r1=vis(294.5,408.1),r2=vis(306.1,408.1);
    const ut=(x,y,sz,a,pre,s2,skriv=1)=>likn([[pre+'(',KRITT],['x',ORANSJE],[', ',KRITT],[s2,TURKIS],[')',KRITT]],x,y,sz,a,skriv);
    if(r1>0){tx('varmeligningen',640,440,44,ROD,r1);const p=likn([['u_{t}',TURKIS],[' = α·',KRITT],['u_{xx}',ORANSJE]],1000,440,46,r1,pv(294.8,0.8));
-     const st=vis(300.2,408.1);if(st>0){tx('starttemperatur',860,520,40,TURKIS,st,pv(300.2,0.6));ut(1140,520,40,st,'u','0',pv(300.6,0.5))}
+     const st=vis(300.2,408.1);if(st>0){tx('starttemperatur',860,520,40,TURKIS,st,pv(300.2,0.6));ut(860+maal('starttemperatur',40)+18,520,40,st,'u','0',pv(300.6,0.5))}
      const o1=vis(304.4,408.1);if(o1>0){tx('1. ordens',930,370,36,GUL,o1,pv(304.4,0.5));bpil(990,378,1012,405,-30,GUL,4,pv(304.7,0.4),o1)}
      const b1=vis(305.2,408.1);if(b1>0){bpil(960,405,700,500,-60,GUL,4,pv(305.2,0.5),b1);const s1=pop(305.6);g.save();g.translate(650,530);g.scale(s1,s1);tx('1 betingelse',0,0,42,GUL,b1);g.restore();}}
    if(r2>0){tx('bølgeligningen',640,640,44,LILLA,r2);likn([['u_{tt}',TURKIS],[' = c^{2}·',KRITT],['u_{xx}',ORANSJE]],1000,640,46,r2,pv(306.4,0.8));
