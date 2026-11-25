@@ -1,68 +1,64 @@
-# Manus: Satellitter og planetbaner
+# Manus: Endelig volum i 2D og i tid
 
-**Tema: Gravitasjon · undertema: Satellitter og planetbaner · ca. 3 min**
-**Brukes på:** (ingen side ennå)
+**Tema: Partielle differensialligninger · undertema: Endelig volum-metoden i 2D og for tidsavhengige problemer · ca. 3.5 min**
+**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.6–3.8)
+**Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
+**Grunnlag:** foilene F25–F26.
 
-Les i rolig tempo, ca. 140 ord i minuttet. Du står foran grønnskjermen og havner nede til høyre. Tidskodene er omtrentlige. Ta en kort pause mellom avsnittene, og **klapp før du tar noe på nytt**. **[Du:]** er forslag til ting du gjør i bildet. Improviser gjerne: jeg følger det du faktisk sier.
+**Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-**Rekvisitter:** en myk ball eller et par sammenrullede sokker (ikke grønt), som du kaster vannrett ut av bildet mot venstre.
-
-**Tavla:** Jorda med et høyt fjell på toppen og Newtons kanon, romstasjonen med Dashman som svever inni, og sola med planetbaner. Alt tegnes i tavlestil.
-
----
-
-### 0. Kald start (ca. 5 s)
-
-> **[Du:** kast ballen vannrett ut mot venstre, først forsiktig, så hardere.**]**
-> Hvor hardt må jeg kaste for at den aldri skal lande?
-
-*På skjermen:* To kastebaner som buer ned mot bakken, den andre lengre. Så en tredje, stiplet bane i gult som går helt rundt jordkloden og kommer tilbake bak deg. «?!» og svisj.
-
-### 1. Å falle rundt jorda (0:00–0:35)
-
-> Kaster jeg hardere, lander ballen lenger unna. Men jorda er rund. Kaster jeg *hardt nok*, krummer bakken seg bort like fort som ballen faller.
-> Da faller den hele tiden, men treffer aldri. Den går i bane. En satellitt er rett og slett noe som faller rundt jorda.
-
-*På skjermen:* Tittelen «Satellitter og planetbaner» i oransje. Jorda med et høyt fjell og en kanon på toppen. Dashman fyrer av kanonen med større og større fart: banene blir lengre og lengre, til den siste går helt rundt og treffer Dashman i bakhodet («boing»).
-
-### 2. Banefarten (0:35–1:20)
-
-> Hvor fort må den gå? I en sirkelbane er det gravitasjonen som gir sentripetalkraften.
-> G ganger M m delt på r i andre er lik m v i andre delt på r.
-> Satellittens masse m stryker seg, og én r forsvinner. Farten blir *kvadratroten av G M delt på r*.
-> Legg merke til: Farten avhenger ikke av hvor tung satellitten er. En skrue og en romstasjon i samme høyde går like fort.
-
-*På skjermen:* Jorda (M) og satellitten (m) i sirkelbane med radius r fra jordsenteret. «G · Mm / r² = m · v² / r» (stablede brøker, G oppreist). De to m-ene strykes over med gul strek, og r i nevneren forkortes («pop»). Grønn boks: «v = √(G M / r)». En liten skrue og romstasjonen ved siden av hverandre: «samme fart».
-
-### 3. Et eksempel: romstasjonen (1:20–2:00)
-
-> Romstasjonen går rundt 420 kilometer over bakken. Da er r jordradien pluss høyden: rundt 6800 kilometer.
-> Setter vi inn, blir farten 7.7 kilometer per sekund. Det er over 27 000 kilometer i timen!
-> En runde tar to pi r delt på v: omtrent 93 minutter.
-> Og astronautene svever – ikke fordi tyngdekraften er borte, men fordi de faller sammen med stasjonen.
-
-*På skjermen:* «h = 420 km», «r = R + h = 6371 km + 420 km = 6791 km». «v = √(6.674 · 10⁻¹¹ · 5.972 · 10²⁴ / 6.791 · 10⁶) m/s ≈ 7.66 km/s ≈ 27 600 km/h». «T = 2πr / v ≈ 5570 s ≈ 93 min» (stablede brøker). Dashman svever inne i stasjonen med kaffen svevende ut av koppen: «Jeg faller!» – «Ja, hele tiden.»
-
-### 4. Høyere opp går det saktere (2:00–2:30)
-
-> Jo lenger ut, jo saktere går satellitten, og jo lenger blir runden. Setter vi v inn i omløpstiden, får vi at *T i andre er proporsjonal med r i tredje*.
-> Det er Keplers tredje lov. Fire ganger så langt ut gir åtte ganger så lang omløpstid.
-> Langt nok ute bruker satellitten et døgn – og står stille over samme sted. Det er TV-satellittene.
-
-*På skjermen:* «T = 2πr / v», der v = √(G M / r) flyr inn med et «popp». Grønn boks: «T² = 4π² / (G M) · r³» (stablet brøk). «4r → 4^(3/2) = 8 · T» i gult. En satellitt langt ute (r ≈ 42 000 km) over et fast punkt med en parabolantenne på et hustak: «T = 1 døgn».
-
-### 5. Planetene (2:30–2:45)
-
-> Det samme gjelder planetene rundt sola, og månen rundt jorda, bare med solmassen i stedet for jordmassen. Banene er egentlig litt avlange ellipser, men forholdet T i andre delt på r i tredje er det samme for alle.
-
-*På skjermen:* Sola med fire planetbaner (litt avlange ellipser). Tabell som fylles ut: Jorda og Mars med «T² / r³ = samme» (stablet brøk). Dashman vinker fra jordkloden.
-
-### 6. Avslutning (2:45–3:00)
-
-> En satellitt faller hele tiden, men bommer på jorda. Gravitasjonen gir sentripetalkraften, og det gir både farten og omløpstiden. Prøv deg på noen oppgaver!
-
-*På skjermen:* Oppsummering: «v = √(G M / r)», «T² ∝ r³». Fysikkhjelp-logoen. Ballen fra kald start kommer susende inn bakfra og lander i hånda di («pop»).
+Tre idéer: (1) i 2D får hver celle fire naboer – ellers er alt som før, (2) i tid blir den nye temperaturen et vektet gjennomsnitt av de gamle, (3) vektene må være positive, og randcellene bestemmer hvor stort tidssteget kan være.
 
 ---
 
-**Tall (regnet i Python):** G = 6.674 · 10⁻¹¹ N m²/kg², M = 5.972 · 10²⁴ kg, R = 6.371 · 10⁶ m. Romstasjonen: r = 6.791 · 10⁶ m, v = √(GM/r) = 7661 m/s ≈ 7.66 km/s = 27 580 km/h ≈ 27 600 km/h, T = 2πr/v = 5570 s = 92.8 min ≈ 93 min. Keplers 3. lov: 4^(3/2) = 8. Geostasjonær bane (T = 1 stjernedøgn = 86 164 s): r = 4.22 · 10⁷ m ≈ 42 000 km fra jordsenteret (ca. 36 000 km over bakken). Kontroll: T²/r³ = 4π²/(GM) = 9.90 · 10⁻¹⁴ s²/m³.
+### 0. Kald start (ca. 6 s)
+*Kartet:* lyser på «endelig volum → 2D · tid».
+
+> Hittil har ingenting endret seg i tid. Nå lar vi klokka gå – og ser hva som skjer hvis vi går litt for fort.
+
+**[Du: se på klokka (eller armen) ved «lar vi klokka gå»; løft øyenbrynene ved «litt for fort».]**
+*På skjermen:* En klokke som tikker. En rad med celler som skifter fra rødt mot blått – så begynner én celle ytterst å blinke rødt–blått–rødt (lyd: alarm). «?!» spretter inn.
+
+### 1. To dimensjoner: fire naboer (0:00–1:05)
+*Kartet:* lyser på «2D».
+
+> I to dimensjoner får hver celle fire naboer: vest, øst, sør og nord. Ligningen er den samme – bare med to ledd til.
+> Langs veggene klipper vi koblingene akkurat som i én dimensjon. Og et hjørne ligger inntil *to* vegger, så det får et bidrag fra hver.
+> Ta en plate i tre ganger fire celler. Fra vest strømmer det inn varme, sør og øst er isolert, og nord holdes på hundre grader. Løsningen er varmest der varmen kommer inn, to hundre og seksti grader, og kaldest ved den kalde nordveggen.
+> Og sjekken: Fire celler tar inn fem hundre watt hver. Nøyaktig to tusen watt går ut gjennom nord. Bevart!
+
+**[Du: vis fire retninger med hånda (vest, øst, sør, nord); pek på hjørnet på tavla ved «to vegger». Ved «Bevart!»: armene opp.]**
+*På skjermen:* Tittel «Endelig volum i 2D og i tid» (oransje). Celle P med fire naboer W, E, S, N og fire røde flukspiler (pop × 4). Formelen fra 1D får to nye ledd som flyr inn: «a_P T_P = a_W T_W + a_E T_E + a_S T_S + a_N T_N + S^u». Et 3 × 4-gitter: gule piler inn fra vest «500 kW/m²», grått i sør og øst «isolert», blå nordvegg «100 °C», hjørnet oppe til venstre blinker «to bidrag». Varmekartet fylles celle for celle (blått → rødt) med 260 °C nederst til venstre og 124 °C oppe til høyre. En vekt: «inn 4 · 500 W = 2000 W» = «ut 2000 W» (pling).
+
+### 2. Tid: et vektet gjennomsnitt (1:05–2:10)
+*Kartet:* lyser på «tid».
+
+> Med tid integrerer vi også over et lite tidssteg, delta t. Det enkleste er å regne ut fluksene med de temperaturene vi allerede har – et *eksplisitt* skjema. Da står den nye temperaturen alene på venstre side, og hver celle kan regnes ut for seg.
+> Del på a P null – og se: Den nye temperaturen er et *vektet gjennomsnitt* av den gamle temperaturen i cellen og temperaturene i naboene.
+> Så lenge alle vektene er positive, kan det ikke dukke opp nye topper eller daler. Varmen bare jevner seg ut, steg for steg.
+
+**[Du: ved «vektet gjennomsnitt»: hendene som en vektskål som balanserer; ved «jevner seg ut»: flat hånd som glatter ut.]**
+*På skjermen:* Tidsakse t_n → t_{n+1} med «Δt». Grønn boks: «a_P⁰ T_P^{n+1} = a_W T_W^n + a_E T_E^n + (a_P⁰ − a_W − a_E + S_P) T_P^n + S^u», «a_P⁰ = ρcΔV/Δt». Så tre piler inn mot T_P^{n+1} med vektene «a_W/a_P⁰», «a_E/a_P⁰» og «(a_P⁰ − a_W − a_E + S_P)/a_P⁰», og en vektskål. Verdiene marsjerer mot høyre (tikk, tikk, tikk).
+
+### 3. Tidssteget ved randen (2:10–3:15)
+*Kartet:* lyser på «tid (stabilitet)».
+
+> Men vekten på cellen selv kan bli *negativ* hvis tidssteget er for stort. Da betyr det: jo varmere nå, jo kaldere neste gang – og så varmere igjen. Det svinger, og det vokser.
+> Og se på randcellen! Der er ledningsevnen mot randen dobbel, så summen av koblingene blir én pluss to – tre i stedet for to. Den som er koblet sterkest til omgivelsene, endrer seg raskest – og tåler derfor minst tidssteg. Ta en plate som er to hundre grader, og sett den ene siden plutselig til null. De indre cellene tåler åtte sekunder, men randcellen bare fem komma tre tre.
+> Med to sekunder kryper kulda pent innover. Med seks sekunder begynner randcellen å blinke – akkurat der vi sa.
+> Vil du slippe denne grensen, kan du bruke et *implisitt* skjema i stedet: Da regnes fluksene med de nye, ukjente temperaturene, og du må løse et ligningssystem i hvert steg – men tidssteget kan være så stort du vil.
+
+**[Du: ved «svinger, og det vokser»: hånda som hopper opp og ned, større og større. Pek på randcellen på tavla. Ved «seks sekunder»: grimase. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen).]**
+*På skjermen:* Den midterste vekten krymper og blir rød og negativ; en graf som sager opp og ned med økende utslag (lyd: «boing-boing-BOING»). Grønn boks: «a_P⁰ ≥ a_W + a_E − S_P». Fem celler (alle røde, «200 °C»), vestvegg isolert, østveggen blir blå «0 °C» (lyd: «klang»). Tabell: «isolert celle: 16 s · indre celler: 8 s · randcelle: 5.33 s» (den siste i gult). To animasjoner side om side med tikk-lyd: «Δt = 2 s» – fargene glir pent fra rødt til blått fra øst; «Δt = 6 s» – randcellen blinker og grafen får sagtenner (alarm).
+
+### 4. Oppsummering av PDE-delen (3:15–3:35)
+*Kartet:* lyser på «hele kartet lyser».
+
+> Så: Varme jevner ut, bølger frakter, Laplace finner likevekt. Endelige differanser bytter deriverte med differanser. Endelig volum skriver bevaringsloven opp for hver celle. Og når tiden går – pass på tidssteget, særlig ved randen. Prøv deg på noen oppgaver!
+
+**[Du: tell på fingrene gjennom oppsummeringen; pek ned mot oppgavene til slutt.]**
+*På skjermen:* Fire små ikoner fra de fire filmene: tre familier, tre prikker med sekant, en celle med piler, en klokke. Fysikkhjelp-logoen.
+
+---
+
+**Tall (regnet i Python):** 2D-plata: κA/δx = 1000 · (0.1 · 0.01)/0.1 = 10; vest q_V A = 5.0 · 10⁵ · 0.1 · 0.01 = 500 W per celle; nordvegg 2κA/δy = 20, S^u = 2000. Løsning (nord øverst): 146.3, 129.7, 124.0 / 205.6, 178.2, 166.2 / 242.3, 211.2, 196.5 / 260.0, 227.8, 212.2 °C. Energibalanse 4 · 500 W = 2000 W. Tidsdelen: κA/δx = 10 · 1/0.004 = 2500, ρcAδx = 10 · 10⁶ · 0.004 = 4.0 · 10⁴; grenser: isolert celle 4.0 · 10⁴/2500 = 16 s, indre 4.0 · 10⁴/5000 = 8 s, randcelle med T = 0: 4.0 · 10⁴/7500 = 5.33 s.

@@ -1,64 +1,64 @@
-# Manus: Endelig volum – bevaring i hver celle
+# Manus: Endelig volum i 2D og i tid
 
-**Tema: Partielle differensialligninger · undertema: Bevaringslover og endelig volum-metoden i 1D · ca. 3.5 min**
-**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.2, §3.4–3.5)
+**Tema: Partielle differensialligninger · undertema: Endelig volum-metoden i 2D og for tidsavhengige problemer · ca. 3.5 min**
+**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.6–3.8)
 **Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
-**Grunnlag:** foilene F23–F24.
+**Grunnlag:** foilene F25–F26.
 
 **Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-Tre idéer: (1) bevaringsloven – endring = inn − ut + produksjon, (2) endelig volum skriver den opp for hver celle, og bevaring blir eksakt, (3) randen og kilder går inn i den samme ligningen.
+Tre idéer: (1) i 2D får hver celle fire naboer – ellers er alt som før, (2) i tid blir den nye temperaturen et vektet gjennomsnitt av de gamle, (3) vektene må være positive, og randcellene bestemmer hvor stort tidssteget kan være.
 
 ---
 
 ### 0. Kald start (ca. 6 s)
-*Kartet:* lyser på «endelig volum».
+*Kartet:* lyser på «endelig volum → 2D · tid».
 
-> Det som går ut av én celle, må gå inn i den neste. Det høres opplagt ut – men det er hele hemmeligheten bak metoden som brukes i nesten all strømningsprogramvare.
+> Hittil har ingenting endret seg i tid. Nå lar vi klokka gå – og ser hva som skjer hvis vi går litt for fort.
 
-**[Du: hold opp to knyttnever ved siden av hverandre som to celler; «vift» noe fra den ene over i den andre ved «går inn i den neste». Lur mine ved «hele hemmeligheten».]**
-*På skjermen:* En rad med fem celler. Røde varmepiler hopper fra celle til celle (pop-pop-pop). «ut av én = inn i neste» spretter inn.
+**[Du: se på klokka (eller armen) ved «lar vi klokka gå»; løft øyenbrynene ved «litt for fort».]**
+*På skjermen:* En klokke som tikker. En rad med celler som skifter fra rødt mot blått – så begynner én celle ytterst å blinke rødt–blått–rødt (lyd: alarm). «?!» spretter inn.
 
-### 1. Bevaringsloven (0:00–0:55)
-*Kartet:* lyser på «numerisk metode → endelig volum (fra bevaringsloven)».
+### 1. To dimensjoner: fire naboer (0:00–1:05)
+*Kartet:* lyser på «2D».
 
-> Se på en liten bit av en stav. Varmen i biten kan bare endre seg på tre måter: Den strømmer inn på den ene siden, den strømmer ut på den andre, eller den lages inni biten, av en kilde.
-> Endring er lik inn minus ut, pluss produksjon. Det er en bevaringslov.
-> Lar vi biten bli uendelig liten, blir det en PDE – for eksempel varmeligningen. Men endelig volum-metoden gjør det motsatte: Den lar bitene være *endelige*, og bruker loven direkte.
+> I to dimensjoner får hver celle fire naboer: vest, øst, sør og nord. Ligningen er den samme – bare med to ledd til.
+> Langs veggene klipper vi koblingene akkurat som i én dimensjon. Og et hjørne ligger inntil *to* vegger, så det får et bidrag fra hver.
+> Ta en plate i tre ganger fire celler. Fra vest strømmer det inn varme, sør og øst er isolert, og nord holdes på hundre grader. Løsningen er varmest der varmen kommer inn, to hundre og seksti grader, og kaldest ved den kalde nordveggen.
+> Og sjekken: Fire celler tar inn fem hundre watt hver. Nøyaktig to tusen watt går ut gjennom nord. Bevart!
 
-**[Du: vis «en liten bit» mellom tommel og pekefinger; pek inn fra én side og ut på den andre; knipse-gest for «lages inni». Ved «endelige»: hold hendene et lite stykke fra hverandre og la dem stå.]**
-*På skjermen:* Tittel «Endelig volum» (oransje). En grå celle med en rød pil inn fra venstre «fluks inn», en rød pil ut til høyre «fluks ut», en gul stjerne inni «kilde S». Grønn boks: «endring = inn − ut + produksjon». En pil ned med «δx → 0» til «ρc u_t = (κu_x)_x + S» (grå), og en pil til siden med «δx endelig» til «endelig volum» (grønn).
+**[Du: vis fire retninger med hånda (vest, øst, sør, nord); pek på hjørnet på tavla ved «to vegger». Ved «Bevart!»: armene opp.]**
+*På skjermen:* Tittel «Endelig volum i 2D og i tid» (oransje). Celle P med fire naboer W, E, S, N og fire røde flukspiler (pop × 4). Formelen fra 1D får to nye ledd som flyr inn: «a_P T_P = a_W T_W + a_E T_E + a_S T_S + a_N T_N + S^u». Et 3 × 4-gitter: gule piler inn fra vest «500 kW/m²», grått i sør og øst «isolert», blå nordvegg «100 °C», hjørnet oppe til venstre blinker «to bidrag». Varmekartet fylles celle for celle (blått → rødt) med 260 °C nederst til venstre og 124 °C oppe til høyre. En vekt: «inn 4 · 500 W = 2000 W» = «ut 2000 W» (pling).
 
-### 2. Bevaring i hver celle (0:55–2:05)
-*Kartet:* lyser på «bevaring i cellen».
+### 2. Tid: et vektet gjennomsnitt (1:05–2:10)
+*Kartet:* lyser på «tid».
 
-> Vi deler staven i celler. Midt i hver celle er en node – der vil vi finne temperaturen. Mellom cellene er flatene.
-> Ser vi på én celle, P, med naboene W og E: Fluksen gjennom en flate tilnærmer vi med en rett linje mellom nodene. Varmen går fra varmt til kaldt, så fluksen er ledningsevnen ganger temperaturforskjellen.
-> Samler vi alt, får vi én ligning per celle: a P T P er lik a W T W pluss a E T E pluss S u. a-ene er rett og slett ledningsevner – hvor lett varmen slipper over til naboen.
-> Og det fine: Fluksen gjennom en flate regnes ut med samme formel fra begge sider. Det som går ut av én celle, går nøyaktig inn i neste. Bevaringen er eksakt – uansett hvor grovt gitteret er.
+> Med tid integrerer vi også over et lite tidssteg, delta t. Det enkleste er å regne ut fluksene med de temperaturene vi allerede har – et *eksplisitt* skjema. Da står den nye temperaturen alene på venstre side, og hver celle kan regnes ut for seg.
+> Del på a P null – og se: Den nye temperaturen er et *vektet gjennomsnitt* av den gamle temperaturen i cellen og temperaturene i naboene.
+> Så lenge alle vektene er positive, kan det ikke dukke opp nye topper eller daler. Varmen bare jevner seg ut, steg for steg.
 
-**[Du: pek på cellene på tavla; vis en pil fra varmt til kaldt med hånda. Ved «samme formel fra begge sider»: før hånda over en tenkt flate og tilbake. Armene opp ved «eksakt».]**
-*På skjermen:* Staven deles i fem celler (svisj for hvert snitt), prikker midt i cellene, stiplede flater. Én celle lyser: W, P, E og flatene w, e. En graf med en rett linje mellom T_P og T_E og stigningen «(T_E − T_P)/δx». Formelen bygges med «popp»: «κA(T_E − T_P)/δx − κA(T_P − T_W)/δx + S = 0» → grønn boks «a_P T_P = a_W T_W + a_E T_E + S^u» med «a = κA/δx» og lappen «a = ledningsevne». Så de fem cellene igjen med like store røde piler over hver flate, som hopper videre: «bevaring: eksakt ✓».
+**[Du: ved «vektet gjennomsnitt»: hendene som en vektskål som balanserer; ved «jevner seg ut»: flat hånd som glatter ut.]**
+*På skjermen:* Tidsakse t_n → t_{n+1} med «Δt». Grønn boks: «a_P⁰ T_P^{n+1} = a_W T_W^n + a_E T_E^n + (a_P⁰ − a_W − a_E + S_P) T_P^n + S^u», «a_P⁰ = ρcΔV/Δt». Så tre piler inn mot T_P^{n+1} med vektene «a_W/a_P⁰», «a_E/a_P⁰» og «(a_P⁰ − a_W − a_E + S_P)/a_P⁰», og en vektskål. Verdiene marsjerer mot høyre (tikk, tikk, tikk).
 
-### 3. Randen og kilder (2:05–3:15)
-*Kartet:* lyser på «1D (rand og kilder)».
+### 3. Tidssteget ved randen (2:10–3:15)
+*Kartet:* lyser på «tid (stabilitet)».
 
-> Ved randen er avstanden fra noden til kanten bare en *halv* celle. Og ledningsevnen er omvendt proporsjonal med avstanden – halv vei, dobbelt så lett for varmen. Da blir ledningsevnen dobbel. Vi klipper koblingen til randen, og legger den kjente temperaturen inn i S u – og den doble ledningsevnen inn i S P.
-> Er det i stedet *fluksen* som er kjent, legger vi den bare inn i S u. En isolert vegg gir ingenting i det hele tatt.
-> Og en kilde – for eksempel varme fra strøm – skrives som S u pluss S P ganger T P. S P skal være null eller negativ. *Hvorfor?* En negativ S P er et sluk som blir sterkere jo varmere det er – det bremser seg selv. En positiv S P ville gjort at varmt blir enda varmere, og da kan løsningen stikke av.
-> Prøv med en stav som er hundre grader i den ene enden og fem hundre i den andre. Fem celler gir hundre og førti, to hundre og tjue, tre hundre, tre hundre og åtti og fire hundre og seksti grader. Akkurat en rett linje – den eksakte løsningen.
+> Men vekten på cellen selv kan bli *negativ* hvis tidssteget er for stort. Da betyr det: jo varmere nå, jo kaldere neste gang – og så varmere igjen. Det svinger, og det vokser.
+> Og se på randcellen! Der er ledningsevnen mot randen dobbel, så summen av koblingene blir én pluss to – tre i stedet for to. Den som er koblet sterkest til omgivelsene, endrer seg raskest – og tåler derfor minst tidssteg. Ta en plate som er to hundre grader, og sett den ene siden plutselig til null. De indre cellene tåler åtte sekunder, men randcellen bare fem komma tre tre.
+> Med to sekunder kryper kulda pent innover. Med seks sekunder begynner randcellen å blinke – akkurat der vi sa.
+> Vil du slippe denne grensen, kan du bruke et *implisitt* skjema i stedet: Da regnes fluksene med de nye, ukjente temperaturene, og du må løse et ligningssystem i hvert steg – men tidssteget kan være så stort du vil.
 
-**[Du: vis en halv celle med hendene ved «halv vei»; trekk på skuldrene ved «isolert vegg gir ingenting»; ved «stikke av»: hånda som skyter oppover. Til slutt: pek på den rette linja på tavla.]**
-*På skjermen:* Første celle med randen og «δx/2». En saks klipper koblingen (lyd: «snipp»). Fire skuffer «a_W», «a_E», «S^u», «S_P» – bidragene flyr ned i riktig skuff med pop: «kjent T → S^u og S_P», «kjent fluks → S^u», «isolert → –», «kilde → S^u + S_P T_P, S_P ≤ 0». Så eksempelet: stav med «100 °C» (blå) og «500 °C» (rød), «κA/δx = 100». Matrisen fylles rad for rad (300, 200, 200, 200, 300 på diagonalen, −100 ved siden av; høyreside 20 000, 0, 0, 0, 100 000). Cellene farges fra blått til rødt med 140, 220, 300, 380, 460, og en rett linje går gjennom: «= eksakt ✓» (pling).
+**[Du: ved «svinger, og det vokser»: hånda som hopper opp og ned, større og større. Pek på randcellen på tavla. Ved «seks sekunder»: grimase. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen).]**
+*På skjermen:* Den midterste vekten krymper og blir rød og negativ; en graf som sager opp og ned med økende utslag (lyd: «boing-boing-BOING»). Grønn boks: «a_P⁰ ≥ a_W + a_E − S_P». Fem celler (alle røde, «200 °C»), vestvegg isolert, østveggen blir blå «0 °C» (lyd: «klang»). Tabell: «isolert celle: 16 s · indre celler: 8 s · randcelle: 5.33 s» (den siste i gult). To animasjoner side om side med tikk-lyd: «Δt = 2 s» – fargene glir pent fra rødt til blått fra øst; «Δt = 6 s» – randcellen blinker og grafen får sagtenner (alarm).
 
-### 4. Avslutning (3:15–3:30)
-*Kartet:* lyser på «endelig volum (1D)».
+### 4. Oppsummering av PDE-delen (3:15–3:35)
+*Kartet:* lyser på «hele kartet lyser».
 
-> Endelig volum: bevaringsloven, skrevet opp for hver celle. Fluksene på flatene, én ligning per celle, og randen og kildene i de samme skuffene. Prøv deg på noen oppgaver!
+> Så: Varme jevner ut, bølger frakter, Laplace finner likevekt. Endelige differanser bytter deriverte med differanser. Endelig volum skriver bevaringsloven opp for hver celle. Og når tiden går – pass på tidssteget, særlig ved randen. Prøv deg på noen oppgaver!
 
-**[Du: åpne armer ved oppsummeringen; pek ned mot oppgavene til slutt.]**
-*På skjermen:* Grønn boks «a_P T_P = Σ a_nb T_nb + S^u, a_P = Σ a_nb − S_P». Fysikkhjelp-logoen.
+**[Du: tell på fingrene gjennom oppsummeringen; pek ned mot oppgavene til slutt.]**
+*På skjermen:* Fire små ikoner fra de fire filmene: tre familier, tre prikker med sekant, en celle med piler, en klokke. Fysikkhjelp-logoen.
 
 ---
 
-**Tall (regnet i Python):** κA/δx = 1000 · 0.01/0.1 = 100; randceller a_P = 100 + 200 = 300, S^u = 200 · 100 = 20 000 og 200 · 500 = 100 000. Løsning: 140, 220, 300, 380, 460 °C.
+**Tall (regnet i Python):** 2D-plata: κA/δx = 1000 · (0.1 · 0.01)/0.1 = 10; vest q_V A = 5.0 · 10⁵ · 0.1 · 0.01 = 500 W per celle; nordvegg 2κA/δy = 20, S^u = 2000. Løsning (nord øverst): 146.3, 129.7, 124.0 / 205.6, 178.2, 166.2 / 242.3, 211.2, 196.5 / 260.0, 227.8, 212.2 °C. Energibalanse 4 · 500 W = 2000 W. Tidsdelen: κA/δx = 10 · 1/0.004 = 2500, ρcAδx = 10 · 10⁶ · 0.004 = 4.0 · 10⁴; grenser: isolert celle 4.0 · 10⁴/2500 = 16 s, indre 4.0 · 10⁴/5000 = 8 s, randcelle med T = 0: 4.0 · 10⁴/7500 = 5.33 s.

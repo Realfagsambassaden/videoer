@@ -1,57 +1,64 @@
-# Manus: Kunsten å løse PDE-er med endelige differanser
+# Manus: Endelig volum i 2D og i tid
 
-**Tema: Partielle differensialligninger · undertema: Endelige differanser · ca. 3.5 min**
-**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.3)
+**Tema: Partielle differensialligninger · undertema: Endelig volum-metoden i 2D og for tidsavhengige problemer · ca. 3.5 min**
+**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.6–3.8)
 **Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
+**Grunnlag:** foilene F25–F26.
 
-**Grafisk språk:** se `pde/LESMEG.md`.
+**Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-Tre idéer: (1) et randverdiproblem blir et lineært ligningssystem (tridiagonal matrise), (2) i tid marsjerer vi steg for steg – eksplisitt (direkte, men r ≤ ½ fordi den nye verdien er et vektet gjennomsnitt), (3) implisitt (et ligningssystem per steg, men stabilt).
-
----
-
-### 0. Start (0:00–0:15)
-*Kartet:* lyser på «endelige differanser».
-
-> Med endelige differanser kan vi bytte ut deriverte med differanser mellom naboverdier. Nå skal vi bruke det til å løse differensialligninger. Men da trenger vi i tillegg betingelser.
-
-**[Du: peker på den grønne boksen.]**
-*På skjermen:* Tittel «Kunsten å løse PDE-er med endelige differanser» (oransje). Den grønne boksen «u″(x_i) ≈ (U_{i+1} − 2U_i + U_{i−1})/h²» med de tre prikkene under.
-
-### 1. Randverdiproblem → ligningssystem (0:15–1:30)
-*Kartet:* lyser på «RVP: ligningssystem».
-
-> La oss se på et randverdiproblem først. En strømledning henger mellom to stolper. Krumningen, u x x, er her tilnærmet konstant – la oss si lik to – og utslaget i endene, altså på randen, er null: u av null lik u av én lik null. Vi deler intervallet i fire, så vi har tre ukjente punkter.
-> I hvert punkt bytter vi u x x med differansen. Da får vi tre vanlige ligninger med tre ukjente – og hver ligning inneholder bare et punkt og naboene dets. Matrisen blir tridiagonal.
-> Løser vi den, får vi minus null komma én åtte sju fem, minus null komma to fem, og minus null komma én åtte sju fem – ledningen henger ned. Nøyaktig den eksakte løsningen, x ganger x minus én!
-> I to dimensjoner er det samme triks, bare med fire naboer: fempunktsformelen. Og blir systemet stort, kan vi løse det iterativt: Hvert punkt oppdaterer seg om og om igjen fra naboene sine, til alt står stille.
-
-**[Du: viser en hengende ledning med hånda (en bue nedover) mellom to «stolper» (de to pekefingrene). Ved «nøyaktig»: løftede øyenbryn. Ved «fire naboer»: fire fingre.]**
-*På skjermen:* To stolper med en ledning som henger mellom dem (kritt). Under: intervallet [0, 1] med to oransje randpunkter «u = 0» og tre turkise ukjente U₁, U₂, U₃ (h = 0.25). «u_xx = 2» øverst. Tre ligninger bygges én og én (pop): «(0 − 2U₁ + U₂)/h² = 2», «(U₁ − 2U₂ + U₃)/h² = 2», «(U₂ − 2U₃ + 0)/h² = 2». Matrisen tegnes med tall bare på de tre diagonalene (−2 på diagonalen, 1 ved siden av), resten tomme ruter: «tridiagonal». Løsningen dukker opp i punktene (−0.1875, −0.25, −0.1875), punktene synker ned, og en stiplet parabel x(x − 1) går gjennom alle tre: «eksakt ✓» (pling). Så en 2D-rute med et pluss-formet stensil (−1, −1, 4, −1, −1): «fempunktsformelen». Til slutt et lite varmekart som «roer seg» iterasjon for iterasjon (tikk-lyder) med teksten «Jacobi / Gauss-Seidel».
-
-### 2. Marsjere i tid: eksplisitt og implisitt (1:30–3:10)
-*Kartet:* lyser på «tid: eksplisitt · implisitt».
-
-> Varmeligningen, u t lik alfa u x x, har også tid. Da gjør vi det samme i rommet, og så tar vi små skritt fram i tid. Spørsmålet er bare: *Hvilke* verdier bruker vi i krumningen – de vi har *nå*, eller de vi skal finne i *neste* steg?
-> Bruker vi verdiene vi har nå, er skjemaet *eksplisitt*. Den nye verdien i hvert punkt regnes ut direkte fra tre kjente naboer: den gamle verdien, pluss alfa delta t ganger krumningen. Ett punkt om gangen – raskt og enkelt.
-> Men pass på! Forholdet r, alfa delta t delt på h i andre, må være høyst en halv. *Hvorfor* en halv? Skriv om formelen: Den nye verdien er r ganger venstre nabo, pluss én minus to r ganger seg selv, pluss r ganger høyre nabo – et vektet gjennomsnitt. Så lenge vektene er positive, kan det ikke oppstå nye topper. Men er r større enn en halv, blir vekten på punktet selv negativ: Jo varmere nå, jo kaldere neste gang. Med r lik null komma fire smelter en varm flekk pent ut. Med r lik null komma seks begynner punktene å hoppe opp og ned – og etter førti steg er tallene oppe i millioner.
-> Bruker vi i stedet verdiene i *neste* steg, er skjemaet *implisitt*. Da inneholder hver ligning tre *ukjente* naboer, så vi kan ikke regne ut punktene ett og ett. Vi må løse et ligningssystem – akkurat som randverdiproblemet – i hvert eneste tidssteg. Det koster mer, men til gjengjeld er det stabilt uansett hvor store tidssteg vi tar.
-> Kort sagt: Eksplisitt er billig per steg, men krever små steg. Implisitt er dyrt per steg, men tåler store steg.
-
-**[Du: ved «nå … eller neste steg»: pek på hånda nede (nå) og så oppe (neste). Ved «vektet gjennomsnitt»: en vektskål med hendene. Ved r = 0.6: hendene hopper opp og ned, større og større. Ved «millioner»: grip deg til hodet. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen). Ved «kort sagt»: én hånd for hver.]**
-*På skjermen:* En stav i elleve punkter med en varm «firkantbølge» i midten. Et rutenett med tid oppover: rad n (kjent, hvit) og rad n+1 (ukjent, tom).
-- **Eksplisitt:** Tre fylte prikker i rad n, piler som samles i ett tomt punkt i rad n+1 – formet som en pil oppover (lyd: «pling» når punktet fylles). Punktene i rad n+1 fylles ett og ett fra venstre. Grønn boks: «U_i^{n+1} = U_i^n + r(U_{i+1}^n − 2U_i^n + U_{i−1}^n), r = αΔt/h²». Formelen stokkes om med popp: «U_i^{n+1} = r·U_{i−1}^n + (1 − 2r)·U_i^n + r·U_{i+1}^n» – vektene i gult. Tre søyler viser vektene; når r går over ½, krysser den midterste søylen null og blir rød. Gul lapp: «r ≤ ½ ⇔ alle vekter ≥ 0». To ruter side om side, tikk-lyd for hvert tidssteg: venstre «r = 0.4» – kurven glattes pent ut; høyre «r = 0.6» – kurven blir sagtakket, utslagene vokser, aksen må zoome ut (lyd: alarm), og et tall som ruller opp mot «1 800 000».
-- **Implisitt:** Én fylt prikk i rad n, og tre tomme punkter i rad n+1 som er bundet sammen med strek – formen snus opp ned. Alle punktene i rad n+1 lenkes sammen i en kjede, og en tridiagonal matrise spretter opp (pop) for hvert tidssteg. Grønn boks: «U_i^{n+1} − r(U_{i+1}^{n+1} − 2U_i^{n+1} + U_{i−1}^{n+1}) = U_i^n». Lapp: «stabil for alle Δt ✓».
-- Til slutt en liten tabell: «eksplisitt: billig per steg · krever små steg» og «implisitt: ligningssystem per steg · tåler store steg».
-
-### 3. Avslutning (3:10–3:25)
-*Kartet:* lyser på «endelige differanser (hele grenen)».
-
-> Med endelige differanser blir randverdiproblemer til ligningssystemer, og i tid marsjerer vi – eksplisitt med små steg, eller implisitt med et ligningssystem i hvert steg. Prøv deg på noen oppgaver!
-
-**[Du: åpne armer; pek ned mot oppgavene til slutt.]**
-*På skjermen:* Tre ikoner: en tridiagonal matrise, og de to tidsstensilene (pil opp og pil ned) side om side. Fysikkhjelp-logoen.
+Tre idéer: (1) i 2D får hver celle fire naboer – ellers er alt som før, (2) i tid blir den nye temperaturen et vektet gjennomsnitt av de gamle, (3) vektene må være positive, og randcellene bestemmer hvor stort tidssteget kan være.
 
 ---
 
-**Tall (regnet i Python):** u″ = 2, u(0) = u(1) = 0, h = 0.25: U = −0.1875, −0.25, −0.1875 = x(x − 1) i nodene (sentraldifferansen er eksakt for andregradspolynomer). (En hengende ledning med lite nedheng har u″ = w/T tilnærmet konstant, så formen er en parabel.) Varmeligningen med α = 1, h = 0.1, U = 100 i nodene 3–7 og 0 ellers, 40 steg: Δt = 0.004 (r = 0.4) gir maks 18.3; Δt = 0.006 (r = 0.6) gir svingende verdier opp mot 1.8 · 10⁶.
+### 0. Kald start (ca. 6 s)
+*Kartet:* lyser på «endelig volum → 2D · tid».
+
+> Hittil har ingenting endret seg i tid. Nå lar vi klokka gå – og ser hva som skjer hvis vi går litt for fort.
+
+**[Du: se på klokka (eller armen) ved «lar vi klokka gå»; løft øyenbrynene ved «litt for fort».]**
+*På skjermen:* En klokke som tikker. En rad med celler som skifter fra rødt mot blått – så begynner én celle ytterst å blinke rødt–blått–rødt (lyd: alarm). «?!» spretter inn.
+
+### 1. To dimensjoner: fire naboer (0:00–1:05)
+*Kartet:* lyser på «2D».
+
+> I to dimensjoner får hver celle fire naboer: vest, øst, sør og nord. Ligningen er den samme – bare med to ledd til.
+> Langs veggene klipper vi koblingene akkurat som i én dimensjon. Og et hjørne ligger inntil *to* vegger, så det får et bidrag fra hver.
+> Ta en plate i tre ganger fire celler. Fra vest strømmer det inn varme, sør og øst er isolert, og nord holdes på hundre grader. Løsningen er varmest der varmen kommer inn, to hundre og seksti grader, og kaldest ved den kalde nordveggen.
+> Og sjekken: Fire celler tar inn fem hundre watt hver. Nøyaktig to tusen watt går ut gjennom nord. Bevart!
+
+**[Du: vis fire retninger med hånda (vest, øst, sør, nord); pek på hjørnet på tavla ved «to vegger». Ved «Bevart!»: armene opp.]**
+*På skjermen:* Tittel «Endelig volum i 2D og i tid» (oransje). Celle P med fire naboer W, E, S, N og fire røde flukspiler (pop × 4). Formelen fra 1D får to nye ledd som flyr inn: «a_P T_P = a_W T_W + a_E T_E + a_S T_S + a_N T_N + S^u». Et 3 × 4-gitter: gule piler inn fra vest «500 kW/m²», grått i sør og øst «isolert», blå nordvegg «100 °C», hjørnet oppe til venstre blinker «to bidrag». Varmekartet fylles celle for celle (blått → rødt) med 260 °C nederst til venstre og 124 °C oppe til høyre. En vekt: «inn 4 · 500 W = 2000 W» = «ut 2000 W» (pling).
+
+### 2. Tid: et vektet gjennomsnitt (1:05–2:10)
+*Kartet:* lyser på «tid».
+
+> Med tid integrerer vi også over et lite tidssteg, delta t. Det enkleste er å regne ut fluksene med de temperaturene vi allerede har – et *eksplisitt* skjema. Da står den nye temperaturen alene på venstre side, og hver celle kan regnes ut for seg.
+> Del på a P null – og se: Den nye temperaturen er et *vektet gjennomsnitt* av den gamle temperaturen i cellen og temperaturene i naboene.
+> Så lenge alle vektene er positive, kan det ikke dukke opp nye topper eller daler. Varmen bare jevner seg ut, steg for steg.
+
+**[Du: ved «vektet gjennomsnitt»: hendene som en vektskål som balanserer; ved «jevner seg ut»: flat hånd som glatter ut.]**
+*På skjermen:* Tidsakse t_n → t_{n+1} med «Δt». Grønn boks: «a_P⁰ T_P^{n+1} = a_W T_W^n + a_E T_E^n + (a_P⁰ − a_W − a_E + S_P) T_P^n + S^u», «a_P⁰ = ρcΔV/Δt». Så tre piler inn mot T_P^{n+1} med vektene «a_W/a_P⁰», «a_E/a_P⁰» og «(a_P⁰ − a_W − a_E + S_P)/a_P⁰», og en vektskål. Verdiene marsjerer mot høyre (tikk, tikk, tikk).
+
+### 3. Tidssteget ved randen (2:10–3:15)
+*Kartet:* lyser på «tid (stabilitet)».
+
+> Men vekten på cellen selv kan bli *negativ* hvis tidssteget er for stort. Da betyr det: jo varmere nå, jo kaldere neste gang – og så varmere igjen. Det svinger, og det vokser.
+> Og se på randcellen! Der er ledningsevnen mot randen dobbel, så summen av koblingene blir én pluss to – tre i stedet for to. Den som er koblet sterkest til omgivelsene, endrer seg raskest – og tåler derfor minst tidssteg. Ta en plate som er to hundre grader, og sett den ene siden plutselig til null. De indre cellene tåler åtte sekunder, men randcellen bare fem komma tre tre.
+> Med to sekunder kryper kulda pent innover. Med seks sekunder begynner randcellen å blinke – akkurat der vi sa.
+> Vil du slippe denne grensen, kan du bruke et *implisitt* skjema i stedet: Da regnes fluksene med de nye, ukjente temperaturene, og du må løse et ligningssystem i hvert steg – men tidssteget kan være så stort du vil.
+
+**[Du: ved «svinger, og det vokser»: hånda som hopper opp og ned, større og større. Pek på randcellen på tavla. Ved «seks sekunder»: grimase. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen).]**
+*På skjermen:* Den midterste vekten krymper og blir rød og negativ; en graf som sager opp og ned med økende utslag (lyd: «boing-boing-BOING»). Grønn boks: «a_P⁰ ≥ a_W + a_E − S_P». Fem celler (alle røde, «200 °C»), vestvegg isolert, østveggen blir blå «0 °C» (lyd: «klang»). Tabell: «isolert celle: 16 s · indre celler: 8 s · randcelle: 5.33 s» (den siste i gult). To animasjoner side om side med tikk-lyd: «Δt = 2 s» – fargene glir pent fra rødt til blått fra øst; «Δt = 6 s» – randcellen blinker og grafen får sagtenner (alarm).
+
+### 4. Oppsummering av PDE-delen (3:15–3:35)
+*Kartet:* lyser på «hele kartet lyser».
+
+> Så: Varme jevner ut, bølger frakter, Laplace finner likevekt. Endelige differanser bytter deriverte med differanser. Endelig volum skriver bevaringsloven opp for hver celle. Og når tiden går – pass på tidssteget, særlig ved randen. Prøv deg på noen oppgaver!
+
+**[Du: tell på fingrene gjennom oppsummeringen; pek ned mot oppgavene til slutt.]**
+*På skjermen:* Fire små ikoner fra de fire filmene: tre familier, tre prikker med sekant, en celle med piler, en klokke. Fysikkhjelp-logoen.
+
+---
+
+**Tall (regnet i Python):** 2D-plata: κA/δx = 1000 · (0.1 · 0.01)/0.1 = 10; vest q_V A = 5.0 · 10⁵ · 0.1 · 0.01 = 500 W per celle; nordvegg 2κA/δy = 20, S^u = 2000. Løsning (nord øverst): 146.3, 129.7, 124.0 / 205.6, 178.2, 166.2 / 242.3, 211.2, 196.5 / 260.0, 227.8, 212.2 °C. Energibalanse 4 · 500 W = 2000 W. Tidsdelen: κA/δx = 10 · 1/0.004 = 2500, ρcAδx = 10 · 10⁶ · 0.004 = 4.0 · 10⁴; grenser: isolert celle 4.0 · 10⁴/2500 = 16 s, indre 4.0 · 10⁴/5000 = 8 s, randcelle med T = 0: 4.0 · 10⁴/7500 = 5.33 s.

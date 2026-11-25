@@ -1,71 +1,64 @@
-# Manus: Newtons gravitasjonslov
+# Manus: Endelig volum i 2D og i tid
 
-**Tema: Gravitasjon · undertema: Newtons gravitasjonslov · ca. 3 min**
-**Brukes på:** (ingen side ennå)
+**Tema: Partielle differensialligninger · undertema: Endelig volum-metoden i 2D og for tidsavhengige problemer · ca. 3.5 min**
+**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.6–3.8)
+**Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
+**Grunnlag:** foilene F25–F26.
 
-Les i rolig tempo, ca. 140 ord i minuttet. Du står foran grønnskjermen og havner nede til høyre. Tidskodene er omtrentlige. Ta en kort pause mellom avsnittene, og **klapp før du tar noe på nytt**. **[Du:]** er forslag til ting du gjør i bildet. Improviser gjerne: jeg følger det du faktisk sier.
+**Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-**Rekvisitter:** to appelsiner (eller et rødt eple og en appelsin). Ikke grønne.
-
-**Tavla:** Jorda og månen, Newton under et epletre, og Dashman og DashLine (lærerens tegning `_verktoy/dashman/dashline-tyngdekraft.png`, «OH-LALA!») med små tiltrekningspiler mellom seg. Alt annet tegnes i tavlestil.
-
----
-
-### 0. Kald start (ca. 5 s)
-
-> **[Du:** hold de to appelsinene et par centimeter fra hverandre og se mistenksomt på dem.**]**
-> Disse to trekker i hverandre. Akkurat nå. Jeg lover!
-
-*På skjermen:* To bitte små piler mellom appelsinene, som peker mot hverandre. Et forstørrelsesglass med «0.000 000 000 3 N» (gul).
-
-### 1. Alt trekker i alt (0:00–0:30)
-
-> **[Du:** slipp den ene appelsinen og ta den igjen.**]**
-> Når appelsinen faller, er det fordi jorda trekker i den. Newton skjønte at det er den samme kraften som holder månen i bane rundt jorda.
-> Og ikke bare det: *Alle* ting med masse trekker i hverandre. Du og jeg, appelsinene, jorda og sola. Det kaller vi gravitasjon.
-> Hvorfor merker vi det ikke? Fordi kraften er utrolig svak – helt til en av massene er like stor som en hel planet.
-
-*På skjermen:* Tittelen «Newtons gravitasjonslov» i oransje. Newton under et tre der et eple faller. En stiplet linje fra eplet videre ut til månen, som går i bane rundt jorda: «samme kraft!».
-
-### 2. Gravitasjonsloven (0:30–1:10)
-
-> Kraften er større jo større massene er, og den blir svakere jo lenger fra hverandre de er.
-> Newtons gravitasjonslov: *F er lik G ganger m én ganger m to, delt på r i andre*.
-> r er avstanden mellom sentrene, og G er gravitasjonskonstanten. Den er bittelitt: 6.67 ganger ti i minus ellevte.
-> Kraften peker alltid langs linja mellom dem, og begge trekkes like mye.
-
-*På skjermen:* To kuler m₁ og m₂ med avstanden r mellom sentrene (turkis). Pilene F⃗ og −F⃗ mot hverandre, like lange. Grønn boks: «F = G · m₁m₂ / r²» (stablet brøk, G oppreist). Under: «G = 6.674 · 10⁻¹¹ N m²/kg²».
-
-### 3. Dobbel avstand (1:10–1:35)
-
-> **[Du:** hold appelsinene tett sammen, og så dobbelt så langt fra hverandre.**]**
-> Avstanden står i andre, og det betyr mye. Dobler jeg avstanden, blir kraften ikke halvparten, men *en fjerdedel*. Tre ganger så langt unna: en niendedel. Derfor kjenner vi nesten ikke trekket fra sola, selv om den er enorm.
-
-*På skjermen:* «G · m₁m₂ / (2r)² = ¼ · F» med 2-tallet og ¼ i gult (stablede brøker). Så «3r → 1/9 · F». Pilene mellom kulene krymper med «pop».
-
-### 4. Dashman og DashLine (1:35–2:05)
-
-> Dashman er 70 kilo, DashLine også. De står én meter fra hverandre. Hvor hardt trekker de i hverandre?
-> G ganger 70 ganger 70, delt på én: rundt 0.3 mikronewton. Det er omtrent som vekten av et sandkorn.
-> Så det er nok noe annet enn gravitasjonen som trekker dem mot hverandre.
-
-*På skjermen:* Lærerens tegning: Dashman og DashLine, «ØH … HEI.» / «OH-LALA!». «m₁ = m₂ = 70 kg, r = 1.0 m». «F = 6.674 · 10⁻¹¹ · 70 · 70 / 1.0² ≈ 3.3 · 10⁻⁷ N = 0.33 µN». Et lite hjerte spretter opp mellom dem med teksten «≠ gravitasjon» (gul).
-
-### 5. Derfor er g = 9.81 m/s² (2:05–2:45)
-
-> Med jorda blir det annerledes, for den er enormt tung. Tyngden m g er gravitasjonskraften fra jorda.
-> Setter vi dem lik hverandre, stryker massen m seg, og g blir *G ganger jordmassen delt på jordradien i andre*.
-> Legg merke til at g ikke avhenger av din egen masse. Derfor faller tunge og lette ting like fort.
-> Med tall blir det 9.8 meter per sekund i andre. På månen er det bare 1.6 – en sjettedel.
-
-*På skjermen:* Jorda med en liten masse m på overflaten. «m g = G · mM / R²» – m-ene strykes over med gul strek («pop»). Grønn boks: «g = G · M / R²». «M = 5.972 · 10²⁴ kg, R = 6.371 · 10⁶ m → g ≈ 9.82 m/s²». Ved siden av månen: «g_måne ≈ 1.62 m/s²». Dashman hopper kjempehøyt på månen.
-
-### 6. Avslutning (2:45–3:00)
-
-> Alt med masse trekker i alt annet med masse. Kraften er proporsjonal med massene og omvendt proporsjonal med avstanden i andre. Prøv deg på noen oppgaver!
-
-*På skjermen:* Oppsummering: «F = G · m₁m₂ / r²» (stablet brøk). Fysikkhjelp-logoen. Appelsinene på tavla triller sakte mot hverandre og dulter borti hverandre.
+Tre idéer: (1) i 2D får hver celle fire naboer – ellers er alt som før, (2) i tid blir den nye temperaturen et vektet gjennomsnitt av de gamle, (3) vektene må være positive, og randcellene bestemmer hvor stort tidssteget kan være.
 
 ---
 
-**Tall (regnet i Python):** G = 6.674 · 10⁻¹¹ N m²/kg². Dashman og DashLine: F = 6.674 · 10⁻¹¹ · 70 · 70 / 1.0² = 3.27 · 10⁻⁷ N ≈ 3.3 · 10⁻⁷ N = 0.33 µN. To appelsiner (0.20 kg, 10 cm mellom sentrene) – anslag i kald start: F = 6.674 · 10⁻¹¹ · 0.20 · 0.20 / 0.10² = 2.7 · 10⁻¹⁰ N (vist som «0.000 000 000 3 N»). Jorda: g = G · 5.972 · 10²⁴ kg / (6.371 · 10⁶ m)² = 9.82 m/s². Månen: M = 7.342 · 10²² kg, R = 1.737 · 10⁶ m → 1.62 m/s² (jorda/månen = 6.05). Dobbel avstand → ¼, tredobbel → 1/9.
+### 0. Kald start (ca. 6 s)
+*Kartet:* lyser på «endelig volum → 2D · tid».
+
+> Hittil har ingenting endret seg i tid. Nå lar vi klokka gå – og ser hva som skjer hvis vi går litt for fort.
+
+**[Du: se på klokka (eller armen) ved «lar vi klokka gå»; løft øyenbrynene ved «litt for fort».]**
+*På skjermen:* En klokke som tikker. En rad med celler som skifter fra rødt mot blått – så begynner én celle ytterst å blinke rødt–blått–rødt (lyd: alarm). «?!» spretter inn.
+
+### 1. To dimensjoner: fire naboer (0:00–1:05)
+*Kartet:* lyser på «2D».
+
+> I to dimensjoner får hver celle fire naboer: vest, øst, sør og nord. Ligningen er den samme – bare med to ledd til.
+> Langs veggene klipper vi koblingene akkurat som i én dimensjon. Og et hjørne ligger inntil *to* vegger, så det får et bidrag fra hver.
+> Ta en plate i tre ganger fire celler. Fra vest strømmer det inn varme, sør og øst er isolert, og nord holdes på hundre grader. Løsningen er varmest der varmen kommer inn, to hundre og seksti grader, og kaldest ved den kalde nordveggen.
+> Og sjekken: Fire celler tar inn fem hundre watt hver. Nøyaktig to tusen watt går ut gjennom nord. Bevart!
+
+**[Du: vis fire retninger med hånda (vest, øst, sør, nord); pek på hjørnet på tavla ved «to vegger». Ved «Bevart!»: armene opp.]**
+*På skjermen:* Tittel «Endelig volum i 2D og i tid» (oransje). Celle P med fire naboer W, E, S, N og fire røde flukspiler (pop × 4). Formelen fra 1D får to nye ledd som flyr inn: «a_P T_P = a_W T_W + a_E T_E + a_S T_S + a_N T_N + S^u». Et 3 × 4-gitter: gule piler inn fra vest «500 kW/m²», grått i sør og øst «isolert», blå nordvegg «100 °C», hjørnet oppe til venstre blinker «to bidrag». Varmekartet fylles celle for celle (blått → rødt) med 260 °C nederst til venstre og 124 °C oppe til høyre. En vekt: «inn 4 · 500 W = 2000 W» = «ut 2000 W» (pling).
+
+### 2. Tid: et vektet gjennomsnitt (1:05–2:10)
+*Kartet:* lyser på «tid».
+
+> Med tid integrerer vi også over et lite tidssteg, delta t. Det enkleste er å regne ut fluksene med de temperaturene vi allerede har – et *eksplisitt* skjema. Da står den nye temperaturen alene på venstre side, og hver celle kan regnes ut for seg.
+> Del på a P null – og se: Den nye temperaturen er et *vektet gjennomsnitt* av den gamle temperaturen i cellen og temperaturene i naboene.
+> Så lenge alle vektene er positive, kan det ikke dukke opp nye topper eller daler. Varmen bare jevner seg ut, steg for steg.
+
+**[Du: ved «vektet gjennomsnitt»: hendene som en vektskål som balanserer; ved «jevner seg ut»: flat hånd som glatter ut.]**
+*På skjermen:* Tidsakse t_n → t_{n+1} med «Δt». Grønn boks: «a_P⁰ T_P^{n+1} = a_W T_W^n + a_E T_E^n + (a_P⁰ − a_W − a_E + S_P) T_P^n + S^u», «a_P⁰ = ρcΔV/Δt». Så tre piler inn mot T_P^{n+1} med vektene «a_W/a_P⁰», «a_E/a_P⁰» og «(a_P⁰ − a_W − a_E + S_P)/a_P⁰», og en vektskål. Verdiene marsjerer mot høyre (tikk, tikk, tikk).
+
+### 3. Tidssteget ved randen (2:10–3:15)
+*Kartet:* lyser på «tid (stabilitet)».
+
+> Men vekten på cellen selv kan bli *negativ* hvis tidssteget er for stort. Da betyr det: jo varmere nå, jo kaldere neste gang – og så varmere igjen. Det svinger, og det vokser.
+> Og se på randcellen! Der er ledningsevnen mot randen dobbel, så summen av koblingene blir én pluss to – tre i stedet for to. Den som er koblet sterkest til omgivelsene, endrer seg raskest – og tåler derfor minst tidssteg. Ta en plate som er to hundre grader, og sett den ene siden plutselig til null. De indre cellene tåler åtte sekunder, men randcellen bare fem komma tre tre.
+> Med to sekunder kryper kulda pent innover. Med seks sekunder begynner randcellen å blinke – akkurat der vi sa.
+> Vil du slippe denne grensen, kan du bruke et *implisitt* skjema i stedet: Da regnes fluksene med de nye, ukjente temperaturene, og du må løse et ligningssystem i hvert steg – men tidssteget kan være så stort du vil.
+
+**[Du: ved «svinger, og det vokser»: hånda som hopper opp og ned, større og større. Pek på randcellen på tavla. Ved «seks sekunder»: grimase. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen).]**
+*På skjermen:* Den midterste vekten krymper og blir rød og negativ; en graf som sager opp og ned med økende utslag (lyd: «boing-boing-BOING»). Grønn boks: «a_P⁰ ≥ a_W + a_E − S_P». Fem celler (alle røde, «200 °C»), vestvegg isolert, østveggen blir blå «0 °C» (lyd: «klang»). Tabell: «isolert celle: 16 s · indre celler: 8 s · randcelle: 5.33 s» (den siste i gult). To animasjoner side om side med tikk-lyd: «Δt = 2 s» – fargene glir pent fra rødt til blått fra øst; «Δt = 6 s» – randcellen blinker og grafen får sagtenner (alarm).
+
+### 4. Oppsummering av PDE-delen (3:15–3:35)
+*Kartet:* lyser på «hele kartet lyser».
+
+> Så: Varme jevner ut, bølger frakter, Laplace finner likevekt. Endelige differanser bytter deriverte med differanser. Endelig volum skriver bevaringsloven opp for hver celle. Og når tiden går – pass på tidssteget, særlig ved randen. Prøv deg på noen oppgaver!
+
+**[Du: tell på fingrene gjennom oppsummeringen; pek ned mot oppgavene til slutt.]**
+*På skjermen:* Fire små ikoner fra de fire filmene: tre familier, tre prikker med sekant, en celle med piler, en klokke. Fysikkhjelp-logoen.
+
+---
+
+**Tall (regnet i Python):** 2D-plata: κA/δx = 1000 · (0.1 · 0.01)/0.1 = 10; vest q_V A = 5.0 · 10⁵ · 0.1 · 0.01 = 500 W per celle; nordvegg 2κA/δy = 20, S^u = 2000. Løsning (nord øverst): 146.3, 129.7, 124.0 / 205.6, 178.2, 166.2 / 242.3, 211.2, 196.5 / 260.0, 227.8, 212.2 °C. Energibalanse 4 · 500 W = 2000 W. Tidsdelen: κA/δx = 10 · 1/0.004 = 2500, ρcAδx = 10 · 10⁶ · 0.004 = 4.0 · 10⁴; grenser: isolert celle 4.0 · 10⁴/2500 = 16 s, indre 4.0 · 10⁴/5000 = 8 s, randcelle med T = 0: 4.0 · 10⁴/7500 = 5.33 s.

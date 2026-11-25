@@ -1,68 +1,64 @@
-# Manus: Bevaring og kollisjoner
+# Manus: Endelig volum i 2D og i tid
 
-**Tema: Bevegelsesmengde og støt · undertema: Bevaring og kollisjoner · ca. 3 min**
-**Brukes på:** (ingen side ennå)
+**Tema: Partielle differensialligninger · undertema: Endelig volum-metoden i 2D og for tidsavhengige problemer · ca. 3.5 min**
+**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.6–3.8)
+**Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
+**Grunnlag:** foilene F25–F26.
 
-Les i rolig tempo, ca. 140 ord i minuttet. Du står foran grønnskjermen og havner nede til høyre. Tidskodene er omtrentlige. Ta en kort pause mellom avsnittene, og **klapp før du tar noe på nytt**. **[Du:]** er forslag til ting du gjør i bildet. Improviser gjerne: jeg følger det du faktisk sier.
+**Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-**Rekvisitter:** en basketball (eller en annen stor ball som spretter godt) og en tennisball. Ikke grønne. Kald start-forsøket kan godt filmes ute eller i en gang med høyt tak, og så klippes inn.
-
-**Tavla:** Dashman-bilen («FULL TANK!») som kolliderer med en stillestående varebil, to biljardkuler, og ballene i forsøket med fartspiler. Alt tegnes på nytt i tavlestil.
-
----
-
-### 0. Kald start (ca. 5 s)
-
-> **[Du:** hold tennisballen oppå basketballen og slipp dem sammen. Basketballen blir nesten liggende, mens tennisballen skyter rett til værs. Se opp etter den.**]**
-> Kåffer det?!
-
-*På skjermen:* En stiplet linje i slipphøyden og en lang gul pil som følger tennisballen oppover. «KÅFFER DET?!» som et stort stempel.
-
-### 1. Bevegelsesmengden er bevart (0:00–0:35)
-
-> Når to ting kolliderer, dytter de på hverandre. Etter Newtons tredje lov er kreftene like store og motsatt rettet, og de virker like lenge.
-> Da får de like store, men motsatte kraftstøt. Den ene får like mye bevegelsesmengde som den andre mister.
-> Kreftene mellom dem flytter altså bevegelsesmengde fra den ene til den andre, men summen endrer seg ikke.
-> Så hvis ingen krefter utenfra gjør noe særlig under støtet, er den totale bevegelsesmengden den samme før og etter.
-
-*På skjermen:* Tittelen «Bevaring og kollisjoner» i oransje. To kuler A og B i kontakt med kraftpilene F⃗_AB og F⃗_BA mot hverandre (like lange, turkis), og «Newtons 3. lov». Så «Δp⃗_A = −Δp⃗_B» og grønn boks: «p⃗_før = p⃗_etter», og under: «m₁v⃗₁ + m₂v⃗₂ = m₁u⃗₁ + m₂u⃗₂» med «v = før, u = etter».
-
-### 2. Uelastisk: bilene henger sammen (0:35–1:20)
-
-> **[Du:** hold hånda flat mot venstre, som om du holder varebilen igjen, og vis et «au» når smellet kommer.**]**
-> Dashman kjører i 54 kilometer i timen, femten meter per sekund, og bilen veier ett tonn. Han kjører rett inn i en varebil på et og et halvt tonn som står stille, og bilene henger fast i hverandre.
-> Før støtet: tusen kilo ganger femten, femten tusen kilogram meter per sekund. Etter støtet har vi samme bevegelsesmengde, men nå fordelt på to og et halvt tonn. Farten blir seks meter per sekund.
-
-*På skjermen:* Dashman-bilen kjører inn mot varebilen ved hånda di, «KRÆSJ!», og de to glir videre sammen. «m₁ = 1000 kg, v₁ = 15 m/s, m₂ = 1500 kg, v₂ = 0». «m₁v₁ = (m₁ + m₂) · u», så «u = m₁v₁ over (m₁ + m₂) = 15 000 kg · m/s over 2500 kg = 6.0 m/s» (stablede brøker).
-
-### 3. Hvor ble energien av? (1:20–1:45)
-
-> Men sjekk den kinetiske energien. Før: 113 kilojoule. Etter: bare 45. Seksti prosent er borte! Den ble til bulker, varme og lyd.
-> Når legemene henger sammen etterpå, kaller vi det et *fullstendig uelastisk* støt. Da tapes mest mulig bevegelsesenergi.
-
-*På skjermen:* To søyler E_k: «før: ½ · 1000 kg · (15 m/s)² ≈ 113 kJ» og «etter: ½ · 2500 kg · (6.0 m/s)² = 45 kJ», den andre mye lavere. «−60 %» i rødt. Bulker på bilene, damp og små lydstreker. Grønn boks: «p⃗ bevart – E_k ikke bevart».
-
-### 4. Elastisk: de spretter fra hverandre (1:45–2:20)
-
-> I et *elastisk* støt spretter de fra hverandre, og ingen energi går tapt. Da er både bevegelsesmengden og den kinetiske energien bevart.
-> To like biljardkuler: Den første stopper helt, og den andre overtar all farten.
-> Og så et nyttig triks: I et elastisk støt fjerner de seg fra hverandre like fort som de nærmet seg.
-
-*På skjermen:* «p⃗_før = p⃗_etter» og «E_k,før = E_k,etter» (begge grønne). To biljardkuler: den hvite ruller inn, «klikk», den stopper og den andre ruller videre med samme fart. Så: «nærmer seg med 5 m/s → fjerner seg med 5 m/s» med to like lange gule piler.
-
-### 5. Forklaringen på ballene (2:20–2:45)
-
-> **[Du:** hold ballene opp igjen, tennisballen oppå.**]**
-> Tilbake til ballene. Rett etter at basketballen har sprettet i gulvet, går den opp med farten v, mens tennisballen fortsatt kommer ned med v. De nærmer seg med to v. Da spretter tennisballen fra med to v i forhold til basketballen – altså tre v i forhold til gulvet! Tre ganger så fort betyr i teorien ni ganger så høyt.
-
-*På skjermen:* Ballene rett etter spretten: basketballen med pil «v» opp, tennisballen med pil «v» ned. «nærmer seg: 2v». Så tennisballen med pil «2v + v = 3v» opp (gult). «h = v² over 2g → (3v)² = 9 · v²» → «9 × høyden!» (stablet brøk, 3 og 9 i oransje). Liten merknad: «i praksis litt mindre (tap)».
-
-### 6. Avslutning (2:45–3:00)
-
-> I alle kollisjoner er bevegelsesmengden bevart. I elastiske støt er også den kinetiske energien bevart, men ikke i uelastiske. Prøv deg på noen oppgaver!
-
-*På skjermen:* Oppsummering: «elastisk: p⃗ og E_k bevart», «uelastisk: bare p⃗ bevart». Dashman kryper ut av den bulkete bilen og ser på tennisballen som til slutt faller ned i hodet hans («boing»). Fysikkhjelp-logoen.
+Tre idéer: (1) i 2D får hver celle fire naboer – ellers er alt som før, (2) i tid blir den nye temperaturen et vektet gjennomsnitt av de gamle, (3) vektene må være positive, og randcellene bestemmer hvor stort tidssteget kan være.
 
 ---
 
-**Tall (regnet i Python):** 54 km/h = 15.0 m/s. p_før = 1000 kg · 15 m/s = 15 000 kg · m/s. u = 15 000 / 2500 = 6.0 m/s (= 21.6 km/h). E_k,før = ½ · 1000 · 15² = 112 500 J ≈ 113 kJ. E_k,etter = ½ · 2500 · 6.0² = 45 000 J = 45 kJ. Tap = 67 500 J = 60 %. Ballene: tennisballen får 3v når basketballen er mye tyngre (elastisk); høyden h = v²/(2g) gir (3v)² / v² = 9 ganger høyden. Fra 1.0 m: v = √(2 · 9.81 · 1.0) = 4.4 m/s, 3v = 13 m/s (bare i teorien).
+### 0. Kald start (ca. 6 s)
+*Kartet:* lyser på «endelig volum → 2D · tid».
+
+> Hittil har ingenting endret seg i tid. Nå lar vi klokka gå – og ser hva som skjer hvis vi går litt for fort.
+
+**[Du: se på klokka (eller armen) ved «lar vi klokka gå»; løft øyenbrynene ved «litt for fort».]**
+*På skjermen:* En klokke som tikker. En rad med celler som skifter fra rødt mot blått – så begynner én celle ytterst å blinke rødt–blått–rødt (lyd: alarm). «?!» spretter inn.
+
+### 1. To dimensjoner: fire naboer (0:00–1:05)
+*Kartet:* lyser på «2D».
+
+> I to dimensjoner får hver celle fire naboer: vest, øst, sør og nord. Ligningen er den samme – bare med to ledd til.
+> Langs veggene klipper vi koblingene akkurat som i én dimensjon. Og et hjørne ligger inntil *to* vegger, så det får et bidrag fra hver.
+> Ta en plate i tre ganger fire celler. Fra vest strømmer det inn varme, sør og øst er isolert, og nord holdes på hundre grader. Løsningen er varmest der varmen kommer inn, to hundre og seksti grader, og kaldest ved den kalde nordveggen.
+> Og sjekken: Fire celler tar inn fem hundre watt hver. Nøyaktig to tusen watt går ut gjennom nord. Bevart!
+
+**[Du: vis fire retninger med hånda (vest, øst, sør, nord); pek på hjørnet på tavla ved «to vegger». Ved «Bevart!»: armene opp.]**
+*På skjermen:* Tittel «Endelig volum i 2D og i tid» (oransje). Celle P med fire naboer W, E, S, N og fire røde flukspiler (pop × 4). Formelen fra 1D får to nye ledd som flyr inn: «a_P T_P = a_W T_W + a_E T_E + a_S T_S + a_N T_N + S^u». Et 3 × 4-gitter: gule piler inn fra vest «500 kW/m²», grått i sør og øst «isolert», blå nordvegg «100 °C», hjørnet oppe til venstre blinker «to bidrag». Varmekartet fylles celle for celle (blått → rødt) med 260 °C nederst til venstre og 124 °C oppe til høyre. En vekt: «inn 4 · 500 W = 2000 W» = «ut 2000 W» (pling).
+
+### 2. Tid: et vektet gjennomsnitt (1:05–2:10)
+*Kartet:* lyser på «tid».
+
+> Med tid integrerer vi også over et lite tidssteg, delta t. Det enkleste er å regne ut fluksene med de temperaturene vi allerede har – et *eksplisitt* skjema. Da står den nye temperaturen alene på venstre side, og hver celle kan regnes ut for seg.
+> Del på a P null – og se: Den nye temperaturen er et *vektet gjennomsnitt* av den gamle temperaturen i cellen og temperaturene i naboene.
+> Så lenge alle vektene er positive, kan det ikke dukke opp nye topper eller daler. Varmen bare jevner seg ut, steg for steg.
+
+**[Du: ved «vektet gjennomsnitt»: hendene som en vektskål som balanserer; ved «jevner seg ut»: flat hånd som glatter ut.]**
+*På skjermen:* Tidsakse t_n → t_{n+1} med «Δt». Grønn boks: «a_P⁰ T_P^{n+1} = a_W T_W^n + a_E T_E^n + (a_P⁰ − a_W − a_E + S_P) T_P^n + S^u», «a_P⁰ = ρcΔV/Δt». Så tre piler inn mot T_P^{n+1} med vektene «a_W/a_P⁰», «a_E/a_P⁰» og «(a_P⁰ − a_W − a_E + S_P)/a_P⁰», og en vektskål. Verdiene marsjerer mot høyre (tikk, tikk, tikk).
+
+### 3. Tidssteget ved randen (2:10–3:15)
+*Kartet:* lyser på «tid (stabilitet)».
+
+> Men vekten på cellen selv kan bli *negativ* hvis tidssteget er for stort. Da betyr det: jo varmere nå, jo kaldere neste gang – og så varmere igjen. Det svinger, og det vokser.
+> Og se på randcellen! Der er ledningsevnen mot randen dobbel, så summen av koblingene blir én pluss to – tre i stedet for to. Den som er koblet sterkest til omgivelsene, endrer seg raskest – og tåler derfor minst tidssteg. Ta en plate som er to hundre grader, og sett den ene siden plutselig til null. De indre cellene tåler åtte sekunder, men randcellen bare fem komma tre tre.
+> Med to sekunder kryper kulda pent innover. Med seks sekunder begynner randcellen å blinke – akkurat der vi sa.
+> Vil du slippe denne grensen, kan du bruke et *implisitt* skjema i stedet: Da regnes fluksene med de nye, ukjente temperaturene, og du må løse et ligningssystem i hvert steg – men tidssteget kan være så stort du vil.
+
+**[Du: ved «svinger, og det vokser»: hånda som hopper opp og ned, større og større. Pek på randcellen på tavla. Ved «seks sekunder»: grimase. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen).]**
+*På skjermen:* Den midterste vekten krymper og blir rød og negativ; en graf som sager opp og ned med økende utslag (lyd: «boing-boing-BOING»). Grønn boks: «a_P⁰ ≥ a_W + a_E − S_P». Fem celler (alle røde, «200 °C»), vestvegg isolert, østveggen blir blå «0 °C» (lyd: «klang»). Tabell: «isolert celle: 16 s · indre celler: 8 s · randcelle: 5.33 s» (den siste i gult). To animasjoner side om side med tikk-lyd: «Δt = 2 s» – fargene glir pent fra rødt til blått fra øst; «Δt = 6 s» – randcellen blinker og grafen får sagtenner (alarm).
+
+### 4. Oppsummering av PDE-delen (3:15–3:35)
+*Kartet:* lyser på «hele kartet lyser».
+
+> Så: Varme jevner ut, bølger frakter, Laplace finner likevekt. Endelige differanser bytter deriverte med differanser. Endelig volum skriver bevaringsloven opp for hver celle. Og når tiden går – pass på tidssteget, særlig ved randen. Prøv deg på noen oppgaver!
+
+**[Du: tell på fingrene gjennom oppsummeringen; pek ned mot oppgavene til slutt.]**
+*På skjermen:* Fire små ikoner fra de fire filmene: tre familier, tre prikker med sekant, en celle med piler, en klokke. Fysikkhjelp-logoen.
+
+---
+
+**Tall (regnet i Python):** 2D-plata: κA/δx = 1000 · (0.1 · 0.01)/0.1 = 10; vest q_V A = 5.0 · 10⁵ · 0.1 · 0.01 = 500 W per celle; nordvegg 2κA/δy = 20, S^u = 2000. Løsning (nord øverst): 146.3, 129.7, 124.0 / 205.6, 178.2, 166.2 / 242.3, 211.2, 196.5 / 260.0, 227.8, 212.2 °C. Energibalanse 4 · 500 W = 2000 W. Tidsdelen: κA/δx = 10 · 1/0.004 = 2500, ρcAδx = 10 · 10⁶ · 0.004 = 4.0 · 10⁴; grenser: isolert celle 4.0 · 10⁴/2500 = 16 s, indre 4.0 · 10⁴/5000 = 8 s, randcelle med T = 0: 4.0 · 10⁴/7500 = 5.33 s.
