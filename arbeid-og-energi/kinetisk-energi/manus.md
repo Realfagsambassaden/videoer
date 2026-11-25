@@ -1,83 +1,64 @@
-# Manus: Kinetisk energi
+# Manus: Endelig volum i 2D og i tid
 
-**Tema: Arbeid og energi · undertema: Kinetisk og potensiell energi · ca. 3 min**
-**Brukes på:** (ingen side ennå)
+**Tema: Partielle differensialligninger · undertema: Endelig volum-metoden i 2D og for tidsavhengige problemer · ca. 3.5 min**
+**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.6–3.8)
+**Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
+**Grunnlag:** foilene F25–F26.
 
-Les i rolig tempo, ca. 140 ord i minuttet. Du filmer deg selv foran grønnskjermen og havner nede til høyre i videoen. Tidskodene er omtrentlige. Animasjonen tilpasses det du faktisk sier og gjør i opptaket. Ta en kort pause mellom avsnittene, og **klapp før du tar noe på nytt**. **[Du:]** er forslag til ting du gjør i bildet.
+**Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-**Rekvisitter:** ingen. Du «dytter» tegneseriebilen med Dashman på tavla: strekk ut hånda mot venstre og dytt i lufta, så starter bilen ved hånda di og kjører mot venstre. Siden du står nede til høyre, kjører bilen **fra høyre mot venstre**, og fart- og kraftpilene peker også mot venstre.
-
-**Tegning fra deg:** ✓ levert (`tegninger.pdf`: Ben sin stasjon, Dashman som plystrer, bilen, bensinpumpa). Bilen speilvendes så fronten peker mot venstre. Den animeres på tavla (bilen kjører, hjulene går rundt, Dashman reagerer). Alt annet på tavla lager jeg med TikZ/SVG.
-
-Utledningen følger samme idé som i «Potensiell energi»: **arbeid = arealet under en graf**, og arealet er en trekant. Den antar **ikke** konstant kraft eller konstant akselerasjon: W = ∫ F⃗ · dx⃗ = ∫ m v dv, og grafen av mv mot v er en rett linje uansett hvordan kraften varierer.
+Tre idéer: (1) i 2D får hver celle fire naboer – ellers er alt som før, (2) i tid blir den nye temperaturen et vektet gjennomsnitt av de gamle, (3) vektene må være positive, og randcellene bestemmer hvor stort tidssteget kan være.
 
 ---
 
-### 0. Kald start: Ben sin stasjon (ca. 5 s, ingen tale)
+### 0. Kald start (ca. 6 s)
+*Kartet:* lyser på «endelig volum → 2D · tid».
 
-*På skjermen (lærerens tegning `tegninger.pdf`, se `_verktoy/dashman/`):* Skiltet «BEN SIN STASJON». Dashman står og plystrer (noter som svever opp) mens han fyller bensin på bilen fra pumpa. Plystrelyd og et lite «klunk» når tanken er full. Dashman hopper inn bak rattet – og så skjærer det over til tavla der du dytter bilen i gang (avsnitt 1). Bilen speilvendes så den kjører mot venstre. Teksten på bilsiden byttes ut med en nøytral tekst (f.eks. «FULL TANK!») – se merknad i `_verktoy/dashman/LESMEG.md`.
+> Hittil har ingenting endret seg i tid. Nå lar vi klokka gå – og ser hva som skjer hvis vi går litt for fort.
 
-### 1. Intro (0:00–0:20)
+**[Du: se på klokka (eller armen) ved «lar vi klokka gå»; løft øyenbrynene ved «litt for fort».]**
+*På skjermen:* En klokke som tikker. En rad med celler som skifter fra rødt mot blått – så begynner én celle ytterst å blinke rødt–blått–rødt (lyd: alarm). «?!» spretter inn.
 
-> **[Du:** strekk ut hånda mot venstre og gi Dashman-bilen et kraftig dytt. Den suser av gårde mot venstre.**]**
-> Når jeg dytter på bilen, gjør jeg et arbeid. Og arbeid er overføring av energi. Men hvor ble energien av nå?
-> Den ligger i bevegelsen. Energi som et legeme har fordi det beveger seg, kaller vi *kinetisk energi*, eller bevegelsesenergi.
+### 1. To dimensjoner: fire naboer (0:00–1:05)
+*Kartet:* lyser på «2D».
 
-*På skjermen:* Dashman-bilen står ved hånda di. Når du dytter, suser den mot venstre med fartsstreker (svisj) og stopper midt på tavla. Tittelen «Kinetisk energi» i oransje og «Arbeid = overføring av energi» under.
+> I to dimensjoner får hver celle fire naboer: vest, øst, sør og nord. Ligningen er den samme – bare med to ledd til.
+> Langs veggene klipper vi koblingene akkurat som i én dimensjon. Og et hjørne ligger inntil *to* vegger, så det får et bidrag fra hver.
+> Ta en plate i tre ganger fire celler. Fra vest strømmer det inn varme, sør og øst er isolert, og nord holdes på hundre grader. Løsningen er varmest der varmen kommer inn, to hundre og seksti grader, og kaldest ved den kalde nordveggen.
+> Og sjekken: Fire celler tar inn fem hundre watt hver. Nøyaktig to tusen watt går ut gjennom nord. Bevart!
 
-### 2. Dashman gir gass (0:20–0:45)
+**[Du: vis fire retninger med hånda (vest, øst, sør, nord); pek på hjørnet på tavla ved «to vegger». Ved «Bevart!»: armene opp.]**
+*På skjermen:* Tittel «Endelig volum i 2D og i tid» (oransje). Celle P med fire naboer W, E, S, N og fire røde flukspiler (pop × 4). Formelen fra 1D får to nye ledd som flyr inn: «a_P T_P = a_W T_W + a_E T_E + a_S T_S + a_N T_N + S^u». Et 3 × 4-gitter: gule piler inn fra vest «500 kW/m²», grått i sør og øst «isolert», blå nordvegg «100 °C», hjørnet oppe til venstre blinker «to bidrag». Varmekartet fylles celle for celle (blått → rødt) med 260 °C nederst til venstre og 124 °C oppe til høyre. En vekt: «inn 4 · 500 W = 2000 W» = «ut 2000 W» (pling).
 
-> **[Du:** dytt bilen mot venstre igjen, først forsiktig, så hardere – som om du skyver den i gang.**]**
-> Tenk deg at bilen står stille, og så dytter jeg på den. Kraften trenger ikke være konstant. Jeg kan dytte litt, så mye, så litt igjen.
-> Arbeidet er kraft ganger strekning, lagt sammen bit for bit: *W er integralet av F d x*.
+### 2. Tid: et vektet gjennomsnitt (1:05–2:10)
+*Kartet:* lyser på «tid».
 
-*På skjermen:* Bilen i ro med v₀ = 0 ved hånda di. Kraftpila F⃗ mot venstre fra hånda, som vokser og krymper i takt med dyttet ditt. Bilen øker farten mot venstre, med en liten oransje strekningsbit dx⃗ under. «W = ∫ F⃗ · dx⃗».
+> Med tid integrerer vi også over et lite tidssteg, delta t. Det enkleste er å regne ut fluksene med de temperaturene vi allerede har – et *eksplisitt* skjema. Da står den nye temperaturen alene på venstre side, og hver celle kan regnes ut for seg.
+> Del på a P null – og se: Den nye temperaturen er et *vektet gjennomsnitt* av den gamle temperaturen i cellen og temperaturene i naboene.
+> Så lenge alle vektene er positive, kan det ikke dukke opp nye topper eller daler. Varmen bare jevner seg ut, steg for steg.
 
-### 3. Newtons 2. lov (0:45–1:10)
+**[Du: ved «vektet gjennomsnitt»: hendene som en vektskål som balanserer; ved «jevner seg ut»: flat hånd som glatter ut.]**
+*På skjermen:* Tidsakse t_n → t_{n+1} med «Δt». Grønn boks: «a_P⁰ T_P^{n+1} = a_W T_W^n + a_E T_E^n + (a_P⁰ − a_W − a_E + S_P) T_P^n + S^u», «a_P⁰ = ρcΔV/Δt». Så tre piler inn mot T_P^{n+1} med vektene «a_W/a_P⁰», «a_E/a_P⁰» og «(a_P⁰ − a_W − a_E + S_P)/a_P⁰», og en vektskål. Verdiene marsjerer mot høyre (tikk, tikk, tikk).
 
-> Kraften finner vi fra Newtons andre lov: *F er lik m ganger a*. Og akselerasjonen er hvor fort farten endrer seg: *d v delt på d t*.
-> Så et lite triks: Den lille strekningen d x er farten ganger en liten tid, *v d t*.
-> Setter vi inn, forsvinner d t, og igjen står *m v d v*.
+### 3. Tidssteget ved randen (2:10–3:15)
+*Kartet:* lyser på «tid (stabilitet)».
 
-*På skjermen:* «ΣF⃗ = ma⃗», «a = dv/dt» og «dx = v · dt» (stablede brøker). Så F · dx = m · (dv/dt) · v · dt, der de to dt-ene strykes over med en gul strek («pop»). Igjen står «F · dx = m v dv».
+> Men vekten på cellen selv kan bli *negativ* hvis tidssteget er for stort. Da betyr det: jo varmere nå, jo kaldere neste gang – og så varmere igjen. Det svinger, og det vokser.
+> Og se på randcellen! Der er ledningsevnen mot randen dobbel, så summen av koblingene blir én pluss to – tre i stedet for to. Den som er koblet sterkest til omgivelsene, endrer seg raskest – og tåler derfor minst tidssteg. Ta en plate som er to hundre grader, og sett den ene siden plutselig til null. De indre cellene tåler åtte sekunder, men randcellen bare fem komma tre tre.
+> Med to sekunder kryper kulda pent innover. Med seks sekunder begynner randcellen å blinke – akkurat der vi sa.
+> Vil du slippe denne grensen, kan du bruke et *implisitt* skjema i stedet: Da regnes fluksene med de nye, ukjente temperaturene, og du må løse et ligningssystem i hvert steg – men tidssteget kan være så stort du vil.
 
-### 4. Arealet under en graf (1:10–1:45)
+**[Du: ved «svinger, og det vokser»: hånda som hopper opp og ned, større og større. Pek på randcellen på tavla. Ved «seks sekunder»: grimase. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen).]**
+*På skjermen:* Den midterste vekten krymper og blir rød og negativ; en graf som sager opp og ned med økende utslag (lyd: «boing-boing-BOING»). Grønn boks: «a_P⁰ ≥ a_W + a_E − S_P». Fem celler (alle røde, «200 °C»), vestvegg isolert, østveggen blir blå «0 °C» (lyd: «klang»). Tabell: «isolert celle: 16 s · indre celler: 8 s · randcelle: 5.33 s» (den siste i gult). To animasjoner side om side med tikk-lyd: «Δt = 2 s» – fargene glir pent fra rødt til blått fra øst; «Δt = 6 s» – randcellen blinker og grafen får sagtenner (alarm).
 
-> Arbeidet er altså integralet av *m v* over v, fra null og opp til farten v. Dette tilsvarer arealet under grafen!
-> **[Du:** tegn en skrå linje i lufta med hånda.**]**
-> Tegner vi m v mot v – altså mot farten, ikke mot tiden – får vi alltid en rett linje, akkurat som kraften i en fjær. Uansett hvordan jeg dyttet. Arealet er en trekant!
-> Areal av trekant er en halv ganger grunnlinje ganger høyde. Grunnlinja er v, høyden er m v. Arbeidet blir *en halv m v i andre*.
+### 4. Oppsummering av PDE-delen (3:15–3:35)
+*Kartet:* lyser på «hele kartet lyser».
 
-*På skjermen:* Aksene «mv» og «v» (med en liten gul lapp: «v, ikke t!»), linja fra 0 til (v, mv). Trekanten fylles grå fra venstre. «Areal av trekant: A = ½ · g · h» med en liten trekant, så g = v og h = mv (oransje). «W = ∫ m v dv = ½ · v · mv = ½mv²» (stablede brøker).
+> Så: Varme jevner ut, bølger frakter, Laplace finner likevekt. Endelige differanser bytter deriverte med differanser. Endelig volum skriver bevaringsloven opp for hver celle. Og når tiden går – pass på tidssteget, særlig ved randen. Prøv deg på noen oppgaver!
 
-### 5. Kinetisk energi (1:45–2:05)
-
-> Dette arbeidet forsvinner ikke. Det ligger i bevegelsen som kinetisk energi: *E k er lik en halv m v i andre*.
-> Og hadde bilen allerede fart da jeg begynte å dytte, er arbeidet lik *endringen* i kinetisk energi.
-
-*På skjermen:* Grønn boks: «Kinetisk energi: E_k = ½mv²». Under, mindre: «W = ½mv² − ½mv₀² = ΔE_k» (stablede brøker).
-
-### 6. «Ok … det ble litt nerdete» – poenget (2:05–2:25)
-
-> **[Du:** senk skuldrene, smil litt flau og se rett i kamera.**]**
-> Ok … dette ble kanskje litt nerdete. Klarte du ikke å henge med på integralene? Helt greit! Poenget er dette:
-> Dytter du på noe og det får fart, har du gitt det energi. Og den energien er *en halv m v i andre*. Dobbelt så tung – dobbelt så mye energi. Dobbelt så fort – *fire* ganger så mye!
-
-*På skjermen:* Tavla tones ned og utledningen blir uskarp (eller viskelæret sveiper den halvveis bort). En liten Dashman kommer inn og klør seg i hodet med et «?». Så, stort og rent midt på tavla: «Poenget:» og «E_k = ½mv²» (stablet brøk), med to små pilbokser under: «2 × m → 2 × E_k» og «2 × v → 4 × E_k» (den siste i gult, «pop»).
-
-### 7. Et eksempel (2:25–2:45)
-
-> Et eksempel: Dashman kjører i 50 kilometer i timen, og bilen veier ett tonn. Da har den rundt 96 kilojoule. I 100 kilometer i timen: nesten 400. Det er derfor bremselengden øker så mye med farten.
-
-*På skjermen:* m = 1000 kg, v = 50 km/h = 13.9 m/s, E_k = 96 kJ. Så v = 100 km/h = 27.8 m/s, E_k = 390 kJ og «×4!» i gult. Dashman-bilen kjører fortere (lengre fartsstreker).
-
-### 8. Avslutning (2:45–3:05)
-
-> **[Du:** hold hånda opp som en vegg (mot venstre) og «ta imot» bilen når den kommer tilbake.**]**
-> For å stoppe bilen må noe gjøre det samme arbeidet, bare motsatt vei. Arbeid gir bevegelsesenergi, og bevegelsesenergi kan gjøre arbeid. Prøv deg på oppgavene under videoen!
-
-*På skjermen:* Bilen kjører mot hånda di og bremser opp (bremsespor, Dashman lener seg framover). Oppsummering: «Arbeid ⇄ kinetisk energi», «E_k = ½mv²» (stablet brøk). Eventuell Dashman-stinger.
+**[Du: tell på fingrene gjennom oppsummeringen; pek ned mot oppgavene til slutt.]**
+*På skjermen:* Fire små ikoner fra de fire filmene: tre familier, tre prikker med sekant, en celle med piler, en klokke. Fysikkhjelp-logoen.
 
 ---
 
-**Tall (regnet i Python):** 50 km/h = 13.89 m/s → E_k = ½ · 1000 kg · (13.89 m/s)² = 96 450 J ≈ 96 kJ. 100 km/h = 27.78 m/s → 385 800 J ≈ 390 kJ (= 4 × 96 kJ).
+**Tall (regnet i Python):** 2D-plata: κA/δx = 1000 · (0.1 · 0.01)/0.1 = 10; vest q_V A = 5.0 · 10⁵ · 0.1 · 0.01 = 500 W per celle; nordvegg 2κA/δy = 20, S^u = 2000. Løsning (nord øverst): 146.3, 129.7, 124.0 / 205.6, 178.2, 166.2 / 242.3, 211.2, 196.5 / 260.0, 227.8, 212.2 °C. Energibalanse 4 · 500 W = 2000 W. Tidsdelen: κA/δx = 10 · 1/0.004 = 2500, ρcAδx = 10 · 10⁶ · 0.004 = 4.0 · 10⁴; grenser: isolert celle 4.0 · 10⁴/2500 = 16 s, indre 4.0 · 10⁴/5000 = 8 s, randcelle med T = 0: 4.0 · 10⁴/7500 = 5.33 s.

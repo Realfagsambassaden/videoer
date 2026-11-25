@@ -1,68 +1,64 @@
-# Manus: Bevegelsesmengde og kraftstøt
+# Manus: Endelig volum i 2D og i tid
 
-**Tema: Bevegelsesmengde og støt · undertema: Bevegelsesmengde og kraftstøt · ca. 3 min**
-**Brukes på:** (ingen side ennå)
+**Tema: Partielle differensialligninger · undertema: Endelig volum-metoden i 2D og for tidsavhengige problemer · ca. 3.5 min**
+**Brukes på:** (ingen side ennå – kompendiet IMAx3012 §3.6–3.8)
+**Format:** du på video foran grønnskjerm nede til høyre, tavla bak. Les sitatblokkene (nesten ordrett er greit); **[Du: …]** er ting du gjør, *På skjermen* er for meg.
+**Grunnlag:** foilene F25–F26.
 
-Les i rolig tempo, ca. 140 ord i minuttet. Du står foran grønnskjermen og havner nede til høyre. Tidskodene er omtrentlige. Ta en kort pause mellom avsnittene, og **klapp før du tar noe på nytt**. **[Du:]** er forslag til ting du gjør i bildet. Improviser gjerne: jeg følger det du faktisk sier.
+**Grafisk språk:** se `pde/LESMEG.md` (kartet, faste farger, formler som bygges). Gangen er alltid fra det generelle til det konkrete.
 
-**Rekvisitter:** et rått egg (og gjerne et reserveegg), og en tennisball. Legg et håndkle på gulvet i tilfelle.
-
-**Tavla:** Dashman-bilen («FULL TANK!») som kjører mot en mur, en F–t-graf som fylles, og egget i stor størrelse. Alt tegnes på nytt i tavlestil.
-
----
-
-### 0. Kald start (ca. 5 s)
-
-> **[Du:** kast egget rett opp en halvmeter og ta imot det med myke hender: la hendene følge egget et godt stykke nedover før det stopper. Se lettet ut.**]**
-> Puh. Et rått egg. Hvorfor knuste det ikke?
-
-*På skjermen:* Et stort håndtegnet egg ved hånda di med en liten svettedråpe. Teksten «Hvorfor knuste det ikke?» i gult.
-
-### 1. Bevegelsesmengde (0:00–0:30)
-
-> Alt som beveger seg, har noe vi kaller *bevegelsesmengde*: massen ganger hastigheten. *p er lik m v.*
-> **[Du:** hold opp tennisballen.**]**
-> En tennisball i full fart er ikke så farlig å stoppe. Men Dashman-bilen i samme fart? Den er mye vanskeligere å stoppe. Bevegelsesmengden sier hvor vanskelig det er å stoppe noe. Og den har retning, akkurat som farten.
-
-*På skjermen:* Tittelen «Bevegelsesmengde og kraftstøt» i oransje. Grønn boks: «p⃗ = m · v⃗», enhet «kg · m/s». En liten tennisball og Dashman-bilen side om side med like lange fartspiler v⃗ mot venstre, men med en bitte liten p⃗-pil på ballen og en kjempelang p⃗-pil på bilen (turkis).
-
-### 2. Kraft over tid (0:30–1:05)
-
-> Hvordan endrer vi bevegelsesmengden? Med en kraft. Newtons andre lov sier at *F er lik m a*, og akselerasjonen er endringen i fart delt på tiden.
-> Ganger vi med tiden på begge sider, får vi: *kraft ganger tid er lik endringen i bevegelsesmengde*.
-> Kraft ganger tid kaller vi *kraftstøt*. Det er ikke bare hvor hardt du dytter som teller, men også hvor lenge.
-
-*På skjermen:* «ΣF⃗ = m · a⃗» og «a⃗ = Δv⃗ over Δt» (stablet brøk), som flyr inn i formelen med et «popp»: «F⃗ = m · Δv⃗ over Δt». Så flyr Δt over til venstre side: «F⃗ · Δt = m · Δv⃗ = Δp⃗». Grønn boks: «Kraftstøt: F⃗ · Δt = Δp⃗».
-
-### 3. Arealet under grafen (1:05–1:35)
-
-> Men i et ekte støt er kraften ikke konstant. Den vokser fort og forsvinner igjen.
-> Da deler vi tiden opp i små biter. Hver bit gir kraft ganger en liten tid, og det er arealet av en tynn stripe. Legger vi sammen alle stripene, får vi *arealet under kraft–tid-grafen*. Det er kraftstøtet, og det er lik endringen i bevegelsesmengde.
-
-*På skjermen:* Aksene «F» og «t». En kurve som stiger brått og faller igjen (som en pukkel). Tynne stolper F · dt tegnes under kurven én etter én, og så fylles hele arealet grått fra venstre. «Kraftstøt = arealet = ∫ F⃗ dt = Δp⃗». Ved siden av, mindre: en rektangel med samme areal og høyde «F̄» (gjennomsnittskraften) og «F̄ = Δp over Δt» (stablet brøk).
-
-### 4. Hvorfor egget overlever (1:35–2:05)
-
-> **[Du:** vis med hendene: først en stiv hånd som stopper brått, så en myk hånd som følger med nedover.**]**
-> Tilbake til egget. Det skal stoppes uansett, så endringen i bevegelsesmengde er den samme. Men når hendene mine følger med, tar stoppen lengre tid.
-> Samme areal, men en lavere og bredere pukkel. Dobbelt så lang tid gir halvparten så stor kraft. Det er derfor du bøyer knærne når du hopper ned, og derfor bilen har kollisjonspute.
-
-*På skjermen:* To F–t-grafer på samme akser: en høy, smal pukkel (rød, «stiv hånd: KNAS!») og en lav, bred pukkel (grønn, «myk hånd»), begge med samme grå areal og «samme Δp» i gult. Så proporsjonaliteten: «Δp over (2 · Δt) = ½ · Δp over Δt» – dobbel tid, halv kraft (stablede brøker, 2-tallet og ½ i oransje).
-
-### 5. Et eksempel: Dashman krasjer (2:05–2:40)
-
-> **[Du:** hold hånda opp som en vegg mot venstre.**]**
-> Dashman veier 75 kilo og kjører i 36 kilometer i timen, det er ti meter per sekund. Bilen kjører i muren. Bevegelsesmengden hans er 750 kilogram meter per sekund, og den skal ned til null.
-> Smeller han i rattet og stopper på et hundredels sekund, blir kraften 75 kilonewton. Med bilbelte og kollisjonspute tar stoppen kanskje 0.15 sekund. Da blir kraften fem kilonewton: femten ganger mindre!
-
-*På skjermen:* Dashman-bilen kjører mot muren ved hånda di og krasjer (svisj, «KRÆSJ!»). «m = 75 kg, v = 10 m/s», «Δp = 75 kg · 10 m/s = 750 kg · m/s». To kolonner: «uten pute: Δt = 0.010 s → F̄ = 750 kg · m/s over 0.010 s = 75 kN» (rød) og «med pute: Δt = 0.15 s → F̄ = 5.0 kN» (grønn), og «× 1/15!» i gult. Dashman sitter i bilen med kollisjonsputa blåst opp i ansiktet og gir tommel opp.
-
-### 6. Avslutning (2:40–3:00)
-
-> Bevegelsesmengde er masse ganger hastighet. For å endre den trengs et kraftstøt: kraft ganger tid, eller arealet under grafen. Vil du ha liten kraft, må støtet vare lenge. Prøv deg på noen oppgaver!
-
-*På skjermen:* Oppsummering: «p⃗ = m · v⃗», «F⃗ · Δt = Δp⃗» og den lille F–t-grafen med grått areal. Egget med et smil. Fysikkhjelp-logoen.
+Tre idéer: (1) i 2D får hver celle fire naboer – ellers er alt som før, (2) i tid blir den nye temperaturen et vektet gjennomsnitt av de gamle, (3) vektene må være positive, og randcellene bestemmer hvor stort tidssteget kan være.
 
 ---
 
-**Tall (regnet i Python):** 36 km/h = 10.0 m/s. Δp = 75 kg · 10.0 m/s = 750 kg · m/s. Uten pute: F̄ = 750 / 0.010 = 75 000 N = 75 kN. Med pute: F̄ = 750 / 0.15 = 5000 N = 5.0 kN. Forholdet 0.15 / 0.010 = 15. (Bilen har 1000 kg · 10 m/s = 10 000 kg · m/s, tennisballen 0.058 kg · 20 m/s = 1.2 kg · m/s – brukes bare som pilstørrelser, ikke sagt i tale.)
+### 0. Kald start (ca. 6 s)
+*Kartet:* lyser på «endelig volum → 2D · tid».
+
+> Hittil har ingenting endret seg i tid. Nå lar vi klokka gå – og ser hva som skjer hvis vi går litt for fort.
+
+**[Du: se på klokka (eller armen) ved «lar vi klokka gå»; løft øyenbrynene ved «litt for fort».]**
+*På skjermen:* En klokke som tikker. En rad med celler som skifter fra rødt mot blått – så begynner én celle ytterst å blinke rødt–blått–rødt (lyd: alarm). «?!» spretter inn.
+
+### 1. To dimensjoner: fire naboer (0:00–1:05)
+*Kartet:* lyser på «2D».
+
+> I to dimensjoner får hver celle fire naboer: vest, øst, sør og nord. Ligningen er den samme – bare med to ledd til.
+> Langs veggene klipper vi koblingene akkurat som i én dimensjon. Og et hjørne ligger inntil *to* vegger, så det får et bidrag fra hver.
+> Ta en plate i tre ganger fire celler. Fra vest strømmer det inn varme, sør og øst er isolert, og nord holdes på hundre grader. Løsningen er varmest der varmen kommer inn, to hundre og seksti grader, og kaldest ved den kalde nordveggen.
+> Og sjekken: Fire celler tar inn fem hundre watt hver. Nøyaktig to tusen watt går ut gjennom nord. Bevart!
+
+**[Du: vis fire retninger med hånda (vest, øst, sør, nord); pek på hjørnet på tavla ved «to vegger». Ved «Bevart!»: armene opp.]**
+*På skjermen:* Tittel «Endelig volum i 2D og i tid» (oransje). Celle P med fire naboer W, E, S, N og fire røde flukspiler (pop × 4). Formelen fra 1D får to nye ledd som flyr inn: «a_P T_P = a_W T_W + a_E T_E + a_S T_S + a_N T_N + S^u». Et 3 × 4-gitter: gule piler inn fra vest «500 kW/m²», grått i sør og øst «isolert», blå nordvegg «100 °C», hjørnet oppe til venstre blinker «to bidrag». Varmekartet fylles celle for celle (blått → rødt) med 260 °C nederst til venstre og 124 °C oppe til høyre. En vekt: «inn 4 · 500 W = 2000 W» = «ut 2000 W» (pling).
+
+### 2. Tid: et vektet gjennomsnitt (1:05–2:10)
+*Kartet:* lyser på «tid».
+
+> Med tid integrerer vi også over et lite tidssteg, delta t. Det enkleste er å regne ut fluksene med de temperaturene vi allerede har – et *eksplisitt* skjema. Da står den nye temperaturen alene på venstre side, og hver celle kan regnes ut for seg.
+> Del på a P null – og se: Den nye temperaturen er et *vektet gjennomsnitt* av den gamle temperaturen i cellen og temperaturene i naboene.
+> Så lenge alle vektene er positive, kan det ikke dukke opp nye topper eller daler. Varmen bare jevner seg ut, steg for steg.
+
+**[Du: ved «vektet gjennomsnitt»: hendene som en vektskål som balanserer; ved «jevner seg ut»: flat hånd som glatter ut.]**
+*På skjermen:* Tidsakse t_n → t_{n+1} med «Δt». Grønn boks: «a_P⁰ T_P^{n+1} = a_W T_W^n + a_E T_E^n + (a_P⁰ − a_W − a_E + S_P) T_P^n + S^u», «a_P⁰ = ρcΔV/Δt». Så tre piler inn mot T_P^{n+1} med vektene «a_W/a_P⁰», «a_E/a_P⁰» og «(a_P⁰ − a_W − a_E + S_P)/a_P⁰», og en vektskål. Verdiene marsjerer mot høyre (tikk, tikk, tikk).
+
+### 3. Tidssteget ved randen (2:10–3:15)
+*Kartet:* lyser på «tid (stabilitet)».
+
+> Men vekten på cellen selv kan bli *negativ* hvis tidssteget er for stort. Da betyr det: jo varmere nå, jo kaldere neste gang – og så varmere igjen. Det svinger, og det vokser.
+> Og se på randcellen! Der er ledningsevnen mot randen dobbel, så summen av koblingene blir én pluss to – tre i stedet for to. Den som er koblet sterkest til omgivelsene, endrer seg raskest – og tåler derfor minst tidssteg. Ta en plate som er to hundre grader, og sett den ene siden plutselig til null. De indre cellene tåler åtte sekunder, men randcellen bare fem komma tre tre.
+> Med to sekunder kryper kulda pent innover. Med seks sekunder begynner randcellen å blinke – akkurat der vi sa.
+> Vil du slippe denne grensen, kan du bruke et *implisitt* skjema i stedet: Da regnes fluksene med de nye, ukjente temperaturene, og du må løse et ligningssystem i hvert steg – men tidssteget kan være så stort du vil.
+
+**[Du: ved «svinger, og det vokser»: hånda som hopper opp og ned, større og større. Pek på randcellen på tavla. Ved «seks sekunder»: grimase. Ved «implisitt»: hendene flettet i hverandre (alt henger sammen).]**
+*På skjermen:* Den midterste vekten krymper og blir rød og negativ; en graf som sager opp og ned med økende utslag (lyd: «boing-boing-BOING»). Grønn boks: «a_P⁰ ≥ a_W + a_E − S_P». Fem celler (alle røde, «200 °C»), vestvegg isolert, østveggen blir blå «0 °C» (lyd: «klang»). Tabell: «isolert celle: 16 s · indre celler: 8 s · randcelle: 5.33 s» (den siste i gult). To animasjoner side om side med tikk-lyd: «Δt = 2 s» – fargene glir pent fra rødt til blått fra øst; «Δt = 6 s» – randcellen blinker og grafen får sagtenner (alarm).
+
+### 4. Oppsummering av PDE-delen (3:15–3:35)
+*Kartet:* lyser på «hele kartet lyser».
+
+> Så: Varme jevner ut, bølger frakter, Laplace finner likevekt. Endelige differanser bytter deriverte med differanser. Endelig volum skriver bevaringsloven opp for hver celle. Og når tiden går – pass på tidssteget, særlig ved randen. Prøv deg på noen oppgaver!
+
+**[Du: tell på fingrene gjennom oppsummeringen; pek ned mot oppgavene til slutt.]**
+*På skjermen:* Fire små ikoner fra de fire filmene: tre familier, tre prikker med sekant, en celle med piler, en klokke. Fysikkhjelp-logoen.
+
+---
+
+**Tall (regnet i Python):** 2D-plata: κA/δx = 1000 · (0.1 · 0.01)/0.1 = 10; vest q_V A = 5.0 · 10⁵ · 0.1 · 0.01 = 500 W per celle; nordvegg 2κA/δy = 20, S^u = 2000. Løsning (nord øverst): 146.3, 129.7, 124.0 / 205.6, 178.2, 166.2 / 242.3, 211.2, 196.5 / 260.0, 227.8, 212.2 °C. Energibalanse 4 · 500 W = 2000 W. Tidsdelen: κA/δx = 10 · 1/0.004 = 2500, ρcAδx = 10 · 10⁶ · 0.004 = 4.0 · 10⁴; grenser: isolert celle 4.0 · 10⁴/2500 = 16 s, indre 4.0 · 10⁴/5000 = 8 s, randcelle med T = 0: 4.0 · 10⁴/7500 = 5.33 s.
